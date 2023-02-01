@@ -10,6 +10,7 @@ import Foundation
 struct DriversHistory {
         var position: String
         var driversName: String
+        var lastName: String
         var teamsName: String
         var seasonPoints: String
 }

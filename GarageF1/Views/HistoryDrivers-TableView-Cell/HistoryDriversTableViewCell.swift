@@ -12,7 +12,6 @@ class HistoryDriversTableViewCell: UITableViewCell {
     var data: [DriversHistory] = []
     static let identifier: String = "HistoryDriversTableViewCell"
     var customDrivers: CustomHistoryDriversTableViewScreen = CustomHistoryDriversTableViewScreen()
-    //mudar em cima
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,6 +37,7 @@ class HistoryDriversTableViewCell: UITableViewCell {
         
         customDrivers.positionLabel.text = data.position
         customDrivers.nameLabel.text = data.driversName
+        customDrivers.lastNameLabel.text = data.lastName
         customDrivers.teamLabel.text = data.teamsName
         customDrivers.pointsLabel.text = data.seasonPoints
     }
