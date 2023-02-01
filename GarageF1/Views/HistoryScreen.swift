@@ -13,7 +13,6 @@ class HistoryScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
-        // Precisa colocar a cor certa
         return label
     }()
     
