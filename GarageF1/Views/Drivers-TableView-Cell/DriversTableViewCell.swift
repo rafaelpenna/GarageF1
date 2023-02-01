@@ -38,6 +38,7 @@ class DriversTableViewCell: UITableViewCell {
         customDrivers.positionLabel.text = data.position
         customDrivers.photoDriverImageView.image = data.driversPhoto
         customDrivers.nameLabel.text = data.driversName
+        customDrivers.lastNameLabel.text = data.driversLastName
         customDrivers.teamLabel.text = data.teamsName
         customDrivers.pointsLabel.text = data.currentcurrentPoints
     }
