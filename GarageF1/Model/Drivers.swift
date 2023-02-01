@@ -13,6 +13,7 @@ struct Drivers {
     var position: String
     var driversPhoto: UIImage
     var driversName: String
+    var driversLastName: String
     var teamsName: String
     var currentcurrentPoints: String
 }
