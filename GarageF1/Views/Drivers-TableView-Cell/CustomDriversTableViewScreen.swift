@@ -12,7 +12,7 @@ class CustomDriversTableViewScreen: UIView {
     lazy var positionLabel: UILabel = {
         let positionLabel = UILabel()
         positionLabel.translatesAutoresizingMaskIntoConstraints = false
-        positionLabel.font = UIFont.systemFont(ofSize: 27)
+        positionLabel.font = UIFont.boldSystemFont(ofSize: 27)
         return positionLabel
     }()
         
@@ -30,7 +30,14 @@ class CustomDriversTableViewScreen: UIView {
     lazy var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 23)
+        nameLabel.font = UIFont.systemFont(ofSize: 21)
+        return nameLabel
+    }()
+    
+    lazy var lastNameLabel: UILabel = {
+        let nameLabel = UILabel()
+        nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 21)
         return nameLabel
     }()
     
@@ -44,7 +51,7 @@ class CustomDriversTableViewScreen: UIView {
     lazy var pointsLabel: UILabel = {
         let pointsLabel = UILabel()
         pointsLabel.translatesAutoresizingMaskIntoConstraints = false
-        pointsLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        pointsLabel.font = UIFont.boldSystemFont(ofSize: 21)
         return pointsLabel
     }()
     
@@ -70,6 +77,7 @@ class CustomDriversTableViewScreen: UIView {
         addSubview(positionLabel)
         addSubview(photoDriverImageView)
         addSubview(nameLabel)
+        addSubview(lastNameLabel)
         addSubview(teamLabel)
         addSubview(pointsLabel)
         addSubview(ptsLabel)
@@ -88,12 +96,15 @@ class CustomDriversTableViewScreen: UIView {
 
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
-
+            
+            lastNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            
             teamLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 1),
             teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),
-            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
             pointsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             ptsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),

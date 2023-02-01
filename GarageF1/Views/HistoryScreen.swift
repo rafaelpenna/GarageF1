@@ -13,7 +13,6 @@ class HistoryScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
-        // Precisa colocar a cor certa
         return label
     }()
     
@@ -47,20 +46,20 @@ class HistoryScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Pilotos", for: .normal)
         button.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
     }()
     
     lazy var teamsButton: UIButton = {
-        let button = UIButton()
+        var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Equipes", for: .normal)
         button.setTitleColor(.darkGray, for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
     }()
     
-    lazy var tableView: UITableView = {
+    lazy var tableViewDrivers: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -69,16 +68,27 @@ class HistoryScreen: UIView {
         return tableView
     }()
     
-    lazy var bottomLabel: UIButton = {
-        let label = UIButton()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .gray
-        return label
+    lazy var tableViewTeams: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1)
+        tableView.register(HistoryTeamsTableViewCell.self, forCellReuseIdentifier: HistoryTeamsTableViewCell.identifier)
+        return tableView
     }()
+    
+    func changeTable() -> UITableView {
+        if driversButton.isSelected == true {
+            return tableViewTeams
+        } else {
+            return tableViewDrivers
+        }
+    }
    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1)
         addElements()
         backgroundColor()
         configConstraints()
@@ -89,8 +99,10 @@ class HistoryScreen: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableView.delegate = delegate
-        self.tableView.dataSource = dataSource
+        self.tableViewDrivers.delegate = delegate
+        self.tableViewDrivers.dataSource = dataSource
+        self.tableViewTeams.delegate = delegate
+        self.tableViewTeams.dataSource = dataSource
     }
     
     private func addElements() {
@@ -100,8 +112,7 @@ class HistoryScreen: UIView {
         seasonButton.addSubview(seasonIcon)
         addSubview(driversButton)
         addSubview(teamsButton)
-        addSubview(tableView)
-        addSubview(bottomLabel)
+        addSubview(changeTable())
         
     }
     
@@ -134,15 +145,10 @@ class HistoryScreen: UIView {
             teamsButton.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
             teamsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
-            tableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
-            
-            bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomLabel.heightAnchor.constraint(equalToConstant: 60),
+            changeTable().topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            changeTable().leadingAnchor.constraint(equalTo: leadingAnchor),
+            changeTable().trailingAnchor.constraint(equalTo: trailingAnchor),
+            changeTable().bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
         ])
     }
 }

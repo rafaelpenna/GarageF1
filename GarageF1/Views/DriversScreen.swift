@@ -25,13 +25,6 @@ class DriversScreen: UIView {
         // Precisa colocar a cor certa
         return label
     }()
-   
-    lazy var bottomLabel: UIButton = {
-        let label = UIButton()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .gray
-        return label
-    }()
     
     lazy var driversLabel: UILabel = {
         let label = UILabel()
@@ -46,7 +39,6 @@ class DriversScreen: UIView {
         super.init(frame: frame)
         self.addSubview(self.tableView)
         self.addSubview(self.topLabel)
-        self.addSubview(self.bottomLabel)
         self.addSubview(self.driversLabel)
         self.configConstraints()
     }
@@ -74,11 +66,6 @@ class DriversScreen: UIView {
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-            bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
-            bottomLabel.heightAnchor.constraint(equalToConstant: 60),
             
             driversLabel.topAnchor.constraint(equalTo: topAnchor, constant: 55),
             driversLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
