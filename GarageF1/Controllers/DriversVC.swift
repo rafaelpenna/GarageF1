@@ -57,5 +57,10 @@ extension DriversVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DriversDetailVC()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
         
 }
