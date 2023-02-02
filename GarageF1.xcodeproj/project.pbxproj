@@ -52,6 +52,12 @@
 		1C4323B529881037000AE209 /* TeamsHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4323B429881037000AE209 /* TeamsHistory.swift */; };
 		1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */; };
 		1C4323B92988138A000AE209 /* CustomHistoryTeamsDriversScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4323B82988138A000AE209 /* CustomHistoryTeamsDriversScreen.swift */; };
+		1C5146DB298BDDD300D85C34 /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146DA298BDDD300D85C34 /* Duel.swift */; };
+		1C5146DD298BDE9600D85C34 /* DuelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146DC298BDE9600D85C34 /* DuelVC.swift */; };
+		1C5146DF298BE4D700D85C34 /* DuelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146DE298BE4D700D85C34 /* DuelScreen.swift */; };
+		1C5146E2298BF2E100D85C34 /* DuelStackInfoLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */; };
+		1C5146E4298BF2F400D85C34 /* DuelStackInfoRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */; };
+		1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */; };
 		1CD44CC729800D7B00E4B9DD /* DriversHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */; };
 		1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */; };
 		1CD44CCC2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CCB2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift */; };
@@ -129,6 +135,12 @@
 		1C4323B429881037000AE209 /* TeamsHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsHistory.swift; sourceTree = "<group>"; };
 		1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTeamsTableViewCell.swift; sourceTree = "<group>"; };
 		1C4323B82988138A000AE209 /* CustomHistoryTeamsDriversScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryTeamsDriversScreen.swift; sourceTree = "<group>"; };
+		1C5146DA298BDDD300D85C34 /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
+		1C5146DC298BDE9600D85C34 /* DuelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelVC.swift; sourceTree = "<group>"; };
+		1C5146DE298BE4D700D85C34 /* DuelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelScreen.swift; sourceTree = "<group>"; };
+		1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoLeft.swift; sourceTree = "<group>"; };
+		1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoRight.swift; sourceTree = "<group>"; };
+		1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackVC.swift; sourceTree = "<group>"; };
 		1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversHistory.swift; sourceTree = "<group>"; };
 		1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDriversTableViewCell.swift; sourceTree = "<group>"; };
 		1CD44CCB2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryDriversViewSrceen.swift; sourceTree = "<group>"; };
@@ -251,6 +263,7 @@
 				0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */,
 				0BBE0281297CA7BB00D19D12 /* HistoryVC.swift */,
 				0BBE0287297CAB4400D19D12 /* RacingVC.swift */,
+				1C5146DC298BDE9600D85C34 /* DuelVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -273,6 +286,7 @@
 				1C414C57298AE10000C37B1A /* DriversDetail.swift */,
 				1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */,
 				1C4323B429881037000AE209 /* TeamsHistory.swift */,
+				1C5146DA298BDDD300D85C34 /* Duel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 		0BAD883629591EF900CCC859 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C5146E0298BF2A900D85C34 /* Duel-StackViews */,
 				1CD44CC8298010C000E4B9DD /* HistoryDrivers-TableView-Cell */,
 				0BB40044297B616D004BB3F5 /* Drivers-TableView-Cell */,
 				0BB40043297B6145004BB3F5 /* Home-Collection-TableView-Cell */,
@@ -301,6 +316,7 @@
 				0B10DD4D295A5A8E00CB397A /* EmailLoginScreen.swift */,
 				0B10DD53295A878000CB397A /* RegisterLoginScreen.swift */,
 				0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */,
+				1C5146DE298BE4D700D85C34 /* DuelScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -332,6 +348,16 @@
 				0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */,
 			);
 			path = DueloCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		1C5146E0298BF2A900D85C34 /* Duel-StackViews */ = {
+			isa = PBXGroup;
+			children = (
+				1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */,
+				1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */,
+				1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */,
+			);
+			path = "Duel-StackViews";
 			sourceTree = "<group>";
 		};
 		1CD44CC8298010C000E4B9DD /* HistoryDrivers-TableView-Cell */ = {
@@ -613,6 +639,7 @@
 				0B10DD54295A878000CB397A /* RegisterLoginScreen.swift in Sources */,
 				1CD44CC729800D7B00E4B9DD /* DriversHistory.swift in Sources */,
 				0BBE0282297CA7BB00D19D12 /* HistoryVC.swift in Sources */,
+				1C5146DB298BDDD300D85C34 /* Duel.swift in Sources */,
 				0B4CC6212953E90800D29D4C /* AppDelegate.swift in Sources */,
 				0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */,
 				0BBE0280297C7B6C00D19D12 /* SimulationDuelVC.swift in Sources */,
@@ -623,11 +650,14 @@
 				1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */,
 				0BF8A825296CE2AF0058D545 /* HomeScreen.swift in Sources */,
 				0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */,
+				1C5146E2298BF2E100D85C34 /* DuelStackInfoLeft.swift in Sources */,
 				0B23C44F297396F70080D242 /* DestaquesCollectionViewCell.swift in Sources */,
+				1C5146DF298BE4D700D85C34 /* DuelScreen.swift in Sources */,
 				0BBE0288297CAB4400D19D12 /* RacingVC.swift in Sources */,
 				0BB4004A297B63A7004BB3F5 /* Drivers.swift in Sources */,
 				0BA8BC3329747D2E003B2D9C /* ResultsTableViewCell.swift in Sources */,
 				0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */,
+				1C5146E4298BF2F400D85C34 /* DuelStackInfoRight.swift in Sources */,
 				0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */,
 				0BB50D292978B3B8009CD502 /* DueloCollectionViewCell.swift in Sources */,
 				0BB50D272978B388009CD502 /* DueloCollectionViewScreen.swift in Sources */,
@@ -640,6 +670,7 @@
 				0BAD883A295922E600CCC859 /* LoginVC.swift in Sources */,
 				0B23C451297397760080D242 /* DestaquesCollectionViewCellScreen.swift in Sources */,
 				1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */,
+				1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */,
 				1C4323B92988138A000AE209 /* CustomHistoryTeamsDriversScreen.swift in Sources */,
 				1C4323B529881037000AE209 /* TeamsHistory.swift in Sources */,
 				0BB40048297B62BE004BB3F5 /* CustomDriversTableViewScreen.swift in Sources */,
@@ -648,6 +679,7 @@
 				0BAD883829591FC800CCC859 /* LoginScreen.swift in Sources */,
 				1C414C58298AE10000C37B1A /* DriversDetail.swift in Sources */,
 				0B4CC6532953EF5300D29D4C /* DriversScreen.swift in Sources */,
+				1C5146DD298BDE9600D85C34 /* DuelVC.swift in Sources */,
 				0B10DD56295A87B500CB397A /* RegisterLoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
