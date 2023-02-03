@@ -54,6 +54,40 @@ class DriversDetailScreen: UIView {
         return variable
     }()
     
+    private let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private let scrollStackViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.spacing = 0
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    private func setupScrollView() {
+        let margins = layoutMarginsGuide
+        self.addSubview(scrollView)
+        scrollView.addSubview(scrollStackViewContainer)
+        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+        scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        configureContainerView()
+    }
+    
+    private func configureContainerView() {
+        scrollStackViewContainer.addArrangedSubview(boardInfo)
+    }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -64,6 +98,7 @@ class DriversDetailScreen: UIView {
         self.addSubview(self.driverPhoto)
         self.addSubview(self.boardInfo)
         constraintsScreen()
+        setupScrollView()
     }
     
     required init?(coder: NSCoder) {
