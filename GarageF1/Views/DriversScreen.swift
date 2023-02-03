@@ -13,7 +13,7 @@ class DriversScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1)
+        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
         tableView.register(DriversTableViewCell.self, forCellReuseIdentifier: DriversTableViewCell.identifier)
         return tableView
     }()
