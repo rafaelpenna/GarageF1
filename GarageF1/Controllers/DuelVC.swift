@@ -20,6 +20,7 @@ class DuelVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(backButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,9 +33,8 @@ class DuelVC: UIViewController {
         button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
         return button
     }()
-
+    
     @objc func backScreen() {
-        let vc = HomeVC()
-        navigationController?.popToViewController(vc, animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

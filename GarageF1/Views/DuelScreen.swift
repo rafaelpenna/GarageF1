@@ -94,41 +94,6 @@ class DuelScreen: UIView {
         return label
     }()
     
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let scrollStackViewContainer: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.spacing = 0
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private func setupScrollView() {
-        let margins = layoutMarginsGuide
-        self.addSubview(scrollView)
-        scrollView.addSubview(scrollStackViewContainer)
-        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-        scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-        scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        configureContainerView()
-    }
-    
-    private func configureContainerView() {
-    scrollStackViewContainer.addArrangedSubview(boardInfoLeft)
-    scrollStackViewContainer.addArrangedSubview(boardInfoRight)
-    }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -142,7 +107,6 @@ class DuelScreen: UIView {
         self.addSubview(self.backButton)
         self.addSubview(self.boardInfoLeft)
         self.addSubview(self.boardInfoRight)
-        setupScrollView()
         self.addSubview(self.divisionLabel)
         constraintsScreen()
         
@@ -160,30 +124,30 @@ class DuelScreen: UIView {
             topLabel.topAnchor.constraint(equalTo: self.topAnchor),
             topLabel.heightAnchor.constraint(equalToConstant: 180),
             
-            firstNameLeft.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            firstNameLeft.leadingAnchor.constraint(equalTo: topLabel.leadingAnchor, constant: 35),
             firstNameLeft.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -55),
 
-            lastNameLeft.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            lastNameLeft.leadingAnchor.constraint(equalTo: topLabel.leadingAnchor, constant: 15),
             lastNameLeft.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -30),
             
-            leftArrow.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 165),
+            leftArrow.leadingAnchor.constraint(equalTo: topLabel.leadingAnchor, constant: 165),
             leftArrow.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            firstNameRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -75),
+            firstNameRight.trailingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: -75),
             firstNameRight.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -55),
 
-            lastNameRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            lastNameRight.trailingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: -30),
             lastNameRight.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -30),
                         
-            rightArrow.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            rightArrow.trailingAnchor.constraint(equalTo: topLabel.trailingAnchor, constant: -10),
             rightArrow.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -50),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            backButton.topAnchor.constraint(equalTo: topLabel.topAnchor, constant: 45),
+            backButton.leadingAnchor.constraint(equalTo: topLabel.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 20),
             

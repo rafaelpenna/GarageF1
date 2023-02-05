@@ -34,7 +34,6 @@ class DriversDetailVC: UIViewController {
     }()
 
     @objc func backScreen() {
-        let driversVC = DriversVC()
-        navigationController?.pushViewController(driversVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }
