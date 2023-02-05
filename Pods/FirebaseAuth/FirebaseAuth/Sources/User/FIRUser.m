@@ -380,7 +380,6 @@ static void callInMainThreadWithAuthDataResultAndError(
                                                                 heartbeatLogger:nil];
 #if TARGET_OS_IOS
     _multiFactor = multiFactor ?: [[FIRMultiFactor alloc] init];
-    _multiFactor.user = self;
 #endif
   }
   return self;

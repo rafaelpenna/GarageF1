@@ -79,8 +79,8 @@ class ResultsTableViewScreen: UIView {
         
             indiceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             indiceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            indiceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -360),
-            indiceLabel.heightAnchor.constraint(equalToConstant: 90),
+            indiceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -325),
+            indiceLabel.widthAnchor.constraint(equalToConstant: 20),
             
             imagePilot.centerYAnchor.constraint(equalTo: centerYAnchor),
             imagePilot.leadingAnchor.constraint(equalTo: indiceLabel.leadingAnchor, constant: 30),

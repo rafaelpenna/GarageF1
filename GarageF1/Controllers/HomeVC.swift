@@ -10,6 +10,9 @@ import UIKit
 class HomeVC: UIViewController {
     
     let homeScreen: HomeScreen = HomeScreen()
+    let duelStackVC: DuelStackVC = DuelStackVC()
+    let driversVC: DriversVC = DriversVC()
+    
     var dataHomeRacer: [HomeRacer] = [HomeRacer(indice: "1", nameTeams: "Red Bull Racing", name: "max", nameImage: "Max Verstappen"),
                                       HomeRacer(indice: "2", nameTeams: "Ferrari", name: "charles", nameImage: "Charles Leclerc")]
     
@@ -42,10 +45,13 @@ class HomeVC: UIViewController {
 
 
 extension HomeVC: homeScreenProtocol {
+    func actionFullResultButton() {
+        self.navigationController?.pushViewController(driversVC, animated: true)
+    }
+    
    
     func actionSimulationButton() {
-        let simulationDuelVC: SimulationDuelVC = SimulationDuelVC()
-        navigationController?.pushViewController(simulationDuelVC, animated: true)
+        self.navigationController?.pushViewController(duelStackVC, animated: true)
     }
 }
 

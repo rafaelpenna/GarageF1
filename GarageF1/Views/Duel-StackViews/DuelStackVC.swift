@@ -7,7 +7,7 @@
 
 import UIKit
 
-class DuelStackVc: UIViewController {
+class DuelStackVC: UIViewController {
     
 
     
