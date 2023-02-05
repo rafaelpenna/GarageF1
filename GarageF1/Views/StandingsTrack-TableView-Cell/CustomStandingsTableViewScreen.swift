@@ -19,9 +19,10 @@ class CustomStandingsTableViewScreen: UIView {
     lazy var colorLabel: UILabel = {
         let colorLabel = UILabel()
         colorLabel.translatesAutoresizingMaskIntoConstraints = false
-//        colorLabel.backgroundColor = colorCondition
         return colorLabel
     }()
+    
+
     
     lazy var nameCodeLabel: UILabel = {
         let nameCodeLabel = UILabel()
@@ -74,7 +75,7 @@ class CustomStandingsTableViewScreen: UIView {
             positionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             positionLabel.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 22),
 
-//            colorLabel.topAnchor.constraint(equalTo: topAnchor),
+//            colorLabel.topAnchor.constraint(equalTo: topAnchor),
 //            colorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
 //            colorLabel.widthAnchor.constraint(equalToConstant: 1.5),
 //            colorLabel.heightAnchor.constraint(equalToConstant: 20),

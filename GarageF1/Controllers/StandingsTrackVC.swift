@@ -34,8 +34,8 @@ class StandingsTrackVC: UIViewController {
         super.viewDidLoad()
 
         standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        buttonStandings(buttonStandingsVC)
         buttonCircuit(buttonCircuitVC)
+        buttonStandings(buttonStandingsVC)
         
     }
     

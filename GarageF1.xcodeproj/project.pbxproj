@@ -64,6 +64,7 @@
 		1C5146E2298BF2E100D85C34 /* DuelStackInfoLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */; };
 		1C5146E4298BF2F400D85C34 /* DuelStackInfoRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */; };
 		1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */; };
+		1C96AEDA298EDFA9006223F0 /* TrackStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C96AED9298EDFA9006223F0 /* TrackStackView.swift */; };
 		1CD44CC729800D7B00E4B9DD /* DriversHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */; };
 		1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */; };
 		1CD44CCC2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CCB2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift */; };
@@ -153,6 +154,7 @@
 		1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoLeft.swift; sourceTree = "<group>"; };
 		1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoRight.swift; sourceTree = "<group>"; };
 		1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackVC.swift; sourceTree = "<group>"; };
+		1C96AED9298EDFA9006223F0 /* TrackStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackStackView.swift; sourceTree = "<group>"; };
 		1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversHistory.swift; sourceTree = "<group>"; };
 		1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDriversTableViewCell.swift; sourceTree = "<group>"; };
 		1CD44CCB2980189C00E4B9DD /* CustomHistoryDriversViewSrceen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHistoryDriversViewSrceen.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		1C6E84DE298D7536006AA23D /* Standings-Views */ = {
 			isa = PBXGroup;
 			children = (
+				1C96AED9298EDFA9006223F0 /* TrackStackView.swift */,
 			);
 			path = "Standings-Views";
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				0B23C451297397760080D242 /* DestaquesCollectionViewCellScreen.swift in Sources */,
 				1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */,
 				1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */,
+				1C96AEDA298EDFA9006223F0 /* TrackStackView.swift in Sources */,
 				1C4323B92988138A000AE209 /* CustomHistoryTeamsDriversScreen.swift in Sources */,
 				1C4323B529881037000AE209 /* TeamsHistory.swift in Sources */,
 				0BB40048297B62BE004BB3F5 /* CustomDriversTableViewScreen.swift in Sources */,

@@ -162,13 +162,20 @@ class StandignsTrackScreen: UIView {
     
 //    Stack do circuito
     
-    func changeInfo() {
-        if standingsButton.isSelected == true {
-            addSubview(standignsBoard)
-        } else {
-            addSubview(standignsBoard)
-        }
-    }
+//    lazy var track: UIStackView = {
+//        let label = UIStackView()
+//        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.backgroundColor = .darkGray
+//        return label
+//    }()
+    
+//    func changeInfo() {
+//        if standingsButton.isSelected == true {
+//            addSubview(standignsBoard)
+//        } else {
+//            addSubview(standignsBoard)
+//        }
+//    }
    
 
     override init(frame: CGRect) {
@@ -193,7 +200,8 @@ class StandignsTrackScreen: UIView {
         addSubview(trackButton)
         addSubview(standingsButton)
         addSubview(backButton)
-        changeInfo()
+//        changeInfo()
+        addSubview(standignsBoard)
         standignsBoard.self.addSubview(tableViewStandings)
         standignsBoard.self.addSubview(standingsHeader)
         

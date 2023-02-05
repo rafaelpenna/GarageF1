@@ -85,11 +85,13 @@ class HistoryVC: UIViewController {
         if buttonTeamsVC.isSelected == false {
             buttonTeamsVC.isSelected = true
             buttonDriversVC.isSelected = false
+            historyScreen?.tableViewTeams.reloadData()
             historyScreen?.teamsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.driversButton.setTitleColor(.darkGray, for: .normal)
         } else {
             buttonTeamsVC.isSelected = true
             buttonDriversVC.isSelected = false
+            historyScreen?.tableViewTeams.reloadData()
             historyScreen?.teamsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.driversButton.setTitleColor(.darkGray, for: .normal)
         }
@@ -114,9 +116,9 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
                 cell?.setupCell(data: dataDrivers[indexPath.row])
                 return cell ?? UITableViewCell()
             } else {
-                tableView.reloadData()
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
                 cell?.setupCell(data: dataTeams[indexPath.row])
+                tableView.reloadData()
                 return cell ?? UITableViewCell()
             }
     }

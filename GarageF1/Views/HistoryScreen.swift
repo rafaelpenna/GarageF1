@@ -113,7 +113,6 @@ class HistoryScreen: UIView {
         addSubview(driversButton)
         addSubview(teamsButton)
         addSubview(changeTable())
-        
     }
     
     private func backgroundColor() {
