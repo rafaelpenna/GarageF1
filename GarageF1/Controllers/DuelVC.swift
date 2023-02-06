@@ -21,10 +21,13 @@ class DuelVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(backButton)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        
+        
     }
     
     lazy var backButton: UIButton = {

@@ -34,11 +34,13 @@ class HomeVC: UIViewController {
         self.homeScreen.configProtocolsDestaqueCollectionView(delegate: self, dataSource: self)
         homeScreen.delegate(delegate: self)
 //        self.homeScreen.configProtocolsDueloCollectionView(delegate: self, dataSource: self)
+        navigationController?.isNavigationBarHidden = true
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+      
     }
     
 }

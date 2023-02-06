@@ -168,10 +168,15 @@ class HomeScreen: UIView {
         return button
     }()
     
+    private func backgroundColor() {
+        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1.0)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupScrollView()
         configureContainerView()
+        backgroundColor()
         
     }
     
@@ -204,36 +209,20 @@ class HomeScreen: UIView {
     //
     
     private func setupScrollView() {
-        
+
         addSubview(scrollView)
         scrollView.addSubview(scrollStackViewContainer1)
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
-        scrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 48).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         
-        scrollStackViewContainer1.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 10).isActive = true
+        scrollStackViewContainer1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollStackViewContainer1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        scrollStackViewContainer1.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 55).isActive = true
+        scrollStackViewContainer1.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         scrollStackViewContainer1.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -90).isActive = true
         
         configureContainerView()
-        
-//        private func setupScrollView() {
-//        let margins = view.layoutMarginsGuide
-//        view.addSubview(scrollView)
-//        scrollView.addSubview(scrollStackViewContainer)
-//        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        scrollView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
-//        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
-//        scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-//        scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-//        scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-//        scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
-//        scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-//        configureContainerView()
-//        }
     }
         private func configureContainerView() {
             
