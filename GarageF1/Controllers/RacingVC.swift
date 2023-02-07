@@ -44,12 +44,20 @@ extension RacingVC: UITableViewDelegate, UITableViewDataSource, UICollectionView
         
         let cell: RacingCustomTableViewCell? = tableView.dequeueReusableCell(withIdentifier: RacingCustomTableViewCell.identifier, for: indexPath) as? RacingCustomTableViewCell
         cell?.setupCell(data: dataRacer[indexPath.row])
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .none
+        cell?.selectedBackgroundView = backgroundView
         return cell ?? UITableViewCell()
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = StandingsTrackVC()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

@@ -32,10 +32,10 @@ class StandingsTrackVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.addSubview(backButton)
         standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        buttonStandings(buttonStandingsVC)
         buttonCircuit(buttonCircuitVC)
+        buttonStandings(buttonStandingsVC)
         
     }
     
@@ -96,8 +96,7 @@ class StandingsTrackVC: UIViewController {
     }()
 
     @objc func backScreen() {
-        let driversVC = DriversVC()
-        navigationController?.pushViewController(driversVC, animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
 
