@@ -50,6 +50,9 @@ extension DriversVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: DriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DriversTableViewCell.identifier) as? DriversTableViewCell
         cell?.setupCell(data: dataDrivers[indexPath.row])
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = .none
+        cell?.selectedBackgroundView = backgroundView
         return cell ?? UITableViewCell()
         
     }
