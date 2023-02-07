@@ -169,7 +169,7 @@ class HomeScreen: UIView {
     }()
     
     private func backgroundColor() {
-        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1.0)
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1.0)
     }
     
     override init(frame: CGRect) {

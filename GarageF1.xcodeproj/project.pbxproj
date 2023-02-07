@@ -44,6 +44,9 @@
 		0BBE0286297CAB1700D19D12 /* RacingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE0285297CAB1700D19D12 /* RacingScreen.swift */; };
 		0BBE0288297CAB4400D19D12 /* RacingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE0287297CAB4400D19D12 /* RacingVC.swift */; };
 		0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE0FDC296A03F900902EF5 /* HomeVC.swift */; };
+		0BE956BF2991C6F800F53A79 /* RacingTableViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE956BE2991C6F800F53A79 /* RacingTableViewScreen.swift */; };
+		0BE956C12991C72C00F53A79 /* RacingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE956C02991C72C00F53A79 /* RacingCustomTableViewCell.swift */; };
+		0BE956C32991D32B00F53A79 /* DataRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BE956C22991D32B00F53A79 /* DataRacer.swift */; };
 		0BF8A825296CE2AF0058D545 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BF8A824296CE2AF0058D545 /* HomeScreen.swift */; };
 		1C3BA772298D202B001D145E /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3BA771298D202B001D145E /* Standings.swift */; };
 		1C3BA774298D210E001D145E /* StandingsTrackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3BA773298D210E001D145E /* StandingsTrackVC.swift */; };
@@ -133,6 +136,9 @@
 		0BBE0287297CAB4400D19D12 /* RacingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingVC.swift; sourceTree = "<group>"; };
 		0BCE0FDC296A03F900902EF5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0BD59C982966633300788062 /* GarageF1Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1Release.entitlements; sourceTree = "<group>"; };
+		0BE956BE2991C6F800F53A79 /* RacingTableViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingTableViewScreen.swift; sourceTree = "<group>"; };
+		0BE956C02991C72C00F53A79 /* RacingCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacingCustomTableViewCell.swift; sourceTree = "<group>"; };
+		0BE956C22991D32B00F53A79 /* DataRacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRacer.swift; sourceTree = "<group>"; };
 		0BF8A824296CE2AF0058D545 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		1C3BA771298D202B001D145E /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		1C3BA773298D210E001D145E /* StandingsTrackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsTrackVC.swift; sourceTree = "<group>"; };
@@ -270,11 +276,11 @@
 				0B10DD4F295A5AB300CB397A /* EmailLoginVC.swift */,
 				0B10DD55295A87B500CB397A /* RegisterLoginVC.swift */,
 				0BCE0FDC296A03F900902EF5 /* HomeVC.swift */,
+				0BBE0287297CAB4400D19D12 /* RacingVC.swift */,
 				0BB40041297B5CF5004BB3F5 /* DriversVC.swift */,
 				1C414C59298AE13B00C37B1A /* DriversDetailVC.swift */,
 				0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */,
 				0BBE0281297CA7BB00D19D12 /* HistoryVC.swift */,
-				0BBE0287297CAB4400D19D12 /* RacingVC.swift */,
 				1C5146DC298BDE9600D85C34 /* DuelVC.swift */,
 				1C3BA773298D210E001D145E /* StandingsTrackVC.swift */,
 			);
@@ -302,6 +308,7 @@
 				1CD44CC629800D7B00E4B9DD /* DriversHistory.swift */,
 				1C4323B429881037000AE209 /* TeamsHistory.swift */,
 				1C5146DA298BDDD300D85C34 /* Duel.swift */,
+				0BE956C22991D32B00F53A79 /* DataRacer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -318,6 +325,7 @@
 		0BAD883629591EF900CCC859 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0BE956BD2991C21D00F53A79 /* RacingCustomTableView */,
 				1C6E84DE298D7536006AA23D /* Standings-Views */,
 				1C3BA777298D28A6001D145E /* StandingsTrack-TableView-Cell */,
 				1C5146E0298BF2A900D85C34 /* Duel-StackViews */,
@@ -366,6 +374,15 @@
 				0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */,
 			);
 			path = DueloCollectionViewCell;
+			sourceTree = "<group>";
+		};
+		0BE956BD2991C21D00F53A79 /* RacingCustomTableView */ = {
+			isa = PBXGroup;
+			children = (
+				0BE956BE2991C6F800F53A79 /* RacingTableViewScreen.swift */,
+				0BE956C02991C72C00F53A79 /* RacingCustomTableViewCell.swift */,
+			);
+			path = RacingCustomTableView;
 			sourceTree = "<group>";
 		};
 		1C3BA777298D28A6001D145E /* StandingsTrack-TableView-Cell */ = {
@@ -672,10 +689,12 @@
 				0BBE0286297CAB1700D19D12 /* RacingScreen.swift in Sources */,
 				0B10DD54295A878000CB397A /* RegisterLoginScreen.swift in Sources */,
 				1CD44CC729800D7B00E4B9DD /* DriversHistory.swift in Sources */,
+				0BE956C32991D32B00F53A79 /* DataRacer.swift in Sources */,
 				0BBE0282297CA7BB00D19D12 /* HistoryVC.swift in Sources */,
 				1C5146DB298BDDD300D85C34 /* Duel.swift in Sources */,
 				0B4CC6212953E90800D29D4C /* AppDelegate.swift in Sources */,
 				1C3BA77B298D2905001D145E /* CustomStandingsTableViewScreen.swift in Sources */,
+				0BE956BF2991C6F800F53A79 /* RacingTableViewScreen.swift in Sources */,
 				0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */,
 				1C3BA779298D28DE001D145E /* StandingsTableViewCell.swift in Sources */,
 				0BBE0280297C7B6C00D19D12 /* SimulationDuelVC.swift in Sources */,
@@ -702,6 +721,7 @@
 				1C3BA776298D2732001D145E /* Track.swift in Sources */,
 				0B10DD4E295A5A8E00CB397A /* EmailLoginScreen.swift in Sources */,
 				0B10DD52295A630700CB397A /* Alert.swift in Sources */,
+				0BE956C12991C72C00F53A79 /* RacingCustomTableViewCell.swift in Sources */,
 				0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */,
 				1C414C5A298AE13B00C37B1A /* DriversDetailVC.swift in Sources */,
 				1C3BA772298D202B001D145E /* Standings.swift in Sources */,

@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol racingScreenProtocols: AnyObject {
+    
+}
+
 class RacingScreen: UIView {
+
+    private weak var delegate: racingScreenProtocols?
+    func delegate(delegate: racingScreenProtocols?) {
+        self.delegate = delegate
+    }
     
     lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -25,12 +34,34 @@ class RacingScreen: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
     }()
+    
+    lazy var seasonLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Temporada 2022"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
+    private lazy var racingTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.backgroundColor = .white
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = .darkGray
+        tableView.register(RacingCustomTableViewCell.self, forCellReuseIdentifier: RacingCustomTableViewCell.identifier)
+        tableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        return tableView
+        
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
         backgroundColor()
         configConstraints()
+ 
     }
     
     required init?(coder: NSCoder) {
@@ -40,11 +71,18 @@ class RacingScreen: UIView {
     private func addElements() {
         addSubview(topLabel)
         addSubview(racingLabel)
+        addSubview(seasonLabel)
+        addSubview(racingTableView)
         
     }
-    
+
     private func backgroundColor() {
-        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1.0)
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1.0)
+    }
+    
+    func configTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
+        racingTableView.delegate = delegate
+        racingTableView.dataSource = dataSource
     }
     
     private func configConstraints(){
@@ -53,10 +91,20 @@ class RacingScreen: UIView {
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.topAnchor.constraint(equalTo: topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 120),
+            topLabel.heightAnchor.constraint(equalToConstant: 130),
             
-            racingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 55),
+            racingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             racingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+
+            
+            seasonLabel.topAnchor.constraint(equalTo: racingLabel.bottomAnchor, constant: 20),
+            seasonLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            racingTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10),
+            racingTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            racingTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            racingTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
+            
         ])
     }
 }
