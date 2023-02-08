@@ -69,12 +69,16 @@ class HistoryVC: UIViewController {
         if buttonDriversVC.isSelected == false {
             buttonDriversVC.isSelected = true
             buttonTeamsVC.isSelected = false
+            historyScreen?.tableViewDrivers.isHidden = false
+            historyScreen?.tableViewTeams.isHidden = true
             historyScreen?.tableViewDrivers.reloadData()
             historyScreen?.driversButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.teamsButton.setTitleColor(.darkGray, for: .normal)
         } else {
             buttonDriversVC.isSelected = true
             buttonTeamsVC.isSelected = false
+            historyScreen?.tableViewDrivers.isHidden = false
+            historyScreen?.tableViewTeams.isHidden = true
             historyScreen?.tableViewDrivers.reloadData()
             historyScreen?.driversButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.teamsButton.setTitleColor(.darkGray, for: .normal)
@@ -85,11 +89,17 @@ class HistoryVC: UIViewController {
         if buttonTeamsVC.isSelected == false {
             buttonTeamsVC.isSelected = true
             buttonDriversVC.isSelected = false
+            historyScreen?.tableViewDrivers.isHidden = true
+            historyScreen?.tableViewTeams.isHidden = false
+            historyScreen?.tableViewTeams.reloadData()
             historyScreen?.teamsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.driversButton.setTitleColor(.darkGray, for: .normal)
         } else {
             buttonTeamsVC.isSelected = true
             buttonDriversVC.isSelected = false
+            historyScreen?.tableViewDrivers.isHidden = true
+            historyScreen?.tableViewTeams.isHidden = false
+            historyScreen?.tableViewTeams.reloadData()
             historyScreen?.teamsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             historyScreen?.driversButton.setTitleColor(.darkGray, for: .normal)
         }
@@ -109,12 +119,11 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            if buttonDriversVC.isSelected == true {
+        if historyScreen?.tableViewDrivers.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
                 cell?.setupCell(data: dataDrivers[indexPath.row])
                 return cell ?? UITableViewCell()
             } else {
-                tableView.reloadData()
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
                 cell?.setupCell(data: dataTeams[indexPath.row])
                 return cell ?? UITableViewCell()
