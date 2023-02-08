@@ -88,6 +88,8 @@ class RacingScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
+         
+            
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -103,7 +105,7 @@ class RacingScreen: UIView {
             racingTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10),
             racingTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             racingTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            racingTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
+            racingTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
         ])
     }

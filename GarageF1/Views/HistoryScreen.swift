@@ -148,7 +148,7 @@ class HistoryScreen: UIView {
             changeTable().topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             changeTable().leadingAnchor.constraint(equalTo: leadingAnchor),
             changeTable().trailingAnchor.constraint(equalTo: trailingAnchor),
-            changeTable().bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            changeTable().bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
         ])
     }
 }

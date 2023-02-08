@@ -65,7 +65,7 @@ class DriversScreen: UIView {
             tableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            tableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
             driversLabel.topAnchor.constraint(equalTo: topAnchor, constant: 55),
             driversLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

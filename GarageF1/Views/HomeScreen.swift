@@ -215,12 +215,12 @@ class HomeScreen: UIView {
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         scrollView.topAnchor.constraint(equalTo: topAnchor, constant: 48).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -90).isActive = true
         
         scrollStackViewContainer1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollStackViewContainer1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         scrollStackViewContainer1.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        scrollStackViewContainer1.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -90).isActive = true
+        scrollStackViewContainer1.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
         
         configureContainerView()
     }
