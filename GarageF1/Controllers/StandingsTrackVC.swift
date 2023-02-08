@@ -62,12 +62,16 @@ class StandingsTrackVC: UIViewController {
         if buttonStandingsVC.isSelected == false {
             buttonStandingsVC.isSelected = true
             buttonCircuitVC.isSelected = false
+            standingsScreen?.standignsBoard.isHidden = false
+            standingsScreen?.trackBoard.isHidden = true
             standingsScreen?.tableViewStandings.reloadData()
             standingsScreen?.standingsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             standingsScreen?.trackButton.setTitleColor(.darkGray, for: .normal)
         } else {
             buttonStandingsVC.isSelected = true
             buttonCircuitVC.isSelected = false
+            standingsScreen?.standignsBoard.isHidden = false
+            standingsScreen?.trackBoard.isHidden = true
             standingsScreen?.tableViewStandings.reloadData()
             standingsScreen?.standingsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             standingsScreen?.trackButton.setTitleColor(.darkGray, for: .normal)
@@ -78,11 +82,15 @@ class StandingsTrackVC: UIViewController {
         if buttonCircuitVC.isSelected == false {
             buttonCircuitVC.isSelected = true
             buttonStandingsVC.isSelected = false
+            standingsScreen?.standignsBoard.isHidden = true
+            standingsScreen?.trackBoard.isHidden = false
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             standingsScreen?.standingsButton.setTitleColor(.darkGray, for: .normal)
         } else {
             buttonCircuitVC.isSelected = true
             buttonStandingsVC.isSelected = false
+            standingsScreen?.standignsBoard.isHidden = true
+            standingsScreen?.trackBoard.isHidden = false
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
             standingsScreen?.standingsButton.setTitleColor(.darkGray, for: .normal)
         }
