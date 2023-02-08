@@ -63,6 +63,7 @@ class HistoryScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.tag = 1
         tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
         tableView.register(HistoryDriversTableViewCell.self, forCellReuseIdentifier: HistoryDriversTableViewCell.identifier)
         return tableView
@@ -72,18 +73,19 @@ class HistoryScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.tag = 2
         tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
         tableView.register(HistoryTeamsTableViewCell.self, forCellReuseIdentifier: HistoryTeamsTableViewCell.identifier)
         return tableView
     }()
     
-    func changeTable() -> UITableView {
-        if driversButton.isSelected == true {
-            return tableViewTeams
-        } else {
-            return tableViewDrivers
-        }
-    }
+//    func changeTable() -> UITableView {
+//        if driversButton.isSelected == true {
+//            return tableViewTeams
+//        } else {
+//            return tableViewDrivers
+//        }
+//    }
    
 
     override init(frame: CGRect) {
@@ -112,7 +114,9 @@ class HistoryScreen: UIView {
         seasonButton.addSubview(seasonIcon)
         addSubview(driversButton)
         addSubview(teamsButton)
-        addSubview(changeTable())
+//        addSubview(changeTable())
+        addSubview(tableViewDrivers)
+        addSubview(tableViewTeams)
         
     }
     
@@ -145,10 +149,15 @@ class HistoryScreen: UIView {
             teamsButton.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
             teamsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
-            changeTable().topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            changeTable().leadingAnchor.constraint(equalTo: leadingAnchor),
-            changeTable().trailingAnchor.constraint(equalTo: trailingAnchor),
-            changeTable().bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            tableViewDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            tableViewDrivers.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableViewDrivers.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableViewDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            
+            tableViewTeams.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            tableViewTeams.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableViewTeams.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableViewTeams.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
         ])
     }
 }
