@@ -162,14 +162,203 @@ class StandignsTrackScreen: UIView {
     
 //    Stack do circuito
     
-    func changeInfo() {
-        if standingsButton.isSelected == true {
-            addSubview(standignsBoard)
-        } else {
-            addSubview(standignsBoard)
-        }
-    }
-   
+    let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var trackBoard: UIStackView = {
+        let label = UIStackView()
+        label.translatesAutoresizingMaskIntoConstraints = false
+//        label.layer.backgroundColor = UIColor(red: 242, green: 242, blue: 242, alpha: 1).cgColor
+        label.backgroundColor = .lightGray
+        return label
+    }()
+    
+    lazy var trackImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "interlagos")
+        return image
+    }()
+    
+//    Track Lenght
+    lazy var trackLenght: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
+    lazy var trackLenghtTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Comprimento do Circuito"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var trackLenghtAnswer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "4.309"
+        label.font = UIFont.boldSystemFont(ofSize: 45)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var trackLenghtUnit: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "KM"
+        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.textColor = .gray
+        return label
+    }()
+    
+//    Track Laps
+    
+    lazy var trackLaps: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
+    lazy var trackLapsTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Número de Voltas"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var trackLapsAnswer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "71"
+        label.font = UIFont.boldSystemFont(ofSize: 45)
+        label.textColor = .black
+        return label
+    }()
+    
+//    Track First Race
+    
+    lazy var firstRace: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
+    lazy var firstRacetitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Primeiro Grand Prix"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var firstRaceAnswer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "1973"
+        label.font = UIFont.boldSystemFont(ofSize: 45)
+        label.textColor = .black
+        return label
+    }()
+    
+//     Track Distance
+    
+    lazy var raceDistance: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
+    lazy var raceDistanceTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Distância da Corrida"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var raceDistanceAnswer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "305.879"
+        label.font = UIFont.boldSystemFont(ofSize: 45)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var raceDistanceUnit: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "KM"
+        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.textColor = .gray
+        return label
+    }()
+    
+//     Track Record
+    
+    lazy var trackRecord: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
+    lazy var trackRecordTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Record da Pista"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .gray
+        return label
+    }()
+    
+    lazy var trackRecordAnswer: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "1.10.540"
+        label.font = UIFont.boldSystemFont(ofSize: 45)
+        label.textColor = .black
+        return label
+    }()
+    
+    lazy var trackRecordOwner: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Valtteri Bottas (2018)"
+        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.textColor = .gray
+        return label
+    }()
+    
+//    private func setupScrollView() {
+//        let margins = layoutMarginsGuide
+//        addSubview(scrollView)
+//        scrollView.addSubview(trackBoard)
+//        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+//        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+//        scrollView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+//        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+//        trackBoard.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+//        trackBoard.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+//        trackBoard.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+//        trackBoard.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+//        trackBoard.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+//    }
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -193,7 +382,11 @@ class StandignsTrackScreen: UIView {
         addSubview(trackButton)
         addSubview(standingsButton)
         addSubview(backButton)
-        changeInfo()
+
+        addSubview(trackBoard)
+        addSubview(standignsBoard)
+
+        
         standignsBoard.self.addSubview(tableViewStandings)
         standignsBoard.self.addSubview(standingsHeader)
         
@@ -211,6 +404,36 @@ class StandignsTrackScreen: UIView {
         standoutBackground.self.addSubview(standoutName)
         standoutBackground.self.addSubview(standoutTitle)
         standoutBackground.self.addSubview(standoutTime)
+        
+//        Stack Track Board
+
+        trackBoard.self.addSubview(trackImage)
+        
+        trackBoard.self.addSubview(trackLenght)
+        trackLenght.self.addSubview(trackLenghtTitle)
+        trackLenght.self.addSubview(trackLenghtAnswer)
+        trackLenght.self.addSubview(trackLenghtUnit)
+        
+        trackBoard.self.addSubview(trackLaps)
+        trackLaps.self.addSubview(trackLapsTitle)
+        trackLaps.self.addSubview(trackLapsAnswer)
+        
+        
+        trackBoard.self.addSubview(firstRace)
+        firstRace.self.addSubview(firstRacetitle)
+        firstRace.self.addSubview(firstRaceAnswer)
+        
+        
+        trackBoard.self.addSubview(raceDistance)
+        raceDistance.self.addSubview(raceDistanceTitle)
+        raceDistance.self.addSubview(raceDistanceAnswer)
+        raceDistance.self.addSubview(raceDistanceUnit)
+        
+        
+        trackBoard.self.addSubview(trackRecord)
+        trackRecord.self.addSubview(trackRecordTitle)
+        trackRecord.self.addSubview(trackRecordAnswer)
+        trackRecord.self.addSubview(trackRecordOwner)
         
     }
     
@@ -239,6 +462,8 @@ class StandignsTrackScreen: UIView {
             
             trackButton.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
             trackButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            
+//            Standings Board
             
             standignsBoard.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             standignsBoard.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -294,7 +519,93 @@ class StandignsTrackScreen: UIView {
             
             standoutTime.trailingAnchor.constraint(equalTo: standoutBackground.trailingAnchor, constant: -15),
             standoutTime.bottomAnchor.constraint(equalTo: standoutBackground.bottomAnchor, constant: -15),
+            
+//            Track Board
+            
+            trackBoard.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            trackBoard.leadingAnchor.constraint(equalTo: leadingAnchor),
+            trackBoard.trailingAnchor.constraint(equalTo: trailingAnchor),
+            trackBoard.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -80),
+            
+            trackImage.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 30),
+            trackImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackImage.heightAnchor.constraint(equalToConstant: 300),
+            
+            trackLenght.topAnchor.constraint(equalTo: trackImage.bottomAnchor, constant: 15),
+            trackLenght.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackLenght.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackLenght.heightAnchor.constraint(equalToConstant: 80),
+            
+            trackLaps.topAnchor.constraint(equalTo: trackLenght.bottomAnchor, constant: 15),
+            trackLaps.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackLaps.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackLaps.heightAnchor.constraint(equalToConstant: 80),
+            
+            firstRace.topAnchor.constraint(equalTo: trackLaps.bottomAnchor, constant: 15),
+            firstRace.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            firstRace.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            firstRace.heightAnchor.constraint(equalToConstant: 80),
+            
+            raceDistance.topAnchor.constraint(equalTo: firstRace.bottomAnchor, constant: 15),
+            raceDistance.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            raceDistance.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            raceDistance.heightAnchor.constraint(equalToConstant: 80),
+            
+            trackRecord.topAnchor.constraint(equalTo: raceDistance.bottomAnchor, constant: 15),
+            trackRecord.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            trackRecord.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackRecord.heightAnchor.constraint(equalToConstant: 100),
+            
+//            Track Lenght
+            trackLenghtTitle.leadingAnchor.constraint(equalTo: trackLenght.leadingAnchor, constant: 5),
+            trackLenghtTitle.topAnchor.constraint(equalTo: trackLenght.topAnchor, constant: 5),
+            
+            trackLenghtAnswer.trailingAnchor.constraint(equalTo: trackLenght.trailingAnchor, constant: -45),
+            trackLenghtAnswer.bottomAnchor.constraint(equalTo: trackLenght.bottomAnchor, constant: -4),
+            
+            trackLenghtUnit.trailingAnchor.constraint(equalTo: trackLenght.trailingAnchor, constant: -15),
+            trackLenghtUnit.bottomAnchor.constraint(equalTo: trackLenght.bottomAnchor, constant: -2),
+            
 
+            
+//            Race Laps
+            
+            trackLapsTitle.leadingAnchor.constraint(equalTo: trackLaps.leadingAnchor, constant: 5),
+            trackLapsTitle.topAnchor.constraint(equalTo: trackLaps.topAnchor, constant: 5),
+            
+            trackLapsAnswer.trailingAnchor.constraint(equalTo: trackLaps.trailingAnchor, constant: -45),
+            trackLapsAnswer.bottomAnchor.constraint(equalTo: trackLaps.bottomAnchor, constant: -4),
+            
+//            Firt Race
+
+            firstRacetitle.leadingAnchor.constraint(equalTo: firstRace.leadingAnchor, constant: 5),
+            firstRacetitle.topAnchor.constraint(equalTo: firstRace.topAnchor, constant: 5),
+
+            firstRaceAnswer.trailingAnchor.constraint(equalTo: firstRace.trailingAnchor, constant: -45),
+            firstRaceAnswer.bottomAnchor.constraint(equalTo: firstRace.bottomAnchor, constant: -4),
+
+//            Race Distance
+
+            raceDistanceTitle.leadingAnchor.constraint(equalTo: raceDistance.leadingAnchor, constant: 5),
+            raceDistanceTitle.topAnchor.constraint(equalTo: raceDistance.topAnchor, constant: 5),
+
+            raceDistanceAnswer.trailingAnchor.constraint(equalTo: raceDistance.trailingAnchor, constant: -45),
+            raceDistanceAnswer.bottomAnchor.constraint(equalTo: raceDistance.bottomAnchor, constant: -4),
+
+            raceDistanceUnit.trailingAnchor.constraint(equalTo: raceDistance.trailingAnchor, constant: -15),
+            raceDistanceUnit.bottomAnchor.constraint(equalTo: raceDistance.bottomAnchor, constant: -2),
+            
+//            Track Record
+            
+            trackRecordTitle.leadingAnchor.constraint(equalTo: trackRecord.leadingAnchor, constant: 5),
+            trackRecordTitle.topAnchor.constraint(equalTo: trackRecord.topAnchor, constant: 5),
+            
+            trackRecordAnswer.trailingAnchor.constraint(equalTo: trackRecord.trailingAnchor, constant: -45),
+            trackRecordAnswer.bottomAnchor.constraint(equalTo: trackRecord.bottomAnchor, constant: -25),
+            
+            trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecord.trailingAnchor, constant: -40),
+            trackRecordOwner.bottomAnchor.constraint(equalTo: trackRecord.bottomAnchor, constant: -2),
         ])
     }
 }

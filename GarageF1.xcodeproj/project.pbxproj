@@ -326,7 +326,6 @@
 			isa = PBXGroup;
 			children = (
 				0BE956BD2991C21D00F53A79 /* RacingCustomTableView */,
-				1C6E84DE298D7536006AA23D /* Standings-Views */,
 				1C3BA777298D28A6001D145E /* StandingsTrack-TableView-Cell */,
 				1C5146E0298BF2A900D85C34 /* Duel-StackViews */,
 				1CD44CC8298010C000E4B9DD /* HistoryDrivers-TableView-Cell */,
@@ -402,13 +401,6 @@
 				1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */,
 			);
 			path = "Duel-StackViews";
-			sourceTree = "<group>";
-		};
-		1C6E84DE298D7536006AA23D /* Standings-Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Standings-Views";
 			sourceTree = "<group>";
 		};
 		1CD44CC8298010C000E4B9DD /* HistoryDrivers-TableView-Cell */ = {

@@ -78,15 +78,6 @@ class HistoryScreen: UIView {
         tableView.register(HistoryTeamsTableViewCell.self, forCellReuseIdentifier: HistoryTeamsTableViewCell.identifier)
         return tableView
     }()
-    
-//    func changeTable() -> UITableView {
-//        if driversButton.isSelected == true {
-//            return tableViewTeams
-//        } else {
-//            return tableViewDrivers
-//        }
-//    }
-   
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -114,7 +105,7 @@ class HistoryScreen: UIView {
         seasonButton.addSubview(seasonIcon)
         addSubview(driversButton)
         addSubview(teamsButton)
-//        addSubview(changeTable())
+
         addSubview(tableViewDrivers)
         addSubview(tableViewTeams)
         
