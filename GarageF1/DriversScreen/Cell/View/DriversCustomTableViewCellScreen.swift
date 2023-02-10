@@ -1,13 +1,13 @@
 //
-//  CustomDriversTableViewScreen.swift
+//  DriversCustomTableViewCellScreen.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 20/01/23.
+//  Created by Rafael Penna on 10/02/23.
 //
 
 import UIKit
 
-class CustomDriversTableViewScreen: UIView {
+class DriversCustomTableViewCellScreen: UIView {
     
     lazy var positionLabel: UILabel = {
         let positionLabel = UILabel()
@@ -115,3 +115,4 @@ class CustomDriversTableViewScreen: UIView {
     }
 
 }
+
