@@ -11,7 +11,7 @@ class HomeVC: UIViewController {
     
     let homeScreen: HomeScreen = HomeScreen()
     let duelStackVC: DuelVC = DuelVC()
-    let driversVC: DriversVC = DriversVC()
+    let driversVC: DriversViewController = DriversViewController()
     
     var dataHomeRacer: [HomeRacer] = [HomeRacer(indice: "1", nameTeams: "Red Bull Racing", name: "max", nameImage: "Max Verstappen"),
                                       HomeRacer(indice: "2", nameTeams: "Ferrari", name: "charles", nameImage: "Charles Leclerc")]
