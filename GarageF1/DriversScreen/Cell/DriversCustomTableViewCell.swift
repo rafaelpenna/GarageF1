@@ -17,7 +17,7 @@ class DriversCustomTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.screen.translatesAutoresizingMaskIntoConstraints = false
         self.contentView.addSubview(self.screen)
-        self.configConstraints()
+        self.configScreenConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -36,7 +36,7 @@ class DriversCustomTableViewCell: UITableViewCell {
         screen.pointsLabel.text = viewModel?.getPoints
     }
     
-    private func configConstraints(){
+    private func configScreenConstraints(){
         NSLayoutConstraint.activate([
             screen.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             screen.trailingAnchor.constraint(equalTo: self.trailingAnchor),
