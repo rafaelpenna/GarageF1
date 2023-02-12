@@ -1,14 +1,14 @@
 //
-//  DriversInfoStackView.swift
+//  DriversDetailStackView.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 01/02/23.
+//  Created by Rafael Penna on 12/02/23.
 //
 
 import Foundation
 import UIKit
 
-public class DriversInfoStackList: UIView {
+public class DriversDetailStackView: UIView {
     
     private lazy var boardStack: UIStackView = {
         let variable = UIStackView()
