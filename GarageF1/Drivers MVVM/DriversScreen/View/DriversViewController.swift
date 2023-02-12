@@ -47,7 +47,7 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DriversDetailVC()
+        let vc = DriversDetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

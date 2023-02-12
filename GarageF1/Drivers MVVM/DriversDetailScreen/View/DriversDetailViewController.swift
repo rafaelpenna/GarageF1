@@ -1,25 +1,26 @@
 //
-//  DriversDetailVC.swift
+//  DriversDetailViewController.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 01/02/23.
+//  Created by Rafael Penna on 12/02/23.
 //
 
+import Foundation
 import UIKit
 
-class DriversDetailVC: UIViewController {
+class DriversDetailViewController: UIViewController {
     
-    var driversDetailScreen: DriversDetailScreen? = DriversDetailScreen()
+    let dirversDetailViewModel: DriversDetailViewModel = DriversDetailViewModel()
     
-    var dataDrivers: [DriverDetail] = [DriverDetail(driversPhoto: UIImage(named: "Leclerc1") ?? UIImage(), driversName: "Charles", driversLastName: "Leclerc", birthDate: "16/10/1997 (24 anos)", birthLocation: "Monte Carlo, Monaco", championships: 0, races: 92,podiums: 18, points: 730, bestResult: "1(x5)", bestGridPosition: 1)]
-
+    var driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
+    
     override func loadView() {
         self.view = driversDetailScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(backButton)
+        self.view.addSubview(backButton)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,4 +37,5 @@ class DriversDetailVC: UIViewController {
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
+    
 }
