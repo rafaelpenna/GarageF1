@@ -11,8 +11,8 @@ class TabBarVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            setupVCs()
-            configTaBar()
+        setupVCs()
+        configTaBar()
     }
     
     private func createNavController(for rootViewController: UIViewController,
