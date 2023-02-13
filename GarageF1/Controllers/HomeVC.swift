@@ -20,12 +20,13 @@ class HomeVC: UIViewController {
                                           HomeResults(indice: "2", imagePilot: "max", namePilot: "Max Verstappen", nameTeams: "Red Bull Racing", score: "59 pts"),
                                           HomeResults(indice: "3", imagePilot: "sergio", namePilot: "Sergio Perez", nameTeams: "Red Bull Racing", score: "54 pts")]
     
-    var dataHomeDuel: [HomeDuel] = [HomeDuel(namePilot: "Ayrton Senna", imagePilot: "ayrton"),
-                                    HomeDuel(namePilot: "Lewis Hamilton", imagePilot: "lewis")]
+    var dataHomeDuel: [HomeDuel] = [HomeDuel(namePilot: "Michael Schumacher ", imagePilot: "schumacher"),
+                                    HomeDuel(namePilot: "Max Verstappen", imagePilot: "max")]
     
     
     override func loadView() {
         view = homeScreen
+        
     }
     
     override func viewDidLoad() {
@@ -33,14 +34,14 @@ class HomeVC: UIViewController {
         self.homeScreen.configTableViewDelegate(delegate: self, dataSource: self)
         self.homeScreen.configProtocolsDestaqueCollectionView(delegate: self, dataSource: self)
         homeScreen.delegate(delegate: self)
-//        self.homeScreen.configProtocolsDueloCollectionView(delegate: self, dataSource: self)
+        self.homeScreen.configProtocolsDueloCollectionView(delegate: self, dataSource: self)
         navigationController?.isNavigationBarHidden = true
-        
+        homeScreen.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-      
+
     }
     
 }
@@ -82,18 +83,32 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
+        
+        if collectionView == homeScreen.destaquesCollection {
+            
             return self.dataHomeRacer.count
-
+        } else {
+            return self.dataHomeDuel.count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
+        
+        if collectionView == homeScreen.destaquesCollection {
+            
             let cell1: DestaquesCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: DestaquesCollectionViewCell.identifier, for: indexPath) as? DestaquesCollectionViewCell
             cell1?.setupCell(data: dataHomeRacer[indexPath.row])
             
             return cell1 ?? UICollectionViewCell()
+            
+            
+        } else {
+            let cell2: DueloCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: DueloCollectionViewCell.identifier, for: indexPath) as? DueloCollectionViewCell
+            cell2?.setupCell(data: dataHomeDuel[indexPath.row])
+            
+            return cell2 ?? UICollectionViewCell()
         }
+    }
     
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
