@@ -48,24 +48,20 @@ class DriversDetailScreenView: UIView {
         return image
     }()
     
-    private lazy var boardInfo: DriversDetailStackView = {
-        let variable = DriversDetailStackView()
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        return variable
-    }()
-    
-    private let scrollView: UIScrollView = {
-        let view = UIScrollView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    private let scrollStackViewContainer: UIStackView = {
-        let view = UIStackView()
-        view.axis = .horizontal
-        view.spacing = 0
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    lazy var tableViewInfoDrivers: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.register(BirthDateCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthDateCustomTableViewCellScreen")
+        tableView.register(BirthLocationCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthLocationCustomTableViewCellScreen")
+        tableView.register(ChampionshipsWinCustomTableViewCellScreen.self, forCellReuseIdentifier: "ChampionshipsWinCustomTableViewCellScreen")
+        tableView.register(RacesCustomTableViewCellScreen.self, forCellReuseIdentifier: "RacesCustomTableViewCellScreen")
+        tableView.register(PodiumsCustomTableViewCellScreen.self, forCellReuseIdentifier: "PodiumsCustomTableViewCellScreen")
+        tableView.register(PointsCustomTableViewCellScreen.self, forCellReuseIdentifier: "PointsCustomTableViewCellScreen")
+        tableView.register(BestRacePositionCustomTableViewCellScreen.self, forCellReuseIdentifier: "BestRacePositionCustomTableViewCellScreen")
+        tableView.register(BestGridPositionCustomTableViewCellScreen.self, forCellReuseIdentifier: "BestGridPositionCustomTableViewCellScreen")
+        return tableView
     }()
     
     override init(frame: CGRect) {
@@ -75,12 +71,18 @@ class DriversDetailScreenView: UIView {
         self.addSubview(self.firstName)
         self.addSubview(self.lastName)
         self.addSubview(self.driverPhoto)
-        self.addSubview(self.boardInfo)
+        self.addSubview(self.tableViewInfoDrivers)
+        backgroundColor = .white
         constraintsScreen()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+        self.tableViewInfoDrivers.delegate = delegate
+        self.tableViewInfoDrivers.dataSource = dataSource
     }
     
     private func constraintsScreen(){
@@ -108,10 +110,10 @@ class DriversDetailScreenView: UIView {
             driverPhoto.heightAnchor.constraint(equalToConstant: 100),
             driverPhoto.widthAnchor.constraint(equalToConstant: 100),
             
-            boardInfo.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            boardInfo.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            boardInfo.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            boardInfo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
         ])
     }
 }
