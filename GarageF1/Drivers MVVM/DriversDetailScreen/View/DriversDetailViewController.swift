@@ -10,9 +10,8 @@ import UIKit
 
 class DriversDetailViewController: UIViewController {
     
-    let dirversDetailViewModel: DriversDetailViewModel = DriversDetailViewModel()
-    
-    var driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
+    let driversDetailViewModel: DriversDetailViewModel = DriversDetailViewModel()
+    let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
     
     override func loadView() {
         self.view = driversDetailScreen
@@ -20,6 +19,7 @@ class DriversDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        driversDetailScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         self.view.addSubview(backButton)
     }
     
@@ -38,4 +38,81 @@ class DriversDetailViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+}
+
+extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSource {
+        
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 8
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: BirthDateCustomTableViewCellScreen.identifier) as? BirthDateCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: BirthLocationCustomTableViewCellScreen.identifier) as? BirthLocationCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ChampionshipsWinCustomTableViewCellScreen.identifier) as? ChampionshipsWinCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 3 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: RacesCustomTableViewCellScreen.identifier) as? RacesCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PodiumsCustomTableViewCellScreen.identifier) as? PodiumsCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: PointsCustomTableViewCellScreen.identifier) as? PointsCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else if indexPath.row == 6 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: BestRacePositionCustomTableViewCellScreen.identifier) as? BestRacePositionCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: BestGridPositionCustomTableViewCellScreen.identifier) as? BestGridPositionCustomTableViewCellScreen
+            cell?.configure()
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
+        }
+
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DriversDetailViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
