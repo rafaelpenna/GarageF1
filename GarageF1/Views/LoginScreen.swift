@@ -23,6 +23,14 @@ class LoginScreen: UIView {
         self.delegate = delegate
     }
     
+    private lazy var stackButtonView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 20
+        stackView.backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+        return stackView
+    }()
     
     private lazy var logoImage: UIImageView = {
         let image = UIImageView()
@@ -76,6 +84,7 @@ class LoginScreen: UIView {
         addElements()
         setUpConstraints()
         configBackground()
+        setUpStackView()
     }
     
     required init?(coder: NSCoder) {
@@ -84,9 +93,7 @@ class LoginScreen: UIView {
     
     func addElements() {
         addSubview(logoImage)
-        addSubview(appleButton)
-        addSubview(facebookButton)
-        addSubview(emailButton)
+        
     }
     
     @objc func tappedFacebookButton(){
@@ -105,28 +112,44 @@ class LoginScreen: UIView {
         backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
     }
     
+    func setUpStackView() {
+        addSubview(stackButtonView)
+        
+        stackButtonView.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 60).isActive = true
+        stackButtonView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        stackButtonView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        
+        configureContainerStack()
+    }
+    
+    func configureContainerStack() {
+        stackButtonView.addArrangedSubview(appleButton)
+        stackButtonView.addArrangedSubview(facebookButton)
+        stackButtonView.addArrangedSubview(emailButton)
+    }
+    
     func setUpConstraints() {
         NSLayoutConstraint.activate([
             logoImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
             logoImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             logoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             logoImage.heightAnchor.constraint(equalToConstant: 200),
-            
-            appleButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 60),
-            appleButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            appleButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            appleButton.heightAnchor.constraint(equalToConstant: 45),
-            
-            facebookButton.topAnchor.constraint(equalTo: appleButton.bottomAnchor, constant: 15),
-            facebookButton.leadingAnchor.constraint(equalTo: appleButton.leadingAnchor),
-            facebookButton.trailingAnchor.constraint(equalTo: appleButton.trailingAnchor),
-            facebookButton.heightAnchor.constraint(equalTo: appleButton.heightAnchor),
-            
-            emailButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 15),
-            emailButton.leadingAnchor.constraint(equalTo: facebookButton.leadingAnchor),
-            emailButton.trailingAnchor.constraint(equalTo: facebookButton.trailingAnchor),
-            emailButton.heightAnchor.constraint(equalTo: facebookButton.heightAnchor),
-            
+//
+//            appleButton.topAnchor.constraint(equalTo: logoImage.bottomAnchor, constant: 60),
+//            appleButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            appleButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            appleButton.heightAnchor.constraint(equalToConstant: 45),
+//
+//            facebookButton.topAnchor.constraint(equalTo: appleButton.bottomAnchor, constant: 15),
+//            facebookButton.leadingAnchor.constraint(equalTo: appleButton.leadingAnchor),
+//            facebookButton.trailingAnchor.constraint(equalTo: appleButton.trailingAnchor),
+//            facebookButton.heightAnchor.constraint(equalTo: appleButton.heightAnchor),
+//
+//            emailButton.topAnchor.constraint(equalTo: facebookButton.bottomAnchor, constant: 15),
+//            emailButton.leadingAnchor.constraint(equalTo: facebookButton.leadingAnchor),
+//            emailButton.trailingAnchor.constraint(equalTo: facebookButton.trailingAnchor),
+//            emailButton.heightAnchor.constraint(equalTo: facebookButton.heightAnchor),
+//
         ])
     }
 }

@@ -19,6 +19,22 @@ class HomeScreen: UIView {
         self.delegate = delegate
     }
     
+    private lazy var topLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
+    private lazy var racingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Home"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        return label
+    }()
+    
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -154,6 +170,7 @@ class HomeScreen: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupScrollView()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -183,14 +200,29 @@ class HomeScreen: UIView {
         dueloCollection.dataSource = dataSource
     }
     
+    private func configConstraints(){
+        NSLayoutConstraint.activate([
+            
+            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topLabel.topAnchor.constraint(equalTo: topAnchor),
+            topLabel.heightAnchor.constraint(equalToConstant: 115),
+            
+            racingLabel.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor),
+            racingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+        ])
+    }
+    
     private func setupScrollView() {
         let margins = layoutMarginsGuide
         
+        addSubview(topLabel)
+        addSubview(racingLabel)
         addSubview(scrollView)
         scrollView.addSubview(scrollStackViewContainer)
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
-        scrollView.topAnchor.constraint(equalTo: margins.topAnchor).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
         
         scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true

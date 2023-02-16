@@ -59,15 +59,15 @@ class DriversScreenView: UIView {
             topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 120),
+            topRedLabel.heightAnchor.constraint(equalToConstant: 115),
             
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
             tableViewInfoDrivers.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableViewInfoDrivers.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableViewInfoDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            driversHeadLabel.topAnchor.constraint(equalTo: topAnchor, constant: 55),
-            driversHeadLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            driversHeadLabel.centerYAnchor.constraint(equalTo: topRedLabel.centerYAnchor),
+            driversHeadLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
 }

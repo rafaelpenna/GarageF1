@@ -36,7 +36,7 @@ class EmailLoginScreen: UIView {
         return image
     }()
     
-    private lazy var emailTextField: UITextField = {
+    lazy var emailTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
         email.autocorrectionType = .no
@@ -46,10 +46,11 @@ class EmailLoginScreen: UIView {
         email.keyboardType = .emailAddress
         email.placeholder = "Digite seu e-mail:"
         email.textColor = .darkGray
+        email.clearButtonMode = .whileEditing
         return email
     }()
     
-    private lazy var passwordTextField: UITextField = {
+    lazy var passwordTextField: UITextField = {
         let password = UITextField()
         password.translatesAutoresizingMaskIntoConstraints = false
         password.autocorrectionType = .no
@@ -60,6 +61,7 @@ class EmailLoginScreen: UIView {
         password.isSecureTextEntry = true
         password.placeholder = "Digite sua senha:"
         password.textColor = .darkGray
+        password.clearButtonMode = .whileEditing
         return password
     }()
     

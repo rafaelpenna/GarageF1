@@ -35,9 +35,12 @@ extension EmailLoginVC: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         emailLoginScreen?.validaTextFields()
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailLoginScreen?.emailTextField.becomeFirstResponder()
+        emailLoginScreen?.passwordTextField.becomeFirstResponder()
         textField.resignFirstResponder()
         return true
     }
