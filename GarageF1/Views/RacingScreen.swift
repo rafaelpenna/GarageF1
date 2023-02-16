@@ -93,13 +93,13 @@ class RacingScreen: UIView {
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.topAnchor.constraint(equalTo: topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 130),
+            topLabel.heightAnchor.constraint(equalToConstant: 115),
             
-            racingLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            racingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            racingLabel.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor),
+            racingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 
             
-            seasonLabel.topAnchor.constraint(equalTo: racingLabel.bottomAnchor, constant: 20),
+            seasonLabel.topAnchor.constraint(equalTo: racingLabel.bottomAnchor, constant: 10),
             seasonLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             racingTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10),

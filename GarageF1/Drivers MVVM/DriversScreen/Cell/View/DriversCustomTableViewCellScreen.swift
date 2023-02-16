@@ -1,13 +1,13 @@
 //
-//  CustomDriversTableViewScreen.swift
+//  DriversCustomTableViewCellScreen.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 20/01/23.
+//  Created by Rafael Penna on 10/02/23.
 //
 
 import UIKit
 
-class CustomDriversTableViewScreen: UIView {
+class DriversCustomTableViewCellScreen: UIView {
     
     lazy var positionLabel: UILabel = {
         let positionLabel = UILabel()
@@ -55,7 +55,7 @@ class CustomDriversTableViewScreen: UIView {
         return pointsLabel
     }()
     
-    lazy var ptsLabel: UILabel = {
+    lazy var pointsUnitLabel: UILabel = {
         let pts = UILabel()
         pts.translatesAutoresizingMaskIntoConstraints = false
         pts.text = "pts"
@@ -80,7 +80,7 @@ class CustomDriversTableViewScreen: UIView {
         addSubview(lastNameLabel)
         addSubview(teamLabel)
         addSubview(pointsLabel)
-        addSubview(ptsLabel)
+        addSubview(pointsUnitLabel)
     }
     
     private func configConstraintsInfoDriver(){
@@ -107,11 +107,12 @@ class CustomDriversTableViewScreen: UIView {
             pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
             pointsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            ptsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            ptsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            ptsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            pointsUnitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            pointsUnitLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            pointsUnitLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
         ])
     }
 
 }
+

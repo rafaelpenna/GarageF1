@@ -447,7 +447,7 @@ class StandignsTrackScreen: UIView {
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.topAnchor.constraint(equalTo: topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 150),
+            topLabel.heightAnchor.constraint(equalToConstant: 130),
             
             circuitName.topAnchor.constraint(equalTo: topAnchor, constant: 70),
             circuitName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

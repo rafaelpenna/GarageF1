@@ -121,10 +121,10 @@ class HistoryScreen: UIView {
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.topAnchor.constraint(equalTo: topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 140),
+            topLabel.heightAnchor.constraint(equalToConstant: 115),
             
             historyLabel.topAnchor.constraint(equalTo: topAnchor, constant: 35),
-            historyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            historyLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
             seasonButton.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             seasonButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
