@@ -773,9 +773,9 @@ static NSMutableDictionary *gKeychainServiceNameForAppName;
 - (void)internalSignInAndRetrieveDataWithEmail:(NSString *)email
                                       password:(NSString *)password
                                     completion:(FIRAuthDataResultCallback)completion {
-  FIREmailPasswordAuthCredential *credential =
+  FIREmailPasswordAuthCredential *credentail =
       [[FIREmailPasswordAuthCredential alloc] initWithEmail:email password:password];
-  [self internalSignInAndRetrieveDataWithCredential:credential
+  [self internalSignInAndRetrieveDataWithCredential:credentail
                                  isReauthentication:NO
                                            callback:completion];
 }

@@ -61,7 +61,7 @@ class CustomHistoryTeamsTableViewScreen: UIView {
             positionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             positionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 
-            teamLabel.topAnchor.constraint(equalTo: bottomAnchor, constant: 20),
+            teamLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),

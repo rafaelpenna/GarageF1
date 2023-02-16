@@ -13,9 +13,9 @@ class DueloCollectionViewScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 50)
+        label.font = UIFont.boldSystemFont(ofSize: 25)
         label.textColor = .black
-//        label.backgroundColor = .brown
+        label.numberOfLines = 0
         return label
     }()
     
@@ -23,7 +23,6 @@ class DueloCollectionViewScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-//        image.backgroundColor = .magenta
         return image
     }()
 
@@ -49,14 +48,12 @@ class DueloCollectionViewScreen: UIView {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             
-            namePilot.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            namePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            namePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
+            namePilot.centerXAnchor.constraint(equalTo: centerXAnchor),
+            namePilot.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
          
-            imagePilot.topAnchor.constraint(equalTo: namePilot.topAnchor, constant: 5),
-            imagePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            imagePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -250),
-            imagePilot.heightAnchor.constraint(equalToConstant: 40)
+            imagePilot.centerXAnchor.constraint(equalTo: centerXAnchor),
+            imagePilot.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            imagePilot.heightAnchor.constraint(equalToConstant: 140)
         
         ])
     }

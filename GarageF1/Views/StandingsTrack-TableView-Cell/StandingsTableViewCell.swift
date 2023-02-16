@@ -1,17 +1,17 @@
 //
-//  DriversTableViewCell.swift
+//  StandingsTableViewCell.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 20/01/23.
+//  Created by Rafael Penna on 03/02/23.
 //
 
 import UIKit
 
-class DriversTableViewCell: UITableViewCell {
+class StandingsTableViewCell: UITableViewCell {
 
-    var data: [Drivers] = []
-    static let identifier: String = "DriversTableViewCell"
-    var customDrivers: CustomDriversTableViewScreen = CustomDriversTableViewScreen()
+    var data: [Standings] = []
+    static let identifier: String = "StandingsTableViewCell"
+    var customDrivers: CustomStandingsTableViewScreen = CustomStandingsTableViewScreen()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,7 +24,7 @@ class DriversTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func dataTableView(data: [Drivers]) {
+    public func dataTableView(data: [Standings]) {
         self.data = data
     }
     
@@ -33,13 +33,12 @@ class DriversTableViewCell: UITableViewCell {
         contentView.addSubview(customDrivers)
     }
 
-    func setupCell(data: Drivers){
+    func setupCell(data: Standings){
         
         customDrivers.positionLabel.text = data.position
-        customDrivers.photoDriverImageView.image = data.driversPhoto
-        customDrivers.nameLabel.text = data.driversName
-        customDrivers.lastNameLabel.text = data.driversLastName
-        customDrivers.teamLabel.text = data.teamsName
+        customDrivers.colorLabel.text = data.teamsName
+        customDrivers.nameCodeLabel.text = data.driversCode
+        customDrivers.timeLabel.text = data.time
         customDrivers.pointsLabel.text = data.currentcurrentPoints
     }
     
@@ -53,6 +52,4 @@ class DriversTableViewCell: UITableViewCell {
         ])
     }
 }
-
-
 

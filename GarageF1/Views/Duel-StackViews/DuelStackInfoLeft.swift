@@ -1,14 +1,15 @@
 //
-//  DriversInfoStackView.swift
+//  DuelStackInfoLeft.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 01/02/23.
+//  Created by Rafael Penna on 02/02/23.
 //
+
 
 import Foundation
 import UIKit
 
-public class DriversInfoStackList: UIView {
+public class DuelStackInfoLeft: UIView {
     
     private lazy var boardStack: UIStackView = {
         let variable = UIStackView()
@@ -27,7 +28,7 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var birthTitle: UILabel = {
+    private lazy var birthDateTitle: UILabel = {
         let variable = UILabel()
         variable.text = "Data de Nascimento"
         variable.textColor = .gray
@@ -37,11 +38,21 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var birthAnswer: UILabel = {
+    private lazy var birthDateAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "16/10/1997 (24 anos)"
+        variable.text = "03/01/1969"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.numberOfLines = 0
+        return variable
+    }()
+    
+    private lazy var ageAnswer: UILabel = {
+        let variable = UILabel()
+        variable.text = "(53 anos)"
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -55,7 +66,7 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var localTitle: UILabel = {
+    private lazy var birthPlaceTitle: UILabel = {
         let variable = UILabel()
         variable.text = "Local de Nascimento"
         variable.textColor = .gray
@@ -65,11 +76,21 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var localAnswer: UILabel = {
+    private lazy var birthPlaceAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "Monte Carlo, Mônaco"
+        variable.text = "Hurth-Hermullheim"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.numberOfLines = 0
+        return variable
+    }()
+    
+    private lazy var country: UILabel = {
+        let variable = UILabel()
+        variable.text = "Alemanha"
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -95,9 +116,9 @@ public class DriversInfoStackList: UIView {
     
     private lazy var championshipAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "0"
+        variable.text = "7 (1994, 1995, 2000, 2001, 2002, 2003 e 2004)"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -123,9 +144,9 @@ public class DriversInfoStackList: UIView {
     
     private lazy var racesAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "92"
+        variable.text = "308"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -151,9 +172,9 @@ public class DriversInfoStackList: UIView {
     
     private lazy var podiumAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "18"
+        variable.text = "155"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -179,15 +200,15 @@ public class DriversInfoStackList: UIView {
     
     private lazy var pointsAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "730"
+        variable.text = "1566"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
     }()
     
-    private lazy var stackPositionRaces: UIStackView = {
+    private lazy var stackWins: UIStackView = {
         let variable = UIStackView()
         variable.axis = .vertical
         variable.spacing = 2
@@ -195,9 +216,9 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var positionRacesTitle: UILabel = {
+    private lazy var winsTitle: UILabel = {
         let variable = UILabel()
-        variable.text = "Melhor colocação em corridas"
+        variable.text = "Vitórias"
         variable.textColor = .gray
         variable.font = UIFont.systemFont(ofSize: 16)
         variable.translatesAutoresizingMaskIntoConstraints = false
@@ -205,39 +226,11 @@ public class DriversInfoStackList: UIView {
         return variable
     }()
     
-    private lazy var positionRacesAnswer: UILabel = {
+    private lazy var winsAnswer: UILabel = {
         let variable = UILabel()
-        variable.text = "1(x5)"
+        variable.text = "91"
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        variable.numberOfLines = 0
-        return variable
-    }()
-    
-    private lazy var stackPositionGrid: UIStackView = {
-        let variable = UIStackView()
-        variable.axis = .vertical
-        variable.spacing = 2
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        return variable
-    }()
-    
-    private lazy var positionGridTitle: UILabel = {
-        let variable = UILabel()
-        variable.text = "Melhor colocação no grid"
-        variable.textColor = .gray
-        variable.font = UIFont.systemFont(ofSize: 16)
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        variable.numberOfLines = 0
-        return variable
-    }()
-    
-    private lazy var positionGridAnswer: UILabel = {
-        let variable = UILabel()
-        variable.text = "1"
-        variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -262,12 +255,14 @@ public class DriversInfoStackList: UIView {
         addSubview(boardStack)
         
         boardStack.addArrangedSubview(stackBirth)
-        stackBirth.addArrangedSubview(birthTitle)
-        stackBirth.addArrangedSubview(birthAnswer)
+        stackBirth.addArrangedSubview(birthDateTitle)
+        stackBirth.addArrangedSubview(birthDateAnswer)
+        stackBirth.addArrangedSubview(ageAnswer)
         
         boardStack.addArrangedSubview(stackLocal)
-        stackLocal.addArrangedSubview(localTitle)
-        stackLocal.addArrangedSubview(localAnswer)
+        stackLocal.addArrangedSubview(birthPlaceTitle)
+        stackLocal.addArrangedSubview(birthPlaceAnswer)
+        stackLocal.addArrangedSubview(country)
         
         boardStack.addArrangedSubview(stackChampionship)
         stackChampionship.addArrangedSubview(championshipTitle)
@@ -285,21 +280,23 @@ public class DriversInfoStackList: UIView {
         stackPoints.addArrangedSubview(pointsTitle)
         stackPoints.addArrangedSubview(pointsAnswer)
         
-        boardStack.addArrangedSubview(stackPositionRaces)
-        stackPositionRaces.addArrangedSubview(positionRacesTitle)
-        stackPositionRaces.addArrangedSubview(positionRacesAnswer)
-        
-        boardStack.addArrangedSubview(stackPositionGrid)
-        stackPositionGrid.addArrangedSubview(positionGridTitle)
-        stackPositionGrid.addArrangedSubview(positionGridAnswer)
+        boardStack.addArrangedSubview(stackWins)
+        stackWins.addArrangedSubview(winsTitle)
+        stackWins.addArrangedSubview(winsAnswer)
     }
     
     private func setConstraints() {
         NSLayoutConstraint.activate([
 
-            stackBirth.topAnchor.constraint(equalTo: boardStack.topAnchor, constant: 20),
+            boardStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            boardStack.widthAnchor.constraint(equalTo: self.widthAnchor),
+            boardStack.topAnchor.constraint(equalTo: self.topAnchor),
+            
+            stackBirth.topAnchor.constraint(equalTo: boardStack.topAnchor, constant: 10),
             stackBirth.leadingAnchor.constraint(equalTo: boardStack.leadingAnchor, constant: 20),
+            stackBirth.trailingAnchor.constraint(equalTo: boardStack.trailingAnchor, constant: -5),
             
         ])
     }
 }
+

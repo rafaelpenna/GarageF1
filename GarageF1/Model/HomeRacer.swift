@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct HomeRacer {
     var indice: String
     var nameTeams: String
