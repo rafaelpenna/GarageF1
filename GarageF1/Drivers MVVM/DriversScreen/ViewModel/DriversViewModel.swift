@@ -9,9 +9,9 @@ import UIKit
 
 class DriversViewModel {
     
-    var dataDriversScreen: [Drivers] = [Drivers(driversPosition: "1", driversPhoto: UIImage(named: "Leclerc") ?? UIImage(), driversName: "Charles ", driversLastName: "Leclerc", teamsName: "Ferrari", currentPoints: "86"),
-                                  Drivers(driversPosition: "2", driversPhoto: UIImage(named: "Max") ?? UIImage(), driversName: "Max ", driversLastName: "Verstappen", teamsName: "Red Bull Racing", currentPoints: "80"),
-                                  Drivers(driversPosition: "3", driversPhoto: UIImage(named: "Perez") ?? UIImage(), driversName: "Sergio ", driversLastName: "Perez", teamsName: "Red Bull Racing", currentPoints: "74"),
+    var dataDriversScreen: [Drivers] = [Drivers(driversPosition: "1", driversPhoto: UIImage(named: "Leclerc1") ?? UIImage(), driversName: "Charles ", driversLastName: "Leclerc", teamsName: "Ferrari", currentPoints: "86"),
+                                  Drivers(driversPosition: "2", driversPhoto: UIImage(named: "Max-1") ?? UIImage(), driversName: "Max ", driversLastName: "Verstappen", teamsName: "Red Bull Racing", currentPoints: "80"),
+                                  Drivers(driversPosition: "3", driversPhoto: UIImage(named: "sergio") ?? UIImage(), driversName: "Sergio ", driversLastName: "Perez", teamsName: "Red Bull Racing", currentPoints: "74"),
                                   Drivers(driversPosition: "4", driversPhoto: UIImage(named: "sainz") ?? UIImage(), driversName: "Carlos ", driversLastName: "Sainz", teamsName: "Ferrari", currentPoints: "62"),
                                   Drivers(driversPosition: "5", driversPhoto: UIImage(named: "Norris") ?? UIImage(), driversName: "Lando ", driversLastName: "Norris", teamsName: "McLaren", currentPoints: "55"),
                                   Drivers(driversPosition: "6", driversPhoto: UIImage(named: "Hamilton") ?? UIImage(), driversName: "Lewis ", driversLastName: "Hamilton", teamsName: "Mercedes", currentPoints: "42"),
