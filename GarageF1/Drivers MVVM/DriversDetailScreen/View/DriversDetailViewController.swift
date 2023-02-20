@@ -13,6 +13,10 @@ class DriversDetailViewController: UIViewController {
     let driversDetailViewModel: DriversDetailViewModel = DriversDetailViewModel()
     let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
     
+    var nameDriver = ""
+    var lastNameDriver = ""
+    var driverPhoto = UIImage()
+    
     override func loadView() {
         self.view = driversDetailScreen
     }
@@ -20,6 +24,9 @@ class DriversDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         driversDetailScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        driversDetailScreen?.firstName.text = nameDriver
+        driversDetailScreen?.lastName.text = lastNameDriver
+        driversDetailScreen?.driverPhoto.image = driverPhoto
         self.view.addSubview(backButton)
     }
     
@@ -109,10 +116,5 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
-    }
-
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DriversDetailViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

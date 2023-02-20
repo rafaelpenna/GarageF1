@@ -28,14 +28,12 @@ class DriversDetailScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "Charles"
         return label
     }()
     
     lazy var lastName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Leclerc"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
@@ -44,7 +42,7 @@ class DriversDetailScreenView: UIView {
     lazy var driverPhoto: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Leclerc1")
+//        image.image = UIImage(named: "Leclerc1")
         return image
     }()
     
