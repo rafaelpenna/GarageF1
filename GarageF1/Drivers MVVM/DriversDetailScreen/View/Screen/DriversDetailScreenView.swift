@@ -104,11 +104,11 @@ class DriversDetailScreenView: UIView {
             
             driverPhoto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             driverPhoto.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            driverPhoto.heightAnchor.constraint(equalToConstant: 100),
-            driverPhoto.widthAnchor.constraint(equalToConstant: 100),
+            driverPhoto.heightAnchor.constraint(equalToConstant: 120),
+            driverPhoto.widthAnchor.constraint(equalToConstant: 120),
             
-            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
         ])
