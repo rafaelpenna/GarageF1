@@ -9,8 +9,6 @@ import UIKit
 
 class DriversDetailCustomTableViewCell: UITableViewCell {
     
-    var viewModel: DriversDetailCustomCellViewModel?
-    
     var birthDate: BirthDateCustomTableViewCellScreen = BirthDateCustomTableViewCellScreen()
     var birthLocation: BirthLocationCustomTableViewCellScreen = BirthLocationCustomTableViewCellScreen()
     var championshipsWin: ChampionshipsWinCustomTableViewCellScreen = ChampionshipsWinCustomTableViewCellScreen()
@@ -46,20 +44,6 @@ class DriversDetailCustomTableViewCell: UITableViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-
-    func setupCell(driver:DriversDetailModel){
-        self.viewModel = DriversDetailCustomCellViewModel(data: driver)
-        
-        birthDate.birthDateAnswer.text = viewModel?.getBirthDate
-        birthLocation.birbirthLocationAnswer.text = viewModel?.getBirthLocation
-        championshipsWin.championshipsWinAnswer.text = viewModel?.getChampionshipsWon
-        races.racesAnswer.text = viewModel?.getRacesParticipated
-        podiums.podiumsAnswer.text = viewModel?.getPodiumsEarned
-        points.pointsAnswer.text = viewModel?.getPointsEarned
-        bestRacePosition.bestRacePositionAnswer.text = viewModel?.getBestPositionRaces
-        bestGridPosition.bestGridPositionAnswer.text = viewModel?.getBestGridPosition
     }
     
     private func configScreenConstraints(){
