@@ -42,7 +42,6 @@ class DriversDetailScreenView: UIView {
     lazy var driverPhoto: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-//        image.image = UIImage(named: "Leclerc1")
         return image
     }()
     
