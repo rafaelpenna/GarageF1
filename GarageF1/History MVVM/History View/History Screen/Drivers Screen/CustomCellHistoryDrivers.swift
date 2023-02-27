@@ -1,13 +1,13 @@
 //
-//  CustomHistoryDriversViewSrceen.swift
+//  CustomCellHistoryDrivers.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 24/01/23.
+//  Created by Rafael Penna on 27/02/23.
 //
 
 import UIKit
 
-class CustomHistoryDriversTableViewScreen: UIView {
+class CustomCellHistoryDrivers: UIView {
     
     lazy var positionLabel: UILabel = {
         let positionLabel = UILabel()
