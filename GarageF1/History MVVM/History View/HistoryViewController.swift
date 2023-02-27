@@ -1,37 +1,16 @@
 //
-//  HistoryVC.swift
+//  HistoryViewController.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 21/01/23.
+//  Created by Rafael Penna on 27/02/23.
 //
 
 import UIKit
 
-class HistoryVC: UIViewController {
+class HistoryViewController: UIViewController {
     
-    var historyScreen: HistoryScreen? = HistoryScreen()
-    
-    var dataDrivers: [DriversHistory] = [DriversHistory(position: "1", driversName: "Charles ", lastName: "Leclerc", teamsName: "Ferrari", seasonPoints: "86"),
-        DriversHistory(position: "2", driversName: "Max ", lastName: "Verstappen", teamsName: "Red Bull Racing", seasonPoints: "80"),
-        DriversHistory(position: "3", driversName: "Sergio ", lastName: "Perez", teamsName: "Red Bull Racing", seasonPoints: "74"),
-        DriversHistory(position: "4", driversName: "Carlos ", lastName: "Sainz", teamsName: "Ferrari", seasonPoints: "62"),
-        DriversHistory(position: "5", driversName: "Lando ", lastName: "Norris", teamsName: "McLaren", seasonPoints: "55"),
-        DriversHistory(position: "6", driversName: "Lewis ", lastName: "Hamilton", teamsName: "Mercedes", seasonPoints: "42"),
-        DriversHistory(position: "7", driversName: "Sebastian ", lastName: "Vettel", teamsName: "Aston Martin", seasonPoints: "33"),
-        DriversHistory(position: "8", driversName: "Valtteri ", lastName: "Bottas", teamsName: "Alfa Romeo", seasonPoints: "28"),
-        DriversHistory(position: "9", driversName: "George ", lastName: "Russel", teamsName: "Mercedes", seasonPoints: "24")]
-    
-    var dataTeams: [TeamsHistory] = [TeamsHistory(position: "1", teamsName: "Ferrari", seasonPoints: "613"),
-                                     TeamsHistory(position: "2", teamsName: "Red Bull Racing", seasonPoints: "585"),
-                                     TeamsHistory(position: "3", teamsName: "Mercedes", seasonPoints: "343"),
-                                     TeamsHistory(position: "4", teamsName: "McLaren", seasonPoints: "375"),
-                                     TeamsHistory(position: "5", teamsName: "Aston Martin", seasonPoints: "255"),
-                                     TeamsHistory(position: "6", teamsName: "Alpha Tauri", seasonPoints: "142"),
-                                     TeamsHistory(position: "7", teamsName: "Alpine", seasonPoints: "77"),
-                                     TeamsHistory(position: "8", teamsName: "Haas F1 Team", seasonPoints: "23"),
-                                     TeamsHistory(position: "9", teamsName: "Williams", seasonPoints: "15"),
-                                     TeamsHistory(position: "10", teamsName: "Alfa Romeo", seasonPoints: "0")]
-    
+    let historyScreen: HistoryScreenView? = HistoryScreenView()
+    let historyViewModel: HistoryViewModel = HistoryViewModel()
     
     override func loadView() {
         view = historyScreen
@@ -43,7 +22,6 @@ class HistoryVC: UIViewController {
         historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         buttonTeams(buttonTeamsVC)
         buttonDrivers(buttonDriversVC)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -108,24 +86,24 @@ class HistoryVC: UIViewController {
 
 }
 
-extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
+extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             if buttonDriversVC.isSelected == true {
-                return dataDrivers.count
+                return historyViewModel.dataDrivers.count
             } else {
-                return dataTeams.count
+                return historyViewModel.dataTeams.count
             }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if historyScreen?.tableViewDrivers.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
-                cell?.setupCell(data: dataDrivers[indexPath.row])
+            cell?.setupCell(data: historyViewModel.dataDrivers[indexPath.row])
                 return cell ?? UITableViewCell()
             } else {
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
-                cell?.setupCell(data: dataTeams[indexPath.row])
+                cell?.setupCell(data: historyViewModel.dataTeams[indexPath.row])
                 return cell ?? UITableViewCell()
             }
     }
@@ -135,4 +113,3 @@ extension HistoryVC: UITableViewDelegate, UITableViewDataSource {
     }
         
 }
-
