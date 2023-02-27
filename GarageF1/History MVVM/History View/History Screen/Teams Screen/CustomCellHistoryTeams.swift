@@ -1,13 +1,14 @@
 //
-//  CustomHistoryTeamsDriversScreen.swift
+//  CustomCellHistoryTeams.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 30/01/23.
+//  Created by Rafael Penna on 27/02/23.
 //
+
 
 import UIKit
 
-class CustomHistoryTeamsTableViewScreen: UIView {
+class CustomCellHistoryTeams: UIView {
     
     lazy var positionLabel: UILabel = {
         let positionLabel = UILabel()
@@ -76,3 +77,4 @@ class CustomHistoryTeamsTableViewScreen: UIView {
     }
 
 }
+
