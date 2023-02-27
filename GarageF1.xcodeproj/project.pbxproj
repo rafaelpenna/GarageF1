@@ -259,6 +259,7 @@
 				0B9509CF2963C4B100069D7D /* Controllers */,
 				0BAD883629591EF900CCC859 /* Views */,
 				1C5170F729998C9A00DDDC18 /* Drivers MVVM */,
+				1C1FED4229AC3FA900B989EE /* History MVVM */,
 				0B4CC6222953E90800D29D4C /* SceneDelegate.swift */,
 				0B4CC6202953E90800D29D4C /* AppDelegate.swift */,
 				0B4CC6292953E90900D29D4C /* Assets.xcassets */,
@@ -465,6 +466,53 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1C1FED4229AC3FA900B989EE /* History MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FED4329AC3FEC00B989EE /* History Model */,
+				1C1FED4429AC400D00B989EE /* History ViewModel */,
+				1C1FED4529AC403400B989EE /* History View */,
+			);
+			path = "History MVVM";
+			sourceTree = "<group>";
+		};
+		1C1FED4329AC3FEC00B989EE /* History Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "History Model";
+			sourceTree = "<group>";
+		};
+		1C1FED4429AC400D00B989EE /* History ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "History ViewModel";
+			sourceTree = "<group>";
+		};
+		1C1FED4529AC403400B989EE /* History View */ = {
+			isa = PBXGroup;
+			children = (
+				1C1FED4729AC407E00B989EE /* Teams Screen */,
+				1C1FED4629AC407100B989EE /* Drivers Screen */,
+			);
+			path = "History View";
+			sourceTree = "<group>";
+		};
+		1C1FED4629AC407100B989EE /* Drivers Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Drivers Screen";
+			sourceTree = "<group>";
+		};
+		1C1FED4729AC407E00B989EE /* Teams Screen */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Teams Screen";
+			sourceTree = "<group>";
+		};
 		1C3BA777298D28A6001D145E /* StandingsTrack-TableView-Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,7 +537,6 @@
 			children = (
 				1CB39D26299D2F58009DBE86 /* Cell */,
 				1C5170E929997A9B00DDDC18 /* View */,
-				1C5170EB29997AB000DDDC18 /* ViewModel */,
 			);
 			path = DriversDetailScreen;
 			sourceTree = "<group>";
@@ -501,13 +548,6 @@
 				1C5170F429997FC100DDDC18 /* Screen */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1C5170EB29997AB000DDDC18 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1C5170F429997FC100DDDC18 /* Screen */ = {
@@ -531,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				1CB39D27299D302B009DBE86 /* View */,
-				1CB39D28299D3033009DBE86 /* ViewModel */,
 				1CB39D29299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift */,
 			);
 			path = Cell;
@@ -550,13 +589,6 @@
 				1CB39D3B299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1CB39D28299D3033009DBE86 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		1CD44CC8298010C000E4B9DD /* HistoryDrivers-TableView-Cell */ = {
