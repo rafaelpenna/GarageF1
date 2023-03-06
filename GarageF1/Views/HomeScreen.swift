@@ -2,15 +2,15 @@
 //  HomeScreen.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 09/01/23.
+//  Created by Ellington Cavalcante on 08/02/23.
 //
 
 import UIKit
 
 protocol homeScreenProtocol: AnyObject {
     func actionSimulationButton()
+    func actionFullResultButton()
 }
-
 
 class HomeScreen: UIView {
     
@@ -19,41 +19,44 @@ class HomeScreen: UIView {
         self.delegate = delegate
     }
     
+    private lazy var topLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
     
+    private lazy var racingLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Home"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        return label
+    }()
     
-//    private lazy var scrollView: UIScrollView = {
-//        let scrollView = UIScrollView()
-//        scrollView.translatesAutoresizingMaskIntoConstraints = false
-//        scrollView.showsVerticalScrollIndicator = true
-//        scrollView.isDirectionalLockEnabled = true
-//        scrollView.showsHorizontalScrollIndicator = false
-////        scrollView.backgroundColor = .systemBlue
-//        let contentViewHeightConstraint = scrollView.heightAnchor.constraint(equalTo: self.heightAnchor)
-//        contentViewHeightConstraint.priority = .defaultLow
-//        return scrollView
-//    }()
-//
-//    private lazy var contentView: UIView = {
-//        let contentView = UIView()
-//        contentView.translatesAutoresizingMaskIntoConstraints = false
-//        return contentView
-//    }()
+    private let scrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
-//    private lazy var stackView: UIStackView = {
-//       let stackView = UIStackView()
-//        stackView.translatesAutoresizingMaskIntoConstraints = false
-//        stackView.axis = .vertical
-//        return stackView
-//    }()
-//    
+    private let scrollStackViewContainer: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.spacing = 2
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     private lazy var bemVindoLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Bem-Vindo!"
         label.numberOfLines = 1
         label.font = UIFont.boldSystemFont(ofSize: 25)
-        //        label.backgroundColor = .blue
         label.textColor = .black
+        
         return label
     }()
     
@@ -63,8 +66,8 @@ class HomeScreen: UIView {
         label.text = "Ellington Cavalcante"
         label.numberOfLines = 1
         label.font = UIFont.systemFont(ofSize: 15)
-        //        label.backgroundColor = .blue
         label.textColor = .black
+        label.heightAnchor.constraint(equalToConstant: 20).isActive = true
         return label
     }()
     
@@ -74,12 +77,12 @@ class HomeScreen: UIView {
         label.text = "Destaques da temporada"
         label.numberOfLines = 1
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        //        label.backgroundColor = .blue
         label.textColor = .black
+        label.heightAnchor.constraint(equalToConstant: 23).isActive = true
         return label
     }()
     
-    private lazy var destaquesCollection: UICollectionView = {
+     lazy var destaquesCollection: UICollectionView = {
         let collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: UICollectionViewLayout.init())
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.showsHorizontalScrollIndicator = false
@@ -88,29 +91,19 @@ class HomeScreen: UIView {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
         collection.setCollectionViewLayout(layout, animated: false)
-//                collection.backgroundColor = .brown
+        collection.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return collection
     }()
     
-    private lazy var simulationButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Faça sua simulação", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
-        button.setTitleColor(.black, for: .normal)
-        button.addTarget(self, action: #selector(tappedSimulationButton), for: .touchUpInside)
-//        button.backgroundColor = .blue
-        return button
-    }()
-    
-    private lazy var quemEMelhor: UILabel = {
+    private lazy var quemÉMelhorLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Quem é melhor?"
+        label.text = "Quem é o melhor?"
         label.numberOfLines = 1
         label.font = UIFont.boldSystemFont(ofSize: 20)
-        //        label.backgroundColor = .blue
         label.textColor = .black
+        label.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        label.heightAnchor.constraint(equalToConstant: 23).isActive = true
         return label
     }()
     
@@ -123,19 +116,30 @@ class HomeScreen: UIView {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = .horizontal
         collection.setCollectionViewLayout(layout, animated: false)
-        collection.backgroundColor = .brown
+        collection.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return collection
     }()
     
-    private lazy var resultadosDaTemporada: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Resultados da temporada"
-        label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 20)
-        //        label.backgroundColor = .blue
-        label.textColor = .black
-        return label
+    private lazy var DuelImage: UIImageView = {
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(named: "ayrton")
+        image.contentMode = .scaleAspectFit
+        image.clipsToBounds = true
+        image.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        return image
+    }()
+    
+    private lazy var simulationButton: UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Faça sua simulação", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
+        button.setTitleColor(.black, for: .normal)
+        button.addTarget(self, action: #selector(tappedSimulationButton), for: .touchUpInside)
+        button.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+        button.heightAnchor.constraint(equalToConstant: 23).isActive = true
+        return button
     }()
     
     private lazy var tableView: UITableView = {
@@ -145,62 +149,40 @@ class HomeScreen: UIView {
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .darkGray
         tableView.register(ResultsTableViewCell.self, forCellReuseIdentifier: ResultsTableViewCell.identifier)
+        tableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         return tableView
         
     }()
     
-    private lazy var completeResultButton: UIButton = {
+    private lazy var fullResultButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Conferir resultado completo", for: .normal)
+        button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
         button.setTitleColor(.black, for: .normal)
-        button.backgroundColor = .blue
+        button.addTarget(self, action: #selector(tappedFullResultButton), for: .touchUpInside)
+        button.backgroundColor = UIColor(red: 220/255, green: 220/255, blue: 220/255, alpha: 1.0)
+        button.heightAnchor.constraint(equalToConstant: 23).isActive = true
+
         return button
     }()
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addElements()
-        backGroundColor()
-        setUpConstraints()
-        
+        setupScrollView()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func tappedSimulationButton(){
+    @objc func tappedSimulationButton() {
         delegate?.actionSimulationButton()
     }
     
-    private func addElements() {
-        
-//        addSubview(scrollView)
-//        addSubview(contentView)
-//        addSubview(stackView)
-//        stackView.addArrangedSubview(bemVindoLabel)
-//        stackView.addArrangedSubview(userNameLabel)
-//        stackView.addArrangedSubview(destaquesLabel)
-//        stackView.addArrangedSubview(destaquesCollection)
-//        stackView.addArrangedSubview(simulationButton)
-//        stackView.addArrangedSubview(quemEMelhor)
-//        stackView.addArrangedSubview(dueloCollection)
-//        stackView.addArrangedSubview(resultadosDaTemporada)
-//        stackView.addArrangedSubview(tableView)
-//        stackView.addArrangedSubview(completeResultButton)
-
-        addSubview(bemVindoLabel)
-        addSubview(userNameLabel)
-        addSubview(destaquesLabel)
-        addSubview(destaquesCollection)
-        addSubview(simulationButton)
-        addSubview(quemEMelhor)
-        addSubview(dueloCollection)
-        addSubview(resultadosDaTemporada)
-        addSubview(tableView)
-        addSubview(completeResultButton)
-        
+    @objc func tappedFullResultButton() {
+        delegate?.actionFullResultButton()
     }
     
     func configTableViewDelegate(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
@@ -218,79 +200,51 @@ class HomeScreen: UIView {
         dueloCollection.dataSource = dataSource
     }
     
-    private func backGroundColor() {
-        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1.0)
-    }
-    
-    private func setUpConstraints() {
+    private func configConstraints(){
         NSLayoutConstraint.activate([
             
-//            scrollView.topAnchor.constraint(equalTo: topAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//
-//            contentView.topAnchor.constraint(equalTo: topAnchor),
-//            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//
-//
-//            stackView.topAnchor.constraint(equalTo: topAnchor),
-//            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topLabel.topAnchor.constraint(equalTo: topAnchor),
+            topLabel.heightAnchor.constraint(equalToConstant: 115),
             
-            bemVindoLabel.topAnchor.constraint(equalTo: topAnchor, constant: 70),
-            bemVindoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            bemVindoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -230),
-            bemVindoLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            userNameLabel.topAnchor.constraint(equalTo: bemVindoLabel.bottomAnchor, constant: 5),
-            userNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            userNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -220),
-            userNameLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            destaquesLabel.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 9),
-            destaquesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            destaquesLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
-            destaquesLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            destaquesCollection.topAnchor.constraint(equalTo: destaquesLabel.topAnchor, constant: 20),
-            destaquesCollection.leadingAnchor.constraint(equalTo: leadingAnchor),
-            destaquesCollection.trailingAnchor.constraint(equalTo: trailingAnchor),
-            destaquesCollection.bottomAnchor.constraint(equalTo: bottomAnchor,constant: -500),
-            
-            quemEMelhor.topAnchor.constraint(equalTo: destaquesCollection.bottomAnchor, constant: 9),
-            quemEMelhor.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            quemEMelhor.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
-            quemEMelhor.heightAnchor.constraint(equalToConstant: 20),
-            
-            dueloCollection.topAnchor.constraint(equalTo: quemEMelhor.bottomAnchor, constant: 9),
-            dueloCollection.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            dueloCollection.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            dueloCollection.heightAnchor.constraint(equalToConstant: 200),
-            
-            simulationButton.topAnchor.constraint(equalTo: dueloCollection.bottomAnchor, constant: 5),
-            simulationButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 220),
-            simulationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            simulationButton.heightAnchor.constraint(equalToConstant: 20),
-            
-            resultadosDaTemporada.topAnchor.constraint(equalTo: simulationButton.bottomAnchor, constant: 15),
-            resultadosDaTemporada.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            resultadosDaTemporada.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
-            resultadosDaTemporada.heightAnchor.constraint(equalToConstant: 20),
-            
-            tableView.topAnchor.constraint(equalTo: resultadosDaTemporada.topAnchor, constant: 20),
-            tableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
-            
-            completeResultButton.topAnchor.constraint(equalTo: tableView.bottomAnchor, constant: 5),
-            completeResultButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 150),
-            completeResultButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            completeResultButton.heightAnchor.constraint(equalToConstant: 20),
+            racingLabel.centerYAnchor.constraint(equalTo: topLabel.centerYAnchor),
+            racingLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
     
+    private func setupScrollView() {
+        let margins = layoutMarginsGuide
+        
+        addSubview(topLabel)
+        addSubview(racingLabel)
+        addSubview(scrollView)
+        scrollView.addSubview(scrollStackViewContainer)
+        scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
+        scrollView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+        
+        scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollStackViewContainer.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollStackViewContainer.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        scrollStackViewContainer.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        
+        configureContainerView()
+        
+    }
+    
+    private func configureContainerView() {
+        scrollStackViewContainer.addArrangedSubview(bemVindoLabel)
+        scrollStackViewContainer.addArrangedSubview(userNameLabel)
+        scrollStackViewContainer.addArrangedSubview(destaquesLabel)
+        scrollStackViewContainer.addArrangedSubview(destaquesCollection)
+        scrollStackViewContainer.addArrangedSubview(quemÉMelhorLabel)
+        scrollStackViewContainer.addArrangedSubview(dueloCollection)
+        scrollStackViewContainer.addArrangedSubview(simulationButton)
+        scrollStackViewContainer.addArrangedSubview(tableView)
+        scrollStackViewContainer.addArrangedSubview(fullResultButton)
+    }
+
 }

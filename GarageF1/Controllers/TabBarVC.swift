@@ -11,8 +11,8 @@ class TabBarVC: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-            setupVCs()
-            configTaBar()
+        setupVCs()
+        configTaBar()
     }
     
     private func createNavController(for rootViewController: UIViewController,
@@ -33,8 +33,8 @@ class TabBarVC: UITabBarController {
                 viewControllers = [
                     createNavController(for: HomeVC(), title: "Home", image: UIImage(systemName: "house") ?? UIImage()),
                     createNavController(for: RacingVC(), title: "Racing", image: UIImage(systemName: "flag.checkered.2.crossed") ?? UIImage()),
-                    createNavController(for: DriversVC(), title: "Drivers", image: UIImage(systemName: "crown") ?? UIImage()),
-                    createNavController(for: HistoryVC(), title: "History", image: UIImage(systemName: "doc.text.magnifyingglass") ?? UIImage())
+                    createNavController(for: DriversViewController(), title: "Drivers", image: UIImage(systemName: "crown") ?? UIImage()),
+                    createNavController(for: HistoryViewController(), title: "History", image: UIImage(systemName: "doc.text.magnifyingglass") ?? UIImage())
                 ]
         }
     
