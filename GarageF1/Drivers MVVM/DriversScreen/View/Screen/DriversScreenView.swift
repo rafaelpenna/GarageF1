@@ -40,6 +40,7 @@ class DriversScreenView: UIView {
         self.addSubview(self.tableViewInfoDrivers)
         self.addSubview(self.topRedLabel)
         self.addSubview(self.driversHeadLabel)
+        backgroundColor = .white
         self.configConstraints()
     }
     
@@ -62,12 +63,12 @@ class DriversScreenView: UIView {
             topRedLabel.heightAnchor.constraint(equalToConstant: 115),
             
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            driversHeadLabel.centerYAnchor.constraint(equalTo: topRedLabel.centerYAnchor),
-            driversHeadLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            driversHeadLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -20),
+            driversHeadLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
         ])
     }
 }

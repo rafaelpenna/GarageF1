@@ -28,14 +28,12 @@ class DriversDetailScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "Charles"
         return label
     }()
     
     lazy var lastName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Leclerc"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
@@ -44,7 +42,6 @@ class DriversDetailScreenView: UIView {
     lazy var driverPhoto: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.image = UIImage(named: "Leclerc1")
         return image
     }()
     
@@ -107,11 +104,11 @@ class DriversDetailScreenView: UIView {
             
             driverPhoto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             driverPhoto.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            driverPhoto.heightAnchor.constraint(equalToConstant: 100),
-            driverPhoto.widthAnchor.constraint(equalToConstant: 100),
+            driverPhoto.heightAnchor.constraint(equalToConstant: 120),
+            driverPhoto.widthAnchor.constraint(equalToConstant: 120),
             
-            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
         ])

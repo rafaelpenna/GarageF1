@@ -25,7 +25,6 @@ class BirthDateCustomTableViewCellScreen: UITableViewCell {
     var birthDateAnswer: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
-        variable.text = "Data de Nascimento"
         variable.font = UIFont.boldSystemFont(ofSize: 22)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0

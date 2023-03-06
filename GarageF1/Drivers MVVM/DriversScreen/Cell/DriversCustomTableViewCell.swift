@@ -31,7 +31,7 @@ class DriversCustomTableViewCell: UITableViewCell {
         screen.positionLabel.text = viewModel?.getDriversPosition
         screen.photoDriverImageView.image = viewModel?.getDriversPhoto
         screen.nameLabel.text = viewModel?.getDriversName
-        screen.nameLabel.text = viewModel?.getDriversLastName
+        screen.lastNameLabel.text = viewModel?.getDriversLastName
         screen.teamLabel.text = viewModel?.getTeam
         screen.pointsLabel.text = viewModel?.getPoints
     }
