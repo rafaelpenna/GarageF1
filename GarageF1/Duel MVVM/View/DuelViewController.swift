@@ -17,7 +17,7 @@ class DuelViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        customTableViewCell?.setupTableViewProtocols(delegate: self, dataSource: self)
+        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         view.addSubview(backButton)
     }
     
@@ -40,7 +40,7 @@ class DuelViewController: UIViewController {
 extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 17
+        return 7
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,6 +105,6 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 60
     }
 }

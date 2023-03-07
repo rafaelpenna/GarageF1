@@ -85,10 +85,19 @@ class DuelScreenView: UIView {
         return tableView
     }()
     
-    private lazy var tableInfoRight: TableInfoLeft = {
-        let variable = TableInfoLeft()
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        return variable
+    private lazy var tableInfoRight: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.register(DuelBirthDateCustomTableViewCell.self, forCellReuseIdentifier: "DuelBirthDateCustomTableViewCell")
+        tableView.register(DuelBirthLocationCustomTableViewCell.self, forCellReuseIdentifier: "DuelBirthLocationCustomTableViewCell")
+        tableView.register(DuelChampionshipsWonCustomTableViewCell.self, forCellReuseIdentifier: "DuelChampionshipsWonCustomTableViewCell")
+        tableView.register(DuelRacesParticipatedCustomTableViewCell.self, forCellReuseIdentifier: "DuelRacesParticipatedCustomTableViewCell")
+        tableView.register(DuelPodiumsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPodiumsEarnedCustomTableViewCell")
+        tableView.register(DuelPointsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPointsEarnedCustomTableViewCell")
+        tableView.register(DuelWinsCustomTableViewCell.self, forCellReuseIdentifier: "DuelWinsCustomTableViewCell")
+        return tableView
     }()
     
     lazy var backButtonNavigation: UIButton = {
@@ -117,8 +126,8 @@ class DuelScreenView: UIView {
         self.addSubview(self.rightArrow)
         self.addSubview(self.backButtonNavigation)
         self.addSubview(self.tableInfoLeft)
-//        self.addSubview(self.tableInfoRight)
-//        self.addSubview(self.divisionTablesLabel)
+        self.addSubview(self.tableInfoRight)
+        self.addSubview(self.divisionTablesLabel)
         self.backgroundColor = .white
         constraintsScreen()
         
@@ -169,20 +178,19 @@ class DuelScreenView: UIView {
             backButtonNavigation.widthAnchor.constraint(equalToConstant: 20),
             
             tableInfoLeft.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-//            tableInfoLeft.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
-            tableInfoLeft.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableInfoLeft.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
             tableInfoLeft.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor),
             tableInfoLeft.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
             
-//            tableInfoRight.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-//            tableInfoRight.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
-//            tableInfoRight.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor),
-//            tableInfoRight.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+            tableInfoRight.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            tableInfoRight.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
+            tableInfoRight.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor),
+            tableInfoRight.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
             
-//            divisionTablesLabel.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: 20),
-//            divisionTablesLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-//            divisionTablesLabel.heightAnchor.constraint(equalTo: tableInfoLeft.heightAnchor),
-//            divisionTablesLabel.widthAnchor.constraint(equalToConstant: 2),
+            divisionTablesLabel.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: 20),
+            divisionTablesLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divisionTablesLabel.heightAnchor.constraint(equalTo: tableInfoLeft.heightAnchor),
+            divisionTablesLabel.widthAnchor.constraint(equalToConstant: 2),
         ])
     }
 }
