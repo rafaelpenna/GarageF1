@@ -10,6 +10,17 @@ import UIKit
 class DuelViewController: UIViewController {
     
     var duelScreen: DuelScreenView? = DuelScreenView()
+    var duelViewModel: DuelViewModel? = DuelViewModel()
+    
+    var nameDriver = "Nome"
+    var lastNameDriver = "Sobrenome"
+    var birthDate = "02/03/1990"
+    var birthLocation = "São Paulo"
+    var championshipsWon = ""
+    var racesParticipated = ""
+    var podiumsEarned = ""
+    var pointsEarned = ""
+    var wins = ""
     
     override func loadView() {
         self.view = duelScreen
@@ -18,6 +29,8 @@ class DuelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        duelScreen?.driversFirstNameLeft.text = nameDriver
+        duelScreen?.driversLastNameLeft.text = lastNameDriver
         view.addSubview(backButton)
     }
     
@@ -48,7 +61,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthDateCustomTableViewCell.identifier) as? DuelBirthDateCustomTableViewCell
             cell?.configure()
             let backgroundView = UIView()
-//            cell?.birthDateAnswer.text = driversBirthDate
+            cell?.birthDateAnswer.text = birthDate
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -56,7 +69,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthLocationCustomTableViewCell.identifier) as? DuelBirthLocationCustomTableViewCell
             cell?.configure()
             let backgroundView = UIView()
-//            cell?.birthLocationAnswer.text = driversBirthLocation
+            cell?.birthLocationAnswer.text = birthLocation
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()

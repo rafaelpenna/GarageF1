@@ -54,11 +54,6 @@
 		1C3BA77B298D2905001D145E /* CustomStandingsTableViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3BA77A298D2905001D145E /* CustomStandingsTableViewScreen.swift */; };
 		1C3BA77D298D2B7B001D145E /* StangingsTrackScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C3BA77C298D2B7B001D145E /* StangingsTrackScreen.swift */; };
 		1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */; };
-		1C5146DB298BDDD300D85C34 /* Duel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146DA298BDDD300D85C34 /* Duel.swift */; };
-		1C5146DD298BDE9600D85C34 /* DuelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146DC298BDE9600D85C34 /* DuelVC.swift */; };
-		1C5146E2298BF2E100D85C34 /* DuelStackInfoLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */; };
-		1C5146E4298BF2F400D85C34 /* DuelStackInfoRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */; };
-		1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */; };
 		1C5170F129997FA300DDDC18 /* DriversDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5170F029997FA300DDDC18 /* DriversDetailViewController.swift */; };
 		1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5170F529997FDB00DDDC18 /* DriversDetailScreenView.swift */; };
 		1C550FB529AD256F00AC2E51 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FB429AD256F00AC2E51 /* HistoryViewController.swift */; };
@@ -79,8 +74,6 @@
 		1C726E4C29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4B29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift */; };
 		1C726E4E29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4D29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift */; };
 		1C726E5029B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */; };
-		1C726E5329B7AF15006591C9 /* TableInfoLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E5229B7AF15006591C9 /* TableInfoLeft.swift */; };
-		1C726E5529B7B196006591C9 /* TableInfoLetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E5429B7B196006591C9 /* TableInfoLetViewController.swift */; };
 		1C726E5629B7BAD5006591C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B10DD57295A931700CB397A /* GoogleService-Info.plist */; };
 		1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D29299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift */; };
 		1CB39D2C299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D2B299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift */; };
@@ -170,11 +163,6 @@
 		1C3BA77A298D2905001D145E /* CustomStandingsTableViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStandingsTableViewScreen.swift; sourceTree = "<group>"; };
 		1C3BA77C298D2B7B001D145E /* StangingsTrackScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StangingsTrackScreen.swift; sourceTree = "<group>"; };
 		1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTeamsTableViewCell.swift; sourceTree = "<group>"; };
-		1C5146DA298BDDD300D85C34 /* Duel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Duel.swift; sourceTree = "<group>"; };
-		1C5146DC298BDE9600D85C34 /* DuelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelVC.swift; sourceTree = "<group>"; };
-		1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoLeft.swift; sourceTree = "<group>"; };
-		1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackInfoRight.swift; sourceTree = "<group>"; };
-		1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelStackVC.swift; sourceTree = "<group>"; };
 		1C5170F029997FA300DDDC18 /* DriversDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailViewController.swift; sourceTree = "<group>"; };
 		1C5170F529997FDB00DDDC18 /* DriversDetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailScreenView.swift; sourceTree = "<group>"; };
 		1C550FB429AD256F00AC2E51 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -195,8 +183,6 @@
 		1C726E4B29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelPodiumsEarnedCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4D29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelPointsEarnedCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelWinsCustomTableViewCell.swift; sourceTree = "<group>"; };
-		1C726E5229B7AF15006591C9 /* TableInfoLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInfoLeft.swift; sourceTree = "<group>"; };
-		1C726E5429B7B196006591C9 /* TableInfoLetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInfoLetViewController.swift; sourceTree = "<group>"; };
 		1CB39D29299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1CB39D2B299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CB39D2F299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthLocationCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
@@ -327,7 +313,6 @@
 				0BCE0FDC296A03F900902EF5 /* HomeVC.swift */,
 				0BBE0287297CAB4400D19D12 /* RacingVC.swift */,
 				0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */,
-				1C5146DC298BDE9600D85C34 /* DuelVC.swift */,
 				1C3BA773298D210E001D145E /* StandingsTrackVC.swift */,
 			);
 			path = Controllers;
@@ -349,7 +334,6 @@
 				0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */,
 				1C3BA771298D202B001D145E /* Standings.swift */,
 				1C3BA775298D2732001D145E /* Track.swift */,
-				1C5146DA298BDDD300D85C34 /* Duel.swift */,
 				0BE956C22991D32B00F53A79 /* DataRacer.swift */,
 			);
 			path = Model;
@@ -369,7 +353,6 @@
 			children = (
 				0BE956BD2991C21D00F53A79 /* RacingCustomTableView */,
 				1C3BA777298D28A6001D145E /* StandingsTrack-TableView-Cell */,
-				1C5146E0298BF2A900D85C34 /* Duel-StackViews */,
 				0BB40043297B6145004BB3F5 /* Home-Collection-TableView-Cell */,
 				0BBE0285297CAB1700D19D12 /* RacingScreen.swift */,
 				0BF8A824296CE2AF0058D545 /* HomeScreen.swift */,
@@ -544,16 +527,6 @@
 			path = "StandingsTrack-TableView-Cell";
 			sourceTree = "<group>";
 		};
-		1C5146E0298BF2A900D85C34 /* Duel-StackViews */ = {
-			isa = PBXGroup;
-			children = (
-				1C5146E1298BF2E100D85C34 /* DuelStackInfoLeft.swift */,
-				1C5146E3298BF2F400D85C34 /* DuelStackInfoRight.swift */,
-				1C5146E5298C24BE00D85C34 /* DuelStackVC.swift */,
-			);
-			path = "Duel-StackViews";
-			sourceTree = "<group>";
-		};
 		1C5170E829997A5B00DDDC18 /* DriversDetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,7 +611,6 @@
 		1C726E3629B798FE006591C9 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				1C726E5129B7ADE0006591C9 /* Table Info Drivers Left */,
 				1C726E3929B79B6E006591C9 /* DuelScreenView.swift */,
 			);
 			path = Screen;
@@ -665,15 +637,6 @@
 				1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		1C726E5129B7ADE0006591C9 /* Table Info Drivers Left */ = {
-			isa = PBXGroup;
-			children = (
-				1C726E5229B7AF15006591C9 /* TableInfoLeft.swift */,
-				1C726E5429B7B196006591C9 /* TableInfoLetViewController.swift */,
-			);
-			path = "Table Info Drivers Left";
 			sourceTree = "<group>";
 		};
 		1CB39D26299D2F58009DBE86 /* Cell */ = {
@@ -971,7 +934,6 @@
 				1C550FC029AD3EF500AC2E51 /* CustomCellHistoryTeams.swift in Sources */,
 				0BE956C32991D32B00F53A79 /* DataRacer.swift in Sources */,
 				1CDF8DD029AEBDA40051E9F1 /* DriversData.swift in Sources */,
-				1C5146DB298BDDD300D85C34 /* Duel.swift in Sources */,
 				0B4CC6212953E90800D29D4C /* AppDelegate.swift in Sources */,
 				1C3BA77B298D2905001D145E /* CustomStandingsTableViewScreen.swift in Sources */,
 				1C550FB729AD27D200AC2E51 /* HistoryModel.swift in Sources */,
@@ -991,12 +953,9 @@
 				1CB39D32299D3B95009DBE86 /* ChampionshipsWinCustomTableViewCellScreen.swift in Sources */,
 				1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */,
 				1CB39D30299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift in Sources */,
-				1C726E5329B7AF15006591C9 /* TableInfoLeft.swift in Sources */,
 				0BF8A825296CE2AF0058D545 /* HomeScreen.swift in Sources */,
 				0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */,
-				1C5146E2298BF2E100D85C34 /* DuelStackInfoLeft.swift in Sources */,
 				0B23C44F297396F70080D242 /* DestaquesCollectionViewCell.swift in Sources */,
-				1C726E5529B7B196006591C9 /* TableInfoLetViewController.swift in Sources */,
 				1C5170F129997FA300DDDC18 /* DriversDetailViewController.swift in Sources */,
 				1C0C68462996E14E00A7C1BE /* DriversScreenView.swift in Sources */,
 				0BBE0288297CAB4400D19D12 /* RacingVC.swift in Sources */,
@@ -1007,7 +966,6 @@
 				1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */,
 				0BA8BC3329747D2E003B2D9C /* ResultsTableViewCell.swift in Sources */,
 				0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */,
-				1C5146E4298BF2F400D85C34 /* DuelStackInfoRight.swift in Sources */,
 				1CB39D38299D3BDE009DBE86 /* PointsCustomTableViewCellScreen.swift in Sources */,
 				1C726E3C29B7A430006591C9 /* DuelViewModel.swift in Sources */,
 				1C550FB529AD256F00AC2E51 /* HistoryViewController.swift in Sources */,
@@ -1034,13 +992,11 @@
 				0BAD883A295922E600CCC859 /* LoginVC.swift in Sources */,
 				0B23C451297397760080D242 /* DestaquesCollectionViewCellScreen.swift in Sources */,
 				1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */,
-				1C5146E6298C24BE00D85C34 /* DuelStackVC.swift in Sources */,
 				1C0C684C2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift in Sources */,
 				1C0C68412996DC0700A7C1BE /* DriversViewModel.swift in Sources */,
 				0BBE027E297C7B5800D19D12 /* SimulationDuelScreen.swift in Sources */,
 				0BAD883829591FC800CCC859 /* LoginScreen.swift in Sources */,
 				1C726E3A29B79B6E006591C9 /* DuelScreenView.swift in Sources */,
-				1C5146DD298BDE9600D85C34 /* DuelVC.swift in Sources */,
 				0B10DD56295A87B500CB397A /* RegisterLoginVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

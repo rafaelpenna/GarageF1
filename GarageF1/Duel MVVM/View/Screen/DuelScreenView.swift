@@ -25,14 +25,14 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "Michael"
+        label.text = "Kimi"
         return label
     }()
     
     lazy var driversLastNameLeft: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Schumacher"
+        label.text = "Hakkinen"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
@@ -50,14 +50,14 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
         label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "Max"
+        label.text = "David"
         return label
     }()
     
     lazy var driversLastNameRight: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Verstappen"
+        label.text = "Coulthard"
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 25)
         return label
@@ -140,6 +140,8 @@ class DuelScreenView: UIView {
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
         self.tableInfoLeft.delegate = delegate
         self.tableInfoLeft.dataSource = dataSource
+        self.tableInfoRight.delegate = delegate
+        self.tableInfoRight.dataSource = dataSource
     }
     
     private func constraintsScreen(){
@@ -150,30 +152,30 @@ class DuelScreenView: UIView {
             duelTopLabel.topAnchor.constraint(equalTo: self.topAnchor),
             duelTopLabel.heightAnchor.constraint(equalToConstant: 180),
             
-            driversFirstNameLeft.leadingAnchor.constraint(equalTo: duelTopLabel.leadingAnchor, constant: 35),
+            driversFirstNameLeft.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 35),
             driversFirstNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameLeft.leadingAnchor.constraint(equalTo: duelTopLabel.leadingAnchor, constant: 15),
+            driversLastNameLeft.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
             driversLastNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
             
-            leftArrow.leadingAnchor.constraint(equalTo: duelTopLabel.leadingAnchor, constant: 165),
+            leftArrow.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 165),
             leftArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            driversFirstNameRight.trailingAnchor.constraint(equalTo: duelTopLabel.trailingAnchor, constant: -75),
+            driversFirstNameRight.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -75),
             driversFirstNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameRight.trailingAnchor.constraint(equalTo: duelTopLabel.trailingAnchor, constant: -30),
+            driversLastNameRight.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
             driversLastNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
                         
-            rightArrow.trailingAnchor.constraint(equalTo: duelTopLabel.trailingAnchor, constant: -10),
+            rightArrow.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
             rightArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),
             
             backButtonNavigation.topAnchor.constraint(equalTo: duelTopLabel.topAnchor, constant: 45),
-            backButtonNavigation.leadingAnchor.constraint(equalTo: duelTopLabel.leadingAnchor, constant: 20),
+            backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
             backButtonNavigation.widthAnchor.constraint(equalToConstant: 20),
             
