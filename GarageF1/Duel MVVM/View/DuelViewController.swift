@@ -12,7 +12,8 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView? = DuelScreenView()
     var duelViewModel: DuelViewModel? = DuelViewModel()
     
-    var nameDriver = "Nome"
+    
+    var nameDriver = ""
     var lastNameDriver = "Sobrenome"
     var birthDate = "02/03/1990"
     var birthLocation = "São Paulo"
