@@ -70,7 +70,7 @@ class DuelScreenView: UIView {
         return imageView
     }()
     
-    private lazy var tableInfoLeft: UITableView = {
+    lazy var tableInfoLeft: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -85,7 +85,7 @@ class DuelScreenView: UIView {
         return tableView
     }()
     
-    private lazy var tableInfoRight: UITableView = {
+    lazy var tableInfoRight: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
