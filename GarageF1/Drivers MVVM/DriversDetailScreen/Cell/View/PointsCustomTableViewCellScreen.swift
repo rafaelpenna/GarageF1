@@ -45,10 +45,10 @@ class PointsCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             pointsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pointsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            pointsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             pointsAnswer.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
-            pointsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            pointsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

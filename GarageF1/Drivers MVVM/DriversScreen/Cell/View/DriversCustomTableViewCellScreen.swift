@@ -62,6 +62,13 @@ class DriversCustomTableViewCellScreen: UIView {
         pts.font = UIFont.systemFont(ofSize: 18)
         return pts
     }()
+    
+    lazy var fowardButton: UIButton = {
+       let fowardButton = UIButton()
+        fowardButton.translatesAutoresizingMaskIntoConstraints = false
+        fowardButton.setImage(UIImage(named: "foward"), for: .normal)
+        return fowardButton
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,6 +88,7 @@ class DriversCustomTableViewCellScreen: UIView {
         addSubview(teamLabel)
         addSubview(pointsLabel)
         addSubview(pointsUnitLabel)
+        addSubview(fowardButton)
     }
     
     private func configConstraintsInfoDriver(){
@@ -104,12 +112,17 @@ class DriversCustomTableViewCellScreen: UIView {
             teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),
-            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55),
             pointsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             pointsUnitLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pointsUnitLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            pointsUnitLabel.trailingAnchor.constraint(equalTo: fowardButton.leadingAnchor, constant: -8),
             pointsUnitLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            
+            
+            fowardButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
+            fowardButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             
         ])
     }

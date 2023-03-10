@@ -150,21 +150,21 @@ class DuelScreenView: UIView {
             duelTopLabel.topAnchor.constraint(equalTo: self.topAnchor),
             duelTopLabel.heightAnchor.constraint(equalToConstant: 180),
             
-            driversFirstNameLeft.centerXAnchor.constraint(equalTo: leftArrow.leadingAnchor, constant: -70),
+            driversFirstNameLeft.centerXAnchor.constraint(equalTo: tableInfoLeft.centerXAnchor),
             driversFirstNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameLeft.centerXAnchor.constraint(equalTo: leftArrow.leadingAnchor, constant: -70),
+            driversLastNameLeft.centerXAnchor.constraint(equalTo: tableInfoLeft.centerXAnchor),
             driversLastNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
             
-            leftArrow.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -40),
+            leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 10),
             leftArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            driversFirstNameRight.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 90),
+            driversFirstNameRight.centerXAnchor.constraint(equalTo: tableInfoRight.centerXAnchor),
             driversFirstNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameRight.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 90),
+            driversLastNameRight.centerXAnchor.constraint(equalTo: tableInfoRight.centerXAnchor),
             driversLastNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
                         
             rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 10),

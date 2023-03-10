@@ -45,10 +45,10 @@ class BirthLocationCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             birthLocationTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            birthLocationTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birthLocationTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             birbirthLocationAnswer.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
-            birbirthLocationAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birbirthLocationAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

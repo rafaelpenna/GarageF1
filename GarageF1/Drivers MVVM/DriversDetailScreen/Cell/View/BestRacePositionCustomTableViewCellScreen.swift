@@ -45,10 +45,10 @@ class BestRacePositionCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             bestRacePositionTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            bestRacePositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            bestRacePositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             bestRacePositionAnswer.topAnchor.constraint(equalTo: bestRacePositionTitle.bottomAnchor, constant: 10),
-            bestRacePositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            bestRacePositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

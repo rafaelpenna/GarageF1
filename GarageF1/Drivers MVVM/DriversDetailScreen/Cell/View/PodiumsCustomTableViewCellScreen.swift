@@ -45,10 +45,10 @@ class PodiumsCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             podiumsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            podiumsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            podiumsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             podiumsAnswer.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),
-            podiumsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            podiumsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

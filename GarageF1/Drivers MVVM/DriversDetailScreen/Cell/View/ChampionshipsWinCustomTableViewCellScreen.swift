@@ -45,10 +45,10 @@ class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            championshipsWinTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            championshipsWinTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             championshipsWinAnswer.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            championshipsWinAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }
