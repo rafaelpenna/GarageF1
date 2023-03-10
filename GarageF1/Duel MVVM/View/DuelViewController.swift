@@ -107,7 +107,7 @@ class DuelViewController: UIViewController {
     }
     
     override func loadView() {
-        self.view = duelScreen
+        view = duelScreen
     }
 
     override func viewDidLoad() {
@@ -264,6 +264,6 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 65
+        return 70
     }
 }
