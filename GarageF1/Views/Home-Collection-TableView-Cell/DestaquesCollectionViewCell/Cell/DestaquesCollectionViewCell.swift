@@ -20,8 +20,8 @@ class DestaquesCollectionViewCell: UICollectionViewCell {
     }
     
     func setupCell(data: HomeRacer) {
-        destaquesCollectionViewCellScreen.pilot1.image = UIImage(named: data.name)
-        destaquesCollectionViewCellScreen.namePilot1.text = data.nameImage
+        destaquesCollectionViewCellScreen.pilot.image = UIImage(named: data.name)
+        destaquesCollectionViewCellScreen.namePilot.text = data.nameImage
         destaquesCollectionViewCellScreen.nameTeams.text = data.nameTeams
         destaquesCollectionViewCellScreen.indicePilot.text = data.indice
     }

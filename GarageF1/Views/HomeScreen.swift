@@ -148,6 +148,7 @@ class HomeScreen: UIView {
         tableView.backgroundColor = .white
         tableView.separatorStyle = .singleLine
         tableView.separatorColor = .darkGray
+        tableView.allowsSelection = false
         tableView.register(ResultsTableViewCell.self, forCellReuseIdentifier: ResultsTableViewCell.identifier)
         tableView.heightAnchor.constraint(equalToConstant: 300).isActive = true
         return tableView
@@ -223,7 +224,7 @@ class HomeScreen: UIView {
         scrollView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10).isActive = true
         scrollView.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 10).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: margins.bottomAnchor, constant: -5).isActive = true
         
         scrollStackViewContainer.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
         scrollStackViewContainer.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true

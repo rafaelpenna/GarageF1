@@ -19,7 +19,7 @@ class DestaquesCollectionViewCellScreen: UIView {
         return label
     }()
     
-    lazy var namePilot1: UILabel = {
+    lazy var namePilot: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -27,6 +27,17 @@ class DestaquesCollectionViewCellScreen: UIView {
         label.numberOfLines = 0
         label.textColor = .black
 //        label.backgroundColor = .blue
+        return label
+    }()
+    
+    lazy var touchHere: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .center
+        label.text = "Toque para detalhes"
+        label.font = UIFont.systemFont(ofSize: 14)
+        label.numberOfLines = 0
+        label.textColor = .black
         return label
     }()
     
@@ -41,7 +52,7 @@ class DestaquesCollectionViewCellScreen: UIView {
     }()
     
     
-    lazy var pilot1: UIImageView = {
+    lazy var pilot: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
@@ -64,9 +75,10 @@ class DestaquesCollectionViewCellScreen: UIView {
     private func addComponents() {
 
         addSubview(indicePilot)
-        addSubview(namePilot1)
+        addSubview(namePilot)
         addSubview(nameTeams)
-        addSubview(pilot1)
+        addSubview(pilot)
+        addSubview(touchHere)
         
        
     }
@@ -74,22 +86,24 @@ class DestaquesCollectionViewCellScreen: UIView {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
         
-            pilot1.topAnchor.constraint(equalTo: topAnchor, constant: 90),
-            pilot1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 170),
-            pilot1.trailingAnchor.constraint(equalTo: trailingAnchor),
-            pilot1.heightAnchor.constraint(equalToConstant: 100),
+            pilot.topAnchor.constraint(equalTo: topAnchor, constant: 90),
+            pilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 170),
+            pilot.trailingAnchor.constraint(equalTo: trailingAnchor),
+            pilot.heightAnchor.constraint(equalToConstant: 100),
             
-            namePilot1.topAnchor.constraint(equalTo: indicePilot.bottomAnchor, constant: 30),
-            namePilot1.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            namePilot1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
+            namePilot.topAnchor.constraint(equalTo: indicePilot.bottomAnchor, constant: 30),
+            namePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            namePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
          
+            touchHere.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            touchHere.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
             indicePilot.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             indicePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             indicePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -230),
             
             
-            nameTeams.topAnchor.constraint(equalTo: namePilot1.bottomAnchor, constant: 2),
+            nameTeams.topAnchor.constraint(equalTo: namePilot.bottomAnchor, constant: 2),
             nameTeams.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             nameTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
         

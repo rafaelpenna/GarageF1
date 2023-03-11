@@ -116,6 +116,18 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
             return CGSize(width: 290, height: 190)
             
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let firstDriver: FirstDriverVC = FirstDriverVC()
+        let secondDriver: SecondDriverVC = SecondDriverVC()
+        
+        if indexPath.row == 0 {
+            self.navigationController?.pushViewController(firstDriver, animated: true)
+        } else {
+            self.navigationController?.pushViewController(secondDriver, animated: true)
+        }
+    }
 }
 
 
