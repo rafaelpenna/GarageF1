@@ -58,6 +58,23 @@ class SecondDriverScreen: UIView {
         return image
     }()
     
+    lazy var tableViewInfoDrivers: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.allowsSelection = false
+        tableView.register(TableViewBirthDateCellScreen.self, forCellReuseIdentifier: TableViewBirthDateCellScreen.identifier)
+        tableView.register(TableViewBirthLocationCellScreen.self, forCellReuseIdentifier: TableViewBirthLocationCellScreen.identifier)
+        tableView.register(TableViewChampionshipsWinCellScreen.self, forCellReuseIdentifier: TableViewChampionshipsWinCellScreen.identifier)
+        tableView.register(TableViewRacesCustomTCellScreen.self, forCellReuseIdentifier: TableViewRacesCustomTCellScreen.identifier)
+        tableView.register(TableViewPodiumsCustomCellScreen.self, forCellReuseIdentifier: TableViewPodiumsCustomCellScreen.identifier)
+        tableView.register(TableViewPointsCustomCellScreen.self, forCellReuseIdentifier: TableViewPointsCustomCellScreen.identifier)
+        tableView.register(TableViewBestRacePositionCustomCellScreen.self, forCellReuseIdentifier: TableViewBestRacePositionCustomCellScreen.identifier)
+        tableView.register(TableViewBestGridPositionCustomCellScreen.self, forCellReuseIdentifier: TableViewBestGridPositionCustomCellScreen.identifier)
+        return tableView
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubview(topLabel)
@@ -65,6 +82,7 @@ class SecondDriverScreen: UIView {
         addSubview(firstName)
         addSubview(lastName)
         addSubview(driverPhoto)
+        addSubview(tableViewInfoDrivers)
         backgroundColor = .white
         constraintsScreen()
     }
@@ -75,6 +93,11 @@ class SecondDriverScreen: UIView {
     
     @objc func tappedBackButton() {
         delegate?.tappedBackButton()
+    }
+    
+    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+        self.tableViewInfoDrivers.delegate = delegate
+        self.tableViewInfoDrivers.dataSource = dataSource
     }
 
     
@@ -102,6 +125,12 @@ class SecondDriverScreen: UIView {
             driverPhoto.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
             driverPhoto.heightAnchor.constraint(equalToConstant: 120),
             driverPhoto.widthAnchor.constraint(equalToConstant: 120),
+            
+            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            tableViewInfoDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor, constant: -5),
+            
             
         ])
     }

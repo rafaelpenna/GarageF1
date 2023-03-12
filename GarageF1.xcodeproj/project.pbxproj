@@ -43,6 +43,7 @@
 		0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC34297483CD003B2D9C /* HomeResults.swift */; };
 		0BAD883829591FC800CCC859 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD883729591FC800CCC859 /* LoginScreen.swift */; };
 		0BAD883A295922E600CCC859 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD8839295922E600CCC859 /* LoginVC.swift */; };
+		0BB4064429BE10290013C4AF /* TableViewDriversDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */; };
 		0BB50D272978B388009CD502 /* DueloCollectionViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D262978B388009CD502 /* DueloCollectionViewScreen.swift */; };
 		0BB50D292978B3B8009CD502 /* DueloCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */; };
 		0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */; };
@@ -166,6 +167,7 @@
 		0BA8BC34297483CD003B2D9C /* HomeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResults.swift; sourceTree = "<group>"; };
 		0BAD883729591FC800CCC859 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
 		0BAD8839295922E600CCC859 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDriversDetailCustomCell.swift; sourceTree = "<group>"; };
 		0BB50D262978B388009CD502 /* DueloCollectionViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueloCollectionViewScreen.swift; sourceTree = "<group>"; };
 		0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueloCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDuel.swift; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 		0B31208829BC3B89002650E2 /* SecondDriver */ = {
 			isa = PBXGroup;
 			children = (
+				0BB4064529BE14270013C4AF /* cell */,
 				0B31208D29BC3BDD002650E2 /* SecondDriverScreen.swift */,
 				0B31208F29BC3BEF002650E2 /* SecondDriverVC.swift */,
 			);
@@ -458,6 +461,14 @@
 				0B23C44D297396820080D242 /* DestaquesCollectionViewCell */,
 			);
 			path = "Home-Collection-TableView-Cell";
+			sourceTree = "<group>";
+		};
+		0BB4064529BE14270013C4AF /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		0BB50D252978B327009CD502 /* DueloCollectionViewCell */ = {
@@ -1093,6 +1104,7 @@
 				0B23C451297397760080D242 /* DestaquesCollectionViewCellScreen.swift in Sources */,
 				1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */,
 				1C0C684C2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift in Sources */,
+				0BB4064429BE10290013C4AF /* TableViewDriversDetailCustomCell.swift in Sources */,
 				1C0C68412996DC0700A7C1BE /* DriversViewModel.swift in Sources */,
 				0BBE027E297C7B5800D19D12 /* SimulationDuelScreen.swift in Sources */,
 				0BAD883829591FC800CCC859 /* LoginScreen.swift in Sources */,
