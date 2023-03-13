@@ -45,10 +45,10 @@ class BirthDateCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             birthDateTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            birthDateTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birthDateTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             birthDateAnswer.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
-            birthDateAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birthDateAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

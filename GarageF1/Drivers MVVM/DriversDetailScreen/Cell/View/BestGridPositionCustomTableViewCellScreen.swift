@@ -45,10 +45,10 @@ class BestGridPositionCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             bestGridPositionTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            bestGridPositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            bestGridPositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             bestGridPositionAnswer.topAnchor.constraint(equalTo: bestGridPositionTitle.bottomAnchor, constant: 10),
-            bestGridPositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            bestGridPositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

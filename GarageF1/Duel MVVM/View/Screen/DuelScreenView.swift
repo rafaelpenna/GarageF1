@@ -24,17 +24,15 @@ class DuelScreenView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "Kimi"
+        label.font = UIFont.systemFont(ofSize: 23)
         return label
     }()
     
     lazy var driversLastNameLeft: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Hakkinen"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
     
@@ -49,17 +47,15 @@ class DuelScreenView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
-        label.font = UIFont.systemFont(ofSize: 25)
-        label.text = "David"
+        label.font = UIFont.systemFont(ofSize: 23)
         return label
     }()
     
     lazy var driversLastNameRight: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Coulthard"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
     
@@ -82,6 +78,7 @@ class DuelScreenView: UIView {
         tableView.register(DuelPodiumsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPodiumsEarnedCustomTableViewCell")
         tableView.register(DuelPointsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPointsEarnedCustomTableViewCell")
         tableView.register(DuelWinsCustomTableViewCell.self, forCellReuseIdentifier: "DuelWinsCustomTableViewCell")
+        tableView.reloadData()
         return tableView
     }()
     
@@ -97,6 +94,7 @@ class DuelScreenView: UIView {
         tableView.register(DuelPodiumsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPodiumsEarnedCustomTableViewCell")
         tableView.register(DuelPointsEarnedCustomTableViewCell.self, forCellReuseIdentifier: "DuelPointsEarnedCustomTableViewCell")
         tableView.register(DuelWinsCustomTableViewCell.self, forCellReuseIdentifier: "DuelWinsCustomTableViewCell")
+        tableView.reloadData()
         return tableView
     }()
     
@@ -152,24 +150,24 @@ class DuelScreenView: UIView {
             duelTopLabel.topAnchor.constraint(equalTo: self.topAnchor),
             duelTopLabel.heightAnchor.constraint(equalToConstant: 180),
             
-            driversFirstNameLeft.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 35),
+            driversFirstNameLeft.centerXAnchor.constraint(equalTo: tableInfoLeft.centerXAnchor),
             driversFirstNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameLeft.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            driversLastNameLeft.centerXAnchor.constraint(equalTo: tableInfoLeft.centerXAnchor),
             driversLastNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
             
-            leftArrow.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 165),
+            leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 10),
             leftArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            driversFirstNameRight.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -75),
+            driversFirstNameRight.centerXAnchor.constraint(equalTo: tableInfoRight.centerXAnchor),
             driversFirstNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
 
-            driversLastNameRight.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30),
+            driversLastNameRight.centerXAnchor.constraint(equalTo: tableInfoRight.centerXAnchor),
             driversLastNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
                         
-            rightArrow.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 10),
             rightArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),
@@ -179,15 +177,15 @@ class DuelScreenView: UIView {
             backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
             backButtonNavigation.widthAnchor.constraint(equalToConstant: 20),
             
-            tableInfoLeft.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            tableInfoLeft.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
+            tableInfoLeft.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableInfoLeft.trailingAnchor.constraint(equalTo: centerXAnchor),
             tableInfoLeft.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor),
-            tableInfoLeft.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+            tableInfoLeft.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -65),
             
-            tableInfoRight.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            tableInfoRight.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5),
+            tableInfoRight.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            tableInfoRight.leadingAnchor.constraint(equalTo: centerXAnchor),
             tableInfoRight.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor),
-            tableInfoRight.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+            tableInfoRight.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -65),
             
             divisionTablesLabel.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: 20),
             divisionTablesLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

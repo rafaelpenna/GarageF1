@@ -24,7 +24,7 @@ class DuelPodiumsEarnedCustomTableViewCell: UITableViewCell {
     var podiumsAnswer: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 22)
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable

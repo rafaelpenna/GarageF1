@@ -45,10 +45,10 @@ class RacesCustomTableViewCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             racesTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            racesTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            racesTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
             racesAnswer.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),
-            racesAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            racesAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }
