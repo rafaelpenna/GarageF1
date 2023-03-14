@@ -8,6 +8,8 @@
 import UIKit
 
 class StandingsScreen: UIView {
+    
+    var standingsViewModel: StandingsViewModel = StandingsViewModel()
 
     lazy var topRedLabel: UILabel = {
         let label = UILabel()
@@ -26,7 +28,7 @@ class StandingsScreen: UIView {
     lazy var circuitCountry: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Brazil"
+        label.text = standingsViewModel.dataTracks.circuitCountry
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label

@@ -24,6 +24,8 @@ class StandingsViewModel {
                                       Standings(position: "12", teamsName: "Alfa Romeo", driversCode: "ZHO", time: "+ 29.325s", pointsWon: "0"),
                                       Standings(position: "13", teamsName: "F1 Haas", driversCode: "MSC", time: "+ 29.899s", pointsWon: "0"),]
     
-    var dataTracks: [Tracks] = [Tracks(circuitCountry: "Brazil", circuitImage: UIImage(named: "interlagos") ?? UIImage(), circuitLength: "4.309", circuitLaps: "71", firstGP: "1973", raceDistance: "305.879", trackRecord: "1.10.540", trackRecordDriver: "Valtteri Bottas", trackRecordYear: "2018")]
+    var dataTracks = Tracks(circuitCountry: "Brazil", circuitImage: UIImage(named: "interlagos") ?? UIImage(), circuitLength: "4.309", circuitLaps: "71", firstGP: "1973", raceDistance: "305.879", trackRecord: "1.10.540", trackRecordDriver: "Valtteri Bottas", trackRecordYear: "2018")
+    
+    var dataBestLap = BestLap(nameDriver: "RUSSEL", bestTime: "1:13:785")
     
 }

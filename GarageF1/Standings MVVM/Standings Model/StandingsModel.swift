@@ -16,6 +16,11 @@ struct Standings {
     var pointsWon: String
 }
 
+struct BestLap {
+    var nameDriver: String
+    var bestTime: String
+}
+
 struct Tracks {
     var circuitCountry: String
     var circuitImage: UIImage

@@ -12,12 +12,60 @@ class StandingsViewController: UIViewController {
     var standingsScreen: StandingsScreen? = StandingsScreen()
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
     
-    var trackImage = UIImage()
-    var circuitLenght = ""
-    var raceLaps = ""
-    var firstGP = ""
-    var raceDistance = ""
-    var trackRecord = ""
+    
+    var nameDriverBestLap: String? {
+        get {
+            return standingsViewModel.dataBestLap.nameDriver
+        }
+    }
+    
+    var timeBestLap: String? {
+        get {
+            return standingsViewModel.dataBestLap.bestTime
+        }
+    }
+    
+    var trackImage: UIImage? {
+        get {
+            return standingsViewModel.dataTracks.circuitImage
+        }
+    }
+    
+    var circuitLenght: String? {
+        get {
+            return standingsViewModel.dataTracks.circuitLength
+        }
+    }
+    var raceLaps: String? {
+        get {
+            return standingsViewModel.dataTracks.circuitLaps
+        }
+    }
+    var firstGP: String? {
+        get {
+            return standingsViewModel.dataTracks.firstGP
+        }
+    }
+    var raceDistance: String? {
+        get {
+            return standingsViewModel.dataTracks.raceDistance
+        }
+    }
+    var trackRecord: String? {
+        get {
+            return standingsViewModel.dataTracks.trackRecord
+        }
+    }
+    var trackRecordOwner: String? {
+        get {
+            return standingsViewModel.dataTracks.trackRecordDriver
+        }
+    }
+    var trackRecordYear: String? {
+        get {
+            return standingsViewModel.dataTracks.trackRecordYear
+        }
+    }
     
     override func loadView() {
         view = standingsScreen
@@ -116,7 +164,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-//                cell?.trackImage.text = trackImage
+                cell?.trackImage.image = trackImage
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -157,6 +205,8 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.configure()
                 let backgroundView = UIView()
                 cell?.trackRecordAnswer.text = trackRecord
+                cell?.trackRecordOwner.text = trackRecordOwner
+                cell?.trackRecordYear.text = trackRecordYear
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -175,7 +225,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return 350
             } else {
-                return 90
+                return 100
             }
         }
     }

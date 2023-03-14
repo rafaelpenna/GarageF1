@@ -9,6 +9,8 @@ import UIKit
 
 class HeaderStandings: UIView {
     
+    var standingsViewModel: StandingsViewModel = StandingsViewModel()
+    
     lazy var standoutDriver: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -70,14 +72,6 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var standoutName: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "RUSSEL"
-        label.font = UIFont.boldSystemFont(ofSize: 30)
-        return label
-    }()
-    
     lazy var standoutTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -87,10 +81,18 @@ class HeaderStandings: UIView {
         return label
     }()
     
+    lazy var standoutName: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = standingsViewModel.dataBestLap.nameDriver
+        label.font = UIFont.boldSystemFont(ofSize: 30)
+        return label
+    }()
+    
     lazy var standoutTime: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "1:13:785"
+        label.text = standingsViewModel.dataBestLap.bestTime
         label.font = UIFont.italicSystemFont(ofSize: 22)
         return label
     }()

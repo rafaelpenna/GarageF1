@@ -31,7 +31,7 @@ class TrackRecordCellScreen: UITableViewCell {
     lazy var trackRecordOwner: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.font = UIFont.italicSystemFont(ofSize: 18)
         label.textColor = .gray
         return label
     }()
@@ -39,7 +39,7 @@ class TrackRecordCellScreen: UITableViewCell {
     lazy var trackRecordYear: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.italicSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.textColor = .gray
         return label
     }()
@@ -65,13 +65,13 @@ class TrackRecordCellScreen: UITableViewCell {
             trackRecordTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             
             trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -35),
+            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
             
-            trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecordYear.trailingAnchor, constant: -2),
-            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecordYear.leadingAnchor, constant: -2),
+            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
             
-            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
         ])
     }
 
