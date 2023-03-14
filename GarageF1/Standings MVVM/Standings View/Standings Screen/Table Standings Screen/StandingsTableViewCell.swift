@@ -2,7 +2,7 @@
 //  StandingsTableViewCell.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 03/02/23.
+//  Created by Rafael Penna on 13/03/23.
 //
 
 import UIKit
@@ -36,10 +36,9 @@ class StandingsTableViewCell: UITableViewCell {
     func setupCell(data: Standings){
         
         customDrivers.positionLabel.text = data.position
-        customDrivers.colorLabel.text = data.teamsName
         customDrivers.nameCodeLabel.text = data.driversCode
         customDrivers.timeLabel.text = data.time
-        customDrivers.pointsLabel.text = data.currentcurrentPoints
+        customDrivers.pointsLabel.text = data.pointsWon
     }
     
     private func configConstraints(){
@@ -52,4 +51,3 @@ class StandingsTableViewCell: UITableViewCell {
         ])
     }
 }
-

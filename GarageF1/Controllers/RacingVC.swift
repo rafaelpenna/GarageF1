@@ -56,7 +56,7 @@ extension RacingVC: UITableViewDelegate, UITableViewDataSource, UICollectionView
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = StandingsTrackVC()
+        let vc = StandingsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

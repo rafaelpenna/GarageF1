@@ -1,8 +1,8 @@
 //
-//  CustomStandingsTableViewCell.swift
+//  CustomStandingsTableViewScreen.swift
 //  GarageF1
 //
-//  Created by Rafael Penna on 03/02/23.
+//  Created by Rafael Penna on 13/03/23.
 //
 
 import UIKit
@@ -14,13 +14,6 @@ class CustomStandingsTableViewScreen: UIView {
         positionLabel.translatesAutoresizingMaskIntoConstraints = false
         positionLabel.font = UIFont.boldSystemFont(ofSize: 24)
         return positionLabel
-    }()
-    
-    lazy var colorLabel: UILabel = {
-        let colorLabel = UILabel()
-        colorLabel.translatesAutoresizingMaskIntoConstraints = false
-//        colorLabel.backgroundColor = colorCondition
-        return colorLabel
     }()
     
     lazy var nameCodeLabel: UILabel = {
@@ -62,7 +55,6 @@ class CustomStandingsTableViewScreen: UIView {
     
     private func addSubViews(){
         addSubview(positionLabel)
-//        addSubview(colorLabel)
         addSubview(nameCodeLabel)
         addSubview(timeLabel)
         addSubview(pointsLabel)
@@ -73,11 +65,6 @@ class CustomStandingsTableViewScreen: UIView {
             
             positionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             positionLabel.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 22),
-
-//            colorLabel.topAnchor.constraint(equalTo: topAnchor),
-//            colorLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-//            colorLabel.widthAnchor.constraint(equalToConstant: 1.5),
-//            colorLabel.heightAnchor.constraint(equalToConstant: 20),
             
             nameCodeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             nameCodeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
@@ -94,3 +81,4 @@ class CustomStandingsTableViewScreen: UIView {
     }
 
 }
+
