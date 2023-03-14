@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FirstGrandPrixCellScreen: UIView {
+class FirstGrandPrixCellScreen: UITableViewCell {
 
     static let identifier = "FirstGrandPrixCellScreen"
     
@@ -47,7 +47,7 @@ class FirstGrandPrixCellScreen: UIView {
             firstGrandPrixTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
 
             firstGrandPrixAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            firstGrandPrixAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            firstGrandPrixAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
 

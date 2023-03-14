@@ -109,10 +109,10 @@ class StandingsScreen: UIView {
         addSubview(trackButton)
         addSubview(standingsButton)
         addSubview(backButton)
-        addSubview(tableViewTrack)
         addSubview(standingsBoard)
         standingsBoard.self.addSubview(standingsHeader)
         standingsBoard.self.addSubview(tableViewStandings)
+        addSubview(tableViewTrack)
     }
     
     private func backgroundColor() {
@@ -141,9 +141,9 @@ class StandingsScreen: UIView {
             trackButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             trackButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
-            tableViewTrack.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            tableViewTrack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableViewTrack.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableViewTrack.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
+            tableViewTrack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            tableViewTrack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             tableViewTrack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
             
 //            Standings Board

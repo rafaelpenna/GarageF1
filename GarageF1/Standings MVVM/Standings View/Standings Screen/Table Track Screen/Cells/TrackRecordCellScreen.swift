@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackRecordCellScreen: UIView {
+class TrackRecordCellScreen: UITableViewCell {
 
     static let identifier = "TrackRecordCellScreen"
     
@@ -65,13 +65,13 @@ class TrackRecordCellScreen: UIView {
             trackRecordTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             
             trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -35),
             
             trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecordYear.trailingAnchor, constant: -2),
-            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CircuitLenghtCellScreen: UIView {
+class CircuitLenghtCellScreen: UITableViewCell {
 
     static let identifier = "CircuitLenghtCellScreen"
     
@@ -58,10 +58,10 @@ class CircuitLenghtCellScreen: UIView {
             trackLenghtTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             
             trackLenghtAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            trackLenghtAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            trackLenghtAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             
             trackLenghtUnit.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            trackLenghtUnit.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            trackLenghtUnit.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaceLapsCellScreen: UIView {
+class RaceLapsCellScreen: UITableViewCell {
 
     static let identifier = "RaceLapsCellScreen"
     
@@ -47,7 +47,7 @@ class RaceLapsCellScreen: UIView {
             trackLapsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             
             trackLapsAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            trackLapsAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            trackLapsAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
 

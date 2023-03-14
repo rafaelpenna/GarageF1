@@ -98,31 +98,25 @@ class StandingsViewController: UIViewController {
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
-    
-
 }
 
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if standingsScreen?.standingsBoard.isHidden == false {
-            return standingsViewModel.dataStandings.count
+        if tableView == standingsScreen?.tableViewStandings {
+            return (standingsViewModel.dataStandings.count)
         } else {
-            return standingsScreen?.tableViewTrack.count
+            return 6
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if standingsScreen?.standingsBoard.isHidden == false {
-            let cell: StandingsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.identifier) as? StandingsTableViewCell
-            cell?.setupCell(data: standingsViewModel.dataStandings[indexPath.row])
-            return cell ?? UITableViewCell()
-        } else {
+        if tableView == standingsScreen?.tableViewTrack {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.trackImage.text = trackImage
+//                cell?.trackImage.text = trackImage
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -167,13 +161,24 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
         }
+        } else {
+            let cell: StandingsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.identifier) as? StandingsTableViewCell
+            cell?.setupCell(data: standingsViewModel.dataStandings[indexPath.row])
+            return cell ?? UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == standingsScreen?.tableViewStandings {
             return 45
+        } else {
+            if indexPath.row == 0 {
+                return 350
+            } else {
+                return 90
+            }
+        }
     }
-        
-}
 }
     
 

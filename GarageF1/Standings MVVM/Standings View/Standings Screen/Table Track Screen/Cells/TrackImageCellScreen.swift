@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TrackImageCellScreen: UIView {
+class TrackImageCellScreen: UITableViewCell {
 
     static let identifier = "TrackImageCellScreen"
     

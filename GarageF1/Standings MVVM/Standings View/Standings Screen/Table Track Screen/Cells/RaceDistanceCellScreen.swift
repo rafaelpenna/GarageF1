@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaceDistanceCellScreen: UIView {
+class RaceDistanceCellScreen: UITableViewCell {
 
     static let identifier = "RaceDistanceCellScreen"
     
@@ -57,10 +57,10 @@ class RaceDistanceCellScreen: UIView {
             raceDistanceTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
 
             raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            raceDistanceAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -4),
+            raceDistanceAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
 
             raceDistanceUnit.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            raceDistanceUnit.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -2),
+            raceDistanceUnit.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 

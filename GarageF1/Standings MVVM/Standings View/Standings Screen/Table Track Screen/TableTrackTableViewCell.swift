@@ -43,15 +43,15 @@ class TableTrackTableViewCell: UITableViewCell {
     
     private func configScreenConstraints(){
         NSLayoutConstraint.activate([
-            trackImage.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            trackImage.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            trackImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            trackImage.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            trackImage.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            trackImage.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            trackImage.topAnchor.constraint(equalTo: self.topAnchor),
+            trackImage.bottomAnchor.constraint(equalTo: self.bottomAnchor),
             
-            circuitLenght.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-            circuitLenght.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
-            circuitLenght.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            circuitLenght.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            circuitLenght.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            circuitLenght.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            circuitLenght.topAnchor.constraint(equalTo: self.topAnchor),
+            circuitLenght.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
 }
