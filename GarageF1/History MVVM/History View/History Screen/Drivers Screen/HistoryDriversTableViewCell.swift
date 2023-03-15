@@ -12,6 +12,7 @@ class HistoryDriversTableViewCell: UITableViewCell {
     var data: [HistoryDriversModel] = []
     static let identifier: String = "HistoryDriversTableViewCell"
     var customInfoDrivers: CustomCellHistoryDrivers = CustomCellHistoryDrivers()
+    var driversViewModel: DriversScreenViewModel?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,22 +25,19 @@ class HistoryDriversTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func dataTableView(data: [HistoryDriversModel]) {
-        self.data = data
-    }
-    
     func addComponents() {
         customInfoDrivers.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(customInfoDrivers)
     }
 
-    func setupCell(data: HistoryDriversModel){
+    func setupCell(driveData:HistoryDriversModel){
+        self.driversViewModel = DriversScreenViewModel(data: driveData)
         
-        customInfoDrivers.positionLabel.text = data.driversPosition
-        customInfoDrivers.nameLabel.text = data.driversName
-        customInfoDrivers.lastNameLabel.text = data.driversLastName
-        customInfoDrivers.teamLabel.text = data.teamsDriversName
-        customInfoDrivers.pointsLabel.text = data.seasonDriversPoints
+        customInfoDrivers.positionLabel.text = driversViewModel?.getDriversPosition
+        customInfoDrivers.nameLabel.text = driversViewModel?.getDriversName
+        customInfoDrivers.lastNameLabel.text = driversViewModel?.getDriversLastName
+        customInfoDrivers.teamLabel.text = driversViewModel?.getTeamsDriversName
+        customInfoDrivers.pointsLabel.text = driversViewModel?.getSeasonDriversPoints
     }
     
     private func configConstraints(){

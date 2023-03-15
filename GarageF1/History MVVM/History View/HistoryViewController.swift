@@ -99,11 +99,11 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if historyScreen?.tableViewDrivers.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
-            cell?.setupCell(data: historyViewModel.dataDrivers[indexPath.row])
+            cell?.setupCell(driveData: historyViewModel.dataDrivers[indexPath.row])
                 return cell ?? UITableViewCell()
             } else {
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
-                cell?.setupCell(data: historyViewModel.dataTeams[indexPath.row])
+                cell?.setupCell(teamData: historyViewModel.dataTeams[indexPath.row])
                 return cell ?? UITableViewCell()
             }
     }

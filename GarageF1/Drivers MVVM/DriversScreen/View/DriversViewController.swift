@@ -29,7 +29,7 @@ class DriversViewController: UIViewController {
 extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return driversViewModel.dataDriversScreen.count
+        return driversViewModel.numberOfRows
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

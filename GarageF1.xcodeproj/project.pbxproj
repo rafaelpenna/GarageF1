@@ -56,6 +56,8 @@
 		1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */; };
 		1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */; };
 		1C550FC029AD3EF500AC2E51 /* CustomCellHistoryTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBF29AD3EF500AC2E51 /* CustomCellHistoryTeams.swift */; };
+		1C57BADB29C2575A00C7051D /* DriversScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57BADA29C2575900C7051D /* DriversScreenViewModel.swift */; };
+		1C57BADD29C2576F00C7051D /* TeamsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C57BADC29C2576F00C7051D /* TeamsScreenViewModel.swift */; };
 		1C726E3829B79924006591C9 /* DuelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3729B79924006591C9 /* DuelModel.swift */; };
 		1C726E3A29B79B6E006591C9 /* DuelScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3929B79B6E006591C9 /* DuelScreenView.swift */; };
 		1C726E3C29B7A430006591C9 /* DuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3B29B7A430006591C9 /* DuelViewModel.swift */; };
@@ -173,6 +175,8 @@
 		1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenView.swift; sourceTree = "<group>"; };
 		1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryDrivers.swift; sourceTree = "<group>"; };
 		1C550FBF29AD3EF500AC2E51 /* CustomCellHistoryTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryTeams.swift; sourceTree = "<group>"; };
+		1C57BADA29C2575900C7051D /* DriversScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversScreenViewModel.swift; sourceTree = "<group>"; };
+		1C57BADC29C2576F00C7051D /* TeamsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsScreenViewModel.swift; sourceTree = "<group>"; };
 		1C726E3729B79924006591C9 /* DuelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelModel.swift; sourceTree = "<group>"; };
 		1C726E3929B79B6E006591C9 /* DuelScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelScreenView.swift; sourceTree = "<group>"; };
 		1C726E3B29B7A430006591C9 /* DuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelViewModel.swift; sourceTree = "<group>"; };
@@ -499,6 +503,8 @@
 			isa = PBXGroup;
 			children = (
 				1C550FB829AD293A00AC2E51 /* HistoryViewModel.swift */,
+				1C57BADA29C2575900C7051D /* DriversScreenViewModel.swift */,
+				1C57BADC29C2576F00C7051D /* TeamsScreenViewModel.swift */,
 			);
 			path = "History ViewModel";
 			sourceTree = "<group>";
@@ -1046,7 +1052,9 @@
 				1C0C683F2996DB3900A7C1BE /* Drivers.swift in Sources */,
 				1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */,
 				0BA8BC3329747D2E003B2D9C /* ResultsTableViewCell.swift in Sources */,
+				1C57BADD29C2576F00C7051D /* TeamsScreenViewModel.swift in Sources */,
 				0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */,
+				1C57BADB29C2575A00C7051D /* DriversScreenViewModel.swift in Sources */,
 				1CB39D38299D3BDE009DBE86 /* PointsCustomTableViewCellScreen.swift in Sources */,
 				1C726E3C29B7A430006591C9 /* DuelViewModel.swift in Sources */,
 				1C550FB529AD256F00AC2E51 /* HistoryViewController.swift in Sources */,

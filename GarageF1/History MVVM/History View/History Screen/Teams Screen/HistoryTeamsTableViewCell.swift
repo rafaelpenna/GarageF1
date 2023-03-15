@@ -12,6 +12,7 @@ class HistoryTeamsTableViewCell: UITableViewCell {
     var data: [HistoryTeamsModel] = []
     static let identifier: String = "HistoryTeamsTableViewCell"
     var customInfoTeams: CustomCellHistoryTeams = CustomCellHistoryTeams()
+    var teamsViewModel: TeamsScreenViewModel?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -33,11 +34,12 @@ class HistoryTeamsTableViewCell: UITableViewCell {
         contentView.addSubview(customInfoTeams)
     }
 
-    func setupCell(data: HistoryTeamsModel){
+    func setupCell(teamData: HistoryTeamsModel){
+        self.teamsViewModel = TeamsScreenViewModel(data: teamData)
         
-        customInfoTeams.positionLabel.text = data.teamsPosition
-        customInfoTeams.teamLabel.text = data.teamsName
-        customInfoTeams.pointsLabel.text = data.seasonTeamsPoints
+        customInfoTeams.positionLabel.text = teamsViewModel?.getTeamsPosition
+        customInfoTeams.teamLabel.text = teamsViewModel?.getTeamsName
+        customInfoTeams.pointsLabel.text = teamsViewModel?.getSeasonTeamsPoints
     }
     
     private func configConstraints(){
