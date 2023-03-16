@@ -90,20 +90,26 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             if buttonDriversVC.isSelected == true {
-                return historyViewModel.dataDrivers.count
+                return historyViewModel.numberOfRowsDrivers
             } else {
-                return historyViewModel.dataTeams.count
+                return historyViewModel.numberOfRowsTeams
             }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if historyScreen?.tableViewDrivers.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
-            cell?.setupCell(data: historyViewModel.dataDrivers[indexPath.row])
+            cell?.setupCell(driveData: historyViewModel.loadCurrentDriver(indexPath: indexPath))
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
             } else {
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
-                cell?.setupCell(data: historyViewModel.dataTeams[indexPath.row])
+                cell?.setupCell(teamData: historyViewModel.loadCurrentTeam(indexPath: indexPath))
+                let backgroundView = UIView()
+                backgroundView.backgroundColor = .none
+                cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
             }
     }

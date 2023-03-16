@@ -63,19 +63,19 @@ class CustomStandingsTableViewScreen: UIView {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            positionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             positionLabel.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 22),
+            positionLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
-            nameCodeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             nameCodeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            nameCodeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            timeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            timeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             timeLabel.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 210),
             timeLabel.widthAnchor.constraint(equalToConstant: 115),
             timeLabel.heightAnchor.constraint(equalToConstant: 20),
 
-            pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),
+            pointsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
         ])
     }

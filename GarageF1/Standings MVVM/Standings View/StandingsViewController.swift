@@ -12,61 +12,6 @@ class StandingsViewController: UIViewController {
     var standingsScreen: StandingsScreen? = StandingsScreen()
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
     
-    
-    var nameDriverBestLap: String? {
-        get {
-            return standingsViewModel.dataBestLap.nameDriver
-        }
-    }
-    
-    var timeBestLap: String? {
-        get {
-            return standingsViewModel.dataBestLap.bestTime
-        }
-    }
-    
-    var trackImage: UIImage? {
-        get {
-            return standingsViewModel.dataTracks.circuitImage
-        }
-    }
-    
-    var circuitLenght: String? {
-        get {
-            return standingsViewModel.dataTracks.circuitLength
-        }
-    }
-    var raceLaps: String? {
-        get {
-            return standingsViewModel.dataTracks.circuitLaps
-        }
-    }
-    var firstGP: String? {
-        get {
-            return standingsViewModel.dataTracks.firstGP
-        }
-    }
-    var raceDistance: String? {
-        get {
-            return standingsViewModel.dataTracks.raceDistance
-        }
-    }
-    var trackRecord: String? {
-        get {
-            return standingsViewModel.dataTracks.trackRecord
-        }
-    }
-    var trackRecordOwner: String? {
-        get {
-            return standingsViewModel.dataTracks.trackRecordDriver
-        }
-    }
-    var trackRecordYear: String? {
-        get {
-            return standingsViewModel.dataTracks.trackRecordYear
-        }
-    }
-    
     override func loadView() {
         view = standingsScreen
     }
@@ -152,7 +97,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == standingsScreen?.tableViewStandings {
-            return (standingsViewModel.dataStandings.count)
+            return (standingsViewModel.numberOfRowsResults)
         } else {
             return 6
         }
@@ -164,7 +109,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.trackImage.image = trackImage
+                cell?.trackImage.image = standingsViewModel.getCircuitImage()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -172,7 +117,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircuitLenghtCellScreen.identifier) as? CircuitLenghtCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.trackLenghtAnswer.text = circuitLenght
+                cell?.trackLenghtAnswer.text = standingsViewModel.getCircuitLength()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -180,7 +125,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceLapsCellScreen.identifier) as? RaceLapsCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.trackLapsAnswer.text = raceLaps
+                cell?.trackLapsAnswer.text = standingsViewModel.getCircuitLaps()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -188,7 +133,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: FirstGrandPrixCellScreen.identifier) as? FirstGrandPrixCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.firstGrandPrixAnswer.text = firstGP
+                cell?.firstGrandPrixAnswer.text = standingsViewModel.getFirstGP()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -196,7 +141,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceDistanceCellScreen.identifier) as? RaceDistanceCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.raceDistanceAnswer.text = raceDistance
+                cell?.raceDistanceAnswer.text = standingsViewModel.getRaceDistance()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -204,16 +149,19 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackRecordCellScreen.identifier) as? TrackRecordCellScreen
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.trackRecordAnswer.text = trackRecord
-                cell?.trackRecordOwner.text = trackRecordOwner
-                cell?.trackRecordYear.text = trackRecordYear
+                cell?.trackRecordAnswer.text = standingsViewModel.getTrackRecord()
+                cell?.trackRecordOwner.text = standingsViewModel.getTrackRecordDriver()
+                cell?.trackRecordYear.text = standingsViewModel.getTrackRecordYear()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
         }
         } else {
             let cell: StandingsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.identifier) as? StandingsTableViewCell
-            cell?.setupCell(data: standingsViewModel.dataStandings[indexPath.row])
+            cell?.setupCell(data: standingsViewModel.loadCurrentDriver(indexPath: indexPath))
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
         }
     }
