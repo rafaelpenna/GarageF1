@@ -12,100 +12,6 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView? = DuelScreenView()
     var duelViewModel: DuelViewModel? = DuelViewModel()
     
-    
-    var nameDriverLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.driversName
-        }
-    }
-    var lastNameDriverLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.driversLastName
-        }
-    }
-    var birthDateLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.driversBirthDate
-        }
-    }
-    var birthLocationLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.driversBirthPlace
-        }
-    }
-    var championshipsWonLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.championshipsWon
-        }
-    }
-    var racesParticipatedLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.racesParticipated
-        }
-    }
-    var podiumsEarnedLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.podiumsWon
-        }
-    }
-    var pointsEarnedLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.pointsEarned
-        }
-    }
-    var winsLeft: String? {
-        get {
-            return duelViewModel?.dataDriversLeft.wins
-        }
-    }
-    
-    
-    var nameDriverRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.driversName
-        }
-    }
-    var lastNameDriverRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.driversLastName
-        }
-    }
-    var birthDateRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.driversBirthDate
-        }
-    }
-    var birthLocationRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.driversBirthPlace
-        }
-    }
-    var championshipsWonRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.championshipsWon
-        }
-    }
-    var racesParticipatedRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.racesParticipated
-        }
-    }
-    var podiumsEarnedRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.podiumsWon
-        }
-    }
-    var pointsEarnedRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.pointsEarned
-        }
-    }
-    var winsRight: String? {
-        get {
-            return duelViewModel?.dataDriversRight.wins
-        }
-    }
-    
     override func loadView() {
         view = duelScreen
     }
@@ -113,10 +19,10 @@ class DuelViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        duelScreen?.driversFirstNameLeft.text = nameDriverLeft
-        duelScreen?.driversLastNameLeft.text = lastNameDriverLeft
-        duelScreen?.driversFirstNameRight.text = nameDriverRight
-        duelScreen?.driversLastNameRight.text = lastNameDriverRight
+        duelScreen?.driversFirstNameLeft.text = duelViewModel?.getDriversNameLeft()
+        duelScreen?.driversLastNameLeft.text = duelViewModel?.getDriversLastNameLeft()
+        duelScreen?.driversFirstNameRight.text = duelViewModel?.getDriversNameRight()
+        duelScreen?.driversLastNameRight.text = duelViewModel?.getDriversLastNameRight()
         view.addSubview(backButton)
     }
     
@@ -148,7 +54,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthDateCustomTableViewCell.identifier) as? DuelBirthDateCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.birthDateAnswer.text = birthDateLeft
+                cell?.birthDateAnswer.text = duelViewModel?.getDriversBirthDateLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -156,7 +62,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthLocationCustomTableViewCell.identifier) as? DuelBirthLocationCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.birthLocationAnswer.text = birthLocationLeft
+                cell?.birthLocationAnswer.text = duelViewModel?.getDriversBirthPlaceLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -164,7 +70,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelChampionshipsWonCustomTableViewCell.identifier) as? DuelChampionshipsWonCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.championshipsWinAnswer.text = championshipsWonLeft
+                cell?.championshipsWinAnswer.text = duelViewModel?.getChampionshipsWonLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -172,7 +78,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelRacesParticipatedCustomTableViewCell.identifier) as? DuelRacesParticipatedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.racesAnswer.text = racesParticipatedLeft
+                cell?.racesAnswer.text = duelViewModel?.getRacesParticipatedLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -180,7 +86,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPodiumsEarnedCustomTableViewCell.identifier) as? DuelPodiumsEarnedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.podiumsAnswer.text = podiumsEarnedLeft
+                cell?.podiumsAnswer.text = duelViewModel?.getPodiumsWonLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -188,7 +94,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPointsEarnedCustomTableViewCell.identifier) as? DuelPointsEarnedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.pointsAnswer.text = pointsEarnedLeft
+                cell?.pointsAnswer.text = duelViewModel?.getPointsEarnedLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -196,7 +102,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelWinsCustomTableViewCell.identifier) as? DuelWinsCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.winsAnswer.text = winsLeft
+                cell?.winsAnswer.text = duelViewModel?.getWinsLeft()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -206,7 +112,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthDateCustomTableViewCell.identifier) as? DuelBirthDateCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.birthDateAnswer.text = birthDateRight
+                cell?.birthDateAnswer.text = duelViewModel?.getDriversBirthDateRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -214,7 +120,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthLocationCustomTableViewCell.identifier) as? DuelBirthLocationCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.birthLocationAnswer.text = birthLocationRight
+                cell?.birthLocationAnswer.text = duelViewModel?.getDriversBirthPlaceRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -222,7 +128,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelChampionshipsWonCustomTableViewCell.identifier) as? DuelChampionshipsWonCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.championshipsWinAnswer.text = championshipsWonRight
+                cell?.championshipsWinAnswer.text = duelViewModel?.getChampionshipsWonRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -230,7 +136,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelRacesParticipatedCustomTableViewCell.identifier) as? DuelRacesParticipatedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.racesAnswer.text = racesParticipatedRight
+                cell?.racesAnswer.text = duelViewModel?.getRacesParticipatedRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -238,7 +144,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPodiumsEarnedCustomTableViewCell.identifier) as? DuelPodiumsEarnedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.podiumsAnswer.text = podiumsEarnedRight
+                cell?.podiumsAnswer.text = duelViewModel?.getPodiumsWonRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -246,7 +152,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPointsEarnedCustomTableViewCell.identifier) as? DuelPointsEarnedCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.pointsAnswer.text = pointsEarnedRight
+                cell?.pointsAnswer.text = duelViewModel?.getPointsEarnedRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -254,7 +160,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelWinsCustomTableViewCell.identifier) as? DuelWinsCustomTableViewCell
                 cell?.configure()
                 let backgroundView = UIView()
-                cell?.winsAnswer.text = winsRight
+                cell?.winsAnswer.text = duelViewModel?.getWinsRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
