@@ -28,7 +28,7 @@ class StandingsScreen: UIView {
     lazy var circuitCountry: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = standingsViewModel.dataTracks.circuitCountry
+        label.text = standingsViewModel.getCircuitCountry()
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label
@@ -133,36 +133,36 @@ class StandingsScreen: UIView {
             circuitCountry.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 20),
             
             standingsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
-            standingsButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
+            standingsButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),
             
             trackButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
-            trackButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            trackButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
             
             tableViewTrack.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
-            tableViewTrack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            tableViewTrack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            tableViewTrack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            tableViewTrack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
             tableViewTrack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
             
 //            Standings Board
                         
             standingsBoard.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            standingsBoard.leadingAnchor.constraint(equalTo: leadingAnchor),
-            standingsBoard.trailingAnchor.constraint(equalTo: trailingAnchor),
+            standingsBoard.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            standingsBoard.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsBoard.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
                         
             standingsHeader.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            standingsHeader.leadingAnchor.constraint(equalTo: leadingAnchor),
-            standingsHeader.trailingAnchor.constraint(equalTo: trailingAnchor),
+            standingsHeader.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            standingsHeader.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsHeader.heightAnchor.constraint(equalToConstant: 100),
                         
             tableViewStandings.topAnchor.constraint(equalTo: standingsHeader.bottomAnchor),
-            tableViewStandings.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableViewStandings.trailingAnchor.constraint(equalTo: trailingAnchor),
+            tableViewStandings.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            tableViewStandings.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewStandings.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
         ])
     }

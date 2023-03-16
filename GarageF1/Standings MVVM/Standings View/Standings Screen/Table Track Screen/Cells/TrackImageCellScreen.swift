@@ -33,10 +33,9 @@ class TrackImageCellScreen: UITableViewCell {
         NSLayoutConstraint.activate([
             
             trackImage.topAnchor.constraint(equalTo: topAnchor, constant: 30),
-            trackImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            trackImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            trackImage.centerXAnchor.constraint(equalTo: centerXAnchor),
+            trackImage.widthAnchor.constraint(equalToConstant: 350),
             trackImage.heightAnchor.constraint(equalToConstant: 300),
         ])
     }
-
 }
