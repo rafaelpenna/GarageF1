@@ -21,13 +21,29 @@ class DuelBirthDateCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var birthDateAnswer: UILabel = {
+    var birthDateAnswerLeft: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
+    }()
+    
+    var birthDateAnswerRight: UILabel = {
+        let variable = UILabel()
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.numberOfLines = 0
+        return variable
+    }()
+    
+    lazy var divisionLabels: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
     }()
     
     public func configure() {
@@ -37,17 +53,27 @@ class DuelBirthDateCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(birthDateTitle)
-        addSubview(birthDateAnswer)
+        addSubview(birthDateAnswerLeft)
+        addSubview(birthDateAnswerRight)
+        addSubview(divisionLabels)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
             birthDateTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            birthDateTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birthDateTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            birthDateAnswer.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
-            birthDateAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            birthDateAnswerLeft.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
+            birthDateAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -30),
+            
+            birthDateAnswerRight.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
+            birthDateAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 30),
+            
+            divisionLabels.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
+            divisionLabels.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divisionLabels.heightAnchor.constraint(equalTo: birthDateAnswerLeft.heightAnchor),
+            divisionLabels.widthAnchor.constraint(equalToConstant: 2),
         ])
     }
 }
