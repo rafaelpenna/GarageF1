@@ -22,7 +22,7 @@ class TrackImageCellScreen: UITableViewCell {
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func addSubViews(){
