@@ -59,14 +59,14 @@ class DriversCustomTableViewCellScreen: UIView {
         let pts = UILabel()
         pts.translatesAutoresizingMaskIntoConstraints = false
         pts.text = "pts"
-        pts.font = UIFont.systemFont(ofSize: 18)
+        pts.font = UIFont.systemFont(ofSize: 16)
         return pts
     }()
     
-    lazy var fowardButton: UIButton = {
-       let fowardButton = UIButton()
+    lazy var fowardButton: UIImageView = {
+       let fowardButton = UIImageView()
         fowardButton.translatesAutoresizingMaskIntoConstraints = false
-        fowardButton.setImage(UIImage(named: "foward"), for: .normal)
+        fowardButton.image = UIImage(named: "foward")
         return fowardButton
     }()
 
@@ -120,7 +120,8 @@ class DriversCustomTableViewCellScreen: UIView {
             pointsUnitLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             
-            fowardButton.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            fowardButton.widthAnchor.constraint(equalToConstant: 10),
+            fowardButton.heightAnchor.constraint(equalToConstant: 20),
             fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             fowardButton.centerYAnchor.constraint(equalTo: centerYAnchor),
             

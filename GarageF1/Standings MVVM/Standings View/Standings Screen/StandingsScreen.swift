@@ -146,7 +146,7 @@ class StandingsScreen: UIView {
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 10),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             standingsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             standingsButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),

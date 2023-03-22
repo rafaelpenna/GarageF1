@@ -34,6 +34,11 @@ class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
+        backgroundColor()
+    }
+    
+    private func backgroundColor() {
+        backgroundColor = .none
     }
     
     private func addSubViews(){
