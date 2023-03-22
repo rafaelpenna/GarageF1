@@ -35,6 +35,7 @@ class CustomCellHistoryTeams: UIView {
         let pts = UILabel()
         pts.translatesAutoresizingMaskIntoConstraints = false
         pts.text = "pts"
+        pts.textColor = .lightGray
         pts.font = UIFont.systemFont(ofSize: 18)
         return pts
     }()
