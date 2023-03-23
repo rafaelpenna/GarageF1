@@ -47,6 +47,11 @@ class CustomStandingsTableViewScreen: UIView {
         super.init(frame: frame)
         self.addSubViews()
         self.configConstraintsInfoDriver()
+        self.backgroundColor()
+    }
+    
+    private func backgroundColor() {
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     required init?(coder: NSCoder) {

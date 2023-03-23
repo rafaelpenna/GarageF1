@@ -11,12 +11,19 @@ class RaceDistanceCellScreen: UITableViewCell {
 
     static let identifier = "RaceDistanceCellScreen"
     
+    lazy var backgroundCellWhite: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
     lazy var raceDistanceTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Distância da Corrida"
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .gray
+        label.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }()
     
@@ -24,16 +31,16 @@ class RaceDistanceCellScreen: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 45)
-        label.textColor = .black
+        label.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }()
     
     lazy var raceDistanceUnit: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "KM"
+        label.text = "(km)"
         label.font = UIFont.italicSystemFont(ofSize: 20)
-        label.textColor = .gray
+        label.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }()
     
@@ -41,10 +48,11 @@ class RaceDistanceCellScreen: UITableViewCell {
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func addSubViews(){
+        addSubview(backgroundCellWhite)
         addSubview(raceDistanceTitle)
         addSubview(raceDistanceAnswer)
         addSubview(raceDistanceUnit)
@@ -53,14 +61,19 @@ class RaceDistanceCellScreen: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            raceDistanceTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            raceDistanceTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            backgroundCellWhite.topAnchor.constraint(equalTo: topAnchor),
+            backgroundCellWhite.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundCellWhite.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhite.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            
+            raceDistanceTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
+            raceDistanceTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),
 
-            raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
+            raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             raceDistanceAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
 
-            raceDistanceUnit.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
-            raceDistanceUnit.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            raceDistanceUnit.leadingAnchor.constraint(equalTo: raceDistanceTitle.trailingAnchor, constant: 7),
+            raceDistanceUnit.bottomAnchor.constraint(equalTo: raceDistanceTitle.bottomAnchor),
         ])
     }
 

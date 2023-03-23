@@ -14,7 +14,7 @@ class HeaderStandings: UIView {
     lazy var standoutDriver: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.backgroundColor = UIColor(red: 242, green: 242, blue: 242, alpha: 1).cgColor
+        label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         return label
     }()
     

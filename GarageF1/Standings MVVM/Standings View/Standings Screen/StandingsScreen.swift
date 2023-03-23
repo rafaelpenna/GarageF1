@@ -18,10 +18,17 @@ class StandingsScreen: UIView {
         return label
     }()
     
+    lazy var topRedLabelBackground: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
     lazy var backButton: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         return backButton
     }()
     
@@ -38,7 +45,6 @@ class StandingsScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Resultados", for: .normal)
-        button.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
     }()
@@ -47,7 +53,6 @@ class StandingsScreen: UIView {
         var button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Circuito", for: .normal)
-        button.setTitleColor(.darkGray, for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
     }()
@@ -68,7 +73,7 @@ class StandingsScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         tableView.register(StandingsTableViewCell.self, forCellReuseIdentifier: StandingsTableViewCell.identifier)
         return tableView
     }()
@@ -77,7 +82,7 @@ class StandingsScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         tableView.register(TrackImageCellScreen.self, forCellReuseIdentifier: "TrackImageCellScreen")
         tableView.register(CircuitLenghtCellScreen.self, forCellReuseIdentifier: "CircuitLenghtCellScreen")
         tableView.register(RaceLapsCellScreen.self, forCellReuseIdentifier: "RaceLapsCellScreen")
@@ -106,6 +111,7 @@ class StandingsScreen: UIView {
     }
     
     private func addElements() {
+        addSubview(topRedLabelBackground)
         addSubview(topRedLabel)
         addSubview(circuitCountry)
         addSubview(trackButton)
@@ -118,7 +124,7 @@ class StandingsScreen: UIView {
     }
     
     private func backgroundColor() {
-        backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1.0)
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func configConstraints(){
@@ -126,16 +132,21 @@ class StandingsScreen: UIView {
             
             topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            circuitCountry.topAnchor.constraint(equalTo: topAnchor, constant: 50),
+            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            
+            circuitCountry.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             circuitCountry.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
+            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             standingsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             standingsButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),

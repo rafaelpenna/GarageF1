@@ -16,10 +16,17 @@ class DriversDetailScreenView: UIView {
         return label
     }()
     
+    lazy var topRedLabelBackground: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
     lazy var backButton: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         return backButton
     }()
     
@@ -49,7 +56,8 @@ class DriversDetailScreenView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundFlag"))
         tableView.register(BirthDateCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthDateCustomTableViewCellScreen")
         tableView.register(BirthLocationCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthLocationCustomTableViewCellScreen")
         tableView.register(ChampionshipsWinCustomTableViewCellScreen.self, forCellReuseIdentifier: "ChampionshipsWinCustomTableViewCellScreen")
@@ -63,13 +71,13 @@ class DriversDetailScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.topLabel)
-        self.addSubview(self.backButton)
-        self.addSubview(self.firstName)
-        self.addSubview(self.lastName)
-        self.addSubview(self.driverPhoto)
-        self.addSubview(self.tableViewInfoDrivers)
-        backgroundColor = .white
+        addSubview(topLabel)
+        addSubview(topRedLabelBackground)
+        addSubview(backButton)
+        addSubview(firstName)
+        addSubview(lastName)
+        addSubview(driverPhoto)
+        addSubview(tableViewInfoDrivers)
         constraintsScreen()
     }
     
@@ -85,15 +93,20 @@ class DriversDetailScreenView: UIView {
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
             
-            topLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            topLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 160),
+            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topLabel.heightAnchor.constraint(equalToConstant: 135),
+            
+            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             
             firstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),

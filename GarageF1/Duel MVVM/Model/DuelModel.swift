@@ -17,6 +17,7 @@ struct DuelModel {
     var driversBirthPlace: String
     var driversCountry: String
     var championshipsWon: String
+    var championshipsWonYear: String
     var racesParticipated: String
     var podiumsWon: String
     var pointsEarned: String

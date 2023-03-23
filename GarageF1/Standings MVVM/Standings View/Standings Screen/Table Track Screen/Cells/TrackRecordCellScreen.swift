@@ -11,12 +11,19 @@ class TrackRecordCellScreen: UITableViewCell {
 
     static let identifier = "TrackRecordCellScreen"
     
+    lazy var backgroundCellWhite: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .white
+        return label
+    }()
+    
     lazy var trackRecordTitle: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Record da Pista"
+        label.text = "Recorde da Pista"
         label.font = UIFont.boldSystemFont(ofSize: 18)
-        label.textColor = .gray
+        label.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }()
     
@@ -24,7 +31,7 @@ class TrackRecordCellScreen: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 45)
-        label.textColor = .black
+        label.textColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         return label
     }()
     
@@ -48,10 +55,11 @@ class TrackRecordCellScreen: UITableViewCell {
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
-        backgroundColor = .white
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func addSubViews(){
+        addSubview(backgroundCellWhite)
         addSubview(trackRecordTitle)
         addSubview(trackRecordAnswer)
         addSubview(trackRecordOwner)
@@ -61,17 +69,22 @@ class TrackRecordCellScreen: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            trackRecordTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            trackRecordTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            backgroundCellWhite.topAnchor.constraint(equalTo: topAnchor),
+            backgroundCellWhite.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundCellWhite.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhite.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -45),
-            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+            trackRecordTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
+            trackRecordTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),
+            
+            trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
             
             trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecordYear.leadingAnchor, constant: -2),
-            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5),
+            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
 

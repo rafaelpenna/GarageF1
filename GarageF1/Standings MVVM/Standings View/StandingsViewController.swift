@@ -50,16 +50,16 @@ class StandingsViewController: UIViewController {
             standingsScreen?.standingsBoard.isHidden = false
             standingsScreen?.tableViewTrack.isHidden = true
             standingsScreen?.tableViewStandings.reloadData()
-            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
-            standingsScreen?.trackButton.setTitleColor(.darkGray, for: .normal)
+            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+            standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         } else {
             buttonStandingsVC.isSelected = true
             buttonCircuitVC.isSelected = false
             standingsScreen?.standingsBoard.isHidden = false
             standingsScreen?.tableViewTrack.isHidden = true
             standingsScreen?.tableViewStandings.reloadData()
-            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
-            standingsScreen?.trackButton.setTitleColor(.darkGray, for: .normal)
+            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+            standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         }
     }
     
@@ -69,15 +69,15 @@ class StandingsViewController: UIViewController {
             buttonStandingsVC.isSelected = false
             standingsScreen?.standingsBoard.isHidden = true
             standingsScreen?.tableViewTrack.isHidden = false
-            standingsScreen?.trackButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
-            standingsScreen?.standingsButton.setTitleColor(.darkGray, for: .normal)
+            standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         } else {
             buttonCircuitVC.isSelected = true
             buttonStandingsVC.isSelected = false
             standingsScreen?.standingsBoard.isHidden = true
             standingsScreen?.tableViewTrack.isHidden = false
-            standingsScreen?.trackButton.setTitleColor(UIColor(red: 255, green: 245, blue: 245, alpha: 1), for: .normal)
-            standingsScreen?.standingsButton.setTitleColor(.darkGray, for: .normal)
+            standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         }
     }
     
@@ -173,7 +173,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return 350
             } else {
-                return 100
+                return 105
             }
         }
     }

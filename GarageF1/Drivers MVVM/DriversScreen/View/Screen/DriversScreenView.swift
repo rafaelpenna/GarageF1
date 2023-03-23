@@ -22,7 +22,13 @@ class DriversScreenView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
-        // Precisa colocar a cor certa
+        return label
+    }()
+    
+    lazy var topRedLabelBackground: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
         return label
     }()
     
@@ -35,13 +41,24 @@ class DriversScreenView: UIView {
         return label
     }()
     
+    lazy var driversDescriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Pilotos ativos na temporada atual:"
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.tableViewInfoDrivers)
-        self.addSubview(self.topRedLabel)
-        self.addSubview(self.driversHeadLabel)
-        backgroundColor = .white
-        self.configConstraints()
+        addSubview(tableViewInfoDrivers)
+        addSubview(topRedLabel)
+        addSubview(topRedLabelBackground)
+        addSubview(driversHeadLabel)
+        addSubview(driversDescriptionLabel)
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -59,16 +76,24 @@ class DriversScreenView: UIView {
             
             topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 115),
+            topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topRedLabel.heightAnchor.constraint(equalToConstant: 135),
+            
+            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
             tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            driversHeadLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -20),
-            driversHeadLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            driversHeadLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            driversHeadLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            
+            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -20),
+            driversDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
 }

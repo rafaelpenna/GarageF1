@@ -15,13 +15,13 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Pontos"
-        variable.font = UIFont.systemFont(ofSize: 16)
+        variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
     }()
     
-    var pointsAnswer: UILabel = {
+    var pointsAnswerLeft: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,24 +30,64 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
+    var pointsAnswerRight: UILabel = {
+        let variable = UILabel()
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 18)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.numberOfLines = 0
+        return variable
+    }()
+    
+    lazy var divisionLabels: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
+    lazy var dataBackgroundLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        return label
+    }()
+    
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
+        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
     }
     
     private func addSubViews(){
+        addSubview(dataBackgroundLabel)
         addSubview(pointsTitle)
-        addSubview(pointsAnswer)
+        addSubview(pointsAnswerLeft)
+        addSubview(pointsAnswerRight)
+        addSubview(divisionLabels)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            pointsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pointsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            pointsTitle.topAnchor.constraint(equalTo: topAnchor),
+            pointsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            pointsAnswer.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
-            pointsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            pointsAnswerLeft.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
+            pointsAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            
+            pointsAnswerRight.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
+            pointsAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            
+            divisionLabels.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
+            divisionLabels.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divisionLabels.heightAnchor.constraint(equalTo: pointsAnswerLeft.heightAnchor),
+            divisionLabels.widthAnchor.constraint(equalToConstant: 2),
+            
+            dataBackgroundLabel.topAnchor.constraint(equalTo: topAnchor),
+            dataBackgroundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            dataBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            dataBackgroundLabel.bottomAnchor.constraint(equalTo: divisionLabels.bottomAnchor, constant: 5),
         ])
     }
 }
