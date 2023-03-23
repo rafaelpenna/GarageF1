@@ -72,8 +72,8 @@ class RaceDistanceCellScreen: UITableViewCell {
             raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             raceDistanceAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
 
-            raceDistanceUnit.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
-            raceDistanceUnit.topAnchor.constraint(equalTo: raceDistanceTitle.bottomAnchor, constant: 7),
+            raceDistanceUnit.leadingAnchor.constraint(equalTo: raceDistanceTitle.trailingAnchor, constant: 7),
+            raceDistanceUnit.bottomAnchor.constraint(equalTo: raceDistanceTitle.bottomAnchor),
         ])
     }
 

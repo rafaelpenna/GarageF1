@@ -64,6 +64,8 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let backgroundView = UIView()
                 cell?.birthLocationAnswerLeft.text = duelViewModel?.getDriversBirthPlaceLeft()
                 cell?.birthLocationAnswerRight.text = duelViewModel?.getDriversBirthPlaceRight()
+                cell?.countrynAnswerLeft.text = duelViewModel?.getDriversCountryLeft()
+                cell?.countrynAnswerRight.text = duelViewModel?.getDriversCountryRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -73,6 +75,8 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let backgroundView = UIView()
                 cell?.championshipsWinAnswerLeft.text = duelViewModel?.getChampionshipsWonLeft()
                 cell?.championshipsWinAnswerRight.text = duelViewModel?.getChampionshipsWonRight()
+                cell?.championshipsWinAnswerYearLeft.text = duelViewModel?.getChampionshipsWonYearLeft()
+                cell?.championshipsWinAnswerYearRight.text = duelViewModel?.getChampionshipsWonYearRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()
@@ -117,6 +121,12 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6 {
+            return 68
+        } else if indexPath.row == 1 {
+            return 95
+        } else {
+            return 117
+        }
     }
 }

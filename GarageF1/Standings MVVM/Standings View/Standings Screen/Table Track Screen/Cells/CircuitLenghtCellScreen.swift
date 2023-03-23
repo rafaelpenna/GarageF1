@@ -73,8 +73,8 @@ class CircuitLenghtCellScreen: UITableViewCell {
             trackLenghtAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             trackLenghtAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
             
-            trackLenghtUnit.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
-            trackLenghtUnit.topAnchor.constraint(equalTo: trackLenghtTitle.bottomAnchor, constant: 7),
+            trackLenghtUnit.leadingAnchor.constraint(equalTo: trackLenghtTitle.trailingAnchor, constant: 7),
+            trackLenghtUnit.bottomAnchor.constraint(equalTo: trackLenghtTitle.bottomAnchor),
         ])
     }
 

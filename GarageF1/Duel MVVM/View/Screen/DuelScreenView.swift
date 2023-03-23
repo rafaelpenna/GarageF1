@@ -12,7 +12,7 @@ import UIKit
 class DuelScreenView: UIView {
     
 
-    lazy var duelTopLabel: UILabel = {
+    lazy var duelTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
@@ -74,7 +74,7 @@ class DuelScreenView: UIView {
     lazy var leftArrow: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "seasonIcon")
+        imageView.image = UIImage(named: "blackArrow")
         return imageView
     }()
     
@@ -97,7 +97,7 @@ class DuelScreenView: UIView {
     lazy var rightArrow: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(named: "seasonIcon")
+        imageView.image = UIImage(named: "blackArrow")
         return imageView
     }()
     
@@ -105,6 +105,7 @@ class DuelScreenView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
         tableView.register(DuelBirthDateCustomTableViewCell.self, forCellReuseIdentifier: "DuelBirthDateCustomTableViewCell")
         tableView.register(DuelBirthLocationCustomTableViewCell.self, forCellReuseIdentifier: "DuelBirthLocationCustomTableViewCell")
         tableView.register(DuelChampionshipsWonCustomTableViewCell.self, forCellReuseIdentifier: "DuelChampionshipsWonCustomTableViewCell")
@@ -119,7 +120,7 @@ class DuelScreenView: UIView {
     lazy var backButtonNavigation: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         return backButton
     }()
     
@@ -133,7 +134,17 @@ class DuelScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(duelTopLabel)
+        addElements()
+        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+        constraintsScreen()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addElements(){
+        addSubview(duelTopRedLabel)
         addSubview(topRedLabelBackground)
         addSubview(duelTitleLabel)
         addSubview(duelDescriptionLabel)
@@ -146,13 +157,6 @@ class DuelScreenView: UIView {
         addSubview(rightArrow)
         addSubview(backButtonNavigation)
         addSubview(tableInfo)
-        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
-        constraintsScreen()
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
@@ -163,57 +167,59 @@ class DuelScreenView: UIView {
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
             
-            duelTopLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            duelTopLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            duelTopLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            duelTopLabel.heightAnchor.constraint(equalToConstant: 135),
+            duelTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            duelTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            duelTopRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            duelTopRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
             topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
             topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
-            duelTitleLabel.topAnchor.constraint(equalTo: duelTopLabel.topAnchor),
+            duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            duelDescriptionLabel.centerYAnchor.constraint(equalTo: duelTopLabel.centerYAnchor),
+            duelDescriptionLabel.bottomAnchor.constraint(equalTo: duelTopRedLabel.bottomAnchor, constant: -25),
             duelDescriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            duelDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            duelDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             
-            namesBackgroundLabel.topAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: 10),
+            namesBackgroundLabel.topAnchor.constraint(equalTo: duelTopRedLabel.bottomAnchor, constant: 10),
             namesBackgroundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             namesBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             namesBackgroundLabel.heightAnchor.constraint(equalToConstant: 120),
             
-            driversFirstNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -50),
-            driversFirstNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
+            driversFirstNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            driversFirstNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
 
-            driversLastNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 50),
-            driversLastNameLeft.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
+            driversLastNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            driversLastNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             
             leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 10),
-            leftArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
+            leftArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            driversFirstNameRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            driversFirstNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -55),
+            driversFirstNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
+            driversFirstNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
 
-            driversLastNameRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            driversLastNameRight.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -30),
+            driversLastNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
+            driversLastNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
                         
             rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 10),
-            rightArrow.bottomAnchor.constraint(equalTo: duelTopLabel.bottomAnchor, constant: -50),
+            rightArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            backButtonNavigation.topAnchor.constraint(equalTo: duelTopLabel.topAnchor, constant: 45),
+            backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
             backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
-            backButtonNavigation.widthAnchor.constraint(equalToConstant: 20),
+            backButtonNavigation.widthAnchor.constraint(equalToConstant: 15),
             
             tableInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableInfo.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableInfo.topAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: 15),
+            tableInfo.topAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: 10),
             tableInfo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -65),
         ])
     }

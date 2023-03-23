@@ -15,7 +15,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Campeonatos"
-        variable.font = UIFont.systemFont(ofSize: 16)
+        variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -26,7 +26,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
-        variable.numberOfLines = 0
+        variable.textAlignment = .center
         return variable
     }()
     
@@ -34,6 +34,24 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 18)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.textAlignment = .center
+        return variable
+    }()
+    
+    var championshipsWinAnswerYearLeft: UILabel = {
+        let variable = UILabel()
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 16)
+        variable.translatesAutoresizingMaskIntoConstraints = false
+        variable.numberOfLines = 0
+        return variable
+    }()
+    
+    var championshipsWinAnswerYearRight: UILabel = {
+        let variable = UILabel()
+        variable.textColor = .black
+        variable.font = UIFont.boldSystemFont(ofSize: 16)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
         return variable
@@ -46,13 +64,24 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         return label
     }()
     
+    lazy var dataBackgroundLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        return label
+    }()
+    
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
+        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
     }
     
     private func addSubViews(){
+        addSubview(dataBackgroundLabel)
         addSubview(championshipsWinTitle)
+        addSubview(championshipsWinAnswerYearLeft)
+        addSubview(championshipsWinAnswerYearRight)
         addSubview(championshipsWinAnswerLeft)
         addSubview(championshipsWinAnswerRight)
         addSubview(divisionLabels)
@@ -61,19 +90,34 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor),
             championshipsWinTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             championshipsWinAnswerLeft.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -30),
+            championshipsWinAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            championshipsWinAnswerLeft.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
             championshipsWinAnswerRight.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 30),
+            championshipsWinAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            championshipsWinAnswerRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            
+            championshipsWinAnswerYearLeft.topAnchor.constraint(equalTo: championshipsWinAnswerLeft.bottomAnchor, constant: 4),
+            championshipsWinAnswerYearLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
+            championshipsWinAnswerYearLeft.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            championshipsWinAnswerYearRight.topAnchor.constraint(equalTo: championshipsWinAnswerRight.bottomAnchor, constant: 4),
+            championshipsWinAnswerYearRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 10),
+            championshipsWinAnswerYearRight.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             
             divisionLabels.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
             divisionLabels.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionLabels.heightAnchor.constraint(equalTo: championshipsWinAnswerLeft.heightAnchor),
+            divisionLabels.heightAnchor.constraint(equalToConstant: 70),
             divisionLabels.widthAnchor.constraint(equalToConstant: 2),
+            
+            dataBackgroundLabel.topAnchor.constraint(equalTo: topAnchor),
+            dataBackgroundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            dataBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            dataBackgroundLabel.bottomAnchor.constraint(equalTo: divisionLabels.bottomAnchor, constant: 5),
         ])
     }
 
