@@ -1,14 +1,14 @@
 //
-//  ResultsTableViewScreen.swift
+//  CustomFullResultsScreen.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 15/01/23.
+//  Created by Ellington Cavalcante on 17/03/23.
 //
 
 import UIKit
 
-class ResultsTableViewScreen: UIView {
-    
+class CustomFullResultsScreen: UIView {
+
     lazy var indiceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -23,8 +23,8 @@ class ResultsTableViewScreen: UIView {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 45
         image.clipsToBounds = true
-        image.layer.borderWidth = 0.5
-        image.layer.borderColor = UIColor.lightGray.cgColor
+//        image.layer.borderWidth = 0.5
+//        image.layer.borderColor = UIColor.lightGray.cgColor
         image.contentMode = .scaleAspectFit
         return image
     }()
@@ -72,15 +72,15 @@ class ResultsTableViewScreen: UIView {
         addSubview(namePilot)
         addSubview(nameTeams)
         addSubview(score)
+
     }
     
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
+
         
             indiceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             indiceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            indiceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -325),
-            indiceLabel.widthAnchor.constraint(equalToConstant: 20),
             
             imagePilot.centerYAnchor.constraint(equalTo: centerYAnchor),
             imagePilot.leadingAnchor.constraint(equalTo: indiceLabel.leadingAnchor, constant: 30),
@@ -104,5 +104,4 @@ class ResultsTableViewScreen: UIView {
         
         ])
     }
-    
 }

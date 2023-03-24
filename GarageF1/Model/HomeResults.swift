@@ -14,5 +14,6 @@ struct HomeResults {
     var namePilot: String
     var nameTeams: String
     var score: String
+
     
 }
