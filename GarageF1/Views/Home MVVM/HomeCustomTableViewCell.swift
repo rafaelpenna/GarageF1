@@ -11,7 +11,7 @@ class HomeCustomTableViewCell: UITableViewCell {
     
     var welcomeUser: WelcomeUserCustomTableView = WelcomeUserCustomTableView()
     var standingCollection: StandingCustomTableViewCell = StandingCustomTableViewCell()
-    var customDuelTableViewCell: CustomDuelTableViewCell = CustomDuelTableViewCell()
+    var customDuelTableViewCell: DDuelCustomTableViewCell = DDuelCustomTableViewCell()
     var simulationButtonTableViewCell: SimulationButtonTableViewCell = SimulationButtonTableViewCell()
     var fullresultsTableViewCell: FullResultsTableViewCell = FullResultsTableViewCell()
     var fullResultButtonTableViewCell: FullResultButtonTableViewCell = FullResultButtonTableViewCell()

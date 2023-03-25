@@ -53,7 +53,7 @@ class HomeScreen: UIView {
         tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
 //        tableView.register(WelcomeUserCustomTableView.self, forCellReuseIdentifier: WelcomeUserCustomTableView.identifier)
         tableView.register(StandingCustomTableViewCell.self, forCellReuseIdentifier: StandingCustomTableViewCell.identifier)
-        tableView.register(CustomDuelTableViewCell.self, forCellReuseIdentifier: CustomDuelTableViewCell.identifier)
+        tableView.register(DDuelCustomTableViewCell.self, forCellReuseIdentifier: DDuelCustomTableViewCell.identifier)
         tableView.register(SimulationButtonTableViewCell.self, forCellReuseIdentifier: SimulationButtonTableViewCell.identifier)
         tableView.register(FullResultsTableViewCell.self, forCellReuseIdentifier: FullResultsTableViewCell.identifier)
         tableView.register(FullResultButtonTableViewCell.self, forCellReuseIdentifier: FullResultButtonTableViewCell.identifier)

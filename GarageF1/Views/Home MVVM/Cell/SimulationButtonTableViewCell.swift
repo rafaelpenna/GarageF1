@@ -23,9 +23,9 @@ class SimulationButtonTableViewCell: UITableViewCell {
     lazy var simulationButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Faça sua simulação", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitle("Toque para simular", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
+        button.setTitleColor(.white, for: .normal)
         button.addTarget(self, action: #selector(tappedSimulationButton), for: .touchUpInside)
         return button
     }()

@@ -11,9 +11,9 @@ class FullResultsTableViewCell: UITableViewCell {
     
     static let identifier: String = "FullResultsTableViewCell"
     
-    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imagePilot: "astonmartinlogo", namePilot: "Aston Martin", nameTeams: "Ferrari", score: "86 pts"),
-                                          HomeResults(indice: "2", imagePilot: "mercedeslogo", namePilot: "Mercedes", nameTeams: "Red Bull Racing", score: "59 pts"),
-                                          HomeResults(indice: "3", imagePilot: "ferrarilogo", namePilot: "Ferrari", nameTeams: "Red Bull Racing", score: "54 pts")]
+    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts", topNameTeams: "Equipes", topScoreTeams: "Pts"),
+                                          HomeResults(indice: "2", imageTeams: "mercedeslogo", namePilot: "Mercedes", score: "59 pts", topNameTeams: "", topScoreTeams: ""),
+                                          HomeResults(indice: "3", imageTeams: "ferrarilogo", namePilot: "Ferrari", score: "54 pts", topNameTeams: "", topScoreTeams: "")]
     
     var fullResultsTableViewScreen: FullResultsTableViewScreen = FullResultsTableViewScreen()
     
@@ -22,7 +22,6 @@ class FullResultsTableViewCell: UITableViewCell {
         addSubview()
         configCosntraints()
         fullResultsTableViewScreen.configTableViewProtocols(delegate: self, dataSource: self)
-
     }
     
     required init?(coder: NSCoder) {

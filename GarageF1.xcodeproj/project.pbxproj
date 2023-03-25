@@ -41,6 +41,7 @@
 		0B90651329C3E11800B7AD2C /* CustomDuelTableViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651229C3E11800B7AD2C /* CustomDuelTableViewScreen.swift */; };
 		0B90651629C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651529C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift */; };
 		0B90651829C3E74E00B7AD2C /* CollectionCustomDuelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651729C3E74E00B7AD2C /* CollectionCustomDuelCell.swift */; };
+		0B9172EA29CE789C0089A822 /* DDuelCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B9172E929CE789C0089A822 /* DDuelCustomTableViewCell.swift */; };
 		0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */; };
 		0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC34297483CD003B2D9C /* HomeResults.swift */; };
 		0BAD883829591FC800CCC859 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAD883729591FC800CCC859 /* LoginScreen.swift */; };
@@ -178,6 +179,7 @@
 		0B90651229C3E11800B7AD2C /* CustomDuelTableViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDuelTableViewScreen.swift; sourceTree = "<group>"; };
 		0B90651529C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCustomDuelScreen.swift; sourceTree = "<group>"; };
 		0B90651729C3E74E00B7AD2C /* CollectionCustomDuelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCustomDuelCell.swift; sourceTree = "<group>"; };
+		0B9172E929CE789C0089A822 /* DDuelCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDuelCustomTableViewCell.swift; sourceTree = "<group>"; };
 		0B9CF6822962692C002E3405 /* GarageF1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1.entitlements; sourceTree = "<group>"; };
 		0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRacer.swift; sourceTree = "<group>"; };
 		0BA8BC34297483CD003B2D9C /* HomeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResults.swift; sourceTree = "<group>"; };
@@ -526,6 +528,7 @@
 				0BD9483829C281BB008E1C33 /* WelcomeUserCustomTableView.swift */,
 				0BD9483C29C2A6DD008E1C33 /* StandingCustomTableViewCell.swift */,
 				0BD9483A29C28D51008E1C33 /* StandingCustomScreen.swift */,
+				0B9172E929CE789C0089A822 /* DDuelCustomTableViewCell.swift */,
 				0B90651029C3E0A700B7AD2C /* CustomDuelTableViewCell.swift */,
 				0B90651229C3E11800B7AD2C /* CustomDuelTableViewScreen.swift */,
 				0BEE6EB329C521160078EA86 /* SimulationButtonTableViewCell.swift */,
@@ -1172,6 +1175,7 @@
 				0BB50D272978B388009CD502 /* DueloCollectionViewScreen.swift in Sources */,
 				1C3BA776298D2732001D145E /* Track.swift in Sources */,
 				1C726E4C29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift in Sources */,
+				0B9172EA29CE789C0089A822 /* DDuelCustomTableViewCell.swift in Sources */,
 				0BD9483B29C28D51008E1C33 /* StandingCustomScreen.swift in Sources */,
 				0B1E858D29BD1957009479F7 /* TableViewBestGridPositionCustomCellScreen.swift in Sources */,
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,

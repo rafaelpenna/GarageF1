@@ -25,10 +25,11 @@ class CustomResultsFullTableView: UITableViewCell {
 
     func setupCell(data: HomeResults) {
         customFullResultsScreen.indiceLabel.text = data.indice
-        customFullResultsScreen.imagePilot.image = UIImage(named: data.imagePilot)
-        customFullResultsScreen.namePilot.text = data.namePilot
-        customFullResultsScreen.nameTeams.text = data.nameTeams
+        customFullResultsScreen.imageTeams.image = UIImage(named: data.imageTeams)
+        customFullResultsScreen.nameTeams.text = data.namePilot
         customFullResultsScreen.score.text = data.score
+        customFullResultsScreen.topNameTeams.text = data.topNameTeams
+        customFullResultsScreen.topScoreTeams.text = data.topScoreTeams
 
     }
 

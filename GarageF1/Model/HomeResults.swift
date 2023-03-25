@@ -10,10 +10,9 @@ import Foundation
 struct HomeResults {
     
     var indice: String
-    var imagePilot: String
+    var imageTeams: String
     var namePilot: String
-    var nameTeams: String
     var score: String
-
-    
+    var topNameTeams: String
+    var topScoreTeams: String
 }

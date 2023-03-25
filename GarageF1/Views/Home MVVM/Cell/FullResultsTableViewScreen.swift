@@ -9,14 +9,37 @@ import UIKit
 
 class FullResultsTableViewScreen: UIView {
     
+    lazy var titleLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Campeonato de construtores"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    
+    lazy var titleConstructorsLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "TOP 3"
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.textColor = .white
+        label.font = UIFont.boldSystemFont(ofSize: 25)
+        return label
+    }()
+    
     lazy var fullResultsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.backgroundColor = .white
         tableView.separatorStyle = .none
         tableView.separatorColor = .darkGray
         tableView.allowsSelection = false
         tableView.isScrollEnabled = false
+        tableView.separatorStyle = .singleLine
+        tableView.layer.cornerRadius = 20
         tableView.register(CustomResultsFullTableView.self, forCellReuseIdentifier: CustomResultsFullTableView.identifier)
         return tableView
 
@@ -33,6 +56,8 @@ class FullResultsTableViewScreen: UIView {
     }
     
     func addSubview() {
+        addSubview(titleConstructorsLabel)
+        addSubview(titleLabel)
         addSubview(fullResultsTableView)
     }
     
@@ -43,10 +68,19 @@ class FullResultsTableViewScreen: UIView {
     
     private func configConstraints() {
         NSLayoutConstraint.activate([
-            fullResultsTableView.topAnchor.constraint(equalTo: topAnchor),
-            fullResultsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            fullResultsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            fullResultsTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            titleConstructorsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            titleConstructorsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            titleConstructorsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            
+            titleLabel.topAnchor.constraint(equalTo: titleConstructorsLabel.bottomAnchor, constant: 5),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            
+            fullResultsTableView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            fullResultsTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            fullResultsTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            fullResultsTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
 }

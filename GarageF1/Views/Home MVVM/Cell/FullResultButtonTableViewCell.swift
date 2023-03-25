@@ -22,9 +22,9 @@ class FullResultButtonTableViewCell: UITableViewCell {
     
     lazy var fullResultButton: UIButton = {
        let button = UIButton()
-        button.setTitle("Conferir resultado completo", for: .normal)
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 19)
-        button.setTitleColor(.black, for: .normal)
+        button.setTitle("Toque para classificação completa", for: .normal)
+        button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 19)
+        button.setTitleColor(.white, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.addTarget(self, action: #selector(tappedFullResultButton), for: .touchUpInside)
         return button

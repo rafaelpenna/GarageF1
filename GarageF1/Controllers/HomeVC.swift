@@ -47,7 +47,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,7 +70,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 backgroundView.backgroundColor = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 1 {
-                let cell = tableView.dequeueReusableCell(withIdentifier: CustomDuelTableViewCell.identifier, for: indexPath) as? CustomDuelTableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: DDuelCustomTableViewCell.identifier, for: indexPath) as? DDuelCustomTableViewCell
                 cell?.selectedBackgroundView = backgroundView
                 backgroundView.backgroundColor = .none
                 cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
@@ -81,17 +81,20 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
                 cell?.delegate(delegate: self)
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: FullResultsTableViewCell.identifier, for: indexPath) as? FullResultsTableViewCell
                 cell?.selectedBackgroundView = backgroundView
                 backgroundView.backgroundColor = .none
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 4 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: FullResultButtonTableViewCell.identifier, for: indexPath) as? FullResultButtonTableViewCell
                 cell?.configure()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
                 cell?.delegate(delegate: self)
                 return cell ?? UITableViewCell()
             }
@@ -106,11 +109,11 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return 270
             } else if indexPath.row == 1 {
-                return 280
+                return 275
             } else if indexPath.row == 2 {
                 return 35
             } else if indexPath.row == 3 {
-                return 400
+                return 580
             } else if indexPath.row == 4 {
                 return 45
             }
