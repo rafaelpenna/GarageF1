@@ -1,13 +1,13 @@
 //
-//  DataRacer.swift
+//  RacesModel.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 06/02/23.
+//  Created by Rafael Penna on 25/03/23.
 //
 
 import Foundation
 
-struct DataRacer {
+struct RacesModel {
     var roundLabel: String
     var countryLabel: String
     var descriptionLabel: String
