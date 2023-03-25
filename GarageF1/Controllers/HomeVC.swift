@@ -23,12 +23,13 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
         homeScreen.backgroundColor = .white
-        navigationController?.isNavigationBarHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
+
 }
 
 
