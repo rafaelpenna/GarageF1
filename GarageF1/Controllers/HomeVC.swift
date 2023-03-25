@@ -13,18 +13,7 @@ class HomeVC: UIViewController {
     let simulationButtonTableViewCell: FullResultButtonTableViewCell? = FullResultButtonTableViewCell()
     let standingCustom: StandingCustomTableViewCell = StandingCustomTableViewCell()
     let duelStackVC: DuelViewController = DuelViewController()
-    let driversVC: DriversViewController = DriversViewController()
-    
-//    var dataHomeRacer: [HomeRacer] = [HomeRacer(indice: "1", nameTeams: "Red Bull Racing", name: "max", nameImage: "Max Verstappen"),
-//                                      HomeRacer(indice: "2", nameTeams: "Ferrari", name: "charles", nameImage: "Charles Leclerc")]
-//    
-//    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imagePilot: "charles", namePilot: "Charles Leclerc", nameTeams: "Ferrari", score: "86 pts"),
-//                                          HomeResults(indice: "2", imagePilot: "max", namePilot: "Max Verstappen", nameTeams: "Red Bull Racing", score: "59 pts"),
-//                                          HomeResults(indice: "3", imagePilot: "sergio", namePilot: "Sergio Perez", nameTeams: "Red Bull Racing", score: "54 pts")]
-//    
-//    var dataHomeDuel: [HomeDuel] = [HomeDuel(namePilot: "Michael Schumacher ", imagePilot: "schumacher"),
-//                                    HomeDuel(namePilot: "Max Verstappen", imagePilot: "max")]
-//    
+    let driversVC: DriversViewController = DriversViewController()  
     
     override func loadView() {
         view = homeScreen
@@ -55,14 +44,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         
         
         if tableView == homeScreen.superTableView {
-//            if indexPath.row == 0 {
-//                let cell = tableView.dequeueReusableCell(withIdentifier: WelcomeUserCustomTableView.identifier) as? WelcomeUserCustomTableView
-//                cell?.configure()
-//                cell?.welcomeLabel.text = "Bem-Vindo"
-//                cell?.userNameLabel.text = "Ellington Cavalcante"
-//                backgroundView.backgroundColor = .none
-//                cell?.selectedBackgroundView = backgroundView
-//                return cell ?? UITableViewCell()
                 if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: StandingCustomTableViewCell.identifier, for: indexPath) as? StandingCustomTableViewCell
                 cell?.selectedBackgroundView = backgroundView
@@ -104,8 +85,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == homeScreen.superTableView {
-//            if indexPath.row == 0 {
-//                return 70
             if indexPath.row == 0 {
                 return 270
             } else if indexPath.row == 1 {
@@ -113,7 +92,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 return 35
             } else if indexPath.row == 3 {
-                return 580
+                return 455
             } else if indexPath.row == 4 {
                 return 45
             }
@@ -122,7 +101,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
-
 
 extension HomeVC: FullResultButtonTableViewCellProtocol {
     func actionFullResultButton() {

@@ -50,7 +50,7 @@ class HomeScreen: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
 //        tableView.register(WelcomeUserCustomTableView.self, forCellReuseIdentifier: WelcomeUserCustomTableView.identifier)
         tableView.register(StandingCustomTableViewCell.self, forCellReuseIdentifier: StandingCustomTableViewCell.identifier)
         tableView.register(DDuelCustomTableViewCell.self, forCellReuseIdentifier: DDuelCustomTableViewCell.identifier)

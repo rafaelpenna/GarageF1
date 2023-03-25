@@ -28,8 +28,6 @@ class CustomResultsFullTableView: UITableViewCell {
         customFullResultsScreen.imageTeams.image = UIImage(named: data.imageTeams)
         customFullResultsScreen.nameTeams.text = data.namePilot
         customFullResultsScreen.score.text = data.score
-        customFullResultsScreen.topNameTeams.text = data.topNameTeams
-        customFullResultsScreen.topScoreTeams.text = data.topScoreTeams
 
     }
 

@@ -11,11 +11,14 @@ class FullResultsTableViewCell: UITableViewCell {
     
     static let identifier: String = "FullResultsTableViewCell"
     
-    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts", topNameTeams: "Equipes", topScoreTeams: "Pts"),
-                                          HomeResults(indice: "2", imageTeams: "mercedeslogo", namePilot: "Mercedes", score: "59 pts", topNameTeams: "", topScoreTeams: ""),
-                                          HomeResults(indice: "3", imageTeams: "ferrarilogo", namePilot: "Ferrari", score: "54 pts", topNameTeams: "", topScoreTeams: "")]
+    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts"),
+                                          HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts"),
+                                          HomeResults(indice: "2", imageTeams: "mercedeslogo", namePilot: "Mercedes", score: "59 pts"),
+                                          HomeResults(indice: "3", imageTeams: "ferrarilogo", namePilot: "Ferrari", score: "54 pts")]
+    
     
     var fullResultsTableViewScreen: FullResultsTableViewScreen = FullResultsTableViewScreen()
+    
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -30,7 +33,9 @@ class FullResultsTableViewCell: UITableViewCell {
     
     func addSubview() {
         fullResultsTableViewScreen.translatesAutoresizingMaskIntoConstraints = false
+    
         contentView.addSubview(fullResultsTableViewScreen)
+        
     }
     
     private func configCosntraints() {
@@ -52,12 +57,21 @@ extension FullResultsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell: CustomResultsFullTableView? = tableView.dequeueReusableCell(withIdentifier: CustomResultsFullTableView.identifier, for: indexPath) as? CustomResultsFullTableView
-        cell?.setupCell(data: dataHomeResults[indexPath.row])
-        return cell ?? UITableViewCell()
+        if indexPath.row == 0 {
+            let cell: TopResultsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: TopResultsTableViewCell.identifier, for: indexPath) as? TopResultsTableViewCell
+            return cell ?? UITableViewCell()
+        } else {
+            
+            let cell: CustomResultsFullTableView? = tableView.dequeueReusableCell(withIdentifier: CustomResultsFullTableView.identifier, for: indexPath) as? CustomResultsFullTableView
+            cell?.setupCell(data: dataHomeResults[indexPath.row])
+            return cell ?? UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        if indexPath.row == 0 {
+            return 50
+        }
+        return 100
     }
 }

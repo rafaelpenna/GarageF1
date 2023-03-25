@@ -41,6 +41,7 @@ class FullResultsTableViewScreen: UIView {
         tableView.separatorStyle = .singleLine
         tableView.layer.cornerRadius = 20
         tableView.register(CustomResultsFullTableView.self, forCellReuseIdentifier: CustomResultsFullTableView.identifier)
+        tableView.register(TopResultsTableViewCell.self, forCellReuseIdentifier: TopResultsTableViewCell.identifier)
         return tableView
 
     }()

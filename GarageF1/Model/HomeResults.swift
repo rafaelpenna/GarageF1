@@ -13,6 +13,4 @@ struct HomeResults {
     var imageTeams: String
     var namePilot: String
     var score: String
-    var topNameTeams: String
-    var topScoreTeams: String
 }
