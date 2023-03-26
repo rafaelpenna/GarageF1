@@ -37,6 +37,11 @@
 		0B4CC6422953E90900D29D4C /* GarageF1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6412953E90900D29D4C /* GarageF1UITests.swift */; };
 		0B4CC6442953E90900D29D4C /* GarageF1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6432953E90900D29D4C /* GarageF1UITestsLaunchTests.swift */; };
 		0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6562953F10100D29D4C /* TabBarVC.swift */; };
+		0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */; };
+		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
+		0B8F7DC929CFAB0C0069FAE2 /* DataHomeConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC829CFAB0C0069FAE2 /* DataHomeConstructors.swift */; };
+		0B8F7DCB29CFADE10069FAE2 /* CustomFullResultsConstructorsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DCA29CFADE10069FAE2 /* CustomFullResultsConstructorsScreen.swift */; };
+		0B8F7DCD29CFAE1F0069FAE2 /* CustomFullResultConstructorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DCC29CFAE1F0069FAE2 /* CustomFullResultConstructorsTableViewCell.swift */; };
 		0B90651129C3E0A700B7AD2C /* CustomDuelTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651029C3E0A700B7AD2C /* CustomDuelTableViewCell.swift */; };
 		0B90651329C3E11800B7AD2C /* CustomDuelTableViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651229C3E11800B7AD2C /* CustomDuelTableViewScreen.swift */; };
 		0B90651629C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B90651529C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift */; };
@@ -176,6 +181,11 @@
 		0B4CC6412953E90900D29D4C /* GarageF1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageF1UITests.swift; sourceTree = "<group>"; };
 		0B4CC6432953E90900D29D4C /* GarageF1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageF1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0B4CC6562953F10100D29D4C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultVC.swift; sourceTree = "<group>"; };
+		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
+		0B8F7DC829CFAB0C0069FAE2 /* DataHomeConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHomeConstructors.swift; sourceTree = "<group>"; };
+		0B8F7DCA29CFADE10069FAE2 /* CustomFullResultsConstructorsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFullResultsConstructorsScreen.swift; sourceTree = "<group>"; };
+		0B8F7DCC29CFAE1F0069FAE2 /* CustomFullResultConstructorsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFullResultConstructorsTableViewCell.swift; sourceTree = "<group>"; };
 		0B90651029C3E0A700B7AD2C /* CustomDuelTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDuelTableViewCell.swift; sourceTree = "<group>"; };
 		0B90651229C3E11800B7AD2C /* CustomDuelTableViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDuelTableViewScreen.swift; sourceTree = "<group>"; };
 		0B90651529C3E6B000B7AD2C /* CollectionCustomDuelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCustomDuelScreen.swift; sourceTree = "<group>"; };
@@ -422,6 +432,15 @@
 			path = GarageF1UITests;
 			sourceTree = "<group>";
 		};
+		0B8F7DC729CF819A0069FAE2 /* CustomConstructorsTableView */ = {
+			isa = PBXGroup;
+			children = (
+				0B8F7DCA29CFADE10069FAE2 /* CustomFullResultsConstructorsScreen.swift */,
+				0B8F7DCC29CFAE1F0069FAE2 /* CustomFullResultConstructorsTableViewCell.swift */,
+			);
+			path = CustomConstructorsTableView;
+			sourceTree = "<group>";
+		};
 		0B90651429C3E66600B7AD2C /* CustomDuelCollection */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +461,7 @@
 				0BBE0287297CAB4400D19D12 /* RacingVC.swift */,
 				0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */,
 				1C3BA773298D210E001D145E /* StandingsTrackVC.swift */,
+				0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -463,6 +483,7 @@
 				1C3BA771298D202B001D145E /* Standings.swift */,
 				1C3BA775298D2732001D145E /* Track.swift */,
 				0BE956C22991D32B00F53A79 /* DataRacer.swift */,
+				0B8F7DC829CFAB0C0069FAE2 /* DataHomeConstructors.swift */,
 				0B1E857F29BD05E8009479F7 /* FirstDriverCollection */,
 			);
 			path = Model;
@@ -481,6 +502,7 @@
 				0B10DD53295A878000CB397A /* RegisterLoginScreen.swift */,
 				0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */,
 				1C3BA77C298D2B7B001D145E /* StangingsTrackScreen.swift */,
+				0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -514,6 +536,7 @@
 		0BD9483429C280A9008E1C33 /* Home MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				0B8F7DC729CF819A0069FAE2 /* CustomConstructorsTableView */,
 				0BEE6EBB29C53F1E0078EA86 /* CustomFullResultsTableView */,
 				0B90651429C3E66600B7AD2C /* CustomDuelCollection */,
 				0BD9483E29C2B01A008E1C33 /* CustomStandingCollection */,
@@ -1108,6 +1131,7 @@
 				1C550FB929AD293A00AC2E51 /* HistoryViewModel.swift in Sources */,
 				0B10DD54295A878000CB397A /* RegisterLoginScreen.swift in Sources */,
 				1C0C684A2996E59000A7C1BE /* DriversCustomTableViewCell.swift in Sources */,
+				0B8F7DCD29CFAE1F0069FAE2 /* CustomFullResultConstructorsTableViewCell.swift in Sources */,
 				0B31208A29BC3BA7002650E2 /* FirstDriverVC.swift in Sources */,
 				1C726E5029B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift in Sources */,
 				0BD9484029C2B093008E1C33 /* CustomStandingCollectionViewCell.swift in Sources */,
@@ -1150,6 +1174,7 @@
 				0B23C44F297396F70080D242 /* DestaquesCollectionViewCell.swift in Sources */,
 				1C5170F129997FA300DDDC18 /* DriversDetailViewController.swift in Sources */,
 				1C0C68462996E14E00A7C1BE /* DriversScreenView.swift in Sources */,
+				0B8F7DC929CFAB0C0069FAE2 /* DataHomeConstructors.swift in Sources */,
 				0BBE0288297CAB4400D19D12 /* RacingVC.swift in Sources */,
 				0BA21B6529CF220400E9BE39 /* TopResultsTableViewCell.swift in Sources */,
 				1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */,
@@ -1169,6 +1194,7 @@
 				1C726E4629B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift in Sources */,
 				0BD9483D29C2A6DD008E1C33 /* StandingCustomTableViewCell.swift in Sources */,
 				0BEE6EC229C55B9F0078EA86 /* FullResultButtonTableViewCell.swift in Sources */,
+				0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */,
 				0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */,
 				0BB50D292978B3B8009CD502 /* DueloCollectionViewCell.swift in Sources */,
 				0BEE6EBD29C53FE10078EA86 /* CustomResultsFullTableView.swift in Sources */,
@@ -1185,10 +1211,12 @@
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,
 				1CB39D3C299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift in Sources */,
 				0B1E857829BCF775009479F7 /* TableViewBirthDateCellScreen.swift in Sources */,
+				0B8F7DCB29CFADE10069FAE2 /* CustomFullResultsConstructorsScreen.swift in Sources */,
 				1CB39D3A299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift in Sources */,
 				0B10DD4E295A5A8E00CB397A /* EmailLoginScreen.swift in Sources */,
 				0B10DD52295A630700CB397A /* Alert.swift in Sources */,
 				0B1E858129BD0653009479F7 /* FirstDriverBirthLocation.swift in Sources */,
+				0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */,
 				0BE956C12991C72C00F53A79 /* RacingCustomTableViewCell.swift in Sources */,
 				0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */,
 				0BD9483729C280F3008E1C33 /* HomeCustomTableViewCell.swift in Sources */,

@@ -13,7 +13,8 @@ class HomeVC: UIViewController {
     let simulationButtonTableViewCell: FullResultButtonTableViewCell? = FullResultButtonTableViewCell()
     let standingCustom: StandingCustomTableViewCell = StandingCustomTableViewCell()
     let duelStackVC: DuelViewController = DuelViewController()
-    let driversVC: DriversViewController = DriversViewController()  
+    let driversVC: DriversViewController = DriversViewController()
+    let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
     
     override func loadView() {
         view = homeScreen
@@ -105,7 +106,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeVC: FullResultButtonTableViewCellProtocol {
     func actionFullResultButton() {
-        self.navigationController?.pushViewController(driversVC, animated: true)
+        self.navigationController?.pushViewController(constructorsVC, animated: true)
     }
 }
 

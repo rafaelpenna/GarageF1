@@ -16,6 +16,13 @@ class HomeScreen: UIView {
         return label
     }()
     
+    private lazy var topRedLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
     private lazy var homeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +75,7 @@ class HomeScreen: UIView {
         addSubview(welcomeLabel)
         addSubview(userNameLabel)
         addSubview(superTableView)
+        addSubview(topRedLabel)
         configConstraints()
     }
     
@@ -83,7 +91,7 @@ class HomeScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            welcomeLabel.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 2),
+            welcomeLabel.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 30),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
             userNameLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 5),
@@ -91,11 +99,16 @@ class HomeScreen: UIView {
             
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: topAnchor),
+            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topLabel.heightAnchor.constraint(equalToConstant: 135),
             
+            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            
             homeLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
-            homeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 35),
+            homeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             
             superTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             superTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
