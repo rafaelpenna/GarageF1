@@ -1,14 +1,14 @@
 //
-//  ResultsTableViewScreen.swift
+//  CustomFullResultsScreen.swift
 //  GarageF1
 //
-//  Created by Ellington Cavalcante on 15/01/23.
+//  Created by Ellington Cavalcante on 17/03/23.
 //
 
 import UIKit
 
-class ResultsTableViewScreen: UIView {
-    
+class CustomFullResultsScreen: UIView {
+
     lazy var indiceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -18,32 +18,21 @@ class ResultsTableViewScreen: UIView {
         return label
     }()
     
-    lazy var imagePilot: UIImageView = {
+    lazy var imageTeams: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.layer.cornerRadius = 45
         image.clipsToBounds = true
-        image.layer.borderWidth = 0.5
-        image.layer.borderColor = UIColor.lightGray.cgColor
         image.contentMode = .scaleAspectFit
         return image
-    }()
-    
-    lazy var namePilot: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .left
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 18)
-        return label
     }()
     
     lazy var nameTeams: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 15)
         label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
     
@@ -55,6 +44,7 @@ class ResultsTableViewScreen: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -68,41 +58,34 @@ class ResultsTableViewScreen: UIView {
     
     private func components() {
         addSubview(indiceLabel)
-        addSubview(imagePilot)
-        addSubview(namePilot)
+        addSubview(imageTeams)
         addSubview(nameTeams)
         addSubview(score)
+
     }
     
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
+
         
             indiceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             indiceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            indiceLabel.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -325),
-            indiceLabel.widthAnchor.constraint(equalToConstant: 20),
             
-            imagePilot.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imagePilot.leadingAnchor.constraint(equalTo: indiceLabel.leadingAnchor, constant: 30),
-            imagePilot.heightAnchor.constraint(equalToConstant: 90),
-            imagePilot.widthAnchor.constraint(equalToConstant: 90),
+            imageTeams.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            imageTeams.leadingAnchor.constraint(equalTo: indiceLabel.leadingAnchor, constant: 30),
+            imageTeams.heightAnchor.constraint(equalToConstant: 90),
+            imageTeams.widthAnchor.constraint(equalToConstant: 90),
             
-            namePilot.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            namePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 140),
-            namePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            namePilot.heightAnchor.constraint(equalToConstant: 20),
-            
-            nameTeams.topAnchor.constraint(equalTo: namePilot.topAnchor, constant: 20),
+            nameTeams.topAnchor.constraint(equalTo: topAnchor, constant: 37),
             nameTeams.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 140),
-            nameTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            nameTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             nameTeams.heightAnchor.constraint(equalToConstant: 20),
             
-            score.centerYAnchor.constraint(equalTo: centerYAnchor),
+            score.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             score.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 280),
             score.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            score.heightAnchor.constraint(equalToConstant: 40)
-        
+            score.heightAnchor.constraint(equalToConstant: 40),
+            
         ])
     }
-    
 }

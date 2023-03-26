@@ -10,111 +10,122 @@ import UIKit
 class HomeVC: UIViewController {
     
     let homeScreen: HomeScreen = HomeScreen()
+    let simulationButtonTableViewCell: FullResultButtonTableViewCell? = FullResultButtonTableViewCell()
+    let standingCustom: StandingCustomTableViewCell = StandingCustomTableViewCell()
     let duelStackVC: DuelViewController = DuelViewController()
     let driversVC: DriversViewController = DriversViewController()
-    
-    var dataHomeRacer: [HomeRacer] = [HomeRacer(indice: "1", nameTeams: "Red Bull Racing", name: "max", nameImage: "Max Verstappen"),
-                                      HomeRacer(indice: "2", nameTeams: "Ferrari", name: "charles", nameImage: "Charles Leclerc")]
-    
-    var dataHomeResults: [HomeResults] = [HomeResults(indice: "1", imagePilot: "charles", namePilot: "Charles Leclerc", nameTeams: "Ferrari", score: "86 pts"),
-                                          HomeResults(indice: "2", imagePilot: "max", namePilot: "Max Verstappen", nameTeams: "Red Bull Racing", score: "59 pts"),
-                                          HomeResults(indice: "3", imagePilot: "sergio", namePilot: "Sergio Perez", nameTeams: "Red Bull Racing", score: "54 pts")]
-    
-    var dataHomeDuel: [HomeDuel] = [HomeDuel(namePilot: "Michael Schumacher ", imagePilot: "schumacher"),
-                                    HomeDuel(namePilot: "Max Verstappen", imagePilot: "max")]
-    
+    let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
     
     override func loadView() {
         view = homeScreen
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.homeScreen.configTableViewDelegate(delegate: self, dataSource: self)
-        self.homeScreen.configProtocolsDestaqueCollectionView(delegate: self, dataSource: self)
-        homeScreen.delegate(delegate: self)
-        self.homeScreen.configProtocolsDueloCollectionView(delegate: self, dataSource: self)
-        navigationController?.isNavigationBarHidden = true
+        self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
         homeScreen.backgroundColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
-
     }
-    
+
 }
 
 
-extension HomeVC: homeScreenProtocol {
-    func actionFullResultButton() {
-        self.navigationController?.pushViewController(driversVC, animated: true)
+extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let backgroundView = UIView()
+        
+        
+        if tableView == homeScreen.superTableView {
+                if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: StandingCustomTableViewCell.identifier, for: indexPath) as? StandingCustomTableViewCell
+                cell?.selectedBackgroundView = backgroundView
+                cell?.delegate(delegate: self)
+                backgroundView.backgroundColor = .none
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 1 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: DDuelCustomTableViewCell.identifier, for: indexPath) as? DDuelCustomTableViewCell
+                cell?.selectedBackgroundView = backgroundView
+                backgroundView.backgroundColor = .none
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 2 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: SimulationButtonTableViewCell.identifier, for: indexPath) as? SimulationButtonTableViewCell
+                cell?.configure()
+                cell?.delegate(delegate: self)
+                backgroundView.backgroundColor = .none
+                cell?.selectedBackgroundView = backgroundView
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 3 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: FullResultsTableViewCell.identifier, for: indexPath) as? FullResultsTableViewCell
+                cell?.selectedBackgroundView = backgroundView
+                backgroundView.backgroundColor = .none
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 4 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: FullResultButtonTableViewCell.identifier, for: indexPath) as? FullResultButtonTableViewCell
+                cell?.configure()
+                backgroundView.backgroundColor = .none
+                cell?.selectedBackgroundView = backgroundView
+                cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
+                cell?.delegate(delegate: self)
+                return cell ?? UITableViewCell()
+            }
+        }
+        return UITableViewCell()
     }
     
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == homeScreen.superTableView {
+            if indexPath.row == 0 {
+                return 270
+            } else if indexPath.row == 1 {
+                return 275
+            } else if indexPath.row == 2 {
+                return 35
+            } else if indexPath.row == 3 {
+                return 455
+            } else if indexPath.row == 4 {
+                return 45
+            }
+        }
+        return 80
+    }
+
+}
+
+extension HomeVC: FullResultButtonTableViewCellProtocol {
+    func actionFullResultButton() {
+        self.navigationController?.pushViewController(constructorsVC, animated: true)
+    }
+}
+
+extension HomeVC: SimulationButtonTableViewCellProtocol {
     func actionSimulationButton() {
         self.navigationController?.pushViewController(duelStackVC, animated: true)
     }
 }
 
-extension HomeVC: UITableViewDelegate, UITableViewDataSource {
+extension HomeVC: StandingCustomTableViewCellProtocol {
     
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dataHomeResults.count
+    func callSecondDrive() {
+        let secondDriver: SecondDriverVC = SecondDriverVC()
+        self.navigationController?.pushViewController(secondDriver, animated: true)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell: ResultsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: ResultsTableViewCell.identifier, for: indexPath) as? ResultsTableViewCell
-        cell?.setupCell(data: dataHomeResults[indexPath.row])
-        return cell ?? UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
-    }
-    
-}
-
-
-extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        if collectionView == homeScreen.destaquesCollection {
-            
-            return self.dataHomeRacer.count
-        } else {
-            return self.dataHomeDuel.count
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if collectionView == homeScreen.destaquesCollection {
-            
-            let cell1: DestaquesCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: DestaquesCollectionViewCell.identifier, for: indexPath) as? DestaquesCollectionViewCell
-            cell1?.setupCell(data: dataHomeRacer[indexPath.row])
-            
-            return cell1 ?? UICollectionViewCell()
-            
-            
-        } else {
-            let cell2: DueloCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: DueloCollectionViewCell.identifier, for: indexPath) as? DueloCollectionViewCell
-            cell2?.setupCell(data: dataHomeDuel[indexPath.row])
-            
-            return cell2 ?? UICollectionViewCell()
-        }
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
-            return CGSize(width: 290, height: 190)
-            
+    func callFirstDrive() {
+        let firstDriver: FirstDriverVC = FirstDriverVC()
+        self.navigationController?.pushViewController(firstDriver, animated: true)
     }
 }
 
