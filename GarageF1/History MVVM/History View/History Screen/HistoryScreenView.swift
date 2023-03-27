@@ -44,9 +44,17 @@ class HistoryScreenView: UIView {
     lazy var seasonYearButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("2022", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
         return button
+    }()
+    
+    lazy var seasonYearTitle: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "2022"
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        return label
     }()
     
     lazy var seasonYearIcon: UIImageView = {
@@ -114,6 +122,7 @@ class HistoryScreenView: UIView {
         addSubview(historyTitleLabel)
         addSubview(historyDescriptionLabel)
         addSubview(seasonYearButton)
+        seasonYearButton.addSubview(seasonYearTitle)
         seasonYearButton.addSubview(seasonYearIcon)
         addSubview(driversButton)
         addSubview(teamsButton)
@@ -148,10 +157,14 @@ class HistoryScreenView: UIView {
             
             seasonYearButton.topAnchor.constraint(equalTo: historyDescriptionLabel.topAnchor, constant: -5),
             seasonYearButton.leadingAnchor.constraint(equalTo: historyDescriptionLabel.trailingAnchor, constant: 10),
+            seasonYearButton.widthAnchor.constraint(equalToConstant: 80),
+            
+            seasonYearTitle.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 5),
+            seasonYearTitle.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 8),
             
             seasonYearIcon.heightAnchor.constraint(equalToConstant: 10),
             seasonYearIcon.widthAnchor.constraint(equalToConstant: 10),
-            seasonYearIcon.leadingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor, constant: 8),
+            seasonYearIcon.trailingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor),
             seasonYearIcon.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 15),
             
             driversButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),

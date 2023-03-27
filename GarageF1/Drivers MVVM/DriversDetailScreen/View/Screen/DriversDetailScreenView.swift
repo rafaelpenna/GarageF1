@@ -123,7 +123,7 @@ class DriversDetailScreenView: UIView {
             tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -60),
+            tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
