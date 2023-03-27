@@ -23,3 +23,7 @@ struct DuelModel {
     var pointsEarned: String
     var wins: String
 }
+
+struct DuelNameModel {
+    var duelDriverName: String
+}

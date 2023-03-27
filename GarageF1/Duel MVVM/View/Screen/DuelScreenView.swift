@@ -53,7 +53,12 @@ class DuelScreenView: UIView {
         label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         return label
     }()
-
+    
+    lazy var leftDriverButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
     
     lazy var driversFirstNameLeft: UILabel = {
         let label = UILabel()
@@ -76,6 +81,12 @@ class DuelScreenView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "blackArrow")
         return imageView
+    }()
+    
+    lazy var rightDriverButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
     }()
     
     lazy var driversFirstNameRight: UILabel = {
@@ -149,12 +160,14 @@ class DuelScreenView: UIView {
         addSubview(duelTitleLabel)
         addSubview(duelDescriptionLabel)
         addSubview(namesBackgroundLabel)
-        addSubview(driversFirstNameLeft)
-        addSubview(driversLastNameLeft)
-        addSubview(driversFirstNameRight)
-        addSubview(driversLastNameRight)
-        addSubview(leftArrow)
-        addSubview(rightArrow)
+        addSubview(leftDriverButton)
+        addSubview(rightDriverButton)
+        leftDriverButton.addSubview(driversFirstNameLeft)
+        leftDriverButton.addSubview(driversLastNameLeft)
+        rightDriverButton.addSubview(driversFirstNameRight)
+        rightDriverButton.addSubview(driversLastNameRight)
+        leftDriverButton.addSubview(leftArrow)
+        rightDriverButton.addSubview(rightArrow)
         addSubview(backButtonNavigation)
         addSubview(tableInfo)
     }
@@ -190,16 +203,28 @@ class DuelScreenView: UIView {
             namesBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             namesBackgroundLabel.heightAnchor.constraint(equalToConstant: 120),
             
+            leftDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            leftDriverButton.topAnchor.constraint(equalTo: driversFirstNameLeft.topAnchor),
+            leftDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            leftDriverButton.leadingAnchor.constraint(equalTo: driversLastNameLeft.leadingAnchor),
+            leftDriverButton.trailingAnchor.constraint(equalTo: leftArrow.trailingAnchor),
+            
             driversFirstNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
             driversFirstNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
 
             driversLastNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
             driversLastNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             
-            leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 10),
+            leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 8),
             leftArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
+            
+            rightDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
+            rightDriverButton.topAnchor.constraint(equalTo: driversFirstNameRight.topAnchor),
+            rightDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            rightDriverButton.leadingAnchor.constraint(equalTo: driversLastNameRight.leadingAnchor),
+            rightDriverButton.trailingAnchor.constraint(equalTo: rightArrow.trailingAnchor),
             
             driversFirstNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
             driversFirstNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
@@ -207,7 +232,7 @@ class DuelScreenView: UIView {
             driversLastNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
             driversLastNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
                         
-            rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 10),
+            rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 12),
             rightArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),

@@ -9,10 +9,29 @@ import UIKit
 
 class DuelViewModel {
     
+    private var driverList:[DuelNameModel] = []
+    
+    init(){
+        self.configArrayListDriver()
+    }
+    
     private var dataDriversLeft:DuelModel = DuelModel(driversName: "Michael", driversLastName: "Schumacher", driversBirthDate: "03/01/1969", driversAge: "(53 anos)", driversBirthPlace: "Hurth-Hermullheim", driversCountry: "Alemanha", championshipsWon: "7",championshipsWonYear: "1994, 1995, 2000, 2002, 2003, 2004", racesParticipated: "308", podiumsWon: "155", pointsEarned: "1566", wins: "91")
     
     private var dataDriversRight:DuelModel = DuelModel(driversName: "Max", driversLastName: "Verstappen", driversBirthDate: "30/09/1997", driversAge: "(24 anos)", driversBirthPlace: "Hasselt", driversCountry: "Bélgica", championshipsWon: "2", championshipsWonYear: "2021, 2022", racesParticipated: "163", podiumsWon: "77", pointsEarned: "2011", wins: "35")
     
+    private func configArrayListDriver(){
+        self.driverList.append(DuelNameModel(duelDriverName: "Alan Prost"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Ayrton Senna"))
+        self.driverList.append(DuelNameModel(duelDriverName: "David Coulthard"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Kimi Raikonnen"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Lewis Hammilton"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Juan Manuel Fangio"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Michael Schumacher"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Mika Hakkinen Senna"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Rubens Barrichello"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Sebastian Vettel"))
+        
+    }
     
     public func getDriversNameLeft() -> String {
         return dataDriversLeft.driversName
@@ -109,5 +128,16 @@ class DuelViewModel {
     
     public func getWinsRight() -> String {
         return dataDriversRight.wins
+    }
+    
+    
+    
+    
+    public var numberOfRowsDrivers: Int{
+        return self.driverList.count
+    }
+    
+    public func getDriverName(indexPath: IndexPath) -> String {
+        return driverList[indexPath.row].duelDriverName
     }
 }

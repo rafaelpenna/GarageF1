@@ -25,7 +25,7 @@ class HistoryViewController: UIViewController {
         view.addSubview(buttonYearSelect)
         tableViewYear.delegate = self
         tableViewYear.dataSource = self
-        tableViewYear.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        tableViewYear.register(CellClassHistory.self, forCellReuseIdentifier: "Cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -181,11 +181,15 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if tableView == tableViewYear {
+            return 45
+        } else {
             return 85
+        }
     }
         
 }
 
-class CellClass: UITableViewCell {
+class CellClassHistory: UITableViewCell {
     
 }
