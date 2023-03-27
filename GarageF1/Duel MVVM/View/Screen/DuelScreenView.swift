@@ -220,7 +220,7 @@ class DuelScreenView: UIView {
             tableInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
             tableInfo.trailingAnchor.constraint(equalTo: trailingAnchor),
             tableInfo.topAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: 10),
-            tableInfo.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -65),
+            tableInfo.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

@@ -157,7 +157,7 @@ class StandingsScreen: UIView {
             tableViewTrack.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
             tableViewTrack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
             tableViewTrack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
-            tableViewTrack.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
+            tableViewTrack.bottomAnchor.constraint(equalTo: bottomAnchor),
             
 //            Standings Board
                         
@@ -174,7 +174,7 @@ class StandingsScreen: UIView {
             tableViewStandings.topAnchor.constraint(equalTo: standingsHeader.bottomAnchor),
             tableViewStandings.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             tableViewStandings.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewStandings.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
+            tableViewStandings.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 
