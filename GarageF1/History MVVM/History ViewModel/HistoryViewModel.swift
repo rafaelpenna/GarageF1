@@ -13,9 +13,12 @@ class HistoryViewModel {
     
     private var dataTeams:[HistoryTeamsModel] = []
     
+    private var listYear:[YearModel] = []
+    
     init(){
         self.configArrayDataDrivers()
         self.configArrayDataTeams()
+        self.configArrayListYear()
     }
     
     private func configArrayDataDrivers(){
@@ -41,6 +44,24 @@ class HistoryViewModel {
         self.dataTeams.append(HistoryTeamsModel(teamsPosition: "8", teamsName: "Haas F1 Team", seasonTeamsPoints: "23"))
         self.dataTeams.append(HistoryTeamsModel(teamsPosition: "9", teamsName: "Williams", seasonTeamsPoints: "15"))
         self.dataTeams.append(HistoryTeamsModel(teamsPosition: "10", teamsName: "Alfa Romeo", seasonTeamsPoints: "0"))
+    }
+    
+    private func configArrayListYear(){
+        self.listYear.append(YearModel(year: 2022))
+        self.listYear.append(YearModel(year: 2021))
+        self.listYear.append(YearModel(year: 2020))
+        self.listYear.append(YearModel(year: 2019))
+        self.listYear.append(YearModel(year: 2018))
+        self.listYear.append(YearModel(year: 2017))
+        self.listYear.append(YearModel(year: 2016))
+        self.listYear.append(YearModel(year: 2015))
+        self.listYear.append(YearModel(year: 2014))
+        self.listYear.append(YearModel(year: 2013))
+        self.listYear.append(YearModel(year: 2012))
+        self.listYear.append(YearModel(year: 2011))
+        self.listYear.append(YearModel(year: 2010))
+        self.listYear.append(YearModel(year: 2009))
+        self.listYear.append(YearModel(year: 2008))
     }
     
     public var numberOfRowsDrivers:Int{
@@ -89,5 +110,15 @@ class HistoryViewModel {
     
     public func getTeamsSeasonPoints(indexPath: IndexPath) -> String {
         return dataTeams[indexPath.row].seasonTeamsPoints
+    }
+    
+    
+    
+    public var numberOfRowsYears: Int{
+        return self.listYear.count
+    }
+    
+    public func getYear(indexPath: IndexPath) -> Int {
+        return listYear[indexPath.row].year
     }
 }
