@@ -113,16 +113,16 @@ class HomeScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            welcomeLabel.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 30),
-            welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            welcomeLabel.bottomAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: -25),
+            welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            
+            userNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
+            userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
             
             logOutButton.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
             logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             logOutButton.widthAnchor.constraint(equalToConstant: 30),
             logOutButton.heightAnchor.constraint(equalToConstant: 30),
-            
-            userNameLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 5),
-            userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
             
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
