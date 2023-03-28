@@ -184,7 +184,11 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == tableViewYear {
             return 45
         } else {
-            return 85
+            if tableView == historyScreen?.tableViewDrivers {
+                return 85
+            } else {
+                return 70
+            }
         }
     }
         

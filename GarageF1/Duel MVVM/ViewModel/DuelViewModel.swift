@@ -27,7 +27,7 @@ class DuelViewModel {
         self.driverList.append(DuelNameModel(duelDriverName: "Lewis Hammilton"))
         self.driverList.append(DuelNameModel(duelDriverName: "Juan Manuel Fangio"))
         self.driverList.append(DuelNameModel(duelDriverName: "Michael Schumacher"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Mika Hakkinen Senna"))
+        self.driverList.append(DuelNameModel(duelDriverName: "Mika Hakkinen"))
         self.driverList.append(DuelNameModel(duelDriverName: "Rubens Barrichello"))
         self.driverList.append(DuelNameModel(duelDriverName: "Sebastian Vettel"))
         
