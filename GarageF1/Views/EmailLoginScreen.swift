@@ -20,14 +20,27 @@ class EmailLoginScreen: UIView {
         self.delegate = delegate
     }
     
-    private lazy var backButton: UIButton = {
-        let bButton = UIButton()
-        bButton.translatesAutoresizingMaskIntoConstraints = false
-        bButton.setImage(UIImage(named: "back1"), for: .normal)
-        bButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
-        return bButton
+    lazy var facebookButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "facebookicon"), for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 20
+        button.backgroundColor = .white
+        return button
+    }()
+    
+    lazy var appleButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "appleicon"), for: .normal)
+        button.clipsToBounds = true
+        button.layer.cornerRadius = 20
+        button.backgroundColor = .white
+        return button
     }()
 
+    
     private lazy var imageRegister: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -48,6 +61,16 @@ class EmailLoginScreen: UIView {
         email.textColor = .darkGray
         email.clearButtonMode = .whileEditing
         return email
+    }()
+    
+    lazy var descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Or continue with"
+        label.font = UIFont.systemFont(ofSize: 15)
+        label.textColor = .white
+        label.textAlignment = .center
+        return label
     }()
     
     lazy var passwordTextField: UITextField = {
@@ -114,13 +137,15 @@ class EmailLoginScreen: UIView {
     }
     
     private func addElements() {
-        addSubview(backButton)
         addSubview(imageRegister)
         addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(signInButton)
         addSubview(registerButton)
         addSubview(esqueceuSenhaButton)
+        addSubview(descriptionLabel)
+        addSubview(facebookButton)
+        addSubview(appleButton)
     }
     
     @objc func tappedSignInButtonButton(){
@@ -131,10 +156,7 @@ class EmailLoginScreen: UIView {
         delegate?.actionRegisterButton()
     }
     
-    @objc func tappedBackButton(){
-        delegate?.actionBackButton()
-    }
-    
+
     func validaTextFields() {
         let email: String = emailTextField.text ?? ""
         let password: String = passwordTextField.text ?? ""
@@ -176,14 +198,10 @@ class EmailLoginScreen: UIView {
     private func setUpConstraints(){
         NSLayoutConstraint.activate([
             
-            imageRegister.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60),
+            imageRegister.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
             imageRegister.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             imageRegister.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             imageRegister.heightAnchor.constraint(equalToConstant: 200),
-            
-
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
 
             emailTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -209,7 +227,23 @@ class EmailLoginScreen: UIView {
             registerButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 15),
             registerButton.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor),
-            registerButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor)
+            registerButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor),
+            
+            descriptionLabel.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 50),
+            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 25),
+            
+            facebookButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            facebookButton.leadingAnchor.constraint(equalTo: registerButton.leadingAnchor),
+            facebookButton.widthAnchor.constraint(equalToConstant: 160),
+            facebookButton.heightAnchor.constraint(equalToConstant: 45),
+            
+            appleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            appleButton.trailingAnchor.constraint(equalTo: registerButton.trailingAnchor),
+            appleButton.widthAnchor.constraint(equalToConstant: 160),
+            appleButton.heightAnchor.constraint(equalToConstant: 45),
+
         ])
     }
 }

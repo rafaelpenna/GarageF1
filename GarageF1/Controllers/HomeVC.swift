@@ -15,6 +15,8 @@ class HomeVC: UIViewController {
     let duelStackVC: DuelViewController = DuelViewController()
     let driversVC: DriversViewController = DriversViewController()
     let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
+    let emailLoginVC: EmailLoginVC = EmailLoginVC()
+//    var alert: AlertHomeLogOut?
     
     override func loadView() {
         view = homeScreen
@@ -23,7 +25,9 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        homeScreen.delegate(delegate: self)
         homeScreen.backgroundColor = .white
+//        alert = AlertHomeLogOut(controller: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -104,6 +108,8 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
 }
 
+
+
 extension HomeVC: FullResultButtonTableViewCellProtocol {
     func actionFullResultButton() {
         self.navigationController?.pushViewController(constructorsVC, animated: true)
@@ -128,6 +134,22 @@ extension HomeVC: StandingCustomTableViewCellProtocol {
         self.navigationController?.pushViewController(firstDriver, animated: true)
     }
 }
+
+extension HomeVC: HomeScreenProtocol {
+    
+    func actionLogOutButton() {
+        let alert = UIAlertController(title: "Atenção!", message: "Deseja realmente sair do GarageF1?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
+            print("Botão sair pressionado")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        
+        present(alert, animated: true)
+    }
+}
+
 
 
 

@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol HomeScreenProtocol: AnyObject {
+    func actionLogOutButton()
+}
+
 class HomeScreen: UIView {
+    
+    private weak var delegate: HomeScreenProtocol?
+    func delegate(delegate: HomeScreenProtocol?) {
+        self.delegate = delegate
+    }
 
     private lazy var topLabel: UILabel = {
         let label = UILabel()
@@ -21,6 +30,14 @@ class HomeScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
         return label
+    }()
+    
+    lazy var logOutButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "logOutIconWhite"), for: .normal)
+        button.addTarget(self, action: #selector(tappedLogOutButton), for: .touchUpInside)
+        return button
     }()
     
     private lazy var homeLabel: UILabel = {
@@ -67,6 +84,10 @@ class HomeScreen: UIView {
         return tableView
         
     }()
+    
+    @objc func tappedLogOutButton() {
+        delegate?.actionLogOutButton()
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,6 +97,7 @@ class HomeScreen: UIView {
         addSubview(userNameLabel)
         addSubview(superTableView)
         addSubview(topRedLabel)
+        addSubview(logOutButton)
         configConstraints()
     }
     
@@ -93,6 +115,11 @@ class HomeScreen: UIView {
             
             welcomeLabel.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 30),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            
+            logOutButton.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            logOutButton.widthAnchor.constraint(equalToConstant: 30),
+            logOutButton.heightAnchor.constraint(equalToConstant: 30),
             
             userNameLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 5),
             userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
