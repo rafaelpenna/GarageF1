@@ -28,7 +28,7 @@ class SecondDriverScreen: UIView {
     lazy var backButton: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         backButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
         return backButton
     }()
@@ -112,7 +112,7 @@ class SecondDriverScreen: UIView {
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             
             firstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),

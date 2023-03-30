@@ -46,7 +46,7 @@ class RacesScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "TEMPORADA 2023"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 17)
         return label
     }()
     
@@ -100,13 +100,13 @@ class RacesScreen: UIView {
             tableViewInfoRaces.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoRaces.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            racesHeadLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
-            racesHeadLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            racesHeadLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            racesHeadLabel.centerXAnchor.constraint(equalTo: topRedLabel.centerXAnchor),
             
             seasonLabel.bottomAnchor.constraint(equalTo: driversDescriptionLabel.topAnchor, constant: -4),
             seasonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
-            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -15),
+            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -8),
             driversDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             driversDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
