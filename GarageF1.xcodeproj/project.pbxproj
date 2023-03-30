@@ -66,7 +66,6 @@
 		0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */; };
 		0BBE027E297C7B5800D19D12 /* SimulationDuelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */; };
 		0BBE0280297C7B6C00D19D12 /* SimulationDuelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */; };
-		0BCC51C029D2785F00E28429 /* AlertHomeLogOut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCC51BF29D2785F00E28429 /* AlertHomeLogOut.swift */; };
 		0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE0FDC296A03F900902EF5 /* HomeVC.swift */; };
 		0BD9483729C280F3008E1C33 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9483629C280F3008E1C33 /* HomeCustomTableViewCell.swift */; };
 		0BD9483929C281BB008E1C33 /* WelcomeUserCustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD9483829C281BB008E1C33 /* WelcomeUserCustomTableView.swift */; };
@@ -222,7 +221,6 @@
 		0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDuel.swift; sourceTree = "<group>"; };
 		0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationDuelScreen.swift; sourceTree = "<group>"; };
 		0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationDuelVC.swift; sourceTree = "<group>"; };
-		0BCC51BF29D2785F00E28429 /* AlertHomeLogOut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHomeLogOut.swift; sourceTree = "<group>"; };
 		0BCE0FDC296A03F900902EF5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0BD59C982966633300788062 /* GarageF1Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1Release.entitlements; sourceTree = "<group>"; };
 		0BD9483629C280F3008E1C33 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -424,6 +422,7 @@
 				0B9509CF2963C4B100069D7D /* Controllers */,
 				0BAD883629591EF900CCC859 /* Views */,
 				1C44CDC729CF0F3700D8F32F /* Races MVVM */,
+				1C99A81E29BFD54E004CD81C /* Standings MVVM */,
 				1C5170F729998C9A00DDDC18 /* Drivers MVVM */,
 				1C1FED4229AC3FA900B989EE /* History MVVM */,
 				1C726E3229B797B8006591C9 /* Duel MVVM */,
@@ -490,7 +489,6 @@
 			isa = PBXGroup;
 			children = (
 				0B10DD51295A630700CB397A /* Alert.swift */,
-				0BCC51BF29D2785F00E28429 /* AlertHomeLogOut.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -516,7 +514,6 @@
 				0B10DD53295A878000CB397A /* RegisterLoginScreen.swift */,
 				0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */,
 				0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */,
-				1C99A81E29BFD54E004CD81C /* Standings MVVM */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1296,7 +1293,6 @@
 				0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */,
 				0B31209029BC3BEF002650E2 /* SecondDriverVC.swift in Sources */,
 				1CB39D2C299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift in Sources */,
-				0BCC51C029D2785F00E28429 /* AlertHomeLogOut.swift in Sources */,
 				1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */,
 				1CB39D34299D3BA9009DBE86 /* RacesCustomTableViewCellScreen.swift in Sources */,
 				0BEE6EB429C521160078EA86 /* SimulationButtonTableViewCell.swift in Sources */,

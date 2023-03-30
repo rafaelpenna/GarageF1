@@ -35,7 +35,7 @@ class ConstructorsFullResultScreen: UIView {
     lazy var backButton: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         backButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
         return backButton
     }()
@@ -119,13 +119,13 @@ class ConstructorsFullResultScreen: UIView {
             topRedLabel.topAnchor.constraint(equalTo: topAnchor),
             topRedLabel.heightAnchor.constraint(equalToConstant: 50),
         
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            backButton.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 13),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             titleLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
-            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

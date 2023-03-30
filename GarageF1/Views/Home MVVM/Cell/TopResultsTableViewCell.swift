@@ -61,7 +61,7 @@ class TopResultsTableViewCell: UITableViewCell {
             topNameTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
             topScoreTeams.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            topScoreTeams.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 285),
+            topScoreTeams.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 275),
             topScoreTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }

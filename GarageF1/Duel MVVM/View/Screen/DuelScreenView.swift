@@ -31,7 +31,7 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Duelo"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
     }()
     
@@ -190,7 +190,7 @@ class DuelScreenView: UIView {
             topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
             topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
-            duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             duelDescriptionLabel.bottomAnchor.constraint(equalTo: duelTopRedLabel.bottomAnchor, constant: -25),
@@ -216,7 +216,7 @@ class DuelScreenView: UIView {
             driversLastNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             
             leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 8),
-            leftArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
+            leftArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
             leftArrow.heightAnchor.constraint(equalToConstant: 15),
             leftArrow.widthAnchor.constraint(equalToConstant: 15),
             
@@ -233,11 +233,11 @@ class DuelScreenView: UIView {
             driversLastNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
                         
             rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 12),
-            rightArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -50),
+            rightArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
             rightArrow.heightAnchor.constraint(equalToConstant: 15),
             rightArrow.widthAnchor.constraint(equalToConstant: 15),
             
-            backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
             backButtonNavigation.widthAnchor.constraint(equalToConstant: 15),

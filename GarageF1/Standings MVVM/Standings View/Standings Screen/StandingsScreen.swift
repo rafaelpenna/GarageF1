@@ -37,7 +37,7 @@ class StandingsScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = standingsViewModel.getCircuitCountry()
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
     }()
     
@@ -140,10 +140,19 @@ class StandingsScreen: UIView {
             topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
             topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
-            circuitCountry.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            circuitCountry.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             circuitCountry.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+//            backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
+//            backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
+//            backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
+//            backButtonNavigation.widthAnchor.constraint(equalToConstant: 15),
+            
+            
+//            logOutButton.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+//            logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            
+            backButton.topAnchor.constraint(equalTo: topRedLabelBackground.bottomAnchor, constant: 5),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 15),

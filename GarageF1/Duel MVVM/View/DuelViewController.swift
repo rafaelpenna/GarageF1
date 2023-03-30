@@ -81,7 +81,7 @@ class DuelViewController: UIViewController {
         transparentView.alpha = 0
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.transparentView.alpha = 0.5
-            self.tableViewDriverDuel.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: 170, height: 300)
+            self.tableViewDriverDuel.frame = CGRect(x: frames.origin.x - 20, y: frames.origin.y + frames.height, width: 190, height: 300)
         }, completion: nil)
     }
     

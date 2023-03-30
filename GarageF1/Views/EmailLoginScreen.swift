@@ -198,10 +198,9 @@ class EmailLoginScreen: UIView {
     private func setUpConstraints(){
         NSLayoutConstraint.activate([
             
-            imageRegister.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 15),
+            imageRegister.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 45),
             imageRegister.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             imageRegister.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-            imageRegister.heightAnchor.constraint(equalToConstant: 200),
 
             emailTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -214,7 +213,7 @@ class EmailLoginScreen: UIView {
             passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             
             esqueceuSenhaButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3),
-            esqueceuSenhaButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 230),
+            esqueceuSenhaButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 210),
             esqueceuSenhaButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             signInButton.heightAnchor.constraint(equalTo: passwordTextField.heightAnchor),
             
@@ -229,17 +228,17 @@ class EmailLoginScreen: UIView {
             registerButton.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor),
             registerButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor),
             
-            descriptionLabel.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 50),
+            descriptionLabel.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 30),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
             descriptionLabel.heightAnchor.constraint(equalToConstant: 25),
             
-            facebookButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            facebookButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
             facebookButton.leadingAnchor.constraint(equalTo: registerButton.leadingAnchor),
             facebookButton.widthAnchor.constraint(equalToConstant: 160),
             facebookButton.heightAnchor.constraint(equalToConstant: 45),
             
-            appleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            appleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
             appleButton.trailingAnchor.constraint(equalTo: registerButton.trailingAnchor),
             appleButton.widthAnchor.constraint(equalToConstant: 160),
             appleButton.heightAnchor.constraint(equalToConstant: 45),

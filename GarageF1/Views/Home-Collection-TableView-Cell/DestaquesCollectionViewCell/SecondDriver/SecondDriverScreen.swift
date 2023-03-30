@@ -25,10 +25,17 @@ class SecondDriverScreen: UIView {
         return label
     }()
     
+    lazy var topRedLabelBackground: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
+    }()
+    
     lazy var backButton: UIButton = {
        let backButton = UIButton()
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setImage(UIImage(named: "seta"), for: .normal)
+        backButton.setImage(UIImage(named: "backButton"), for: .normal)
         backButton.addTarget(self, action: #selector(tappedBackButton), for: .touchUpInside)
         return backButton
     }()
@@ -77,6 +84,7 @@ class SecondDriverScreen: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(topRedLabelBackground)
         addSubview(topLabel)
         addSubview(backButton)
         addSubview(firstName)
@@ -106,13 +114,18 @@ class SecondDriverScreen: UIView {
             
             topLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 160),
+            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topLabel.heightAnchor.constraint(equalToConstant: 135),
+            
+            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
+            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
-            backButton.widthAnchor.constraint(equalToConstant: 20),
+            backButton.widthAnchor.constraint(equalToConstant: 15),
             
             
             firstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),

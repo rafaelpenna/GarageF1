@@ -16,7 +16,7 @@ class HomeVC: UIViewController {
     let driversVC: DriversViewController = DriversViewController()
     let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
     let emailLoginVC: EmailLoginVC = EmailLoginVC()
-//    var alert: AlertHomeLogOut?
+
     
     override func loadView() {
         view = homeScreen
@@ -27,7 +27,7 @@ class HomeVC: UIViewController {
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
         homeScreen.delegate(delegate: self)
         homeScreen.backgroundColor = .white
-//        alert = AlertHomeLogOut(controller: self)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -142,6 +142,7 @@ extension HomeVC: HomeScreenProtocol {
         
         alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
             print("Botão sair pressionado")
+            self.tabBarController?.navigationController?.popToRootViewController(animated: true)
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
