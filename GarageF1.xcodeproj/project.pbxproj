@@ -422,6 +422,7 @@
 				0B9509CF2963C4B100069D7D /* Controllers */,
 				0BAD883629591EF900CCC859 /* Views */,
 				1C44CDC729CF0F3700D8F32F /* Races MVVM */,
+				1C99A81E29BFD54E004CD81C /* Standings MVVM */,
 				1C5170F729998C9A00DDDC18 /* Drivers MVVM */,
 				1C1FED4229AC3FA900B989EE /* History MVVM */,
 				1C726E3229B797B8006591C9 /* Duel MVVM */,
@@ -513,7 +514,6 @@
 				0B10DD53295A878000CB397A /* RegisterLoginScreen.swift */,
 				0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */,
 				0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */,
-				1C99A81E29BFD54E004CD81C /* Standings MVVM */,
 			);
 			path = Views;
 			sourceTree = "<group>";

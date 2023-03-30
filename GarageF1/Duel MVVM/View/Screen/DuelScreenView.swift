@@ -31,7 +31,7 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Duelo"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
     }()
     
@@ -190,7 +190,7 @@ class DuelScreenView: UIView {
             topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
             topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
-            duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             duelDescriptionLabel.bottomAnchor.constraint(equalTo: duelTopRedLabel.bottomAnchor, constant: -25),

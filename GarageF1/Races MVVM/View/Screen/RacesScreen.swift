@@ -100,7 +100,7 @@ class RacesScreen: UIView {
             tableViewInfoRaces.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             tableViewInfoRaces.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            racesHeadLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            racesHeadLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             racesHeadLabel.centerXAnchor.constraint(equalTo: topRedLabel.centerXAnchor),
             
             seasonLabel.bottomAnchor.constraint(equalTo: driversDescriptionLabel.topAnchor, constant: -4),

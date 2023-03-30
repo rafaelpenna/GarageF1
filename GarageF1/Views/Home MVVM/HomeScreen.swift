@@ -91,12 +91,12 @@ class HomeScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addSubview(topRedLabel)
         addSubview(topLabel)
         addSubview(homeLabel)
         addSubview(welcomeLabel)
         addSubview(userNameLabel)
         addSubview(superTableView)
-        addSubview(topRedLabel)
         addSubview(logOutButton)
         configConstraints()
     }
@@ -135,7 +135,7 @@ class HomeScreen: UIView {
             topRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
             homeLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
-            homeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
+            homeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             
             superTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
             superTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

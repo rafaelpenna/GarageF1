@@ -28,7 +28,7 @@ class HistoryScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Histórico"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
     }()
     
@@ -149,7 +149,7 @@ class HistoryScreenView: UIView {
             topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
             topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
             
-            historyTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 6),
+            historyTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             historyTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             historyDescriptionLabel.centerYAnchor.constraint(equalTo: topRedLabel.centerYAnchor),
