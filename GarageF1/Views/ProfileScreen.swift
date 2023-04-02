@@ -52,15 +52,6 @@ class ProfileScreen: UIView {
         return label
     }()
     
-    lazy var lastNameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Sobrenome"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .white
-        return label
-    }()
-    
     lazy var emailLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -89,7 +80,9 @@ class ProfileScreen: UIView {
     lazy var userPhoto: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 50
+        imageView.layer.cornerRadius = 70
+        imageView.layer.borderWidth = 6.0
+        imageView.layer.borderColor = UIColor.red.cgColor
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "rafaelperfil")
@@ -129,20 +122,6 @@ class ProfileScreen: UIView {
         pencil.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
         
         return pencil
-    }()
-    
-    lazy var tfLastName: UITextField = {
-        let email = UITextField()
-        email.translatesAutoresizingMaskIntoConstraints = false
-        email.backgroundColor = .white
-        email.placeholder = "Insira seu sobrenome"
-        email.layer.cornerRadius = 10
-        email.textColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        let paddinView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: email.frame.height))
-        email.leftView = paddinView
-        email.leftViewMode = .always
-        
-        return email
     }()
     
     lazy var pencilChance2: UIImageView = {
@@ -240,11 +219,9 @@ class ProfileScreen: UIView {
         addSubview(editLabel)
         addSubview(userPhoto)
         addSubview(tfFirstName)
-        addSubview(tfLastName)
         addSubview(tfEmail)
         addSubview(tfPassword)
         addSubview(nameLabel)
-        addSubview(lastNameLabel)
         addSubview(emailLabel)
         addSubview(passwordLabel)
         addSubview(pencilChance)
@@ -281,8 +258,8 @@ class ProfileScreen: UIView {
             editLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             editLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             
-            userPhoto.heightAnchor.constraint(equalToConstant: 100),
-            userPhoto.widthAnchor.constraint(equalToConstant: 100),
+            userPhoto.heightAnchor.constraint(equalToConstant: 140),
+            userPhoto.widthAnchor.constraint(equalToConstant: 140),
             userPhoto.centerXAnchor.constraint(equalTo: centerXAnchor),
             userPhoto.topAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: 15),
             
@@ -293,22 +270,10 @@ class ProfileScreen: UIView {
             pencilChance.trailingAnchor.constraint(equalTo: tfFirstName.trailingAnchor, constant: -15),
             pencilChance.centerYAnchor.constraint(equalTo: tfFirstName.centerYAnchor),
             
-            tfFirstName.topAnchor.constraint(equalTo: userPhoto.bottomAnchor, constant: 30),
+            tfFirstName.topAnchor.constraint(equalTo: userPhoto.bottomAnchor, constant: 40),
             tfFirstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             tfFirstName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             tfFirstName.heightAnchor.constraint(equalToConstant: 35),
-            
-            pencilChance1.trailingAnchor.constraint(equalTo: tfLastName.trailingAnchor, constant: -15),
-            pencilChance1.centerYAnchor.constraint(equalTo: tfLastName.centerYAnchor),
-            
-            lastNameLabel.bottomAnchor.constraint(equalTo: tfLastName.topAnchor, constant: -5),
-            lastNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            lastNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -250),
-            
-            tfLastName.topAnchor.constraint(equalTo: tfFirstName.bottomAnchor, constant: 30),
-            tfLastName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tfLastName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            tfLastName.heightAnchor.constraint(equalToConstant: 35),
             
             emailLabel.bottomAnchor.constraint(equalTo: tfEmail.topAnchor, constant: -5),
             emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -317,7 +282,7 @@ class ProfileScreen: UIView {
             pencilChance2.trailingAnchor.constraint(equalTo: tfEmail.trailingAnchor, constant: -15),
             pencilChance2.centerYAnchor.constraint(equalTo: tfEmail.centerYAnchor),
             
-            tfEmail.topAnchor.constraint(equalTo: tfLastName.bottomAnchor, constant: 30),
+            tfEmail.topAnchor.constraint(equalTo: tfFirstName.bottomAnchor, constant: 30),
             tfEmail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             tfEmail.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             tfEmail.heightAnchor.constraint(equalToConstant: 35),
