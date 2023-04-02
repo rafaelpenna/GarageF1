@@ -35,6 +35,33 @@ class RegisterLoginScreen: UIView {
         return image
     }()
     
+//    private lazy var nameTextField: UITextField = {
+//        let email = UITextField()
+//        email.translatesAutoresizingMaskIntoConstraints = false
+//        email.autocorrectionType = .no
+//        email.backgroundColor = .white
+//        email.borderStyle = .roundedRect
+//        email.autocapitalizationType = .none
+//        email.keyboardType = .emailAddress
+//        email.placeholder = "Digite seu nome:"
+//        email.textColor = .darkGray
+//        return email
+//    }()
+//
+//    private lazy var lastNameTextField: UITextField = {
+//        let password = UITextField()
+//        password.translatesAutoresizingMaskIntoConstraints = false
+//        password.autocorrectionType = .no
+//        password.backgroundColor = .white
+//        password.borderStyle = .roundedRect
+//        password.autocapitalizationType = .none
+//        password.keyboardType = .default
+//        password.isSecureTextEntry = true
+//        password.placeholder = "Digite seu sobrenome:"
+//        password.textColor = .darkGray
+//        return password
+//    }()
+    
     private lazy var emailTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
@@ -91,6 +118,8 @@ class RegisterLoginScreen: UIView {
         addSubview(backButton)
         addSubview(imageRegister)
         addSubview(emailTextField)
+//        addSubview(nameTextField)
+//        addSubview(lastNameTextField)
         addSubview(passwordTextField)
         addSubview(registerButton)
     }
@@ -152,6 +181,16 @@ class RegisterLoginScreen: UIView {
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
+//            nameTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
+//            nameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            nameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            nameTextField.heightAnchor.constraint(equalToConstant: 45),
+//
+//            lastNameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
+//            lastNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+//            lastNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+//            lastNameTextField.heightAnchor.constraint(equalToConstant: 45),
+            
             emailTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
@@ -162,7 +201,7 @@ class RegisterLoginScreen: UIView {
             passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             
-            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 15),
+            registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 25),
             registerButton.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             registerButton.heightAnchor.constraint(equalTo: passwordTextField.heightAnchor)

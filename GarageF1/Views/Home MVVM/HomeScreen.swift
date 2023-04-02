@@ -32,14 +32,6 @@ class HomeScreen: UIView {
         return label
     }()
     
-    lazy var logOutButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "logOutIconWhite"), for: .normal)
-        button.addTarget(self, action: #selector(tappedLogOutButton), for: .touchUpInside)
-        return button
-    }()
-    
     private lazy var homeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -84,10 +76,6 @@ class HomeScreen: UIView {
         return tableView
         
     }()
-    
-    @objc func tappedLogOutButton() {
-        delegate?.actionLogOutButton()
-    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -97,7 +85,6 @@ class HomeScreen: UIView {
         addSubview(welcomeLabel)
         addSubview(userNameLabel)
         addSubview(superTableView)
-        addSubview(logOutButton)
         configConstraints()
     }
     
@@ -118,11 +105,6 @@ class HomeScreen: UIView {
             
             userNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
             userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
-            
-            logOutButton.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            logOutButton.widthAnchor.constraint(equalToConstant: 30),
-            logOutButton.heightAnchor.constraint(equalToConstant: 30),
             
             topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),

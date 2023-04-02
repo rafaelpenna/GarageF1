@@ -25,7 +25,6 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
-        homeScreen.delegate(delegate: self)
         homeScreen.backgroundColor = .white
 
     }
@@ -132,22 +131,6 @@ extension HomeVC: StandingCustomTableViewCellProtocol {
     func callFirstDrive() {
         let firstDriver: FirstDriverVC = FirstDriverVC()
         self.navigationController?.pushViewController(firstDriver, animated: true)
-    }
-}
-
-extension HomeVC: HomeScreenProtocol {
-    
-    func actionLogOutButton() {
-        let alert = UIAlertController(title: "Atenção!", message: "Deseja realmente sair do GarageF1?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
-            print("Botão sair pressionado")
-            self.tabBarController?.navigationController?.popToRootViewController(animated: true)
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        
-        present(alert, animated: true)
     }
 }
 

@@ -47,6 +47,8 @@
 		0B4CC6422953E90900D29D4C /* GarageF1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6412953E90900D29D4C /* GarageF1UITests.swift */; };
 		0B4CC6442953E90900D29D4C /* GarageF1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6432953E90900D29D4C /* GarageF1UITestsLaunchTests.swift */; };
 		0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B4CC6562953F10100D29D4C /* TabBarVC.swift */; };
+		0B5BD8B629D9108300184C1E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B529D9108300184C1E /* ProfileVC.swift */; };
+		0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */; };
 		0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */; };
 		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
 		0B8F7DC929CFAB0C0069FAE2 /* DataHomeConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC829CFAB0C0069FAE2 /* DataHomeConstructors.swift */; };
@@ -201,6 +203,8 @@
 		0B4CC6412953E90900D29D4C /* GarageF1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageF1UITests.swift; sourceTree = "<group>"; };
 		0B4CC6432953E90900D29D4C /* GarageF1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GarageF1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		0B4CC6562953F10100D29D4C /* TabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
+		0B5BD8B529D9108300184C1E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultVC.swift; sourceTree = "<group>"; };
 		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
 		0B8F7DC829CFAB0C0069FAE2 /* DataHomeConstructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataHomeConstructors.swift; sourceTree = "<group>"; };
@@ -475,6 +479,7 @@
 		0B9509CF2963C4B100069D7D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0B5BD8B529D9108300184C1E /* ProfileVC.swift */,
 				0B4CC6562953F10100D29D4C /* TabBarVC.swift */,
 				0B10DD4F295A5AB300CB397A /* EmailLoginVC.swift */,
 				0B10DD55295A87B500CB397A /* RegisterLoginVC.swift */,
@@ -514,6 +519,7 @@
 				0B10DD53295A878000CB397A /* RegisterLoginScreen.swift */,
 				0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */,
 				0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */,
+				0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1319,6 +1325,7 @@
 				0BA21B6529CF220400E9BE39 /* TopResultsTableViewCell.swift in Sources */,
 				1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */,
 				1C44CDD829CF1C4200D8F32F /* RacesCustomTableViewCell.swift in Sources */,
+				0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */,
 				1C726E4A29B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift in Sources */,
 				1C726E4E29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift in Sources */,
 				0BEE6EB829C535630078EA86 /* FullResultsTableViewCell.swift in Sources */,
@@ -1330,6 +1337,7 @@
 				0B1E857C29BD00FA009479F7 /* FirstDriverData.swift in Sources */,
 				1C726E3C29B7A430006591C9 /* DuelViewModel.swift in Sources */,
 				0B32CA6229D0EC4000E5B51A /* StandingsScreen.swift in Sources */,
+				0B5BD8B629D9108300184C1E /* ProfileVC.swift in Sources */,
 				0B1E858329BD1023009479F7 /* TableViewChampionshipsWinCellScreen.swift in Sources */,
 				1C550FB529AD256F00AC2E51 /* HistoryViewController.swift in Sources */,
 				1C99A84129C0156D004CD81C /* TableTrackTableViewCell.swift in Sources */,

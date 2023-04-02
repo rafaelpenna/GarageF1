@@ -192,7 +192,7 @@ class EmailLoginScreen: UIView {
     }
     
     private func configBackground() {
-        backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+//        backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
     }
     
     private func setUpConstraints(){
