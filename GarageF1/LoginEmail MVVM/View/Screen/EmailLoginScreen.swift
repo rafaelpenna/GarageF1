@@ -7,15 +7,15 @@
 
 import UIKit
 
-protocol registerScreenProtocol: AnyObject {
+protocol EmailLoginScreenProtocol: AnyObject {
     func actionBackButton()
     func actionRegisterButton()
 }
 
-class RegisterLoginScreen: UIView {
+class EmailLoginScreen: UIView {
     
-    private weak var delegate: registerScreenProtocol?
-    func delegate(delegate: registerScreenProtocol?) {
+    private weak var delegate: EmailLoginScreenProtocol?
+    func delegate(delegate: EmailLoginScreenProtocol?) {
         self.delegate = delegate
     }
     
@@ -34,34 +34,7 @@ class RegisterLoginScreen: UIView {
         image.contentMode = .scaleAspectFit
         return image
     }()
-    
-//    private lazy var nameTextField: UITextField = {
-//        let email = UITextField()
-//        email.translatesAutoresizingMaskIntoConstraints = false
-//        email.autocorrectionType = .no
-//        email.backgroundColor = .white
-//        email.borderStyle = .roundedRect
-//        email.autocapitalizationType = .none
-//        email.keyboardType = .emailAddress
-//        email.placeholder = "Digite seu nome:"
-//        email.textColor = .darkGray
-//        return email
-//    }()
-//
-//    private lazy var lastNameTextField: UITextField = {
-//        let password = UITextField()
-//        password.translatesAutoresizingMaskIntoConstraints = false
-//        password.autocorrectionType = .no
-//        password.backgroundColor = .white
-//        password.borderStyle = .roundedRect
-//        password.autocapitalizationType = .none
-//        password.keyboardType = .default
-//        password.isSecureTextEntry = true
-//        password.placeholder = "Digite seu sobrenome:"
-//        password.textColor = .darkGray
-//        return password
-//    }()
-    
+
     private lazy var emailTextField: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
@@ -118,8 +91,6 @@ class RegisterLoginScreen: UIView {
         addSubview(backButton)
         addSubview(imageRegister)
         addSubview(emailTextField)
-//        addSubview(nameTextField)
-//        addSubview(lastNameTextField)
         addSubview(passwordTextField)
         addSubview(registerButton)
     }
@@ -180,16 +151,6 @@ class RegisterLoginScreen: UIView {
             
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            
-//            nameTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
-//            nameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-//            nameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-//            nameTextField.heightAnchor.constraint(equalToConstant: 45),
-//
-//            lastNameTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
-//            lastNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-//            lastNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-//            lastNameTextField.heightAnchor.constraint(equalToConstant: 45),
             
             emailTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

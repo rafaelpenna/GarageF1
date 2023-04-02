@@ -7,17 +7,17 @@
 
 import UIKit
 
-protocol emailLoginScreenProtocol: AnyObject {
+protocol LoginScreenProtocol: AnyObject {
     func actionBackButton()
     func actionRegisterButton()
     func actionLoginButton()
     func actionForgotThePassword()
 }
 
-class EmailLoginScreen: UIView {
+class LoginScreen: UIView {
     
-    private weak var delegate: emailLoginScreenProtocol?
-    func delegate(delegate: emailLoginScreenProtocol?) {
+    private weak var delegate: LoginScreenProtocol?
+    func delegate(delegate: LoginScreenProtocol?) {
         self.delegate = delegate
     }
     

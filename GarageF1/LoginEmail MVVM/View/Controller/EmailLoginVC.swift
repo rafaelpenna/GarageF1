@@ -8,20 +8,20 @@
 import UIKit
 import Firebase
 
-class RegisterLoginVC: UIViewController {
+class EmailLoginVC: UIViewController {
     
-    let registerLoginScreen: RegisterLoginScreen? = RegisterLoginScreen()
+    let emailLoginScreen: EmailLoginScreen? = EmailLoginScreen()
     var auth: Auth?
     var alert: Alert?
     
     override func loadView() {
-        view = registerLoginScreen
+        view = emailLoginScreen
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerLoginScreen?.delegate(delegate: self)
-        registerLoginScreen?.configTextFieldDelegate(delegate: self)
+        emailLoginScreen?.delegate(delegate: self)
+        emailLoginScreen?.configTextFieldDelegate(delegate: self)
         auth = Auth.auth()
         alert = Alert(controller: self)
     }
@@ -31,10 +31,10 @@ class RegisterLoginVC: UIViewController {
     }
 }
 
-extension RegisterLoginVC: UITextFieldDelegate {
+extension EmailLoginVC: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        registerLoginScreen?.validaTextFields()
+        emailLoginScreen?.validaTextFields()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -43,7 +43,7 @@ extension RegisterLoginVC: UITextFieldDelegate {
     }
 }
 
-extension RegisterLoginVC: registerScreenProtocol {
+extension EmailLoginVC: EmailLoginScreenProtocol {
     func actionBackButton() {
         
         navigationController?.popViewController(animated: true)
@@ -51,7 +51,7 @@ extension RegisterLoginVC: registerScreenProtocol {
     
     func actionRegisterButton() {
         
-        guard let register = registerLoginScreen else {return}
+        guard let register = emailLoginScreen else {return}
         
         auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
             if error != nil {

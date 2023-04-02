@@ -8,54 +8,54 @@
 import UIKit
 import Firebase
 
-class EmailLoginVC: UIViewController {
+class LoginVC: UIViewController {
     
-    var emailLoginScreen: EmailLoginScreen? = EmailLoginScreen()
+    var loginScreen: LoginScreen? = LoginScreen()
     var recoverPasswordVC: RecoverPasswordVC = RecoverPasswordVC()
     var alert: Alert?
     var auth: Auth?
     
     override func loadView() {
-        view = emailLoginScreen
+        view = loginScreen
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailLoginScreen?.delegate(delegate: self)
-        emailLoginScreen?.configTextFieldDelegate(delegate: self)
+        loginScreen?.delegate(delegate: self)
+        loginScreen?.configTextFieldDelegate(delegate: self)
         alert = Alert(controller: self)
         auth = Auth.auth()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
-        emailLoginScreen?.emailTextField.text = ""
-        emailLoginScreen?.passwordTextField.text = ""
+        loginScreen?.emailTextField.text = ""
+        loginScreen?.passwordTextField.text = ""
     }
 }
 
-extension EmailLoginVC: UITextFieldDelegate {
+extension LoginVC: UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        emailLoginScreen?.validaTextFields()
+        loginScreen?.validaTextFields()
         
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        emailLoginScreen?.emailTextField.becomeFirstResponder()
-        emailLoginScreen?.passwordTextField.becomeFirstResponder()
+        loginScreen?.emailTextField.becomeFirstResponder()
+        loginScreen?.passwordTextField.becomeFirstResponder()
         textField.resignFirstResponder()
         return true
     }
 }
 
-extension EmailLoginVC: emailLoginScreenProtocol {
+extension LoginVC: LoginScreenProtocol {
 
     func actionLoginButton() {
         
         let tabBarHome: TabBarVC = TabBarVC()
 
-        guard let login = emailLoginScreen else { return }
+        guard let login = loginScreen else { return }
         
         auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
             if error != nil {
