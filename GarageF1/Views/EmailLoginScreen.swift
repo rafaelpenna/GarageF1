@@ -11,6 +11,7 @@ protocol emailLoginScreenProtocol: AnyObject {
     func actionBackButton()
     func actionRegisterButton()
     func actionLoginButton()
+    func actionForgotThePassword()
 }
 
 class EmailLoginScreen: UIView {
@@ -94,6 +95,7 @@ class EmailLoginScreen: UIView {
         button.setTitle("Esqueceu sua senha?", for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(tappedForgotThePasswordButton), for: .touchUpInside)
         return button
     }()
     
@@ -156,6 +158,10 @@ class EmailLoginScreen: UIView {
         delegate?.actionRegisterButton()
     }
     
+    @objc func tappedForgotThePasswordButton() {
+        delegate?.actionForgotThePassword()
+    }
+    
 
     func validaTextFields() {
         let email: String = emailTextField.text ?? ""
@@ -192,7 +198,7 @@ class EmailLoginScreen: UIView {
     }
     
     private func configBackground() {
-//        backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
+        backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
     }
     
     private func setUpConstraints(){

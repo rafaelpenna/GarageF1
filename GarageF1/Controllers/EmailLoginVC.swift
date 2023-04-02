@@ -11,6 +11,7 @@ import Firebase
 class EmailLoginVC: UIViewController {
     
     var emailLoginScreen: EmailLoginScreen? = EmailLoginScreen()
+    var recoverPasswordVC: RecoverPasswordVC = RecoverPasswordVC()
     var alert: Alert?
     var auth: Auth?
     
@@ -49,7 +50,7 @@ extension EmailLoginVC: UITextFieldDelegate {
 }
 
 extension EmailLoginVC: emailLoginScreenProtocol {
-    
+
     func actionLoginButton() {
         
         let tabBarHome: TabBarVC = TabBarVC()
@@ -78,5 +79,9 @@ extension EmailLoginVC: emailLoginScreenProtocol {
     
     func actionBackButton() {
         navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func actionForgotThePassword() {
+        self.navigationController?.pushViewController(self.recoverPasswordVC, animated: true)
     }
 }
