@@ -15,7 +15,7 @@ class HomeVC: UIViewController {
     let duelStackVC: DuelViewController = DuelViewController()
     let driversVC: DriversViewController = DriversViewController()
     let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
-    let emailLoginVC: EmailLoginVC = EmailLoginVC()
+    let loginVC: LoginVC = LoginVC()
 
     
     override func loadView() {

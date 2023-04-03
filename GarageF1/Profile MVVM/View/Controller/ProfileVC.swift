@@ -10,14 +10,16 @@ import UIKit
 class ProfileVC: UIViewController {
     
     var profileScreen: ProfileScreen = ProfileScreen()
+    var alert: Alert?
     
     override func loadView() {
         view = profileScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         profileScreen.delegate(delegate: self)
+        alert = Alert(controller: self)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -27,12 +29,18 @@ class ProfileVC: UIViewController {
 }
 
 extension ProfileVC: ProfileScreenProtocol {
+    func actionSaveButton() {
+        
+        self.alert?.getAlert(titulo: "GarageF1", message: "Alterações salvas com sucesso!")
+    }
+    
     func actionLogOutButton() {
         let alert = UIAlertController(title: "Atenção!", message: "Deseja realmente sair do GarageF1?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
-            print("Botão sair pressionado")
+            
             self.tabBarController?.navigationController?.popToRootViewController(animated: true)
+            
         }))
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

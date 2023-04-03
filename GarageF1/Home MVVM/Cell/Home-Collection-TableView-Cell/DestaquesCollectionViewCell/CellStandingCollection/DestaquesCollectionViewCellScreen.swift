@@ -15,7 +15,6 @@ class DestaquesCollectionViewCellScreen: UIView {
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 50)
         label.textColor = .black
-//        label.backgroundColor = .brown
         return label
     }()
     
@@ -24,18 +23,6 @@ class DestaquesCollectionViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
         label.font = UIFont.boldSystemFont(ofSize: 25)
-        label.numberOfLines = 0
-        label.textColor = .black
-//        label.backgroundColor = .blue
-        return label
-    }()
-    
-    lazy var touchHere: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textAlignment = .center
-        label.text = "Toque para detalhes"
-        label.font = UIFont.systemFont(ofSize: 14)
         label.numberOfLines = 0
         label.textColor = .black
         return label
@@ -47,7 +34,6 @@ class DestaquesCollectionViewCellScreen: UIView {
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .black
-//        label.backgroundColor = .green
         return label
     }()
     
@@ -56,7 +42,6 @@ class DestaquesCollectionViewCellScreen: UIView {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
-//        image.backgroundColor = .magenta
         return image
     }()
 
@@ -78,9 +63,7 @@ class DestaquesCollectionViewCellScreen: UIView {
         addSubview(namePilot)
         addSubview(nameTeams)
         addSubview(pilot)
-        addSubview(touchHere)
-        
-       
+    
     }
     
     private func setUpConstraints() {
@@ -94,14 +77,10 @@ class DestaquesCollectionViewCellScreen: UIView {
             namePilot.topAnchor.constraint(equalTo: indicePilot.bottomAnchor, constant: 30),
             namePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             namePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -130),
-         
-            touchHere.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            touchHere.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
             indicePilot.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             indicePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             indicePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -230),
-            
             
             nameTeams.topAnchor.constraint(equalTo: namePilot.bottomAnchor, constant: 2),
             nameTeams.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),

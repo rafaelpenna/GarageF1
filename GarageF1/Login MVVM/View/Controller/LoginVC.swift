@@ -73,8 +73,8 @@ extension LoginVC: LoginScreenProtocol {
     }
     
     func actionRegisterButton() {
-        let registerLoginVC: RegisterLoginVC = RegisterLoginVC()
-        navigationController?.pushViewController(registerLoginVC, animated: true)
+        let emailLoginVC: EmailLoginVC = EmailLoginVC()
+        navigationController?.pushViewController(emailLoginVC, animated: true)
     }
     
     func actionBackButton() {

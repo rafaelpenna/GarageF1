@@ -9,6 +9,7 @@ import UIKit
 
 protocol ProfileScreenProtocol: AnyObject {
     func actionLogOutButton()
+    func actionSaveButton()
 }
 
 class ProfileScreen: UIView {
@@ -182,7 +183,7 @@ class ProfileScreen: UIView {
         button.backgroundColor = .red
         button.clipsToBounds = true
         button.layer.cornerRadius = 10
-        button.isEnabled = false
+        button.addTarget(self, action: #selector(tappedSabeButton), for: .touchUpInside)
         return button
     }()
     
@@ -193,6 +194,10 @@ class ProfileScreen: UIView {
         button.addTarget(self, action: #selector(tappedLogOutButton), for: .touchUpInside)
         return button
     }()
+    
+    @objc func tappedSabeButton() {
+        delegate?.actionSaveButton()
+    }
     
     @objc func tappedLogOutButton() {
         delegate?.actionLogOutButton()

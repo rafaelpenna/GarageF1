@@ -34,6 +34,20 @@ class EmailLoginScreen: UIView {
         image.contentMode = .scaleAspectFit
         return image
     }()
+    
+    private lazy var nameTextField: UITextField = {
+        let name = UITextField()
+        name.translatesAutoresizingMaskIntoConstraints = false
+        name.autocorrectionType = .no
+        name.backgroundColor = .white
+        name.borderStyle = .roundedRect
+        name.autocapitalizationType = .none
+        name.keyboardType = .emailAddress
+        name.placeholder = "Digite seu nome:"
+        name.clearButtonMode = .whileEditing
+        name.textColor = .darkGray
+        return name
+    }()
 
     private lazy var emailTextField: UITextField = {
         let email = UITextField()
@@ -44,6 +58,7 @@ class EmailLoginScreen: UIView {
         email.autocapitalizationType = .none
         email.keyboardType = .emailAddress
         email.placeholder = "Digite seu e-mail:"
+        email.clearButtonMode = .whileEditing
         email.textColor = .darkGray
         return email
     }()
@@ -58,6 +73,7 @@ class EmailLoginScreen: UIView {
         password.keyboardType = .default
         password.isSecureTextEntry = true
         password.placeholder = "Digite sua senha:"
+        password.clearButtonMode = .whileEditing
         password.textColor = .darkGray
         return password
     }()
@@ -90,6 +106,7 @@ class EmailLoginScreen: UIView {
     private func addElements() {
         addSubview(backButton)
         addSubview(imageRegister)
+        addSubview(nameTextField)
         addSubview(emailTextField)
         addSubview(passwordTextField)
         addSubview(registerButton)
@@ -152,7 +169,12 @@ class EmailLoginScreen: UIView {
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
-            emailTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
+            nameTextField.topAnchor.constraint(equalTo: imageRegister.bottomAnchor, constant: 20),
+            nameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            nameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            nameTextField.heightAnchor.constraint(equalToConstant: 45),
+            
+            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: 20),
             emailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             emailTextField.heightAnchor.constraint(equalToConstant: 45),

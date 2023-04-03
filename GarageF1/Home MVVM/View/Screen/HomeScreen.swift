@@ -67,7 +67,6 @@ class HomeScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1.0)
-//        tableView.register(WelcomeUserCustomTableView.self, forCellReuseIdentifier: WelcomeUserCustomTableView.identifier)
         tableView.register(StandingCustomTableViewCell.self, forCellReuseIdentifier: StandingCustomTableViewCell.identifier)
         tableView.register(DDuelCustomTableViewCell.self, forCellReuseIdentifier: DDuelCustomTableViewCell.identifier)
         tableView.register(SimulationButtonTableViewCell.self, forCellReuseIdentifier: SimulationButtonTableViewCell.identifier)
