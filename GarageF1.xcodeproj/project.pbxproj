@@ -63,8 +63,6 @@
 		0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */; };
 		0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC34297483CD003B2D9C /* HomeResults.swift */; };
 		0BB4064429BE10290013C4AF /* TableViewDriversDetailCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */; };
-		0BB50D272978B388009CD502 /* DueloCollectionViewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D262978B388009CD502 /* DueloCollectionViewScreen.swift */; };
-		0BB50D292978B3B8009CD502 /* DueloCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */; };
 		0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */; };
 		0BBE027E297C7B5800D19D12 /* SimulationDuelScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */; };
 		0BBE0280297C7B6C00D19D12 /* SimulationDuelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */; };
@@ -219,8 +217,6 @@
 		0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRacer.swift; sourceTree = "<group>"; };
 		0BA8BC34297483CD003B2D9C /* HomeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResults.swift; sourceTree = "<group>"; };
 		0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDriversDetailCustomCell.swift; sourceTree = "<group>"; };
-		0BB50D262978B388009CD502 /* DueloCollectionViewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueloCollectionViewScreen.swift; sourceTree = "<group>"; };
-		0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DueloCollectionViewCell.swift; sourceTree = "<group>"; };
 		0BB50D2A2978C8ED009CD502 /* HomeDuel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDuel.swift; sourceTree = "<group>"; };
 		0BBE027D297C7B5800D19D12 /* SimulationDuelScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationDuelScreen.swift; sourceTree = "<group>"; };
 		0BBE027F297C7B6C00D19D12 /* SimulationDuelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimulationDuelVC.swift; sourceTree = "<group>"; };
@@ -831,52 +827,9 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		0BB40043297B6145004BB3F5 /* Home-Collection-TableView-Cell */ = {
+		0BAD88C929DB918500458524 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				0BB50D252978B327009CD502 /* DueloCollectionViewCell */,
-				0B23C44D297396820080D242 /* DestaquesCollectionViewCell */,
-			);
-			path = "Home-Collection-TableView-Cell";
-			sourceTree = "<group>";
-		};
-		0BB4064529BE14270013C4AF /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
-		0BB50D252978B327009CD502 /* DueloCollectionViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				0BB50D262978B388009CD502 /* DueloCollectionViewScreen.swift */,
-				0BB50D282978B3B8009CD502 /* DueloCollectionViewCell.swift */,
-			);
-			path = DueloCollectionViewCell;
-			sourceTree = "<group>";
-		};
-		0BD9483429C280A9008E1C33 /* Home MVVM */ = {
-			isa = PBXGroup;
-			children = (
-				0BD9483529C280BB008E1C33 /* Cell */,
-				0B1E887829DA18F80027C8C6 /* ViewModel */,
-				0B1E887429DA143B0027C8C6 /* Model */,
-				0B1E887529DA16FE0027C8C6 /* View */,
-				0B8F7DC729CF819A0069FAE2 /* CustomConstructorsTableView */,
-				0BEE6EBB29C53F1E0078EA86 /* CustomFullResultsTableView */,
-				0B90651429C3E66600B7AD2C /* CustomDuelCollection */,
-				0BD9483E29C2B01A008E1C33 /* CustomStandingCollection */,
-				0BD9483629C280F3008E1C33 /* HomeCustomTableViewCell.swift */,
-			);
-			path = "Home MVVM";
-			sourceTree = "<group>";
-		};
-		0BD9483529C280BB008E1C33 /* Cell */ = {
-			isa = PBXGroup;
-			children = (
-				0BB40043297B6145004BB3F5 /* Home-Collection-TableView-Cell */,
 				0BD9483C29C2A6DD008E1C33 /* StandingCustomTableViewCell.swift */,
 				0BD9483A29C28D51008E1C33 /* StandingCustomScreen.swift */,
 				0B9172E929CE789C0089A822 /* DDuelCustomTableViewCell.swift */,
@@ -888,7 +841,40 @@
 				0BEE6EB929C535A60078EA86 /* FullResultsTableViewScreen.swift */,
 				0BEE6EC129C55B9F0078EA86 /* FullResultButtonTableViewCell.swift */,
 			);
-			path = Cell;
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		0BB4064529BE14270013C4AF /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				0BB4064329BE10290013C4AF /* TableViewDriversDetailCustomCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		0BD9483429C280A9008E1C33 /* Home MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				0BAD88C929DB918500458524 /* CustomCells */,
+				0BD9483529C280BB008E1C33 /* Cells */,
+				0B1E887829DA18F80027C8C6 /* ViewModel */,
+				0B1E887429DA143B0027C8C6 /* Model */,
+				0B1E887529DA16FE0027C8C6 /* View */,
+				0B23C44D297396820080D242 /* DestaquesCollectionViewCell */,
+				0B8F7DC729CF819A0069FAE2 /* CustomConstructorsTableView */,
+				0BEE6EBB29C53F1E0078EA86 /* CustomFullResultsTableView */,
+				0B90651429C3E66600B7AD2C /* CustomDuelCollection */,
+				0BD9483E29C2B01A008E1C33 /* CustomStandingCollection */,
+			);
+			path = "Home MVVM";
+			sourceTree = "<group>";
+		};
+		0BD9483529C280BB008E1C33 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0BD9483629C280F3008E1C33 /* HomeCustomTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		0BD9483E29C2B01A008E1C33 /* CustomStandingCollection */ = {
@@ -1659,7 +1645,6 @@
 				0BB50D2B2978C8ED009CD502 /* HomeDuel.swift in Sources */,
 				1C99A82529BFD5FA004CD81C /* StandingsViewModel.swift in Sources */,
 				0B32CA5E29D0EBC300E5B51A /* StandingsViewController.swift in Sources */,
-				0BB50D292978B3B8009CD502 /* DueloCollectionViewCell.swift in Sources */,
 				0BEE6EBD29C53FE10078EA86 /* CustomResultsFullTableView.swift in Sources */,
 				1CB39D36299D3BC6009DBE86 /* PodiumsCustomTableViewCellScreen.swift in Sources */,
 				1C99A83029BFF740004CD81C /* StandingsTableViewCell.swift in Sources */,
@@ -1669,7 +1654,6 @@
 				0B32CA5429D0E9E000E5B51A /* DriversScreenViewModel.swift in Sources */,
 				1C99A83229BFF765004CD81C /* CustomStandingsTableViewScreen.swift in Sources */,
 				1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */,
-				0BB50D272978B388009CD502 /* DueloCollectionViewScreen.swift in Sources */,
 				1C726E4C29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift in Sources */,
 				0B9172EA29CE789C0089A822 /* DDuelCustomTableViewCell.swift in Sources */,
 				0BD9483B29C28D51008E1C33 /* StandingCustomScreen.swift in Sources */,
