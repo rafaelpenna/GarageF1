@@ -23,7 +23,7 @@ class DuelViewController: UIViewController {
         return button
     }()
     
-    lazy var buttonSelectYearDriverRight: UIButton = {
+    lazy var buttonSelectDriverRight: UIButton = {
         let button: UIButton = duelScreen?.rightDriverButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(onClickSelectDriverRight), for: .touchUpInside)
@@ -33,20 +33,28 @@ class DuelViewController: UIViewController {
     let transparentView = UIView()
     let tableViewDriverDuel = UITableView()
     var selectedButton = UIButton()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+    
+    func gettingInfoDriversDuelScreen() {
         duelScreen?.driversFirstNameLeft.text = duelViewModel.getDriversNameLeft()
         duelScreen?.driversLastNameLeft.text = duelViewModel.getDriversLastNameLeft()
         duelScreen?.driversFirstNameRight.text = duelViewModel.getDriversNameRight()
         duelScreen?.driversLastNameRight.text = duelViewModel.getDriversLastNameRight()
-        view.addSubview(backButton)
-        view.addSubview(buttonSelectDriverLeft)
-        view.addSubview(buttonSelectYearDriverRight)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        gettingInfoDriversDuelScreen()
+        addElements()
         tableViewDriverDuel.delegate = self
         tableViewDriverDuel.dataSource = self
         tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
+    }
+    
+    func addElements() {
+        view.addSubview(backButton)
+        view.addSubview(buttonSelectDriverLeft)
+        view.addSubview(buttonSelectDriverRight)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,8 +107,8 @@ class DuelViewController: UIViewController {
     }
     
     @objc func onClickSelectDriverRight(_ sender: Any) {
-        selectedButton = buttonSelectYearDriverRight
-        addTransparentView(frames: buttonSelectYearDriverRight.frame)
+        selectedButton = buttonSelectDriverRight
+        addTransparentView(frames: buttonSelectDriverRight.frame)
     }
 }
 
