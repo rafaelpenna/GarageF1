@@ -34,21 +34,27 @@ class DuelViewController: UIViewController {
     let tableViewDriverDuel = UITableView()
     var selectedButton = UIButton()
     
+
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        gettingInfoDriversDuelScreen()
+        addElements()
+        setupProtocols()
+        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
+    }
+    
     func gettingInfoDriversDuelScreen() {
         duelScreen?.driversFirstNameLeft.text = duelViewModel.getDriversNameLeft()
         duelScreen?.driversLastNameLeft.text = duelViewModel.getDriversLastNameLeft()
         duelScreen?.driversFirstNameRight.text = duelViewModel.getDriversNameRight()
         duelScreen?.driversLastNameRight.text = duelViewModel.getDriversLastNameRight()
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    func setupProtocols() {
         duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        gettingInfoDriversDuelScreen()
-        addElements()
         tableViewDriverDuel.delegate = self
         tableViewDriverDuel.dataSource = self
-        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
     }
     
     func addElements() {

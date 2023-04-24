@@ -74,6 +74,10 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     public func configure() {
         addSubViews()
         configConstraintsInfoDriver()
+        backgroundColor()
+    }
+    
+    private func backgroundColor() {
         backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
     }
     

@@ -24,6 +24,6 @@ struct DuelModel {
     var wins: String
 }
 
-struct DuelNameModel {
+struct DuelDropdownModel {
     var duelDriverName: String
 }

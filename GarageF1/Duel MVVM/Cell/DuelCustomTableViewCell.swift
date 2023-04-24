@@ -20,6 +20,12 @@ class DuelCustomTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        self.autoresizingFalse()
+        self.addElements()
+        self.configScreenConstraints()
+    }
+    
+    private func autoresizingFalse() {
         self.birthDate.translatesAutoresizingMaskIntoConstraints = false
         self.birthLocation.translatesAutoresizingMaskIntoConstraints = false
         self.championshipsWon.translatesAutoresizingMaskIntoConstraints = false
@@ -27,8 +33,9 @@ class DuelCustomTableViewCell: UITableViewCell {
         self.podiumsEarned.translatesAutoresizingMaskIntoConstraints = false
         self.pointsEarned.translatesAutoresizingMaskIntoConstraints = false
         self.wins.translatesAutoresizingMaskIntoConstraints = false
-
-        
+    }
+    
+    private func addElements() {
         self.contentView.addSubview(self.birthDate)
         self.contentView.addSubview(self.birthLocation)
         self.contentView.addSubview(self.championshipsWon)
@@ -36,8 +43,6 @@ class DuelCustomTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.podiumsEarned)
         self.contentView.addSubview(self.pointsEarned)
         self.contentView.addSubview(self.wins)
-        
-        self.configScreenConstraints()
     }
     
     required init?(coder: NSCoder) {
