@@ -65,7 +65,7 @@ class DuelViewModel {
         return dataDriversLeft.championshipsWon
     }
     
-    public func getChampionshipsWonYearLeft() -> String {
+    public func getChampionshipsWinYearLeft() -> String {
         return dataDriversLeft.championshipsWonYear
     }
     
@@ -115,7 +115,7 @@ class DuelViewModel {
         return dataDriversRight.championshipsWon
     }
     
-    public func getChampionshipsWonYearRight() -> String {
+    public func getChampionshipsWinYearRight() -> String {
         return dataDriversRight.championshipsWonYear
     }
     

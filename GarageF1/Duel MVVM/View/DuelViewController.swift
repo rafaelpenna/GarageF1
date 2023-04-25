@@ -79,6 +79,9 @@ class DuelViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    //MARK: - Dropdown configuration
+    
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
         transparentView.frame = window?.frame ?? self.view.frame
@@ -117,6 +120,9 @@ class DuelViewController: UIViewController {
         addTransparentView(frames: buttonSelectDriverRight.frame)
     }
 }
+
+
+//MARK: - Protocols configuration
 
 extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 
@@ -160,8 +166,8 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 let backgroundView = UIView()
                 cell?.championshipsWinAnswerLeft.text = duelViewModel.getChampionshipsWonLeft()
                 cell?.championshipsWinAnswerRight.text = duelViewModel.getChampionshipsWonRight()
-                cell?.championshipsWinAnswerYearLeft.text = duelViewModel.getChampionshipsWonYearLeft()
-                cell?.championshipsWinAnswerYearRight.text = duelViewModel.getChampionshipsWonYearRight()
+                cell?.championshipsWinAnswerYearLeft.text = duelViewModel.getChampionshipsWinYearLeft()
+                cell?.championshipsWinAnswerYearRight.text = duelViewModel.getChampionshipsWinYearRight()
                 backgroundView.backgroundColor = .none
                 cell?.selectedBackgroundView = backgroundView
                 return cell ?? UITableViewCell()

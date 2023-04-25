@@ -26,23 +26,23 @@ class DuelCustomTableViewCell: UITableViewCell {
     }
     
     private func autoresizingFalse() {
-        self.birthDate.translatesAutoresizingMaskIntoConstraints = false
-        self.birthLocation.translatesAutoresizingMaskIntoConstraints = false
-        self.championshipsWon.translatesAutoresizingMaskIntoConstraints = false
-        self.racesParticipated.translatesAutoresizingMaskIntoConstraints = false
-        self.podiumsEarned.translatesAutoresizingMaskIntoConstraints = false
-        self.pointsEarned.translatesAutoresizingMaskIntoConstraints = false
-        self.wins.translatesAutoresizingMaskIntoConstraints = false
+        birthDate.translatesAutoresizingMaskIntoConstraints = false
+        birthLocation.translatesAutoresizingMaskIntoConstraints = false
+        championshipsWon.translatesAutoresizingMaskIntoConstraints = false
+        racesParticipated.translatesAutoresizingMaskIntoConstraints = false
+        podiumsEarned.translatesAutoresizingMaskIntoConstraints = false
+        pointsEarned.translatesAutoresizingMaskIntoConstraints = false
+        wins.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func addElements() {
-        self.contentView.addSubview(self.birthDate)
-        self.contentView.addSubview(self.birthLocation)
-        self.contentView.addSubview(self.championshipsWon)
-        self.contentView.addSubview(self.racesParticipated)
-        self.contentView.addSubview(self.podiumsEarned)
-        self.contentView.addSubview(self.pointsEarned)
-        self.contentView.addSubview(self.wins)
+        self.contentView.addSubview(birthDate)
+        self.contentView.addSubview(birthLocation)
+        self.contentView.addSubview(championshipsWon)
+        self.contentView.addSubview(racesParticipated)
+        self.contentView.addSubview(podiumsEarned)
+        self.contentView.addSubview(pointsEarned)
+        self.contentView.addSubview(wins)
     }
     
     required init?(coder: NSCoder) {
