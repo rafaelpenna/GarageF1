@@ -18,11 +18,15 @@ class RaceViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        setupProtocols()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setupProtocols() {
+        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
     }
 }
 
@@ -49,16 +53,5 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StandingsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-//        vc.nameDriver = driversViewModel.getDriverName(indexPath: indexPath)
-//        vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
-//        vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)
-//        vc.birthDate = driversViewModel.getBirthDate(indexPath: indexPath)
-//        vc.birthLocation = driversViewModel.getBirthLocation(indexPath: indexPath)
-//        vc.championshipsWon = driversViewModel.getChampionshipsWon(indexPath: indexPath)
-//        vc.racesParticipated = driversViewModel.getRacesParticipated(indexPath: indexPath)
-//        vc.podiumsEarned = driversViewModel.getPodiumsEarned(indexPath: indexPath)
-//        vc.pointsEarned = driversViewModel.getPointsEarned(indexPath: indexPath)
-//        vc.bestPositionRaces = driversViewModel.getBestPositionRaces(indexPath: indexPath)
-//        vc.bestGridPosition = driversViewModel.getBestGridPosition(indexPath: indexPath)
     }
 }

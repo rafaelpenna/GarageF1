@@ -15,20 +15,31 @@ class RacesCustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.screen.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.screen)
-        self.configScreenConstraints()
+        addElements()
+        autoresizingFalse()
+        configScreenConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func addElements() {
+        self.contentView.addSubview(self.screen)
+    }
+    
+    private func autoresizingFalse() {
+        screen.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
 
     func setupCell(driver:RacesModel){
         viewModel = RacesCustomCellViewModel(data: driver)
         backgroundColor = .none
-        
+        passingData()
+    }
+    
+    private func passingData() {
         screen.roundLabel.text = "Round \(viewModel!.getRaceRound)"
         screen.countryLabel.text = viewModel?.getRaceCountry
         screen.descriptionLabel.text = viewModel?.getRaceDescription
