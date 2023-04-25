@@ -97,6 +97,8 @@ class HistoryScreenView: UIView {
         tableView.register(HistoryTeamsTableViewCell.self, forCellReuseIdentifier: HistoryTeamsTableViewCell.identifier)
         return tableView
     }()
+    
+    
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -107,13 +109,6 @@ class HistoryScreenView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableViewDrivers.delegate = delegate
-        self.tableViewDrivers.dataSource = dataSource
-        self.tableViewTeams.delegate = delegate
-        self.tableViewTeams.dataSource = dataSource
     }
     
     private func addElements() {
@@ -129,9 +124,15 @@ class HistoryScreenView: UIView {
 
         addSubview(tableViewDrivers)
         addSubview(tableViewTeams)
-        
     }
     
+    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+        self.tableViewDrivers.delegate = delegate
+        self.tableViewDrivers.dataSource = dataSource
+        self.tableViewTeams.delegate = delegate
+        self.tableViewTeams.dataSource = dataSource
+    }
+        
     private func backgroundColor() {
         backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }

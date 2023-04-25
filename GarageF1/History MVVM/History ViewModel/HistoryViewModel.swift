@@ -64,20 +64,15 @@ class HistoryViewModel {
         self.listYear.append(YearModel(year: 2008))
     }
     
+    
+    //MARK: - Function to get info for Drivers data
+    
     public var numberOfRowsDrivers:Int{
         return self.dataDrivers.count
     }
     
-    public var numberOfRowsTeams:Int{
-        return self.dataTeams.count
-    }
-    
     public func loadCurrentDriver(indexPath: IndexPath) -> HistoryDriversModel {
         return dataDrivers[indexPath.row]
-    }
-    
-    public func loadCurrentTeam(indexPath: IndexPath) -> HistoryTeamsModel {
-        return dataTeams[indexPath.row]
     }
     
     public func getDriverPosition(indexPath: IndexPath) -> String {
@@ -90,6 +85,17 @@ class HistoryViewModel {
     
     public func getDriversLastName(indexPath: IndexPath) -> String {
         return dataDrivers[indexPath.row].driversLastName
+    }
+    
+    
+    //MARK: - Function to get info for Teams data
+    
+    public var numberOfRowsTeams:Int{
+        return self.dataTeams.count
+    }
+    
+    public func loadCurrentTeam(indexPath: IndexPath) -> HistoryTeamsModel {
+        return dataTeams[indexPath.row]
     }
     
     public func getTeamsDriversName(indexPath: IndexPath) -> String {
@@ -113,6 +119,7 @@ class HistoryViewModel {
     }
     
     
+    //MARK: - Function to get info for Dropdown data
     
     public var numberOfRowsYears: Int{
         return self.listYear.count
