@@ -71,6 +71,15 @@ class DriversDetailScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addElements()
+        constraintsScreen()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addElements() {
         addSubview(topLabel)
         addSubview(topRedLabelBackground)
         addSubview(backButton)
@@ -78,11 +87,6 @@ class DriversDetailScreenView: UIView {
         addSubview(lastName)
         addSubview(driverPhoto)
         addSubview(tableViewInfoDrivers)
-        constraintsScreen()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){

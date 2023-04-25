@@ -31,15 +31,27 @@ class DriversDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        driversDetailScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        driversDetailScreen?.firstName.text = nameDriver
-        driversDetailScreen?.lastName.text = lastNameDriver
-        driversDetailScreen?.driverPhoto.image = driverPhoto
-        self.view.addSubview(backButton)
+        setupProtocols()
+        passingHeadData()
+        addElements()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func setupProtocols() {
+        driversDetailScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+    }
+    
+    private func passingHeadData() {
+        driversDetailScreen?.firstName.text = nameDriver
+        driversDetailScreen?.lastName.text = lastNameDriver
+        driversDetailScreen?.driverPhoto.image = driverPhoto
+    }
+    
+    private func addElements() {
+        self.view.addSubview(backButton)
     }
     
     lazy var backButton: UIButton = {
@@ -59,6 +71,10 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 8
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -128,9 +144,5 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             return cell ?? UITableViewCell()
         }
 
-    }
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
     }
 }

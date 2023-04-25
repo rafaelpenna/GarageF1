@@ -32,16 +32,16 @@ class PodiumsCustomTableViewCellScreen: UITableViewCell {
     }()
     
     public func configure() {
-        addSubViews()
-        configConstraintsInfoDriver()
         backgroundColor()
+        addElements()
+        configConstraintsInfoDriver()
     }
     
     private func backgroundColor() {
         backgroundColor = .none
     }
     
-    private func addSubViews(){
+    private func addElements(){
         addSubview(podiumsTitle)
         addSubview(podiumsAnswer)
     }
