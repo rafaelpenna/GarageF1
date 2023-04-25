@@ -9,7 +9,7 @@ import UIKit
 
 class DuelViewModel {
     
-    private var driverList:[DuelNameModel] = []
+    private var driverList:[DuelDropdownModel] = []
     
     init(){
         self.configArrayListDriver()
@@ -20,18 +20,22 @@ class DuelViewModel {
     private var dataDriversRight:DuelModel = DuelModel(driversName: "Max", driversLastName: "Verstappen", driversBirthDate: "30/09/1997", driversAge: "(24 anos)", driversBirthPlace: "Hasselt", driversCountry: "Bélgica", championshipsWon: "2", championshipsWonYear: "2021, 2022", racesParticipated: "163", podiumsWon: "77", pointsEarned: "2011", wins: "35")
     
     private func configArrayListDriver(){
-        self.driverList.append(DuelNameModel(duelDriverName: "Alan Prost"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Ayrton Senna"))
-        self.driverList.append(DuelNameModel(duelDriverName: "David Coulthard"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Kimi Raikonnen"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Lewis Hammilton"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Juan Manuel Fangio"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Michael Schumacher"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Mika Hakkinen"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Rubens Barrichello"))
-        self.driverList.append(DuelNameModel(duelDriverName: "Sebastian Vettel"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Alan Prost"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Ayrton Senna"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "David Coulthard"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Kimi Raikonnen"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Lewis Hammilton"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Juan Manuel Fangio"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Michael Schumacher"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Mika Hakkinen"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Rubens Barrichello"))
+        self.driverList.append(DuelDropdownModel(duelDriverName: "Sebastian Vettel"))
         
     }
+    
+
+    
+    //MARK: - Functions to get left driver data
     
     public func getDriversNameLeft() -> String {
         return dataDriversLeft.driversName
@@ -61,7 +65,7 @@ class DuelViewModel {
         return dataDriversLeft.championshipsWon
     }
     
-    public func getChampionshipsWonYearLeft() -> String {
+    public func getChampionshipsWinYearLeft() -> String {
         return dataDriversLeft.championshipsWonYear
     }
     
@@ -81,6 +85,7 @@ class DuelViewModel {
         return dataDriversLeft.wins
     }
     
+    //MARK: - Functions to get right driver data
     
     public func getDriversNameRight() -> String {
         return dataDriversRight.driversName
@@ -110,7 +115,7 @@ class DuelViewModel {
         return dataDriversRight.championshipsWon
     }
     
-    public func getChampionshipsWonYearRight() -> String {
+    public func getChampionshipsWinYearRight() -> String {
         return dataDriversRight.championshipsWonYear
     }
     
@@ -131,7 +136,7 @@ class DuelViewModel {
     }
     
     
-    
+    //MARK: - Functions to get data for dropdown
     
     public var numberOfRowsDrivers: Int{
         return self.driverList.count

@@ -20,24 +20,29 @@ class DuelCustomTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.birthDate.translatesAutoresizingMaskIntoConstraints = false
-        self.birthLocation.translatesAutoresizingMaskIntoConstraints = false
-        self.championshipsWon.translatesAutoresizingMaskIntoConstraints = false
-        self.racesParticipated.translatesAutoresizingMaskIntoConstraints = false
-        self.podiumsEarned.translatesAutoresizingMaskIntoConstraints = false
-        self.pointsEarned.translatesAutoresizingMaskIntoConstraints = false
-        self.wins.translatesAutoresizingMaskIntoConstraints = false
-
-        
-        self.contentView.addSubview(self.birthDate)
-        self.contentView.addSubview(self.birthLocation)
-        self.contentView.addSubview(self.championshipsWon)
-        self.contentView.addSubview(self.racesParticipated)
-        self.contentView.addSubview(self.podiumsEarned)
-        self.contentView.addSubview(self.pointsEarned)
-        self.contentView.addSubview(self.wins)
-        
+        self.autoresizingFalse()
+        self.addElements()
         self.configScreenConstraints()
+    }
+    
+    private func autoresizingFalse() {
+        birthDate.translatesAutoresizingMaskIntoConstraints = false
+        birthLocation.translatesAutoresizingMaskIntoConstraints = false
+        championshipsWon.translatesAutoresizingMaskIntoConstraints = false
+        racesParticipated.translatesAutoresizingMaskIntoConstraints = false
+        podiumsEarned.translatesAutoresizingMaskIntoConstraints = false
+        pointsEarned.translatesAutoresizingMaskIntoConstraints = false
+        wins.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func addElements() {
+        self.contentView.addSubview(birthDate)
+        self.contentView.addSubview(birthLocation)
+        self.contentView.addSubview(championshipsWon)
+        self.contentView.addSubview(racesParticipated)
+        self.contentView.addSubview(podiumsEarned)
+        self.contentView.addSubview(pointsEarned)
+        self.contentView.addSubview(wins)
     }
     
     required init?(coder: NSCoder) {

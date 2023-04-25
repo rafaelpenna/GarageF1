@@ -38,6 +38,8 @@ class StandingsViewModel {
     private var dataBestLap:BestLap = BestLap(nameDriver: "RUSSEL", bestTime: "1:13:785")
     
     
+    //MARK: - Functions to get info for Drivers Standings
+    
     public var numberOfRowsResults:Int{
         return self.dataStandings.count
     }
@@ -67,6 +69,8 @@ class StandingsViewModel {
     }
     
     
+    //MARK: - Functions to get info for Best Lap
+    
     public func getBestLapNameDriver() -> String {
         return dataBestLap.nameDriver
     }
@@ -76,6 +80,7 @@ class StandingsViewModel {
     }
     
     
+    //MARK: - Functions to get info for Tracks Data
     
     public func getCircuitCountry() -> String {
         return dataTracks.circuitCountry

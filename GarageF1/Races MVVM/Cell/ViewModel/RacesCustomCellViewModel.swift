@@ -16,22 +16,22 @@ class RacesCustomCellViewModel {
     }
     
     public var getRaceRound: String {
-        return data.roundLabel
+        return data.round
     }
     
     public var getRaceCountry: String {
-        return data.countryLabel
+        return data.country
     }
     
     public var getRaceDescription: String {
-        return data.descriptionLabel
+        return data.description
     }
     
     public var getRaceDay: String {
-        return data.dayLabel
+        return data.day
     }
     
     public var getRaceMonth: String {
-        return data.monthLabel
+        return data.month
     }
 }

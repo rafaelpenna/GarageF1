@@ -20,26 +20,31 @@ class DriversDetailCustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.birthDate.translatesAutoresizingMaskIntoConstraints = false
-        self.birthLocation.translatesAutoresizingMaskIntoConstraints = false
-        self.championshipsWin.translatesAutoresizingMaskIntoConstraints = false
-        self.races.translatesAutoresizingMaskIntoConstraints = false
-        self.podiums.translatesAutoresizingMaskIntoConstraints = false
-        self.points.translatesAutoresizingMaskIntoConstraints = false
-        self.bestRacePosition.translatesAutoresizingMaskIntoConstraints = false
-        self.bestGridPosition.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.contentView.addSubview(self.birthDate)
-        self.contentView.addSubview(self.birthLocation)
-        self.contentView.addSubview(self.championshipsWin)
-        self.contentView.addSubview(self.races)
-        self.contentView.addSubview(self.podiums)
-        self.contentView.addSubview(self.points)
-        self.contentView.addSubview(self.bestRacePosition)
-        self.contentView.addSubview(self.bestGridPosition)
-        
-        self.configScreenConstraints()
+        autoresizingFalse()
+        addElements()
+        configScreenConstraints()
+    }
+    
+    private func autoresizingFalse() {
+        birthDate.translatesAutoresizingMaskIntoConstraints = false
+        birthLocation.translatesAutoresizingMaskIntoConstraints = false
+        championshipsWin.translatesAutoresizingMaskIntoConstraints = false
+        races.translatesAutoresizingMaskIntoConstraints = false
+        podiums.translatesAutoresizingMaskIntoConstraints = false
+        points.translatesAutoresizingMaskIntoConstraints = false
+        bestRacePosition.translatesAutoresizingMaskIntoConstraints = false
+        bestGridPosition.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func addElements() {
+        contentView.addSubview(birthDate)
+        contentView.addSubview(birthLocation)
+        contentView.addSubview(championshipsWin)
+        contentView.addSubview(races)
+        contentView.addSubview(podiums)
+        contentView.addSubview(points)
+        contentView.addSubview(bestRacePosition)
+        contentView.addSubview(bestGridPosition)
     }
     
     required init?(coder: NSCoder) {

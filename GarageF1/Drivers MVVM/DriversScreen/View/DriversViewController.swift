@@ -18,13 +18,20 @@ class DriversViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        setupProtocols()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-    }    
+    }
+    
+    
+    private func setupProtocols() {
+        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+    }
 }
+
+//MARK: - Extension config protocols
 
 extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
         
@@ -49,6 +56,11 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DriversDetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+        passsingDriverData(indexPath)
+    }
+    
+    private func passsingDriverData(_ indexPath: IndexPath) {
+        let vc = DriversDetailViewController()
         vc.nameDriver = driversViewModel.getDriverName(indexPath: indexPath)
         vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
         vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)

@@ -45,14 +45,12 @@ class CustomStandingsTableViewScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubViews()
-        self.configConstraintsInfoDriver()
-        self.backgroundColor()
+        addSubViews()
+        backgroundColor()
+        configConstraintsInfoDriver()
     }
     
-    private func backgroundColor() {
-        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -63,6 +61,10 @@ class CustomStandingsTableViewScreen: UIView {
         addSubview(nameCodeLabel)
         addSubview(timeLabel)
         addSubview(pointsLabel)
+    }
+    
+    private func backgroundColor() {
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func configConstraintsInfoDriver(){

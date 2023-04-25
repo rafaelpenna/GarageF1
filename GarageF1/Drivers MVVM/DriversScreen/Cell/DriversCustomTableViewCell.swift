@@ -15,15 +15,22 @@ class DriversCustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.screen.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.addSubview(self.screen)
-        self.configScreenConstraints()
+        configScreen()
+        addElements()
+        configScreenConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private func configScreen() {
+        self.screen.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func addElements(){
+        self.contentView.addSubview(self.screen)
+    }
 
     func setupCell(driver:Drivers){
         self.viewModel = DriversCustomCellViewModel(data: driver)

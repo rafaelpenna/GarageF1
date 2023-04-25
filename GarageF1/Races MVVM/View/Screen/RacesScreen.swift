@@ -62,18 +62,26 @@ class RacesScreen: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addElements()
+        setBackgroundColor()
+        configConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addElements() {
         addSubview(tableViewInfoRaces)
         addSubview(topRedLabel)
         addSubview(topRedLabelBackground)
         addSubview(racesHeadLabel)
         addSubview(seasonLabel)
         addSubview(driversDescriptionLabel)
-        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        configConstraints()
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private func setBackgroundColor() {
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     

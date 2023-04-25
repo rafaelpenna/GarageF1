@@ -25,10 +25,6 @@ class HistoryTeamsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func dataTableView(data: [HistoryTeamsModel]) {
-        self.data = data
-    }
-    
     func addComponents() {
         customInfoTeams.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(customInfoTeams)

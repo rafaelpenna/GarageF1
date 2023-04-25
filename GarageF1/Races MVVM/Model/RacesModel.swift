@@ -8,9 +8,9 @@
 import Foundation
 
 struct RacesModel {
-    var roundLabel: String
-    var countryLabel: String
-    var descriptionLabel: String
-    var dayLabel: String
-    var monthLabel: String
+    var round: String
+    var country: String
+    var description: String
+    var day: String
+    var month: String
 }
