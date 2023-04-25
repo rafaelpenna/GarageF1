@@ -18,14 +18,22 @@ class StandingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(backButton)
-        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        buttonCircuit(buttonCircuitVC)
-        buttonStandings(buttonStandingsVC)
+        addElements()
+        setupProtocols()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func addElements() {
+        view.addSubview(backButton)
+        buttonCircuit(buttonCircuitVC)
+        buttonStandings(buttonStandingsVC)
+    }
+    
+    private func setupProtocols() {
+        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
     }
 
     
@@ -45,33 +53,31 @@ class StandingsViewController: UIViewController {
     
     @objc func buttonStandings(_ sender: UIButton) {
         if buttonStandingsVC.isSelected == false {
-            buttonStandingsVC.isSelected = true
-            buttonCircuitVC.isSelected = false
-            standingsScreen?.standingsBoard.isHidden = false
-            standingsScreen?.tableViewTrack.isHidden = true
-            standingsScreen?.tableViewStandings.reloadData()
-            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
-            standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
+            buttonStandingsSelected()
         } else {
-            buttonStandingsVC.isSelected = true
-            buttonCircuitVC.isSelected = false
-            standingsScreen?.standingsBoard.isHidden = false
-            standingsScreen?.tableViewTrack.isHidden = true
-            standingsScreen?.tableViewStandings.reloadData()
-            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
-            standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
+            buttonStandingsSelected()
         }
     }
     
     @objc func buttonCircuit(_ sender: UIButton) {
         if buttonCircuitVC.isSelected == false {
-            buttonCircuitVC.isSelected = true
-            buttonStandingsVC.isSelected = false
-            standingsScreen?.standingsBoard.isHidden = true
-            standingsScreen?.tableViewTrack.isHidden = false
-            standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
-            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
+            buttonCircuitSelected()
         } else {
+            buttonCircuitSelected()
+        }
+    }
+        
+        private func buttonStandingsSelected() {
+            buttonStandingsVC.isSelected = true
+            buttonCircuitVC.isSelected = false
+            standingsScreen?.standingsBoard.isHidden = false
+            standingsScreen?.tableViewTrack.isHidden = true
+            standingsScreen?.tableViewStandings.reloadData()
+            standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+            standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
+        }
+        
+        private func buttonCircuitSelected() {
             buttonCircuitVC.isSelected = true
             buttonStandingsVC.isSelected = false
             standingsScreen?.standingsBoard.isHidden = true
@@ -79,7 +85,6 @@ class StandingsViewController: UIViewController {
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
             standingsScreen?.standingsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         }
-    }
     
     lazy var backButton: UIButton = {
         let button: UIButton = standingsScreen?.backButton ?? UIButton()
@@ -92,6 +97,9 @@ class StandingsViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
 }
+
+
+//MARK: - Extension config protocols
 
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         

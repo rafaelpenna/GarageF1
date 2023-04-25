@@ -143,15 +143,6 @@ class StandingsScreen: UIView {
             circuitCountry.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             circuitCountry.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-//            backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-//            backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-//            backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
-//            backButtonNavigation.widthAnchor.constraint(equalToConstant: 15),
-            
-            
-//            logOutButton.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-//            logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            
             backButton.topAnchor.constraint(equalTo: topRedLabelBackground.bottomAnchor, constant: 5),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),

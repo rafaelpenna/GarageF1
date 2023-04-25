@@ -18,23 +18,27 @@ class TableTrackTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        self.trackImage.translatesAutoresizingMaskIntoConstraints = false
-        self.circuitLenght.translatesAutoresizingMaskIntoConstraints = false
-        self.raceLaps.translatesAutoresizingMaskIntoConstraints = false
-        self.firstGP.translatesAutoresizingMaskIntoConstraints = false
-        self.raceDistance.translatesAutoresizingMaskIntoConstraints = false
-        self.trackRecord.translatesAutoresizingMaskIntoConstraints = false
-        
-        self.contentView.addSubview(self.trackImage)
-        self.contentView.addSubview(self.circuitLenght)
-        self.contentView.addSubview(self.raceLaps)
-        self.contentView.addSubview(self.firstGP)
-        self.contentView.addSubview(self.raceDistance)
-        self.contentView.addSubview(self.trackRecord)
-
-        
-        self.configScreenConstraints()
+        autoresizingFalse()
+        addElements()
+        configScreenConstraints()
+    }
+    
+    private func autoresizingFalse(){
+        trackImage.translatesAutoresizingMaskIntoConstraints = false
+        circuitLenght.translatesAutoresizingMaskIntoConstraints = false
+        raceLaps.translatesAutoresizingMaskIntoConstraints = false
+        firstGP.translatesAutoresizingMaskIntoConstraints = false
+        raceDistance.translatesAutoresizingMaskIntoConstraints = false
+        trackRecord.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func addElements() {
+        self.contentView.addSubview(trackImage)
+        self.contentView.addSubview(circuitLenght)
+        self.contentView.addSubview(raceLaps)
+        self.contentView.addSubview(firstGP)
+        self.contentView.addSubview(raceDistance)
+        self.contentView.addSubview(trackRecord)
     }
     
     required init?(coder: NSCoder) {

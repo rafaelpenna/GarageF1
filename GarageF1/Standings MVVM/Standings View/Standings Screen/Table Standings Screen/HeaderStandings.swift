@@ -97,6 +97,13 @@ class HeaderStandings: UIView {
         return label
     }()
     
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        addElements()
+        configConstraints()
+    }
+    
     private func addElements() {
         
         self.addSubview(standoutDriver)
@@ -111,12 +118,6 @@ class HeaderStandings: UIView {
         standoutBackground.self.addSubview(standoutName)
         standoutBackground.self.addSubview(standoutTitle)
         standoutBackground.self.addSubview(standoutTime)
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        addElements()
-        configConstraints()
     }
     
     required init?(coder: NSCoder) {

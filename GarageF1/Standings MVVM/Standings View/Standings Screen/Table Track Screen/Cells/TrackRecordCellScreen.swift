@@ -53,17 +53,21 @@ class TrackRecordCellScreen: UITableViewCell {
     
     
     public func configure() {
-        addSubViews()
+        addElements()
+        setBackgroundColor()
         configConstraintsInfoDriver()
-        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
-    private func addSubViews(){
+    private func addElements(){
         addSubview(backgroundCellWhite)
         addSubview(trackRecordTitle)
         addSubview(trackRecordAnswer)
         addSubview(trackRecordOwner)
         addSubview(trackRecordYear)
+    }
+    
+    private func setBackgroundColor() {
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     private func configConstraintsInfoDriver(){

@@ -16,8 +16,8 @@ class StandingsTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
    
-        self.addComponents()
-        self.configConstraints()
+        addComponents()
+        configConstraints()
     }
     
     required init?(coder: NSCoder) {
