@@ -52,17 +52,25 @@ class DriversScreenView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(tableViewInfoDrivers)
-        addSubview(topRedLabel)
-        addSubview(topRedLabelBackground)
-        addSubview(driversHeadLabel)
-        addSubview(driversDescriptionLabel)
-        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        addElements()
+        backgroundColor()
         configConstraints()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addElements() {
+        addSubview(tableViewInfoDrivers)
+        addSubview(topRedLabel)
+        addSubview(topRedLabelBackground)
+        addSubview(driversHeadLabel)
+        addSubview(driversDescriptionLabel)
+    }
+    
+    private func backgroundColor() {
+        backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
     }
     
     

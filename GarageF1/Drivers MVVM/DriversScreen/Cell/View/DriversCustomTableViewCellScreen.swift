@@ -72,7 +72,7 @@ class DriversCustomTableViewCellScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubViews()
+        self.addElements()
         self.configConstraintsInfoDriver()
     }
     
@@ -80,7 +80,7 @@ class DriversCustomTableViewCellScreen: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func addSubViews(){
+    private func addElements(){
         addSubview(positionLabel)
         addSubview(photoDriverImageView)
         addSubview(nameLabel)

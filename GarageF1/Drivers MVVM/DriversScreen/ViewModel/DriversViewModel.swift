@@ -27,6 +27,9 @@ class DriversViewModel {
         self.dataDriversScreen.append(Drivers(driversPosition: "9", driversPhoto: UIImage(named: "george") ?? UIImage(), driversName: "George ", driversLastName: "Russel", teamsName: "Mercedes", currentPoints: "24", birthDate: "15/02/1998 (25 anos)", birthLocation: "Norfolk, Reino Unido", championshipsWon: "0", racesParticipated: "82",podiumsEarned: "9", pointsEarned: "294", bestPositionRaces: "1(x1)", bestGridPosition: "1"))
     }
     
+    
+    //MARK: - Functions to get info to TableView Drivers
+    
     public var numberOfRows:Int{
         return self.dataDriversScreen.count
     }
@@ -58,6 +61,9 @@ class DriversViewModel {
     public func getPoints(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].currentPoints
     }
+    
+    
+    //MARK: - Functions to get info for Driver Detail Data
     
     public func getBirthDate(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].birthDate
