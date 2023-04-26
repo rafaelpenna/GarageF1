@@ -40,10 +40,10 @@ class DuelViewController: UIViewController {
     }
     
     func gettingInfoDriversDuelScreen() {
-        duelScreen?.driversFirstNameLeft.text = duelViewModel.getDriversNameLeft()
-        duelScreen?.driversLastNameLeft.text = duelViewModel.getDriversLastNameLeft()
-        duelScreen?.driversFirstNameRight.text = duelViewModel.getDriversNameRight()
-        duelScreen?.driversLastNameRight.text = duelViewModel.getDriversLastNameRight()
+        duelScreen?.driversFirstNameLeftLabel.text = duelViewModel.getDriversNameLeft()
+        duelScreen?.driversLastNameLeftLabel.text = duelViewModel.getDriversLastNameLeft()
+        duelScreen?.driversFirstNameRightLabel.text = duelViewModel.getDriversNameRight()
+        duelScreen?.driversLastNameRightLabel.text = duelViewModel.getDriversLastNameRight()
     }
     
     func setupProtocols() {

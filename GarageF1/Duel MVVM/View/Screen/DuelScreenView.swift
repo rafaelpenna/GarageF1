@@ -60,7 +60,7 @@ class DuelScreenView: UIView {
         return button
     }()
     
-    lazy var driversFirstNameLeft: UILabel = {
+    lazy var driversFirstNameLeftLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -68,7 +68,7 @@ class DuelScreenView: UIView {
         return label
     }()
     
-    lazy var driversLastNameLeft: UILabel = {
+    lazy var driversLastNameLeftLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -76,7 +76,7 @@ class DuelScreenView: UIView {
         return label
     }()
     
-    lazy var leftArrow: UIImageView = {
+    lazy var leftArrowIconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "blackArrow")
@@ -89,7 +89,7 @@ class DuelScreenView: UIView {
         return button
     }()
     
-    lazy var driversFirstNameRight: UILabel = {
+    lazy var driversFirstNameRightLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -97,7 +97,7 @@ class DuelScreenView: UIView {
         return label
     }()
     
-    lazy var driversLastNameRight: UILabel = {
+    lazy var driversLastNameRightLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
@@ -105,14 +105,14 @@ class DuelScreenView: UIView {
         return label
     }()
     
-    lazy var rightArrow: UIImageView = {
+    lazy var rightArrowIconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "blackArrow")
         return imageView
     }()
     
-    lazy var tableInfo: UITableView = {
+    lazy var infoTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -149,8 +149,9 @@ class DuelScreenView: UIView {
         constraintsScreen()
     }
     
-    func backgroundColor() {
-        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
+        self.tableInfo.delegate = delegate
+        self.tableInfo.dataSource = dataSource
     }
     
     required init?(coder: NSCoder) {
@@ -166,21 +167,20 @@ class DuelScreenView: UIView {
         addSubview(leftDriverButton)
         addSubview(rightDriverButton)
         
-        leftDriverButton.addSubview(driversFirstNameLeft)
-        leftDriverButton.addSubview(driversLastNameLeft)
-        leftDriverButton.addSubview(leftArrow)
+        leftDriverButton.addSubview(driversFirstNameLeftLabel)
+        leftDriverButton.addSubview(driversLastNameLeftLabel)
+        leftDriverButton.addSubview(leftArrowIconImage)
         
-        rightDriverButton.addSubview(driversFirstNameRight)
-        rightDriverButton.addSubview(driversLastNameRight)
-        rightDriverButton.addSubview(rightArrow)
+        rightDriverButton.addSubview(driversFirstNameRightLabel)
+        rightDriverButton.addSubview(driversLastNameRightLabel)
+        rightDriverButton.addSubview(rightArrowIconImage)
         
         addSubview(backButtonNavigation)
-        addSubview(tableInfo)
+        addSubview(infoTableView)
     }
     
-    public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableInfo.delegate = delegate
-        self.tableInfo.dataSource = dataSource
+    func backgroundColor() {
+        backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
     }
     
     private func constraintsScreen(){
@@ -210,48 +210,48 @@ class DuelScreenView: UIView {
             namesBackgroundLabel.heightAnchor.constraint(equalToConstant: 120),
             
             leftDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            leftDriverButton.topAnchor.constraint(equalTo: driversFirstNameLeft.topAnchor),
+            leftDriverButton.topAnchor.constraint(equalTo: driversFirstNameLeftLabel.topAnchor),
             leftDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
-            leftDriverButton.leadingAnchor.constraint(equalTo: driversLastNameLeft.leadingAnchor),
+            leftDriverButton.leadingAnchor.constraint(equalTo: driversLastNameLeftLabel.leadingAnchor),
             leftDriverButton.trailingAnchor.constraint(equalTo: leftArrow.trailingAnchor),
             
-            driversFirstNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            driversFirstNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
+            driversFirstNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            driversFirstNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
 
-            driversLastNameLeft.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            driversLastNameLeft.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            driversLastNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            driversLastNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             
-            leftArrow.centerXAnchor.constraint(equalTo: driversLastNameLeft.trailingAnchor, constant: 8),
-            leftArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
-            leftArrow.heightAnchor.constraint(equalToConstant: 15),
-            leftArrow.widthAnchor.constraint(equalToConstant: 15),
+            leftArrowIconImage.centerXAnchor.constraint(equalTo: driversLastNameLeftLabel.trailingAnchor, constant: 8),
+            leftArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
+            leftArrowIconImage.heightAnchor.constraint(equalToConstant: 15),
+            leftArrowIconImage.widthAnchor.constraint(equalToConstant: 15),
             
             rightDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            rightDriverButton.topAnchor.constraint(equalTo: driversFirstNameRight.topAnchor),
+            rightDriverButton.topAnchor.constraint(equalTo: driversFirstNameRightLabel.topAnchor),
             rightDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
-            rightDriverButton.leadingAnchor.constraint(equalTo: driversLastNameRight.leadingAnchor),
+            rightDriverButton.leadingAnchor.constraint(equalTo: driversLastNameRightLabel.leadingAnchor),
             rightDriverButton.trailingAnchor.constraint(equalTo: rightArrow.trailingAnchor),
             
-            driversFirstNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            driversFirstNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
+            driversFirstNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
+            driversFirstNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
 
-            driversLastNameRight.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            driversLastNameRight.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            driversLastNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
+            driversLastNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
                         
-            rightArrow.leadingAnchor.constraint(equalTo: driversLastNameRight.trailingAnchor, constant: 12),
-            rightArrow.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
-            rightArrow.heightAnchor.constraint(equalToConstant: 15),
-            rightArrow.widthAnchor.constraint(equalToConstant: 15),
+            rightArrowIconImage.leadingAnchor.constraint(equalTo: driversLastNameRightLabel.trailingAnchor, constant: 12),
+            rightArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
+            rightArrowIconImage.heightAnchor.constraint(equalToConstant: 15),
+            rightArrowIconImage.widthAnchor.constraint(equalToConstant: 15),
             
             backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButtonNavigation.heightAnchor.constraint(equalToConstant: 20),
             backButtonNavigation.widthAnchor.constraint(equalToConstant: 15),
             
-            tableInfo.leadingAnchor.constraint(equalTo: leadingAnchor),
-            tableInfo.trailingAnchor.constraint(equalTo: trailingAnchor),
-            tableInfo.topAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: 10),
-            tableInfo.bottomAnchor.constraint(equalTo: bottomAnchor),
+            infoTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            infoTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            infoTableView.topAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: 10),
+            infoTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }
