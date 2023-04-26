@@ -12,7 +12,7 @@ class BirthDateCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "BirthDateCustomTableViewCellScreen"
     
-    var birthDateTitle: UILabel = {
+    var birthDateTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Data de Nascimento"
@@ -22,7 +22,7 @@ class BirthDateCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var birthDateAnswer: UILabel = {
+    var birthDateAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class BirthDateCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(birthDateTitle)
-        addSubview(birthDateAnswer)
+        addSubview(birthDateTitleLabel)
+        addSubview(birthDateAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthDateTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            birthDateTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            birthDateTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            birthDateTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            birthDateAnswer.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
-            birthDateAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            birthDateAnswerLabel.topAnchor.constraint(equalTo: birthDateTitleLabel.bottomAnchor, constant: 10),
+            birthDateAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

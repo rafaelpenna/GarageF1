@@ -22,6 +22,6 @@ struct HistoryTeamsModel {
     var seasonTeamsPoints: String
 }
 
-struct YearModel {
+struct HistoryYearModel {
     var year: Int
 }

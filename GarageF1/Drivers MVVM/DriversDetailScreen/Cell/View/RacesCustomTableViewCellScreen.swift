@@ -12,7 +12,7 @@ class RacesCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "RacesCustomTableViewCellScreen"
     
-    var racesTitle: UILabel = {
+    var racesTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Corridas"
@@ -22,7 +22,7 @@ class RacesCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var racesAnswer: UILabel = {
+    var racesAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class RacesCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(racesTitle)
-        addSubview(racesAnswer)
+        addSubview(racesTitleLabel)
+        addSubview(racesAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            racesTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            racesTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            racesTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            racesTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            racesAnswer.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),
-            racesAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            racesAnswerLabel.topAnchor.constraint(equalTo: racesTitleLabel.bottomAnchor, constant: 10),
+            racesAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

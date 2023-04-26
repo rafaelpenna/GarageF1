@@ -36,6 +36,6 @@ class DriversCustomCellViewModel {
     }
     
     public var getPoints: String {
-        return data.currentPoints
+        return data.currentDriverPoints
     }
 }

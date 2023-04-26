@@ -18,7 +18,6 @@ class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupProtocols()
         addElements()
         cellRegister()
@@ -48,16 +47,16 @@ class HistoryViewController: UIViewController {
     
 //MARK: - Config Dropdown
     
+    let transparentView = UIView()
+    let tableViewYear = UITableView()
+    var selectedYearButton = UIButton()
+    
     lazy var buttonYearSelect: UIButton = {
         let button: UIButton = historyScreen?.seasonYearButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(onClickSelectYear), for: .touchUpInside)
         return button
     }()
-    
-    let transparentView = UIView()
-    let tableViewYear = UITableView()
-    var selectedYearButton = UIButton()
     
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
@@ -128,9 +127,9 @@ class HistoryViewController: UIViewController {
     private func buttonDriversSelected() {
         buttonDriversVC.isSelected = true
         buttonTeamsVC.isSelected = false
-        historyScreen?.tableViewDrivers.isHidden = false
-        historyScreen?.tableViewTeams.isHidden = true
-        historyScreen?.tableViewDrivers.reloadData()
+        historyScreen?.driversTableView.isHidden = false
+        historyScreen?.teamsTableView.isHidden = true
+        historyScreen?.driversTableView.reloadData()
         historyScreen?.driversButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
         historyScreen?.teamsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
     }
@@ -138,9 +137,9 @@ class HistoryViewController: UIViewController {
     private func buttonTeamsSelected() {
         buttonTeamsVC.isSelected = true
         buttonDriversVC.isSelected = false
-        historyScreen?.tableViewDrivers.isHidden = true
-        historyScreen?.tableViewTeams.isHidden = false
-        historyScreen?.tableViewTeams.reloadData()
+        historyScreen?.driversTableView.isHidden = true
+        historyScreen?.teamsTableView.isHidden = false
+        historyScreen?.teamsTableView.reloadData()
         historyScreen?.teamsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
         historyScreen?.driversButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
     }
@@ -168,7 +167,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.textLabel?.text = String(historyViewModel.getYear(indexPath: indexPath))
                 return cell
         } else {
-            if historyScreen?.tableViewDrivers.isHidden == false {
+            if historyScreen?.driversTableView.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
                 cell?.setupCell(driveData: historyViewModel.loadCurrentDriver(indexPath: indexPath))
                 let backgroundView = UIView()
@@ -190,7 +189,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == tableViewYear {
             return 45
         } else {
-            if tableView == historyScreen?.tableViewDrivers {
+            if tableView == historyScreen?.driversTableView {
                 return 85
             } else {
                 return 70

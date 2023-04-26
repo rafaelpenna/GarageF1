@@ -15,13 +15,13 @@ struct Drivers {
     var driversName: String
     var driversLastName: String
     var teamsName: String
-    var currentPoints: String
-    var birthDate: String
-    var birthLocation: String
-    var championshipsWon: String
-    var racesParticipated: String
-    var podiumsEarned: String
-    var pointsEarned: String
-    var bestPositionRaces: String
-    var bestGridPosition: String
+    var currentDriverPoints: String
+    var driversBirthDate: String
+    var driversBirthLocation: String
+    var driversChampionshipsWon: String
+    var driversRacesParticipated: String
+    var driversPodiumsEarned: String
+    var driversPointsEarned: String
+    var driversBestPositionRaces: String
+    var driversBestGridPosition: String
 }

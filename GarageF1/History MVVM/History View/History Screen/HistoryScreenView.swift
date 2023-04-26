@@ -16,7 +16,7 @@ class HistoryScreenView: UIView {
         return label
     }()
     
-    lazy var topRedLabelBackground: UILabel = {
+    lazy var backgroundTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
@@ -48,7 +48,7 @@ class HistoryScreenView: UIView {
         return button
     }()
     
-    lazy var seasonYearTitle: UILabel = {
+    lazy var seasonYearTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "2022"
@@ -57,7 +57,7 @@ class HistoryScreenView: UIView {
         return label
     }()
     
-    lazy var seasonYearIcon: UIImageView = {
+    lazy var seasonYearIconImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "seasonIcon")
@@ -80,7 +80,7 @@ class HistoryScreenView: UIView {
         return button
     }()
     
-    lazy var tableViewDrivers: UITableView = {
+    lazy var driversTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -89,7 +89,7 @@ class HistoryScreenView: UIView {
         return tableView
     }()
     
-    lazy var tableViewTeams: UITableView = {
+    lazy var teamsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -113,24 +113,24 @@ class HistoryScreenView: UIView {
     
     private func addElements() {
         addSubview(topRedLabel)
-        addSubview(topRedLabelBackground)
+        addSubview(backgroundTopRedLabel)
         addSubview(historyTitleLabel)
         addSubview(historyDescriptionLabel)
         addSubview(seasonYearButton)
-        seasonYearButton.addSubview(seasonYearTitle)
-        seasonYearButton.addSubview(seasonYearIcon)
+        seasonYearButton.addSubview(seasonYearTitleLabel)
+        seasonYearButton.addSubview(seasonYearIconImage)
         addSubview(driversButton)
         addSubview(teamsButton)
 
-        addSubview(tableViewDrivers)
-        addSubview(tableViewTeams)
+        addSubview(driversTableView)
+        addSubview(teamsTableView)
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableViewDrivers.delegate = delegate
-        self.tableViewDrivers.dataSource = dataSource
-        self.tableViewTeams.delegate = delegate
-        self.tableViewTeams.dataSource = dataSource
+        self.driversTableView.delegate = delegate
+        self.driversTableView.dataSource = dataSource
+        self.teamsTableView.delegate = delegate
+        self.teamsTableView.dataSource = dataSource
     }
         
     private func backgroundColor() {
@@ -145,10 +145,10 @@ class HistoryScreenView: UIView {
             topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
             historyTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             historyTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -160,13 +160,13 @@ class HistoryScreenView: UIView {
             seasonYearButton.leadingAnchor.constraint(equalTo: historyDescriptionLabel.trailingAnchor, constant: 10),
             seasonYearButton.widthAnchor.constraint(equalToConstant: 80),
             
-            seasonYearTitle.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 5),
-            seasonYearTitle.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 8),
+            seasonYearTitleLabel.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 5),
+            seasonYearTitleLabel.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 8),
             
-            seasonYearIcon.heightAnchor.constraint(equalToConstant: 10),
-            seasonYearIcon.widthAnchor.constraint(equalToConstant: 10),
-            seasonYearIcon.trailingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor),
-            seasonYearIcon.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 15),
+            seasonYearIconImage.heightAnchor.constraint(equalToConstant: 10),
+            seasonYearIconImage.widthAnchor.constraint(equalToConstant: 10),
+            seasonYearIconImage.trailingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor),
+            seasonYearIconImage.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 15),
             
             driversButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             driversButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),
@@ -174,15 +174,15 @@ class HistoryScreenView: UIView {
             teamsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             teamsButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
             
-            tableViewDrivers.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            tableViewDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableViewDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewDrivers.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            driversTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            driversTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            driversTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            driversTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            tableViewTeams.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            tableViewTeams.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableViewTeams.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewTeams.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            teamsTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            teamsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            teamsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            teamsTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
         ])
     }
 }

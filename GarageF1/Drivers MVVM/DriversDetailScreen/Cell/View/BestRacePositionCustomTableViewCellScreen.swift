@@ -12,7 +12,7 @@ class BestRacePositionCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "BestRacePositionCustomTableViewCellScreen"
     
-    var bestRacePositionTitle: UILabel = {
+    var bestRacePositionTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Melhor colocação em corridas"
@@ -22,7 +22,7 @@ class BestRacePositionCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var bestRacePositionAnswer: UILabel = {
+    var bestRacePositionAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class BestRacePositionCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(bestRacePositionTitle)
-        addSubview(bestRacePositionAnswer)
+        addSubview(bestRacePositionTitleLabel)
+        addSubview(bestRacePositionAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            bestRacePositionTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            bestRacePositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            bestRacePositionTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            bestRacePositionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            bestRacePositionAnswer.topAnchor.constraint(equalTo: bestRacePositionTitle.bottomAnchor, constant: 10),
-            bestRacePositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            bestRacePositionAnswerLabel.topAnchor.constraint(equalTo: bestRacePositionTitleLabel.bottomAnchor, constant: 10),
+            bestRacePositionAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

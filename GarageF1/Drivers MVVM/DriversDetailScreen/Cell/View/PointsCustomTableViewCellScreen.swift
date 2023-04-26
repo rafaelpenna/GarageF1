@@ -12,7 +12,7 @@ class PointsCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "PointsCustomTableViewCellScreen"
     
-    var pointsTitle: UILabel = {
+    var pointsTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Pontos"
@@ -22,7 +22,7 @@ class PointsCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var pointsAnswer: UILabel = {
+    var pointsAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class PointsCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(pointsTitle)
-        addSubview(pointsAnswer)
+        addSubview(pointsTitleLabel)
+        addSubview(pointsAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            pointsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            pointsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            pointsTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            pointsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            pointsAnswer.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
-            pointsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            pointsAnswerLabel.topAnchor.constraint(equalTo: pointsTitleLabel.bottomAnchor, constant: 10),
+            pointsAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

@@ -56,11 +56,6 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DriversDetailViewController()
         self.navigationController?.pushViewController(vc, animated: true)
-        passsingDriverData(indexPath)
-    }
-    
-    private func passsingDriverData(_ indexPath: IndexPath) {
-        let vc = DriversDetailViewController()
         vc.nameDriver = driversViewModel.getDriverName(indexPath: indexPath)
         vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
         vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)

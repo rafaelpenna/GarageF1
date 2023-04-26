@@ -12,7 +12,7 @@ class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "ChampionshipsWinCustomTableViewCellScreen"
     
-    var championshipsWinTitle: UILabel = {
+    var championshipsWinTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Campeonatos"
@@ -22,7 +22,7 @@ class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var championshipsWinAnswer: UILabel = {
+    var championshipsWinAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(championshipsWinTitle)
-        addSubview(championshipsWinAnswer)
+        addSubview(championshipsWinTitleLabel)
+        addSubview(championshipsWinAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            championshipsWinTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            championshipsWinTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            championshipsWinTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            championshipsWinAnswer.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            championshipsWinAnswerLabel.topAnchor.constraint(equalTo: championshipsWinTitleLabel.bottomAnchor, constant: 10),
+            championshipsWinAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

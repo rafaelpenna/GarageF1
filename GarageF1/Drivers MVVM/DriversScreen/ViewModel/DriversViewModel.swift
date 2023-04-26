@@ -15,16 +15,19 @@ class DriversViewModel {
         self.configArrayDriversScreen()
     }
     
+    
+    //MARK: - Mock Data (será retirado conforme implantação da API)
+    
     private func configArrayDriversScreen(){
-        self.dataDriversScreen.append(Drivers(driversPosition: "1", driversPhoto: UIImage(named: "Leclerc1") ?? UIImage(), driversName: "Charles ", driversLastName: "Leclerc", teamsName: "Ferrari", currentPoints: "86", birthDate: "16/10/1997 (24 anos)", birthLocation: "Monte Carlo, Monaco", championshipsWon: "0", racesParticipated: "92",podiumsEarned: "18", pointsEarned: "730", bestPositionRaces: "1(x5)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "2", driversPhoto: UIImage(named: "Max-1") ?? UIImage(), driversName: "Max ", driversLastName: "Verstappen", teamsName: "Red Bull Racing", currentPoints: "80", birthDate: "30/09/1997 (25 anos)", birthLocation: "Hasselt, Bélgica", championshipsWon: "2", racesParticipated: "163",podiumsEarned: "77", pointsEarned: "2011", bestPositionRaces: "1(x35)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "3", driversPhoto: UIImage(named: "sergio") ?? UIImage(), driversName: "Sergio ", driversLastName: "Perez", teamsName: "Red Bull Racing", currentPoints: "74", birthDate: "26/01/1990 (33 anos)", birthLocation: "Guadalajara, Mexico", championshipsWon: "0", racesParticipated: "239",podiumsEarned: "26", pointsEarned: "1201", bestPositionRaces: "1(x4)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "4", driversPhoto: UIImage(named: "sainz") ?? UIImage(), driversName: "Carlos ", driversLastName: "Sainz", teamsName: "Ferrari", currentPoints: "62", birthDate: "01/09/1994 (28 anos)", birthLocation: "Madrid, Espanha", championshipsWon: "0", racesParticipated: "163",podiumsEarned: "15", pointsEarned: "782", bestPositionRaces: "1(x1)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "5", driversPhoto: UIImage(named: "Norris") ?? UIImage(), driversName: "Lando ", driversLastName: "Norris", teamsName: "McLaren", currentPoints: "55", birthDate: "13/11/1999 (23 anos)", birthLocation: "Bristol, Reino Unido", championshipsWon: "0", racesParticipated: "82",podiumsEarned: "6", pointsEarned: "428", bestPositionRaces: "3(x2)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "6", driversPhoto: UIImage(named: "Hamilton") ?? UIImage(), driversName: "Lewis ", driversLastName: "Hamilton", teamsName: "Mercedes", currentPoints: "48", birthDate: "07/01/1985 (38 anos)", birthLocation: "Hertfordshire, Reino Unido", championshipsWon: "7", racesParticipated: "310",podiumsEarned: "191", pointsEarned: "4405", bestPositionRaces: "1(x103)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "7", driversPhoto: UIImage(named: "Vettel") ?? UIImage(), driversName: "Sebastian ", driversLastName: "Vettel", teamsName: "Aston Martin", currentPoints: "33", birthDate: "03/07/1987 (35 anos)", birthLocation: "Heppenheim, Alemanha", championshipsWon: "4", racesParticipated: "300",podiumsEarned: "122", pointsEarned: "3098", bestPositionRaces: "1(x53)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "8", driversPhoto: UIImage(named: "Bottas") ?? UIImage(), driversName: "Valtteri ", driversLastName: "Bottas", teamsName: "Alfa Romeo", currentPoints: "28", birthDate: "28/08/1989 (33 anos)", birthLocation: "Nastola, Finlândia", championshipsWon: "0", racesParticipated: "201",podiumsEarned: "67", pointsEarned: "1787", bestPositionRaces: "1(x10)", bestGridPosition: "1"))
-        self.dataDriversScreen.append(Drivers(driversPosition: "9", driversPhoto: UIImage(named: "george") ?? UIImage(), driversName: "George ", driversLastName: "Russel", teamsName: "Mercedes", currentPoints: "24", birthDate: "15/02/1998 (25 anos)", birthLocation: "Norfolk, Reino Unido", championshipsWon: "0", racesParticipated: "82",podiumsEarned: "9", pointsEarned: "294", bestPositionRaces: "1(x1)", bestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "1", driversPhoto: UIImage(named: "Leclerc1") ?? UIImage(), driversName: "Charles ", driversLastName: "Leclerc", teamsName: "Ferrari", currentDriverPoints: "86", driversBirthDate: "16/10/1997 (24 anos)", driversBirthLocation: "Monte Carlo, Monaco", driversChampionshipsWon: "0", driversRacesParticipated: "92",driversPodiumsEarned: "18", driversPointsEarned: "730", driversBestPositionRaces: "1(x5)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "2", driversPhoto: UIImage(named: "Max-1") ?? UIImage(), driversName: "Max ", driversLastName: "Verstappen", teamsName: "Red Bull Racing", currentDriverPoints: "80", driversBirthDate: "30/09/1997 (25 anos)", driversBirthLocation: "Hasselt, Bélgica", driversChampionshipsWon: "2", driversRacesParticipated: "163",driversPodiumsEarned: "77", driversPointsEarned: "2011", driversBestPositionRaces: "1(x35)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "3", driversPhoto: UIImage(named: "sergio") ?? UIImage(), driversName: "Sergio ", driversLastName: "Perez", teamsName: "Red Bull Racing", currentDriverPoints: "74", driversBirthDate: "26/01/1990 (33 anos)", driversBirthLocation: "Guadalajara, Mexico", driversChampionshipsWon: "0", driversRacesParticipated: "239",driversPodiumsEarned: "26", driversPointsEarned: "1201", driversBestPositionRaces: "1(x4)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "4", driversPhoto: UIImage(named: "sainz") ?? UIImage(), driversName: "Carlos ", driversLastName: "Sainz", teamsName: "Ferrari", currentDriverPoints: "62", driversBirthDate: "01/09/1994 (28 anos)", driversBirthLocation: "Madrid, Espanha", driversChampionshipsWon: "0", driversRacesParticipated: "163",driversPodiumsEarned: "15", driversPointsEarned: "782", driversBestPositionRaces: "1(x1)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "5", driversPhoto: UIImage(named: "Norris") ?? UIImage(), driversName: "Lando ", driversLastName: "Norris", teamsName: "McLaren", currentDriverPoints: "55", driversBirthDate: "13/11/1999 (23 anos)", driversBirthLocation: "Bristol, Reino Unido", driversChampionshipsWon: "0", driversRacesParticipated: "82",driversPodiumsEarned: "6", driversPointsEarned: "428", driversBestPositionRaces: "3(x2)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "6", driversPhoto: UIImage(named: "Hamilton") ?? UIImage(), driversName: "Lewis ", driversLastName: "Hamilton", teamsName: "Mercedes", currentDriverPoints: "48", driversBirthDate: "07/01/1985 (38 anos)", driversBirthLocation: "Hertfordshire, Reino Unido", driversChampionshipsWon: "7", driversRacesParticipated: "310",driversPodiumsEarned: "191", driversPointsEarned: "4405", driversBestPositionRaces: "1(x103)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "7", driversPhoto: UIImage(named: "Vettel") ?? UIImage(), driversName: "Sebastian ", driversLastName: "Vettel", teamsName: "Aston Martin", currentDriverPoints: "33", driversBirthDate: "03/07/1987 (35 anos)", driversBirthLocation: "Heppenheim, Alemanha", driversChampionshipsWon: "4", driversRacesParticipated: "300",driversPodiumsEarned: "122", driversPointsEarned: "3098", driversBestPositionRaces: "1(x53)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "8", driversPhoto: UIImage(named: "Bottas") ?? UIImage(), driversName: "Valtteri ", driversLastName: "Bottas", teamsName: "Alfa Romeo", currentDriverPoints: "28", driversBirthDate: "28/08/1989 (33 anos)", driversBirthLocation: "Nastola, Finlândia", driversChampionshipsWon: "0", driversRacesParticipated: "201",driversPodiumsEarned: "67", driversPointsEarned: "1787", driversBestPositionRaces: "1(x10)", driversBestGridPosition: "1"))
+        self.dataDriversScreen.append(Drivers(driversPosition: "9", driversPhoto: UIImage(named: "george") ?? UIImage(), driversName: "George ", driversLastName: "Russel", teamsName: "Mercedes", currentDriverPoints: "24", driversBirthDate: "15/02/1998 (25 anos)", driversBirthLocation: "Norfolk, Reino Unido", driversChampionshipsWon: "0", driversRacesParticipated: "82",driversPodiumsEarned: "9", driversPointsEarned: "294", driversBestPositionRaces: "1(x1)", driversBestGridPosition: "1"))
     }
     
     
@@ -59,42 +62,42 @@ class DriversViewModel {
     }
     
     public func getPoints(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].currentPoints
+        return dataDriversScreen[indexPath.row].currentDriverPoints
     }
     
     
-    //MARK: - Functions to get info for Driver Detail Data
+    //MARK: - Functions to get info to Driver Detail Data
     
     public func getBirthDate(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].birthDate
+        return dataDriversScreen[indexPath.row].driversBirthDate
     }
 
     public func getBirthLocation(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].birthLocation
+        return dataDriversScreen[indexPath.row].driversBirthLocation
     }
 
     public func getChampionshipsWon(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].championshipsWon
+        return dataDriversScreen[indexPath.row].driversChampionshipsWon
     }
 
     public func getRacesParticipated(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].racesParticipated
+        return dataDriversScreen[indexPath.row].driversRacesParticipated
     }
 
     public func getPodiumsEarned(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].podiumsEarned
+        return dataDriversScreen[indexPath.row].driversPodiumsEarned
     }
 
     public func getPointsEarned(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].pointsEarned
+        return dataDriversScreen[indexPath.row].driversPointsEarned
     }
 
     public func getBestPositionRaces(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].bestPositionRaces
+        return dataDriversScreen[indexPath.row].driversBestPositionRaces
     }
 
     public func getBestGridPosition(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].bestGridPosition
+        return dataDriversScreen[indexPath.row].driversBestGridPosition
     }
     
 }

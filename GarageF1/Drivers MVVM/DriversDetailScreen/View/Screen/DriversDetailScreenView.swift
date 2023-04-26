@@ -16,7 +16,7 @@ class DriversDetailScreenView: UIView {
         return label
     }()
     
-    lazy var topRedLabelBackground: UILabel = {
+    lazy var backgroundTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
@@ -30,7 +30,7 @@ class DriversDetailScreenView: UIView {
         return backButton
     }()
     
-    lazy var firstName: UILabel = {
+    lazy var firstNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -38,7 +38,7 @@ class DriversDetailScreenView: UIView {
         return label
     }()
     
-    lazy var lastName: UILabel = {
+    lazy var lastNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -46,13 +46,13 @@ class DriversDetailScreenView: UIView {
         return label
     }()
     
-    lazy var driverPhoto: UIImageView = {
+    lazy var driverPhotoImage: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     
-    lazy var tableViewInfoDrivers: UITableView = {
+    lazy var infoDriversTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -81,17 +81,17 @@ class DriversDetailScreenView: UIView {
     
     private func addElements() {
         addSubview(topLabel)
-        addSubview(topRedLabelBackground)
+        addSubview(backgroundTopRedLabel)
         addSubview(backButton)
-        addSubview(firstName)
-        addSubview(lastName)
-        addSubview(driverPhoto)
-        addSubview(tableViewInfoDrivers)
+        addSubview(firstNameLabel)
+        addSubview(lastNameLabel)
+        addSubview(driverPhotoImage)
+        addSubview(infoDriversTableView)
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableViewInfoDrivers.delegate = delegate
-        self.tableViewInfoDrivers.dataSource = dataSource
+        self.infoDriversTableView.delegate = delegate
+        self.infoDriversTableView.dataSource = dataSource
     }
     
     private func constraintsScreen(){
@@ -102,10 +102,10 @@ class DriversDetailScreenView: UIView {
             topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -113,21 +113,21 @@ class DriversDetailScreenView: UIView {
             backButton.widthAnchor.constraint(equalToConstant: 15),
             
             
-            firstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            firstName.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -40),
+            firstNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            firstNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -40),
             
-            lastName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            lastName.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -15),
+            lastNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            lastNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -15),
             
-            driverPhoto.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            driverPhoto.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            driverPhoto.heightAnchor.constraint(equalToConstant: 120),
-            driverPhoto.widthAnchor.constraint(equalToConstant: 120),
+            driverPhotoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            driverPhotoImage.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            driverPhotoImage.heightAnchor.constraint(equalToConstant: 120),
+            driverPhotoImage.widthAnchor.constraint(equalToConstant: 120),
             
-            tableViewInfoDrivers.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableViewInfoDrivers.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewInfoDrivers.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            tableViewInfoDrivers.bottomAnchor.constraint(equalTo: bottomAnchor),
+            infoDriversTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            infoDriversTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            infoDriversTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

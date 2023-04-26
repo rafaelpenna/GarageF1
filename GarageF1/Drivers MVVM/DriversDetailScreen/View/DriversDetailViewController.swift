@@ -11,7 +11,6 @@ import UIKit
 class DriversDetailViewController: UIViewController {
     
     let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
-    let birthDateScreen: BirthDateCustomTableViewCellScreen? = BirthDateCustomTableViewCellScreen()
     
     var nameDriver = ""
     var lastNameDriver = ""
@@ -32,7 +31,7 @@ class DriversDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
-        passingHeadData()
+        passingHeaderData()
         addElements()
     }
     
@@ -44,10 +43,10 @@ class DriversDetailViewController: UIViewController {
         driversDetailScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
     }
     
-    private func passingHeadData() {
-        driversDetailScreen?.firstName.text = nameDriver
-        driversDetailScreen?.lastName.text = lastNameDriver
-        driversDetailScreen?.driverPhoto.image = driverPhoto
+    private func passingHeaderData() {
+        driversDetailScreen?.firstNameLabel.text = nameDriver
+        driversDetailScreen?.lastNameLabel.text = lastNameDriver
+        driversDetailScreen?.driverPhotoImage.image = driverPhoto
     }
     
     private func addElements() {
@@ -82,7 +81,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: BirthDateCustomTableViewCellScreen.identifier) as? BirthDateCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.birthDateAnswer.text = birthDate
+            cell?.birthDateAnswerLabel.text = birthDate
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -90,7 +89,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: BirthLocationCustomTableViewCellScreen.identifier) as? BirthLocationCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.birbirthLocationAnswer.text = birthLocation
+            cell?.birthLocationAnswerLabel.text = birthLocation
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -98,7 +97,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: ChampionshipsWinCustomTableViewCellScreen.identifier) as? ChampionshipsWinCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.championshipsWinAnswer.text = championshipsWon
+            cell?.championshipsWinAnswerLabel.text = championshipsWon
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -106,7 +105,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: RacesCustomTableViewCellScreen.identifier) as? RacesCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.racesAnswer.text = racesParticipated
+            cell?.racesAnswerLabel.text = racesParticipated
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -114,7 +113,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: PodiumsCustomTableViewCellScreen.identifier) as? PodiumsCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.podiumsAnswer.text = podiumsEarned
+            cell?.podiumsAnswerLabel.text = podiumsEarned
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -122,7 +121,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: PointsCustomTableViewCellScreen.identifier) as? PointsCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.pointsAnswer.text = pointsEarned
+            cell?.pointsAnswerLabel.text = pointsEarned
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -130,7 +129,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: BestRacePositionCustomTableViewCellScreen.identifier) as? BestRacePositionCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.bestRacePositionAnswer.text = bestPositionRaces
+            cell?.bestRacePositionAnswerLabel.text = bestPositionRaces
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
@@ -138,7 +137,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             let cell = tableView.dequeueReusableCell(withIdentifier: BestGridPositionCustomTableViewCellScreen.identifier) as? BestGridPositionCustomTableViewCellScreen
             cell?.configure()
             let backgroundView = UIView()
-            cell?.bestGridPositionAnswer.text = bestGridPosition
+            cell?.bestGridPositionAnswerLabel.text = bestGridPosition
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()

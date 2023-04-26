@@ -9,7 +9,7 @@ import UIKit
 
 class DriversCustomTableViewCell: UITableViewCell {
     
-    var viewModel: DriversCustomCellViewModel?
+    var cellViewModel: DriversCustomCellViewModel?
     
     var screen: DriversCustomTableViewCellScreen = DriversCustomTableViewCellScreen()
     
@@ -33,14 +33,14 @@ class DriversCustomTableViewCell: UITableViewCell {
     }
 
     func setupCell(driver:Drivers){
-        self.viewModel = DriversCustomCellViewModel(data: driver)
+        self.cellViewModel = DriversCustomCellViewModel(data: driver)
         
-        screen.positionLabel.text = viewModel?.getDriversPosition
-        screen.photoDriverImageView.image = viewModel?.getDriversPhoto
-        screen.nameLabel.text = viewModel?.getDriversName
-        screen.lastNameLabel.text = viewModel?.getDriversLastName
-        screen.teamLabel.text = viewModel?.getTeam
-        screen.pointsLabel.text = viewModel?.getPoints
+        screen.positionLabel.text = cellViewModel?.getDriversPosition
+        screen.photoDriverImageView.image = cellViewModel?.getDriversPhoto
+        screen.nameLabel.text = cellViewModel?.getDriversName
+        screen.lastNameLabel.text = cellViewModel?.getDriversLastName
+        screen.teamLabel.text = cellViewModel?.getTeam
+        screen.pointsLabel.text = cellViewModel?.getPoints
     }
     
     private func configScreenConstraints(){

@@ -12,7 +12,7 @@ class BestGridPositionCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "BestGridPositionCustomTableViewCellScreen"
     
-    var bestGridPositionTitle: UILabel = {
+    var bestGridPositionTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Melhor colocação no grid"
@@ -22,7 +22,7 @@ class BestGridPositionCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var bestGridPositionAnswer: UILabel = {
+    var bestGridPositionAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class BestGridPositionCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(bestGridPositionTitle)
-        addSubview(bestGridPositionAnswer)
+        addSubview(bestGridPositionTitleLabel)
+        addSubview(bestGridPositionAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            bestGridPositionTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            bestGridPositionTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            bestGridPositionTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            bestGridPositionTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            bestGridPositionAnswer.topAnchor.constraint(equalTo: bestGridPositionTitle.bottomAnchor, constant: 10),
-            bestGridPositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            bestGridPositionAnswerLabel.topAnchor.constraint(equalTo: bestGridPositionTitleLabel.bottomAnchor, constant: 10),
+            bestGridPositionAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

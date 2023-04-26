@@ -10,9 +10,10 @@ import UIKit
 class HistoryTeamsTableViewCell: UITableViewCell {
 
     var data: [HistoryTeamsModel] = []
-    static let identifier: String = "HistoryTeamsTableViewCell"
     var customInfoTeams: CustomCellHistoryTeams = CustomCellHistoryTeams()
     var teamsViewModel: TeamsScreenViewModel?
+    
+    static let identifier: String = "HistoryTeamsTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

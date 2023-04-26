@@ -12,7 +12,7 @@ class PodiumsCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "PodiumsCustomTableViewCellScreen"
     
-    var podiumsTitle: UILabel = {
+    var podiumsTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Pódios"
@@ -22,7 +22,7 @@ class PodiumsCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var podiumsAnswer: UILabel = {
+    var podiumsAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class PodiumsCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(podiumsTitle)
-        addSubview(podiumsAnswer)
+        addSubview(podiumsTitleLabel)
+        addSubview(podiumsAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            podiumsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            podiumsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            podiumsTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            podiumsTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            podiumsAnswer.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),
-            podiumsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            podiumsAnswerLabel.topAnchor.constraint(equalTo: podiumsTitleLabel.bottomAnchor, constant: 10),
+            podiumsAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

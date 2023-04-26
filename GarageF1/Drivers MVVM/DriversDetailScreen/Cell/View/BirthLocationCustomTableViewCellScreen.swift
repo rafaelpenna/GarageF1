@@ -12,7 +12,7 @@ class BirthLocationCustomTableViewCellScreen: UITableViewCell {
     
     static let identifier = "BirthLocationCustomTableViewCellScreen"
     
-    var birthLocationTitle: UILabel = {
+    var birthLocationTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
         variable.text = "Local de Nascimento"
@@ -22,7 +22,7 @@ class BirthLocationCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var birbirthLocationAnswer: UILabel = {
+    var birthLocationAnswerLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .black
         variable.font = UIFont.boldSystemFont(ofSize: 22)
@@ -42,18 +42,18 @@ class BirthLocationCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(birthLocationTitle)
-        addSubview(birbirthLocationAnswer)
+        addSubview(birthLocationTitleLabel)
+        addSubview(birthLocationAnswerLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            birthLocationTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            birthLocationTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            birthLocationTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
 
-            birbirthLocationAnswer.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
-            birbirthLocationAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            birthLocationAnswerLabel.topAnchor.constraint(equalTo: birthLocationTitleLabel.bottomAnchor, constant: 10),
+            birthLocationAnswerLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
         ])
     }
 }

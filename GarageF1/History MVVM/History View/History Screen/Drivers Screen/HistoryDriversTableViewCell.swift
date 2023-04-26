@@ -10,13 +10,13 @@ import UIKit
 class HistoryDriversTableViewCell: UITableViewCell {
 
     var data: [HistoryDriversModel] = []
-    static let identifier: String = "HistoryDriversTableViewCell"
     var customInfoDrivers: CustomCellHistoryDrivers = CustomCellHistoryDrivers()
     var driversViewModel: DriversScreenViewModel?
     
+    static let identifier: String = "HistoryDriversTableViewCell"
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-   
         self.addComponents()
         self.configConstraints()
     }
