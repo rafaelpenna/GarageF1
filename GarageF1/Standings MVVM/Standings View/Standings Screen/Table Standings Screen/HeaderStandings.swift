@@ -11,23 +11,23 @@ class HeaderStandings: UIView {
     
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
     
-    lazy var standoutDriver: UILabel = {
+    lazy var standoutDriverLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         return label
     }()
     
-    lazy var headerInformation: UILabel = {
+    lazy var headerInformationLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .gray
         return label
     }()
     
-    // Info Head Information
+    // Header Information Elements
     
-    lazy var posTitle: UILabel = {
+    lazy var posTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "POS"
@@ -36,7 +36,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var driverTitle: UILabel = {
+    lazy var driverTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "DRIVER"
@@ -45,7 +45,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var timeTitle: UILabel = {
+    lazy var timeTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "TIME/RET"
@@ -54,7 +54,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var ptsTitle: UILabel = {
+    lazy var ptsTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "PTS"
@@ -63,16 +63,16 @@ class HeaderStandings: UIView {
         return label
     }()
     
-//    Info Best Driver
+//    Best Lap (Standout) Elements
     
-    lazy var standoutBackground: UILabel = {
+    lazy var standoutBackgroundLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .white
         return label
     }()
     
-    lazy var standoutTitle: UILabel = {
+    lazy var standoutTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "VOLTA MAIS RÁPIDA"
@@ -81,7 +81,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var standoutName: UILabel = {
+    lazy var standoutNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = standingsViewModel.getBestLapNameDriver()
@@ -89,7 +89,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    lazy var standoutTime: UILabel = {
+    lazy var standoutTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = standingsViewModel.getBestLapTime()
@@ -106,18 +106,18 @@ class HeaderStandings: UIView {
     
     private func addElements() {
         
-        self.addSubview(standoutDriver)
-        self.addSubview(headerInformation)
+        self.addSubview(standoutDriverLabel)
+        self.addSubview(headerInformationLabel)
         
-        headerInformation.self.addSubview(posTitle)
-        headerInformation.self.addSubview(driverTitle)
-        headerInformation.self.addSubview(timeTitle)
-        headerInformation.self.addSubview(ptsTitle)
+        headerInformationLabel.self.addSubview(posTitleLabel)
+        headerInformationLabel.self.addSubview(driverTitleLabel)
+        headerInformationLabel.self.addSubview(timeTitleLabel)
+        headerInformationLabel.self.addSubview(ptsTitleLabel)
         
-        standoutDriver.self.addSubview(standoutBackground)
-        standoutBackground.self.addSubview(standoutName)
-        standoutBackground.self.addSubview(standoutTitle)
-        standoutBackground.self.addSubview(standoutTime)
+        standoutDriverLabel.self.addSubview(standoutBackgroundLabel)
+        standoutBackgroundLabel.self.addSubview(standoutNameLabel)
+        standoutBackgroundLabel.self.addSubview(standoutTitleLabel)
+        standoutBackgroundLabel.self.addSubview(standoutTimeLabel)
     }
     
     required init?(coder: NSCoder) {
@@ -127,42 +127,42 @@ class HeaderStandings: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            standoutDriver.topAnchor.constraint(equalTo: topAnchor),
-            standoutDriver.leadingAnchor.constraint(equalTo: leadingAnchor),
-            standoutDriver.trailingAnchor.constraint(equalTo: trailingAnchor),
-            standoutDriver.bottomAnchor.constraint(equalTo: topAnchor),
+            standoutDriverLabel.topAnchor.constraint(equalTo: topAnchor),
+            standoutDriverLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            standoutDriverLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            standoutDriverLabel.bottomAnchor.constraint(equalTo: topAnchor),
             
-            headerInformation.heightAnchor.constraint(equalToConstant: 22),
-            headerInformation.leadingAnchor.constraint(equalTo: leadingAnchor),
-            headerInformation.trailingAnchor.constraint(equalTo: trailingAnchor),
-            headerInformation.bottomAnchor.constraint(equalTo: bottomAnchor),
+            headerInformationLabel.heightAnchor.constraint(equalToConstant: 22),
+            headerInformationLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            headerInformationLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            headerInformationLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            posTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            posTitle.topAnchor.constraint(equalTo: headerInformation.topAnchor, constant: 1),
+            posTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            posTitleLabel.topAnchor.constraint(equalTo: headerInformationLabel.topAnchor, constant: 1),
             
-            driverTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 55),
-            driverTitle.topAnchor.constraint(equalTo: headerInformation.topAnchor, constant: 1),
+            driverTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 55),
+            driverTitleLabel.topAnchor.constraint(equalTo: headerInformationLabel.topAnchor, constant: 1),
             
-            timeTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 160),
-            timeTitle.topAnchor.constraint(equalTo: headerInformation.topAnchor, constant: 1),
+            timeTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 160),
+            timeTitleLabel.topAnchor.constraint(equalTo: headerInformationLabel.topAnchor, constant: 1),
             
-            ptsTitle.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
-            ptsTitle.topAnchor.constraint(equalTo: headerInformation.topAnchor, constant: 1),
+            ptsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
+            ptsTitleLabel.topAnchor.constraint(equalTo: headerInformationLabel.topAnchor, constant: 1),
             
             
-            standoutBackground.topAnchor.constraint(equalTo: standoutDriver.topAnchor, constant: 10),
-            standoutBackground.leadingAnchor.constraint(equalTo: standoutDriver.leadingAnchor, constant: 25),
-            standoutBackground.trailingAnchor.constraint(equalTo: standoutDriver.trailingAnchor, constant: -25),
-            standoutBackground.bottomAnchor.constraint(equalTo: standoutDriver.bottomAnchor, constant: -5),
+            standoutBackgroundLabel.topAnchor.constraint(equalTo: standoutDriverLabel.topAnchor, constant: 10),
+            standoutBackgroundLabel.leadingAnchor.constraint(equalTo: standoutDriverLabel.leadingAnchor, constant: 25),
+            standoutBackgroundLabel.trailingAnchor.constraint(equalTo: standoutDriverLabel.trailingAnchor, constant: -25),
+            standoutBackgroundLabel.bottomAnchor.constraint(equalTo: standoutDriverLabel.bottomAnchor, constant: -5),
             
-            standoutTitle.topAnchor.constraint(equalTo: standoutBackground.topAnchor, constant: 2),
-            standoutTitle.leadingAnchor.constraint(equalTo: standoutBackground.leadingAnchor, constant: 10),
+            standoutTitleLabel.topAnchor.constraint(equalTo: standoutBackgroundLabel.topAnchor, constant: 2),
+            standoutTitleLabel.leadingAnchor.constraint(equalTo: standoutBackgroundLabel.leadingAnchor, constant: 10),
             
-            standoutName.leadingAnchor.constraint(equalTo: standoutBackground.leadingAnchor, constant: 10),
-            standoutName.topAnchor.constraint(equalTo: standoutBackground.topAnchor, constant: 25),
+            standoutNameLabel.leadingAnchor.constraint(equalTo: standoutBackgroundLabel.leadingAnchor, constant: 10),
+            standoutNameLabel.topAnchor.constraint(equalTo: standoutBackgroundLabel.topAnchor, constant: 25),
             
-            standoutTime.trailingAnchor.constraint(equalTo: standoutBackground.trailingAnchor, constant: -15),
-            standoutTime.topAnchor.constraint(equalTo: standoutBackground.topAnchor, constant: 30),
+            standoutTimeLabel.trailingAnchor.constraint(equalTo: standoutBackgroundLabel.trailingAnchor, constant: -15),
+            standoutTimeLabel.topAnchor.constraint(equalTo: standoutBackgroundLabel.topAnchor, constant: 30),
             ])
     }
 }

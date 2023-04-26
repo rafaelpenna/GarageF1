@@ -10,12 +10,12 @@ import UIKit
 class StandingsTableViewCell: UITableViewCell {
 
     var data: [Standings] = []
-    static let identifier: String = "StandingsTableViewCell"
     var customDrivers: CustomStandingsTableViewScreen = CustomStandingsTableViewScreen()
+    
+    static let identifier: String = "StandingsTableViewCell"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-   
         addComponents()
         configConstraints()
     }
@@ -34,7 +34,6 @@ class StandingsTableViewCell: UITableViewCell {
     }
 
     func setupCell(data: Standings){
-        
         customDrivers.positionLabel.text = data.position
         customDrivers.nameCodeLabel.text = data.driversCode
         customDrivers.timeLabel.text = data.time

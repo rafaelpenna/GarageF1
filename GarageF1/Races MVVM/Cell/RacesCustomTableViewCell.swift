@@ -36,10 +36,6 @@ class RacesCustomTableViewCell: UITableViewCell {
     func setupCell(driver:RacesModel){
         viewModel = RacesCustomCellViewModel(data: driver)
         backgroundColor = .none
-        passingData()
-    }
-    
-    private func passingData() {
         screen.roundLabel.text = "Round \(viewModel!.getRaceRound)"
         screen.countryLabel.text = viewModel?.getRaceCountry
         screen.descriptionLabel.text = viewModel?.getRaceDescription

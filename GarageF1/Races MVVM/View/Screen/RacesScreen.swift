@@ -9,7 +9,7 @@ import UIKit
 
 class RacesScreen: UIView {
 
-    lazy var tableViewInfoRaces: UITableView = {
+    lazy var infoRacesTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -25,14 +25,14 @@ class RacesScreen: UIView {
         return label
     }()
     
-    lazy var topRedLabelBackground: UILabel = {
+    lazy var backgroundTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
         return label
     }()
     
-    lazy var racesHeadLabel: UILabel = {
+    lazy var racesHeaderLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Etapas"
@@ -72,10 +72,10 @@ class RacesScreen: UIView {
     }
     
     private func addElements() {
-        addSubview(tableViewInfoRaces)
+        addSubview(infoRacesTableView)
         addSubview(topRedLabel)
-        addSubview(topRedLabelBackground)
-        addSubview(racesHeadLabel)
+        addSubview(backgroundTopRedLabel)
+        addSubview(racesHeaderLabel)
         addSubview(seasonLabel)
         addSubview(driversDescriptionLabel)
     }
@@ -86,8 +86,8 @@ class RacesScreen: UIView {
     
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableViewInfoRaces.delegate = delegate
-        self.tableViewInfoRaces.dataSource = dataSource
+        self.infoRacesTableView.delegate = delegate
+        self.infoRacesTableView.dataSource = dataSource
     }
 
     private func configConstraints(){
@@ -98,18 +98,18 @@ class RacesScreen: UIView {
             topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            tableViewInfoRaces.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            tableViewInfoRaces.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableViewInfoRaces.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewInfoRaces.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            infoRacesTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            infoRacesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            infoRacesTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            infoRacesTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            racesHeadLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            racesHeadLabel.centerXAnchor.constraint(equalTo: topRedLabel.centerXAnchor),
+            racesHeaderLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            racesHeaderLabel.centerXAnchor.constraint(equalTo: topRedLabel.centerXAnchor),
             
             seasonLabel.bottomAnchor.constraint(equalTo: driversDescriptionLabel.topAnchor, constant: -4),
             seasonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),

@@ -16,6 +16,8 @@ class StandingsViewModel {
         self.configArrayDataStandings()
     }
     
+    //MARK: - Mock Data (será retirado conforme implantação da API)
+    
     private func configArrayDataStandings(){
     
         self.dataStandings.append(Standings(position: "1", teamsName: "Mercedes", driversCode: "RUS", time: "1:38:34.044", pointsWon: "26"))
@@ -38,7 +40,7 @@ class StandingsViewModel {
     private var dataBestLap:BestLap = BestLap(nameDriver: "RUSSEL", bestTime: "1:13:785")
     
     
-    //MARK: - Functions to get info for Drivers Standings
+    //MARK: - Functions to get info to Drivers Standings Table View
     
     public var numberOfRowsResults:Int{
         return self.dataStandings.count
@@ -69,7 +71,7 @@ class StandingsViewModel {
     }
     
     
-    //MARK: - Functions to get info for Best Lap
+    //MARK: - Functions to get info to Best Lap Display
     
     public func getBestLapNameDriver() -> String {
         return dataBestLap.nameDriver
@@ -80,7 +82,7 @@ class StandingsViewModel {
     }
     
     
-    //MARK: - Functions to get info for Tracks Data
+    //MARK: - Functions to get info to Track Data
     
     public func getCircuitCountry() -> String {
         return dataTracks.circuitCountry

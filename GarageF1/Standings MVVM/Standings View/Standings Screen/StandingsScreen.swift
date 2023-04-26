@@ -18,7 +18,7 @@ class StandingsScreen: UIView {
         return label
     }()
     
-    lazy var topRedLabelBackground: UILabel = {
+    lazy var backgroundTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
@@ -32,7 +32,7 @@ class StandingsScreen: UIView {
         return backButton
     }()
     
-    lazy var circuitCountry: UILabel = {
+    lazy var circuitCountryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = standingsViewModel.getCircuitCountry()
@@ -57,7 +57,7 @@ class StandingsScreen: UIView {
         return button
     }()
     
-    lazy var standingsBoard: UIStackView = {
+    lazy var standingsBoardView: UIStackView = {
         let label = UIStackView()
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,7 +69,7 @@ class StandingsScreen: UIView {
         return label
     }()
     
-    lazy var tableViewStandings: UITableView = {
+    lazy var standingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -78,7 +78,7 @@ class StandingsScreen: UIView {
         return tableView
     }()
     
-    lazy var tableViewTrack: UITableView = {
+    lazy var trackTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
@@ -104,23 +104,23 @@ class StandingsScreen: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableViewStandings.delegate = delegate
-        self.tableViewStandings.dataSource = dataSource
-        self.tableViewTrack.delegate = delegate
-        self.tableViewTrack.dataSource = dataSource
+        self.standingsTableView.delegate = delegate
+        self.standingsTableView.dataSource = dataSource
+        self.trackTableView.delegate = delegate
+        self.trackTableView.dataSource = dataSource
     }
     
     private func addElements() {
-        addSubview(topRedLabelBackground)
+        addSubview(backgroundTopRedLabel)
         addSubview(topRedLabel)
-        addSubview(circuitCountry)
+        addSubview(circuitCountryLabel)
         addSubview(trackButton)
         addSubview(standingsButton)
         addSubview(backButton)
-        addSubview(standingsBoard)
-        standingsBoard.self.addSubview(standingsHeader)
-        standingsBoard.self.addSubview(tableViewStandings)
-        addSubview(tableViewTrack)
+        addSubview(standingsBoardView)
+        standingsBoardView.self.addSubview(standingsHeader)
+        standingsBoardView.self.addSubview(standingsTableView)
+        addSubview(trackTableView)
     }
     
     private func backgroundColor() {
@@ -135,15 +135,15 @@ class StandingsScreen: UIView {
             topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             topRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
-            circuitCountry.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            circuitCountry.centerXAnchor.constraint(equalTo: centerXAnchor),
+            circuitCountryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            circuitCountryLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            backButton.topAnchor.constraint(equalTo: topRedLabelBackground.bottomAnchor, constant: 5),
+            backButton.topAnchor.constraint(equalTo: backgroundTopRedLabel.bottomAnchor, constant: 5),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 15),
@@ -154,27 +154,27 @@ class StandingsScreen: UIView {
             trackButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             trackButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
             
-            tableViewTrack.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
-            tableViewTrack.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            tableViewTrack.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
-            tableViewTrack.bottomAnchor.constraint(equalTo: bottomAnchor),
+            trackTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
+            trackTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
+            trackTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            trackTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
 //            Standings Board
                         
-            standingsBoard.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
-            standingsBoard.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            standingsBoard.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            standingsBoard.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
+            standingsBoardView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            standingsBoardView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            standingsBoardView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            standingsBoardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
                         
             standingsHeader.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
             standingsHeader.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             standingsHeader.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsHeader.heightAnchor.constraint(equalToConstant: 100),
                         
-            tableViewStandings.topAnchor.constraint(equalTo: standingsHeader.bottomAnchor),
-            tableViewStandings.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            tableViewStandings.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            tableViewStandings.bottomAnchor.constraint(equalTo: bottomAnchor),
+            standingsTableView.topAnchor.constraint(equalTo: standingsHeader.bottomAnchor),
+            standingsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
+            standingsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            standingsTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 

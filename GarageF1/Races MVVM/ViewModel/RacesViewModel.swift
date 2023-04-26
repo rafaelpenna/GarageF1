@@ -15,6 +15,9 @@ class RacesViewModel {
         self.configArrayRacesScreen()
     }
     
+    
+    //MARK: - Mock Data (será retirado conforme implantação da API)
+    
     private func configArrayRacesScreen(){
         self.dataRacesScreen.append(RacesModel(round: "22", country: "United States", description: "FORMULA 1 HEINEKEN SILVER LAS VEGAS GRAND PRIX 2023", day: "16-18", month: "NOV"))
         self.dataRacesScreen.append(RacesModel(round: "21", country: "Brazil", description: "FORMULA 1 ROLEX GRANDE PRÊMIO DE SÃO PAULO 2023", day: "03-05", month: "NOV"))
@@ -27,6 +30,8 @@ class RacesViewModel {
         self.dataRacesScreen.append(RacesModel(round: "14", country: "Netherlands", description: "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2023", day: "25-27", month: "AUG"))
         self.dataRacesScreen.append(RacesModel(round: "13", country: "Belgium", description: "FORMULA 1 BELGIAN GRAND PRIX 2023", day: "28-30", month: "JUL"))
     }
+    
+    //MARK: - Functions to get info to TableView Races
     
     public var numberOfRows:Int{
         return self.dataRacesScreen.count

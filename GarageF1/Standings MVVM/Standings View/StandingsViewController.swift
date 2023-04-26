@@ -51,6 +51,13 @@ class StandingsViewController: UIViewController {
         return button
     }()
     
+    lazy var backButton: UIButton = {
+        let button: UIButton = standingsScreen?.backButton ?? UIButton()
+        button.isSelected = true
+        button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
+        return button
+    }()
+    
     @objc func buttonStandings(_ sender: UIButton) {
         if buttonStandingsVC.isSelected == false {
             buttonStandingsSelected()
@@ -70,9 +77,9 @@ class StandingsViewController: UIViewController {
         private func buttonStandingsSelected() {
             buttonStandingsVC.isSelected = true
             buttonCircuitVC.isSelected = false
-            standingsScreen?.standingsBoard.isHidden = false
-            standingsScreen?.tableViewTrack.isHidden = true
-            standingsScreen?.tableViewStandings.reloadData()
+            standingsScreen?.standingsBoardView.isHidden = false
+            standingsScreen?.trackTableView.isHidden = true
+            standingsScreen?.standingsTableView.reloadData()
             standingsScreen?.standingsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         }
@@ -80,19 +87,12 @@ class StandingsViewController: UIViewController {
         private func buttonCircuitSelected() {
             buttonCircuitVC.isSelected = true
             buttonStandingsVC.isSelected = false
-            standingsScreen?.standingsBoard.isHidden = true
-            standingsScreen?.tableViewTrack.isHidden = false
+            standingsScreen?.standingsBoardView.isHidden = true
+            standingsScreen?.trackTableView.isHidden = false
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
             standingsScreen?.standingsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
         }
     
-    lazy var backButton: UIButton = {
-        let button: UIButton = standingsScreen?.backButton ?? UIButton()
-        button.isSelected = true
-        button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
-        return button
-    }()
-
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
@@ -104,7 +104,7 @@ class StandingsViewController: UIViewController {
 extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == standingsScreen?.tableViewStandings {
+        if tableView == standingsScreen?.standingsTableView {
             return (standingsViewModel.numberOfRowsResults)
         } else {
             return 6
@@ -112,7 +112,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == standingsScreen?.tableViewTrack {
+        if tableView == standingsScreen?.trackTableView {
             if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
@@ -175,7 +175,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == standingsScreen?.tableViewStandings {
+        if tableView == standingsScreen?.standingsTableView {
             return 45
         } else {
             if indexPath.row == 0 {

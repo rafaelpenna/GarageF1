@@ -16,32 +16,27 @@ class DuelViewController: UIViewController {
         view = duelScreen
     }
     
-    lazy var buttonSelectDriverLeft: UIButton = {
+    lazy var selectDriverLeftButton: UIButton = {
         let button: UIButton = duelScreen?.leftDriverButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(onClickSelectDriverLeft), for: .touchUpInside)
         return button
     }()
     
-    lazy var buttonSelectDriverRight: UIButton = {
+    lazy var selectDriverRightButton: UIButton = {
         let button: UIButton = duelScreen?.rightDriverButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(onClickSelectDriverRight), for: .touchUpInside)
         return button
     }()
     
-    let transparentView = UIView()
-    let tableViewDriverDuel = UITableView()
-    var selectedButton = UIButton()
-    
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
         gettingInfoDriversDuelScreen()
-        addElements()
         setupProtocols()
-        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
+        addElements()
+        cellRegister()
     }
     
     func gettingInfoDriversDuelScreen() {
@@ -59,8 +54,12 @@ class DuelViewController: UIViewController {
     
     func addElements() {
         view.addSubview(backButton)
-        view.addSubview(buttonSelectDriverLeft)
-        view.addSubview(buttonSelectDriverRight)
+        view.addSubview(selectDriverLeftButton)
+        view.addSubview(selectDriverRightButton)
+    }
+    
+    private func cellRegister() {
+        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +80,10 @@ class DuelViewController: UIViewController {
     
     
     //MARK: - Dropdown configuration
+    
+    let transparentView = UIView()
+    let tableViewDriverDuel = UITableView()
+    var selectedButton = UIButton()
     
     func addTransparentView(frames: CGRect) {
         let window = UIApplication.shared.keyWindow
@@ -111,13 +114,13 @@ class DuelViewController: UIViewController {
     }
     
     @objc func onClickSelectDriverLeft(_ sender: Any) {
-        selectedButton = buttonSelectDriverLeft
-        addTransparentView(frames: buttonSelectDriverLeft.frame)
+        selectedButton = selectDriverLeftButton
+        addTransparentView(frames: selectDriverLeftButton.frame)
     }
     
     @objc func onClickSelectDriverRight(_ sender: Any) {
-        selectedButton = buttonSelectDriverRight
-        addTransparentView(frames: buttonSelectDriverRight.frame)
+        selectedButton = selectDriverRightButton
+        addTransparentView(frames: selectDriverRightButton.frame)
     }
 }
 

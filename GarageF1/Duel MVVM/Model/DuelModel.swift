@@ -16,12 +16,12 @@ struct DuelModel {
     var driversAge: String
     var driversBirthPlace: String
     var driversCountry: String
-    var championshipsWon: String
-    var championshipsWonYear: String
-    var racesParticipated: String
-    var podiumsWon: String
-    var pointsEarned: String
-    var wins: String
+    var driversChampionshipsWon: String
+    var driversChampionshipsWinYear: String
+    var driversRacesParticipated: String
+    var driversPodiumsWon: String
+    var driversPointsEarned: String
+    var driversWins: String
 }
 
 struct DuelDropdownModel {

@@ -19,7 +19,7 @@ class DuelScreenView: UIView {
         return label
     }()
     
-    lazy var topRedLabelBackground: UILabel = {
+    lazy var backgroundTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.backgroundColor = .red
@@ -159,18 +159,21 @@ class DuelScreenView: UIView {
     
     private func addElements(){
         addSubview(duelTopRedLabel)
-        addSubview(topRedLabelBackground)
+        addSubview(backgroundTopRedLabel)
         addSubview(duelTitleLabel)
         addSubview(duelDescriptionLabel)
         addSubview(namesBackgroundLabel)
         addSubview(leftDriverButton)
         addSubview(rightDriverButton)
+        
         leftDriverButton.addSubview(driversFirstNameLeft)
         leftDriverButton.addSubview(driversLastNameLeft)
+        leftDriverButton.addSubview(leftArrow)
+        
         rightDriverButton.addSubview(driversFirstNameRight)
         rightDriverButton.addSubview(driversLastNameRight)
-        leftDriverButton.addSubview(leftArrow)
         rightDriverButton.addSubview(rightArrow)
+        
         addSubview(backButtonNavigation)
         addSubview(tableInfo)
     }
@@ -188,10 +191,10 @@ class DuelScreenView: UIView {
             duelTopRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTopRedLabel.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabelBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabelBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabelBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabelBackground.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
             
             duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
