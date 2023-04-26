@@ -1,0 +1,54 @@
+//
+//  DriversCustomTableViewCell.swift
+//  GarageF1
+//
+//  Created by Rafael Penna on 10/02/23.
+//
+
+import UIKit
+
+class DriversCustomTableViewCell: UITableViewCell {
+    
+    var cellViewModel: DriversCustomCellViewModel?
+    
+    var screen: DriversCustomTableViewCellScreen = DriversCustomTableViewCellScreen()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configScreen()
+        addElements()
+        configScreenConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configScreen() {
+        self.screen.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func addElements(){
+        self.contentView.addSubview(self.screen)
+    }
+
+    func setupCell(driver:Drivers){
+        self.cellViewModel = DriversCustomCellViewModel(data: driver)
+        
+        screen.positionLabel.text = cellViewModel?.getDriversPosition
+        screen.photoDriverImageView.image = cellViewModel?.getDriversPhoto
+        screen.nameLabel.text = cellViewModel?.getDriversName
+        screen.lastNameLabel.text = cellViewModel?.getDriversLastName
+        screen.teamLabel.text = cellViewModel?.getTeam
+        screen.pointsLabel.text = cellViewModel?.getPoints
+    }
+    
+    private func configScreenConstraints(){
+        NSLayoutConstraint.activate([
+            screen.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            screen.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            screen.topAnchor.constraint(equalTo: self.topAnchor),
+            screen.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+        ])
+    }
+}

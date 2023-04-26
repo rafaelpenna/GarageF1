@@ -90,7 +90,6 @@
 		1CB39D3A299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D39299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift */; };
 		1CB39D3C299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D3B299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift */; };
 		1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */; };
-		1CDF8DD029AEBDA40051E9F1 /* DriversData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF8DCF29AEBDA40051E9F1 /* DriversData.swift */; };
 		27260257834CDAC8ADA3A004 /* Pods_GarageF1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88589B93D518063277FE39F1 /* Pods_GarageF1Tests.framework */; };
 		34B996A029F8BE5200DCBE69 /* CustomFullResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */; };
 		34B996A129F8BE5200DCBE69 /* CustomResultsFullTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */; };
@@ -242,7 +241,6 @@
 		1CB39D39299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestRacePositionCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CB39D3B299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestGridPositionCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDriversTableViewCell.swift; sourceTree = "<group>"; };
-		1CDF8DCF29AEBDA40051E9F1 /* DriversData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversData.swift; sourceTree = "<group>"; };
 		34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultsScreen.swift; sourceTree = "<group>"; };
 		34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomResultsFullTableView.swift; sourceTree = "<group>"; };
 		34B9967629F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStandingCollectionScreen.swift; sourceTree = "<group>"; };
@@ -357,14 +355,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		0B1E887929DA1F0B0027C8C6 /* Login MVVM */ = {
+		0B1E887929DA1F0B0027C8C6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				0B1E887C29DA1F3A0027C8C6 /* ViewModel */,
 				0B1E887B29DA1F350027C8C6 /* View */,
 				0B1E887A29DA1F2F0027C8C6 /* Model */,
 			);
-			path = "Login MVVM";
+			path = Login;
 			sourceTree = "<group>";
 		};
 		0B1E887A29DA1F2F0027C8C6 /* Model */ = {
@@ -406,14 +404,14 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
-		0B1E887F29DA20230027C8C6 /* Profile MVVM */ = {
+		0B1E887F29DA20230027C8C6 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				0B1E888229DA20350027C8C6 /* ViewModel */,
 				0B1E888129DA20310027C8C6 /* View */,
 				0B1E888029DA202C0027C8C6 /* Model */,
 			);
-			path = "Profile MVVM";
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		0B1E888029DA202C0027C8C6 /* Model */ = {
@@ -455,14 +453,14 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
-		0B1E888529DA20C80027C8C6 /* RecoverPassword MVVM */ = {
+		0B1E888529DA20C80027C8C6 /* RecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
 				0B1E888829DA20E00027C8C6 /* ViewModel */,
 				0B1E888729DA20DB0027C8C6 /* Model */,
 				0B1E888629DA20D50027C8C6 /* View */,
 			);
-			path = "RecoverPassword MVVM";
+			path = RecoverPassword;
 			sourceTree = "<group>";
 		};
 		0B1E888629DA20D50027C8C6 /* View */ = {
@@ -520,14 +518,14 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		0B1E888D29DA21BB0027C8C6 /* Constructors MVVM */ = {
+		0B1E888D29DA21BB0027C8C6 /* Constructors */ = {
 			isa = PBXGroup;
 			children = (
 				0B1E889029DA21FF0027C8C6 /* ViewModel */,
 				0B1E888F29DA21FA0027C8C6 /* View */,
 				0B1E888E29DA21F50027C8C6 /* Model */,
 			);
-			path = "Constructors MVVM";
+			path = Constructors;
 			sourceTree = "<group>";
 		};
 		0B1E888E29DA21F50027C8C6 /* Model */ = {
@@ -596,16 +594,16 @@
 			children = (
 				0B1E888B29DA213E0027C8C6 /* TabBar */,
 				0B9509D02963C4C500069D7D /* Alert */,
-				0BD9483429C280A9008E1C33 /* Home MVVM */,
-				1C44CDC729CF0F3700D8F32F /* Races MVVM */,
-				1C99A81E29BFD54E004CD81C /* Standings MVVM */,
-				1C5170F729998C9A00DDDC18 /* Drivers MVVM */,
-				1C1FED4229AC3FA900B989EE /* History MVVM */,
-				1C726E3229B797B8006591C9 /* Duel MVVM */,
-				0B1E887929DA1F0B0027C8C6 /* Login MVVM */,
-				0B1E887F29DA20230027C8C6 /* Profile MVVM */,
-				0B1E888529DA20C80027C8C6 /* RecoverPassword MVVM */,
-				0B1E888D29DA21BB0027C8C6 /* Constructors MVVM */,
+				0BD9483429C280A9008E1C33 /* Home */,
+				1C44CDC729CF0F3700D8F32F /* Races */,
+				1C99A81E29BFD54E004CD81C /* Standings */,
+				1C5170F729998C9A00DDDC18 /* Drivers */,
+				1C1FED4229AC3FA900B989EE /* History */,
+				1C726E3229B797B8006591C9 /* Duel  */,
+				0B1E887929DA1F0B0027C8C6 /* Login */,
+				0B1E887F29DA20230027C8C6 /* Profile */,
+				0B1E888529DA20C80027C8C6 /* RecoverPassword */,
+				0B1E888D29DA21BB0027C8C6 /* Constructors */,
 				34B996CE29F8C0E000DCBE69 /* Email */,
 				0B4CC6222953E90800D29D4C /* SceneDelegate.swift */,
 				0B4CC6202953E90800D29D4C /* AppDelegate.swift */,
@@ -644,14 +642,14 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
-		0BD9483429C280A9008E1C33 /* Home MVVM */ = {
+		0BD9483429C280A9008E1C33 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				0B1E887829DA18F80027C8C6 /* ViewModel */,
 				0B1E887429DA143B0027C8C6 /* Model */,
 				0B1E887529DA16FE0027C8C6 /* View */,
 			);
-			path = "Home MVVM";
+			path = Home;
 			sourceTree = "<group>";
 		};
 		1C0C68392996DA2A00A7C1BE /* DriversScreen */ = {
@@ -679,7 +677,6 @@
 			isa = PBXGroup;
 			children = (
 				1C0C683E2996DB3900A7C1BE /* Drivers.swift */,
-				1CDF8DCF29AEBDA40051E9F1 /* DriversData.swift */,
 			);
 			name = Model;
 			path = Cell/Model;
@@ -726,14 +723,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		1C1FED4229AC3FA900B989EE /* History MVVM */ = {
+		1C1FED4229AC3FA900B989EE /* History */ = {
 			isa = PBXGroup;
 			children = (
 				1C1FED4329AC3FEC00B989EE /* History Model */,
 				1C1FED4429AC400D00B989EE /* History ViewModel */,
 				1C1FED4529AC403400B989EE /* History View */,
 			);
-			path = "History MVVM";
+			path = History;
 			sourceTree = "<group>";
 		};
 		1C1FED4329AC3FEC00B989EE /* History Model */ = {
@@ -781,7 +778,7 @@
 			path = "Teams Screen";
 			sourceTree = "<group>";
 		};
-		1C44CDC729CF0F3700D8F32F /* Races MVVM */ = {
+		1C44CDC729CF0F3700D8F32F /* Races */ = {
 			isa = PBXGroup;
 			children = (
 				1C44CDD229CF1AA900D8F32F /* Cell */,
@@ -789,7 +786,7 @@
 				1C44CDC929CF0F6B00D8F32F /* View */,
 				1C44CDC829CF0F5C00D8F32F /* ViewModel */,
 			);
-			path = "Races MVVM";
+			path = Races;
 			sourceTree = "<group>";
 		};
 		1C44CDC829CF0F5C00D8F32F /* ViewModel */ = {
@@ -877,13 +874,13 @@
 			path = Screen;
 			sourceTree = "<group>";
 		};
-		1C5170F729998C9A00DDDC18 /* Drivers MVVM */ = {
+		1C5170F729998C9A00DDDC18 /* Drivers */ = {
 			isa = PBXGroup;
 			children = (
 				1C0C68392996DA2A00A7C1BE /* DriversScreen */,
 				1C5170E829997A5B00DDDC18 /* DriversDetailScreen */,
 			);
-			path = "Drivers MVVM";
+			path = Drivers;
 			sourceTree = "<group>";
 		};
 		1C550FBA29AD2F8800AC2E51 /* History Screen */ = {
@@ -896,7 +893,7 @@
 			path = "History Screen";
 			sourceTree = "<group>";
 		};
-		1C726E3229B797B8006591C9 /* Duel MVVM */ = {
+		1C726E3229B797B8006591C9 /* Duel  */ = {
 			isa = PBXGroup;
 			children = (
 				1C726E3F29B7A909006591C9 /* Cell */,
@@ -904,7 +901,7 @@
 				1C726E3429B798D5006591C9 /* View */,
 				1C726E3529B798DC006591C9 /* ViewModel */,
 			);
-			path = "Duel MVVM";
+			path = "Duel ";
 			sourceTree = "<group>";
 		};
 		1C726E3329B798B7006591C9 /* Model */ = {
@@ -963,14 +960,14 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		1C99A81E29BFD54E004CD81C /* Standings MVVM */ = {
+		1C99A81E29BFD54E004CD81C /* Standings */ = {
 			isa = PBXGroup;
 			children = (
 				1C99A81F29BFD58B004CD81C /* Standings Model */,
 				1C99A82029BFD59A004CD81C /* Standings VIew Model */,
 				1C99A82129BFD5A5004CD81C /* Standings View */,
 			);
-			path = "Standings MVVM";
+			path = Standings;
 			sourceTree = "<group>";
 		};
 		1C99A81F29BFD58B004CD81C /* Standings Model */ = {
@@ -1483,7 +1480,6 @@
 				0B1E887129D9CD620027C8C6 /* RecoverPasswordScreen.swift in Sources */,
 				1C550FC029AD3EF500AC2E51 /* CustomCellHistoryTeams.swift in Sources */,
 				1C99A82329BFD5E5004CD81C /* StandingsModel.swift in Sources */,
-				1CDF8DD029AEBDA40051E9F1 /* DriversData.swift in Sources */,
 				34B996B729F8BE5200DCBE69 /* TableViewChampionshipsWinCellScreen.swift in Sources */,
 				0B4CC6212953E90800D29D4C /* AppDelegate.swift in Sources */,
 				34B996AF29F8BE5200DCBE69 /* TableViewDriversDetailCustomCell.swift in Sources */,
