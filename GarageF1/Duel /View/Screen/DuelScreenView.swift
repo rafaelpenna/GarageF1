@@ -150,8 +150,8 @@ class DuelScreenView: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.tableInfo.delegate = delegate
-        self.tableInfo.dataSource = dataSource
+        self.infoTableView.delegate = delegate
+        self.infoTableView.dataSource = dataSource
     }
     
     required init?(coder: NSCoder) {
@@ -213,7 +213,7 @@ class DuelScreenView: UIView {
             leftDriverButton.topAnchor.constraint(equalTo: driversFirstNameLeftLabel.topAnchor),
             leftDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             leftDriverButton.leadingAnchor.constraint(equalTo: driversLastNameLeftLabel.leadingAnchor),
-            leftDriverButton.trailingAnchor.constraint(equalTo: leftArrow.trailingAnchor),
+            leftDriverButton.trailingAnchor.constraint(equalTo: leftArrowIconImage.trailingAnchor),
             
             driversFirstNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
             driversFirstNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
@@ -230,7 +230,7 @@ class DuelScreenView: UIView {
             rightDriverButton.topAnchor.constraint(equalTo: driversFirstNameRightLabel.topAnchor),
             rightDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
             rightDriverButton.leadingAnchor.constraint(equalTo: driversLastNameRightLabel.leadingAnchor),
-            rightDriverButton.trailingAnchor.constraint(equalTo: rightArrow.trailingAnchor),
+            rightDriverButton.trailingAnchor.constraint(equalTo: rightArrowIconImage.trailingAnchor),
             
             driversFirstNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
             driversFirstNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
