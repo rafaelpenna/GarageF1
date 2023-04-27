@@ -73,6 +73,6 @@ extension EmailLoginVC: EmailLoginScreenProtocol {
                 })
             }
         })
-    } 
+    }
 }
 
