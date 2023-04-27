@@ -78,17 +78,21 @@ class HomeScreen: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        addElements()
+        configConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func addElements() {
         addSubview(topRedLabel)
         addSubview(topLabel)
         addSubview(homeLabel)
         addSubview(welcomeLabel)
         addSubview(userNameLabel)
         addSubview(superTableView)
-        configConstraints()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {

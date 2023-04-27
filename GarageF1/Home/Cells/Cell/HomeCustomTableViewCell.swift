@@ -18,7 +18,10 @@ class HomeCustomTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        addCells()
+    }
+    
+    func addCells() {
         standingCollection.translatesAutoresizingMaskIntoConstraints = false
         customDuelTableViewCell.translatesAutoresizingMaskIntoConstraints = false
         simulationButtonTableViewCell.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +34,6 @@ class HomeCustomTableViewCell: UITableViewCell {
         contentView.addSubview(simulationButtonTableViewCell)
         contentView.addSubview(fullresultsTableViewCell)
         contentView.addSubview(fullResultButtonTableViewCell)
-        
     }
     
     required init?(coder: NSCoder) {
