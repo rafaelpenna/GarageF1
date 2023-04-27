@@ -50,6 +50,17 @@ extension LoginVC: UITextFieldDelegate {
 }
 
 extension LoginVC: LoginScreenProtocol {
+    
+    func actionVisibleInvisibleButton() {
+        
+        if loginScreen?.passwordTextField.isSecureTextEntry == true {
+            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            loginScreen?.passwordTextField.isSecureTextEntry = false
+        } else {
+            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            loginScreen?.passwordTextField.isSecureTextEntry = true
+        }
+    }
 
     func actionLoginButton() {
         
