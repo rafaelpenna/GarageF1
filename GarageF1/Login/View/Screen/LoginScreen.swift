@@ -12,6 +12,7 @@ protocol LoginScreenProtocol: AnyObject {
     func actionRegisterButton()
     func actionLoginButton()
     func actionForgotThePassword()
+    func actionVisibleInvisibleButton()
 }
 
 class LoginScreen: UIView {
@@ -85,9 +86,18 @@ class LoginScreen: UIView {
         password.isSecureTextEntry = true
         password.placeholder = "Digite sua senha:"
         password.textColor = .darkGray
-        password.clearButtonMode = .whileEditing
         return password
     }()
+    
+    lazy var visibleInvisibleButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        button.tintColor = UIColor.black
+        button.addTarget(self, action: #selector(tappedVisibleInvisibleButton), for: .touchUpInside)
+        return button
+    }()
+    
     
     private lazy var esqueceuSenhaButton: UIButton = {
         let button = UIButton()
@@ -142,12 +152,17 @@ class LoginScreen: UIView {
         addSubview(imageRegister)
         addSubview(emailTextField)
         addSubview(passwordTextField)
+        addSubview(visibleInvisibleButton)
         addSubview(signInButton)
         addSubview(registerButton)
         addSubview(esqueceuSenhaButton)
         addSubview(descriptionLabel)
         addSubview(facebookButton)
         addSubview(appleButton)
+    }
+    
+    @objc func tappedVisibleInvisibleButton() {
+        delegate?.actionVisibleInvisibleButton()
     }
     
     @objc func tappedSignInButtonButton(){
@@ -218,11 +233,13 @@ class LoginScreen: UIView {
             passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
             passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             
+            visibleInvisibleButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -15),
+            visibleInvisibleButton.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor),
+            
             esqueceuSenhaButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 3),
             esqueceuSenhaButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 210),
             esqueceuSenhaButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
             signInButton.heightAnchor.constraint(equalTo: passwordTextField.heightAnchor),
-            
 
             signInButton.topAnchor.constraint(equalTo: esqueceuSenhaButton.bottomAnchor, constant: 20),
             signInButton.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
