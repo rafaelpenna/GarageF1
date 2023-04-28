@@ -22,7 +22,7 @@ class DDuelCustomTableViewCell: UITableViewCell {
     
     lazy var duoBackgroundImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "backgroundduoscreen")
+        image.image = UIImage(named: "testestest")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image
@@ -38,21 +38,21 @@ class DDuelCustomTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var pilot1: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "duopilot1")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
-    
-    lazy var pilot2: UIImageView = {
-        let image = UIImageView()
-        image.image = UIImage(named: "duopilot2")
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
-        return image
-    }()
+//    lazy var pilot1: UIImageView = {
+//        let image = UIImageView()
+//        image.image = UIImage(named: "duopilot1")
+//        image.translatesAutoresizingMaskIntoConstraints = false
+//        image.contentMode = .scaleAspectFit
+//        return image
+//    }()
+//
+//    lazy var pilot2: UIImageView = {
+//        let image = UIImageView()
+//        image.image = UIImage(named: "duopilot2")
+//        image.translatesAutoresizingMaskIntoConstraints = false
+//        image.contentMode = .scaleAspectFit
+//        return image
+//    }()
 
 
 
@@ -71,8 +71,8 @@ class DDuelCustomTableViewCell: UITableViewCell {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(duoBackgroundImage)
-        addSubview(pilot1)
-        addSubview(pilot2)
+//        addSubview(pilot1)
+//        addSubview(pilot2)
     }
     
     private func setUpConstraints() {
@@ -90,15 +90,15 @@ class DDuelCustomTableViewCell: UITableViewCell {
             duoBackgroundImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             duoBackgroundImage.heightAnchor.constraint(equalToConstant: 200),
             
-            pilot1.topAnchor.constraint(equalTo: topAnchor, constant: 165),
-            pilot1.leadingAnchor.constraint(equalTo: leadingAnchor),
-            pilot1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -200),
-            pilot1.heightAnchor.constraint(equalToConstant: 65),
-            
-            pilot2.topAnchor.constraint(equalTo: topAnchor, constant: 165),
-            pilot2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200),
-            pilot2.trailingAnchor.constraint(equalTo: trailingAnchor),
-            pilot2.heightAnchor.constraint(equalToConstant: 65),
+//            pilot1.topAnchor.constraint(equalTo: topAnchor, constant: 165),
+//            pilot1.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            pilot1.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -200),
+//            pilot1.heightAnchor.constraint(equalToConstant: 65),
+//            
+//            pilot2.topAnchor.constraint(equalTo: topAnchor, constant: 165),
+//            pilot2.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 200),
+//            pilot2.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            pilot2.heightAnchor.constraint(equalToConstant: 65),
         ])
     }
 }
