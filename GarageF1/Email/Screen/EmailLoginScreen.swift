@@ -73,6 +73,7 @@ class EmailLoginScreen: UIView {
         password.autocapitalizationType = .none
         password.keyboardType = .default
         password.isSecureTextEntry = true
+        password.autocorrectionType = .no
         password.placeholder = "Digite sua senha:"
         password.textColor = .darkGray
         return password
