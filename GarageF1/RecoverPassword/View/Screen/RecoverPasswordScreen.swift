@@ -43,6 +43,7 @@ class RecoverPasswordScreen: UIView {
         email.backgroundColor = .white
         email.borderStyle = .roundedRect
         email.autocapitalizationType = .none
+        email.clearButtonMode = .whileEditing
         email.keyboardType = .emailAddress
         email.placeholder = "Digite seu e-mail:"
         email.textColor = .darkGray
@@ -54,7 +55,8 @@ class RecoverPasswordScreen: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Enviar", for: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 22)
-        button.setTitleColor(.white, for: .normal)
+        button.setTitleColor(.lightGray, for: .normal)
+        button.isEnabled = false
         button.clipsToBounds = true
         button.layer.cornerRadius = 7.5
         button.backgroundColor = UIColor(red: 242/255, green: 24/255, blue: 2/255, alpha: 1.0)
@@ -99,6 +101,30 @@ class RecoverPasswordScreen: UIView {
         addSubview(descriptionLabel)
     }
     
+    func validaTextFields() {
+        let email: String = emailTextField.text ?? ""
+        
+        if !email.isEmpty {
+            configButtonEnable(true)
+        } else {
+            configButtonEnable(false)
+        }
+    }
+    
+    func configButtonEnable(_ enable: Bool) {
+        if enable {
+            sendEmailButton.setTitleColor(.white, for: .normal)
+            sendEmailButton.isEnabled = true
+        } else {
+            sendEmailButton.setTitleColor(.lightGray, for: .normal)
+            sendEmailButton.isEnabled = false
+        }
+    }
+    
+    func configTextFieldDelegate(delegate: UITextFieldDelegate) {
+        emailTextField.delegate = delegate
+    }
+    
     func setUpBackground() {
         backgroundColor = UIColor(red: 37/255, green: 37/255, blue: 37/255, alpha: 1.0)
     }
@@ -109,7 +135,7 @@ class RecoverPasswordScreen: UIView {
             imageRegister.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 45),
             imageRegister.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             imageRegister.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
-        
+            
             backButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             
@@ -123,7 +149,7 @@ class RecoverPasswordScreen: UIView {
             sendEmailButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             sendEmailButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             sendEmailButton.heightAnchor.constraint(equalToConstant: 40),
-        
+            
             descriptionLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -8),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
