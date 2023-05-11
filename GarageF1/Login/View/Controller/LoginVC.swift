@@ -15,6 +15,7 @@ class LoginVC: UIViewController {
     var alert: Alert?
     var auth: Auth?
     
+    
     override func loadView() {
         view = loginScreen
     }
@@ -65,6 +66,7 @@ extension LoginVC: LoginScreenProtocol {
     func actionLoginButton() {
         
         let tabBarHome: TabBarVC = TabBarVC()
+        let loadingVC: LoadingVC = LoadingVC()
 
         guard let login = loginScreen else { return }
         
@@ -76,7 +78,8 @@ extension LoginVC: LoginScreenProtocol {
                 if usuario == nil {
                     self.alert?.getAlert(titulo: "Atenção", message: "Tivemos um problema inesperado, tente novamente mais tarde")
                 } else {
-                    
+                    loadingVC.modalPresentationStyle = .fullScreen
+                    self.present(loadingVC, animated: true)
                     self.navigationController?.pushViewController(tabBarHome, animated: true)
                 }
             }

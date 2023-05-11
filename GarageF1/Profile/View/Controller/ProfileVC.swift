@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-    
+
     var profileScreen: ProfileScreen = ProfileScreen()
     var alert: Alert?
     
@@ -35,9 +35,14 @@ extension ProfileVC: ProfileScreenProtocol {
     }
     
     func actionLogOutButton() {
+        let logoutVC: LogoutVC = LogoutVC()
+        
         let alert = UIAlertController(title: "Atenção!", message: "Deseja realmente sair do GarageF1?", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
+            
+            logoutVC.modalPresentationStyle = .fullScreen
+            self.present(logoutVC, animated: true)
             
             self.tabBarController?.navigationController?.popToRootViewController(animated: true)
             
