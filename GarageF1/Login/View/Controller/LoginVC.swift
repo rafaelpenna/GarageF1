@@ -22,14 +22,22 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configProtocolsAlertAuth()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        configEmptyTextFields()
+    }
+    
+    private func configProtocolsAlertAuth() {
         loginScreen?.delegate(delegate: self)
         loginScreen?.configTextFieldDelegate(delegate: self)
         alert = Alert(controller: self)
         auth = Auth.auth()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: false)
+    private func configEmptyTextFields() {
         loginScreen?.emailTextField.text = ""
         loginScreen?.passwordTextField.text = ""
     }

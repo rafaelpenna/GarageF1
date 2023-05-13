@@ -9,7 +9,7 @@ import UIKit
 
 class TrackImageCellScreen: UITableViewCell {
 
-    static let identifier = "TrackImageCellScreen"
+    static let identifier = String(describing: TrackImageCellScreen.self)
     
     lazy var trackImage: UIImageView = {
         let image = UIImageView()

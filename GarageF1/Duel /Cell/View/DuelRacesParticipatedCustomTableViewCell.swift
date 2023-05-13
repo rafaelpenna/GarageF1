@@ -9,7 +9,7 @@ import UIKit
 
 class DuelRacesParticipatedCustomTableViewCell: UITableViewCell {
 
-    static let identifier = "DuelRacesParticipatedCustomTableViewCell"
+    static let identifier = String(describing: DuelRacesParticipatedCustomTableViewCell.self)
     
     var racesTitle: UILabel = {
         let variable = UILabel()

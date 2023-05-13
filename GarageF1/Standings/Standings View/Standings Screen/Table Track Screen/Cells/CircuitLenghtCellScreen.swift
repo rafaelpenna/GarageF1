@@ -9,7 +9,7 @@ import UIKit
 
 class CircuitLenghtCellScreen: UITableViewCell {
 
-    static let identifier = "CircuitLenghtCellScreen"
+    static let identifier = String(describing: CircuitLenghtCellScreen.self)
     
     lazy var backgroundCellWhite: UILabel = {
         let label = UILabel()

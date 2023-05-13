@@ -18,13 +18,17 @@ class ConstructorsFullResultVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        constructorsFullResultScreen.delegate(delegate: self)
-        constructorsFullResultScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        configProtocols()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func configProtocols() {
+        constructorsFullResultScreen.delegate(delegate: self)
+        constructorsFullResultScreen.configTableViewProtocols(delegate: self, dataSource: self)
     }
 }
 

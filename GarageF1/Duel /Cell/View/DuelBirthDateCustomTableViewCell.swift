@@ -9,7 +9,7 @@ import UIKit
 
 class DuelBirthDateCustomTableViewCell: UITableViewCell {
 
-    static let identifier = "DuelBirthDateCustomTableViewCell"
+    static let identifier = String(describing: DuelBirthDateCustomTableViewCell.self)
     
     var birthDateTitle: UILabel = {
         let variable = UILabel()

@@ -13,7 +13,7 @@ class HistoryDriversTableViewCell: UITableViewCell {
     var customInfoDrivers: CustomCellHistoryDrivers = CustomCellHistoryDrivers()
     var driversViewModel: DriversScreenViewModel?
     
-    static let identifier: String = "HistoryDriversTableViewCell"
+    static let identifier: String = String(describing: HistoryDriversTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

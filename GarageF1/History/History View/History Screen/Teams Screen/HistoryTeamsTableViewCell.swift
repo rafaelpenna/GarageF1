@@ -13,7 +13,7 @@ class HistoryTeamsTableViewCell: UITableViewCell {
     var customInfoTeams: CustomCellHistoryTeams = CustomCellHistoryTeams()
     var teamsViewModel: TeamsScreenViewModel?
     
-    static let identifier: String = "HistoryTeamsTableViewCell"
+    static let identifier: String = String(describing: HistoryTeamsTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

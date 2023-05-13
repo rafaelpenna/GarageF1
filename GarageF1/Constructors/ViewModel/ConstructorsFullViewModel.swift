@@ -37,8 +37,4 @@ class ConstructorsFullViewModel {
     public var numberOfRows:Int{
         return dataConstructors.count
     }
-    
-    
-    
-    
 }

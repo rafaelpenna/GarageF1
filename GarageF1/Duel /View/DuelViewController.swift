@@ -59,7 +59,7 @@ class DuelViewController: UIViewController {
     }
     
     private func cellRegister() {
-        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: "Cell")
+        tableViewDriverDuel.register(CellClassDuel.self, forCellReuseIdentifier: CellClassDuel.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -139,7 +139,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableViewDriverDuel {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassDuel.identifier, for: indexPath)
             cell.textLabel?.text = String(duelViewModel.getDriverName(indexPath: indexPath))
             return cell
         } else {
@@ -230,5 +230,5 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class CellClassDuel: UITableViewCell {
-    
+    static let identifier: String = String(describing: CellClassDuel.self)
 }

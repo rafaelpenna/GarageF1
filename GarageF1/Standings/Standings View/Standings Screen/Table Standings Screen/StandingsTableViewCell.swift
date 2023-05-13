@@ -12,7 +12,7 @@ class StandingsTableViewCell: UITableViewCell {
     var data: [Standings] = []
     var customDrivers: CustomStandingsTableViewScreen = CustomStandingsTableViewScreen()
     
-    static let identifier: String = "StandingsTableViewCell"
+    static let identifier: String = String(describing: StandingsTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

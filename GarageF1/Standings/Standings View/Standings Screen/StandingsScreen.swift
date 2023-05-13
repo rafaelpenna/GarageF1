@@ -83,12 +83,12 @@ class StandingsScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        tableView.register(TrackImageCellScreen.self, forCellReuseIdentifier: "TrackImageCellScreen")
-        tableView.register(CircuitLenghtCellScreen.self, forCellReuseIdentifier: "CircuitLenghtCellScreen")
-        tableView.register(RaceLapsCellScreen.self, forCellReuseIdentifier: "RaceLapsCellScreen")
-        tableView.register(FirstGrandPrixCellScreen.self, forCellReuseIdentifier: "FirstGrandPrixCellScreen")
-        tableView.register(RaceDistanceCellScreen.self, forCellReuseIdentifier: "RaceDistanceCellScreen")
-        tableView.register(TrackRecordCellScreen.self, forCellReuseIdentifier: "TrackRecordCellScreen")
+        tableView.register(TrackImageCellScreen.self, forCellReuseIdentifier: TrackImageCellScreen.identifier)
+        tableView.register(CircuitLenghtCellScreen.self, forCellReuseIdentifier: CircuitLenghtCellScreen.identifier)
+        tableView.register(RaceLapsCellScreen.self, forCellReuseIdentifier: RaceLapsCellScreen.identifier)
+        tableView.register(FirstGrandPrixCellScreen.self, forCellReuseIdentifier: FirstGrandPrixCellScreen.identifier)
+        tableView.register(RaceDistanceCellScreen.self, forCellReuseIdentifier: RaceDistanceCellScreen.identifier)
+        tableView.register(TrackRecordCellScreen.self, forCellReuseIdentifier: TrackRecordCellScreen.identifier)
         return tableView
     }()
     
@@ -158,8 +158,6 @@ class StandingsScreen: UIView {
             trackTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
             trackTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
             trackTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
-//            Standings Board
                         
             standingsBoardView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
             standingsBoardView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
@@ -177,5 +175,4 @@ class StandingsScreen: UIView {
             standingsTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
-
 }

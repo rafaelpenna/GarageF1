@@ -9,7 +9,7 @@ import UIKit
 
 class DuelWinsCustomTableViewCell: UITableViewCell {
 
-    static let identifier = "DuelWinsCustomTableViewCell"
+    static let identifier = String(describing: DuelWinsCustomTableViewCell.self)
     
     var winsTitle: UILabel = {
         let variable = UILabel()

@@ -9,7 +9,7 @@ import UIKit
 
 class DuelBirthLocationCustomTableViewCell: UITableViewCell {
 
-    static let identifier = "DuelBirthLocationCustomTableViewCell"
+    static let identifier = String(describing: DuelBirthLocationCustomTableViewCell.self)
     
     var birthLocationTitle: UILabel = {
         let variable = UILabel()

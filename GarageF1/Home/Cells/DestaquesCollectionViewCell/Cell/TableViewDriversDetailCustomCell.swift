@@ -90,6 +90,6 @@ class TableViewDriversDetailCustomCell: UITableViewCell {
                 tableViewBestGridPositionCustomCellScreen.trailingAnchor.constraint(equalTo: trailingAnchor),
                 tableViewBestGridPositionCustomCellScreen.topAnchor.constraint(equalTo: topAnchor),
                 tableViewBestGridPositionCustomCellScreen.bottomAnchor.constraint(equalTo: bottomAnchor),
-            ])
-        }
+        ])
+    }
 }

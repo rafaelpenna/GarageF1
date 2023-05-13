@@ -9,7 +9,7 @@ import UIKit
 
 class TrackRecordCellScreen: UITableViewCell {
 
-    static let identifier = "TrackRecordCellScreen"
+    static let identifier = String(describing: TrackRecordCellScreen.self)
     
     lazy var backgroundCellWhite: UILabel = {
         let label = UILabel()

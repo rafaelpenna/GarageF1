@@ -18,13 +18,17 @@ class ProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileScreen.delegate(delegate: self)
-        alert = Alert(controller: self)
+        configProtocolAndAlert()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func configProtocolAndAlert() {
+        profileScreen.delegate(delegate: self)
+        alert = Alert(controller: self)
     }
 }
 

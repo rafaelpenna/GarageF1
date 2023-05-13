@@ -10,7 +10,7 @@ import UIKit
 
 class ChampionshipsWinCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "ChampionshipsWinCustomTableViewCellScreen"
+    static let identifier = String(describing: ChampionshipsWinCustomTableViewCellScreen.self)
     
     var championshipsWinTitleLabel: UILabel = {
         let variable = UILabel()

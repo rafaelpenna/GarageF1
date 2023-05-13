@@ -9,7 +9,7 @@ import UIKit
 
 class RaceDistanceCellScreen: UITableViewCell {
 
-    static let identifier = "RaceDistanceCellScreen"
+    static let identifier = String(describing: RaceDistanceCellScreen.self)
     
     lazy var backgroundCellWhite: UILabel = {
         let label = UILabel()
