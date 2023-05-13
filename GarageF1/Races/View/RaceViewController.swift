@@ -37,7 +37,7 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RacesCustomTableViewCell") as? RacesCustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: RacesCustomTableViewCell.identifier) as? RacesCustomTableViewCell
         cell?.setupCell(driver: racesViewModel.loadCurrentRace(indexPath: indexPath))
         let backgroundView = UIView()
         backgroundView.backgroundColor = .none

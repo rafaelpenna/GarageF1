@@ -10,7 +10,7 @@ import UIKit
 
 class BirthDateCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "BirthDateCustomTableViewCellScreen"
+    static let identifier = String(describing: BirthDateCustomTableViewCellScreen.self)
     
     var birthDateTitleLabel: UILabel = {
         let variable = UILabel()

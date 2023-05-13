@@ -11,6 +11,7 @@ import UIKit
 class DriversDetailViewController: UIViewController {
     
     let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
+    let drivertsViewModel: DriversViewModel = DriversViewModel()
     
     var nameDriver = ""
     var lastNameDriver = ""
@@ -142,6 +143,5 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
             cell?.selectedBackgroundView = backgroundView
             return cell ?? UITableViewCell()
         }
-
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 class RacesCustomTableViewCell: UITableViewCell {
     
     var viewModel: RacesCustomCellViewModel?
-    
+    static let identifier: String = String(describing: RacesCustomTableViewCell.self)
     var screen: RaceCustomTableViewCellScreen = RaceCustomTableViewCellScreen()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

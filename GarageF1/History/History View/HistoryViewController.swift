@@ -36,7 +36,7 @@ class HistoryViewController: UIViewController {
     }
     
     private func cellRegister() {
-        tableViewYear.register(CellClassHistory.self, forCellReuseIdentifier: "Cell")
+        tableViewYear.register(CellClassHistory.self, forCellReuseIdentifier: CellClassHistory.identifier)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -163,7 +163,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == tableViewYear {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassHistory.identifier, for: indexPath)
                 cell.textLabel?.text = String(historyViewModel.getYear(indexPath: indexPath))
                 return cell
         } else {
@@ -200,5 +200,5 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 class CellClassHistory: UITableViewCell {
-    
+    static let identifier: String = String(describing: CellClassHistory.self)
 }

@@ -9,7 +9,7 @@ import UIKit
 
 class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
 
-    static let identifier = "DuelPointsEarnedCustomTableViewCell"
+    static let identifier = String(describing: DuelPointsEarnedCustomTableViewCell.self)
     
     var pointsTitle: UILabel = {
         let variable = UILabel()

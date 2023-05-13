@@ -20,14 +20,18 @@ class EmailLoginVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        emailLoginScreen?.delegate(delegate: self)
-        emailLoginScreen?.configTextFieldDelegate(delegate: self)
-        auth = Auth.auth()
-        alert = Alert(controller: self)
+        configProtocolsAuthAlert()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
+    private func configProtocolsAuthAlert() {
+        emailLoginScreen?.delegate(delegate: self)
+        emailLoginScreen?.configTextFieldDelegate(delegate: self)
+        auth = Auth.auth()
+        alert = Alert(controller: self)
     }
 }
 

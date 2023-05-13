@@ -62,5 +62,4 @@ class DuelCustomTableViewCell: UITableViewCell {
             birthLocation.bottomAnchor.constraint(equalTo: self.bottomAnchor),
         ])
     }
-
 }

@@ -8,8 +8,7 @@ target 'GarageF1' do
   # Pods for GarageF1
 
 pod 'Firebase/Auth'
-pod 'FBSDKLoginKit'
-
+pod 'lottie-ios'
 
   target 'GarageF1Tests' do
     inherit! :search_paths

@@ -10,7 +10,7 @@ import UIKit
 
 class PodiumsCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "PodiumsCustomTableViewCellScreen"
+    static let identifier = String(describing: PodiumsCustomTableViewCellScreen.self)
     
     var podiumsTitleLabel: UILabel = {
         let variable = UILabel()

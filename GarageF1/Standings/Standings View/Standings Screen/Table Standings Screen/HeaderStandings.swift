@@ -163,6 +163,6 @@ class HeaderStandings: UIView {
             
             standoutTimeLabel.trailingAnchor.constraint(equalTo: standoutBackgroundLabel.trailingAnchor, constant: -15),
             standoutTimeLabel.topAnchor.constraint(equalTo: standoutBackgroundLabel.topAnchor, constant: 30),
-            ])
+        ])
     }
 }

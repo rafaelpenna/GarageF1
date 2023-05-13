@@ -14,7 +14,7 @@ class DriversScreenView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
-        tableView.register(DriversCustomTableViewCell.self, forCellReuseIdentifier: "DriversCustomTableViewCell")
+        tableView.register(DriversCustomTableViewCell.self, forCellReuseIdentifier: DriversCustomTableViewCell.identifier)
         return tableView
     }()
     
