@@ -25,7 +25,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-    // Header Information Elements
+//MARK: - Header Information Elements
     
     lazy var posTitleLabel: UILabel = {
         let label = UILabel()
@@ -63,7 +63,7 @@ class HeaderStandings: UIView {
         return label
     }()
     
-//    Best Lap (Standout) Elements
+//MARK: - Best Lap (Standout) Elements
     
     lazy var standoutBackgroundLabel: UILabel = {
         let label = UILabel()
@@ -149,6 +149,7 @@ class HeaderStandings: UIView {
             ptsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
             ptsTitleLabel.topAnchor.constraint(equalTo: headerInformationLabel.topAnchor, constant: 1),
             
+            //MARK: - Best Lap (Standout) Constraints
             
             standoutBackgroundLabel.topAnchor.constraint(equalTo: standoutDriverLabel.topAnchor, constant: 10),
             standoutBackgroundLabel.leadingAnchor.constraint(equalTo: standoutDriverLabel.leadingAnchor, constant: 25),

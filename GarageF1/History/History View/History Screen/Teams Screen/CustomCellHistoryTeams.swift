@@ -73,9 +73,7 @@ class CustomCellHistoryTeams: UIView {
             ptsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             ptsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             ptsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
         ])
     }
-
 }
 

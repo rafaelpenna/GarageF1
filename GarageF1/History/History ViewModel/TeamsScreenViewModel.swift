@@ -26,5 +26,4 @@ class TeamsScreenViewModel {
     public var getSeasonTeamsPoints: String {
         return data.seasonTeamsPoints
     }
-
 }

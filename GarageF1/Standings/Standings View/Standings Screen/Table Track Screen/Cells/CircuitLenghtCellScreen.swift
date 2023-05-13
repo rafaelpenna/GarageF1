@@ -81,5 +81,4 @@ class CircuitLenghtCellScreen: UITableViewCell {
             trackLenghtUnit.bottomAnchor.constraint(equalTo: trackLenghtTitle.bottomAnchor),
         ])
     }
-
 }

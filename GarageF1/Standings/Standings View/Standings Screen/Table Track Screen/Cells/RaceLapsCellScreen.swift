@@ -67,5 +67,4 @@ class RaceLapsCellScreen: UITableViewCell {
             trackLapsAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
-
 }

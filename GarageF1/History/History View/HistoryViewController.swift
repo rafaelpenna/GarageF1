@@ -43,8 +43,6 @@ class HistoryViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
     
-    
-    
 //MARK: - Config Dropdown
     
     let transparentView = UIView()
@@ -196,9 +194,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-        
 }
 
 class CellClassHistory: UITableViewCell {
-    
 }

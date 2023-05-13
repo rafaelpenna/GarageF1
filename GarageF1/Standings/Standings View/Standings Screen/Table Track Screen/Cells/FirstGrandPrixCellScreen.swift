@@ -67,5 +67,4 @@ class FirstGrandPrixCellScreen: UITableViewCell {
             firstGrandPrixAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
-
 }

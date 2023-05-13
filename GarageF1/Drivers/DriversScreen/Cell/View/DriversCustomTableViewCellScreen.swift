@@ -127,6 +127,5 @@ class DriversCustomTableViewCellScreen: UIView {
             
         ])
     }
-
 }
 

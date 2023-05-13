@@ -50,8 +50,6 @@ class CustomStandingsTableViewScreen: UIView {
         configConstraintsInfoDriver()
     }
     
-
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -83,9 +81,7 @@ class CustomStandingsTableViewScreen: UIView {
 
             pointsLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            
         ])
     }
-
 }
 

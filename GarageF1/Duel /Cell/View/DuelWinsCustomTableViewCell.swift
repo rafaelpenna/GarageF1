@@ -94,5 +94,4 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
             dataBackgroundLabel.bottomAnchor.constraint(equalTo: divisionLabels.bottomAnchor, constant: 5),
         ])
     }
-
 }

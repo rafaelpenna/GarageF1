@@ -98,8 +98,6 @@ class HistoryScreenView: UIView {
         return tableView
     }()
     
-    
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
