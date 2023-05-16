@@ -46,7 +46,7 @@ class SimulationButtonTableViewCell: UITableViewCell {
     
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
-            simulationButton.topAnchor.constraint(equalTo: topAnchor),
+            simulationButton.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             simulationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
         ])
         

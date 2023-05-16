@@ -22,7 +22,7 @@ class DDuelCustomTableViewCell: UITableViewCell {
     
     lazy var duoBackgroundImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "DriversCover6")
+        image.image = UIImage(named: "DriversCover8")
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFit
         return image

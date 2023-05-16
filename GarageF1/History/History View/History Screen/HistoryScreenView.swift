@@ -51,7 +51,6 @@ class HistoryScreenView: UIView {
     lazy var seasonYearTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "2022"
         label.textColor = UIColor.white
         label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
@@ -62,6 +61,39 @@ class HistoryScreenView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "seasonIcon")
         return imageView
+    }()
+    
+    lazy var backgroundSearchLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1).cgColor
+        return label
+    }()
+    
+    lazy var searchTextField: UITextField = {
+       let searchField = UITextField()
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.layer.backgroundColor = .none
+        searchField.textColor = .white
+        searchField.keyboardType = .numberPad
+        return searchField
+    }()
+    
+    lazy var searchImageView: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "magnifyingglass")
+        image.tintColor = .white
+        return image
+    }()
+    
+    lazy var yearsTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+        tableView.register(HistoryYearsTableViewCell.self, forCellReuseIdentifier: HistoryYearsTableViewCell.identifier)
+        return tableView
     }()
     
     lazy var driversButton: UIButton = {
@@ -117,6 +149,10 @@ class HistoryScreenView: UIView {
         addSubview(seasonYearButton)
         seasonYearButton.addSubview(seasonYearTitleLabel)
         seasonYearButton.addSubview(seasonYearIconImage)
+        addSubview(backgroundSearchLabel)
+        addSubview(searchTextField)
+        addSubview(searchImageView)
+        addSubview(yearsTableView)
         addSubview(driversButton)
         addSubview(teamsButton)
 
@@ -129,6 +165,8 @@ class HistoryScreenView: UIView {
         self.driversTableView.dataSource = dataSource
         self.teamsTableView.delegate = delegate
         self.teamsTableView.dataSource = dataSource
+        self.yearsTableView.delegate = delegate
+        self.yearsTableView.dataSource = dataSource
     }
         
     private func backgroundColor() {
@@ -156,7 +194,7 @@ class HistoryScreenView: UIView {
             
             seasonYearButton.topAnchor.constraint(equalTo: historyDescriptionLabel.topAnchor, constant: -5),
             seasonYearButton.leadingAnchor.constraint(equalTo: historyDescriptionLabel.trailingAnchor, constant: 10),
-            seasonYearButton.widthAnchor.constraint(equalToConstant: 80),
+            seasonYearButton.widthAnchor.constraint(equalToConstant: 85),
             
             seasonYearTitleLabel.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 5),
             seasonYearTitleLabel.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 8),
@@ -164,7 +202,26 @@ class HistoryScreenView: UIView {
             seasonYearIconImage.heightAnchor.constraint(equalToConstant: 10),
             seasonYearIconImage.widthAnchor.constraint(equalToConstant: 10),
             seasonYearIconImage.trailingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor),
-            seasonYearIconImage.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 15),
+            seasonYearIconImage.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 12),
+            
+            backgroundSearchLabel.topAnchor.constraint(equalTo: seasonYearButton.bottomAnchor),
+            backgroundSearchLabel.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor),
+            backgroundSearchLabel.widthAnchor.constraint(equalToConstant: 90),
+            backgroundSearchLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            searchImageView.topAnchor.constraint(equalTo: backgroundSearchLabel.topAnchor, constant: 5),
+            searchImageView.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 3),
+            searchImageView.widthAnchor.constraint(equalToConstant: 20),
+            searchImageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            searchTextField.topAnchor.constraint(equalTo: backgroundSearchLabel.topAnchor, constant: 5),
+            searchTextField.leadingAnchor.constraint(equalTo: searchImageView.trailingAnchor, constant: 5),
+            searchTextField.widthAnchor.constraint(equalToConstant: 55),
+            
+            yearsTableView.topAnchor.constraint(equalTo: backgroundSearchLabel.bottomAnchor),
+            yearsTableView.leadingAnchor.constraint(equalTo: backgroundSearchLabel.leadingAnchor),
+            yearsTableView.widthAnchor.constraint(equalToConstant: 90),
+            yearsTableView.heightAnchor.constraint(equalToConstant: 220),
             
             driversButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
             driversButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),

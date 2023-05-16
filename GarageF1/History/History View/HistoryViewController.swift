@@ -20,23 +20,20 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
-        cellRegister()
     }
     
     private func setupProtocols() {
         historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        tableViewYear.delegate = self
-        tableViewYear.dataSource = self
     }
     
     private func addElements() {
         buttonTeams(buttonTeamsVC)
         buttonDrivers(buttonDriversVC)
         view.addSubview(buttonYearSelect)
-    }
-    
-    private func cellRegister() {
-        tableViewYear.register(CellClassHistory.self, forCellReuseIdentifier: "Cell")
+        view.addSubview(backgorundLabelSelect)
+        view.addSubview(textFieldSearchSelect)
+        view.addSubview(searchImageViewSelect)
+        view.addSubview(yearsTableViewSelect)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -44,51 +41,69 @@ class HistoryViewController: UIViewController {
     }
     
 //MARK: - Config Dropdown
-    
-    let transparentView = UIView()
-    let tableViewYear = UITableView()
-    var selectedYearButton = UIButton()
-    
+
     lazy var buttonYearSelect: UIButton = {
         let button: UIButton = historyScreen?.seasonYearButton ?? UIButton()
         button.isSelected = true
+        button.setTitle("2022", for: .normal)
         button.addTarget(self, action: #selector(onClickSelectYear), for: .touchUpInside)
         return button
     }()
     
-    func addTransparentView(frames: CGRect) {
-        let window = UIApplication.shared.keyWindow
-        transparentView.frame = window?.frame ?? self.view.frame
-        self.view.addSubview(transparentView)
-        
-        tableViewYear.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        self.view.addSubview(tableViewYear)
-        tableViewYear.layer.cornerRadius = 5
-        
-        transparentView.backgroundColor = UIColor.black.withAlphaComponent(0.9)
-        
-        let tapgesture = UITapGestureRecognizer(target: self, action: #selector(removeTransparentView))
-        transparentView.addGestureRecognizer(tapgesture)
-        transparentView.alpha = 0
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0.5
-            self.tableViewYear.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 300)
-        }, completion: nil)
-    }
+    lazy var textFieldSearchSelect: UITextField = {
+        let textField: UITextField = historyScreen?.searchTextField ?? UITextField()
+        textField.isHidden = true
+        return textField
+    }()
     
-    @objc func removeTransparentView() {
-        let frames = selectedYearButton.frame
-        UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
-            self.transparentView.alpha = 0
-            self.tableViewYear.frame = CGRect(x: frames.origin.x, y: frames.origin.y + frames.height, width: frames.width, height: 0)
-        }, completion: nil)
-    }
+    lazy var searchImageViewSelect: UIImageView = {
+        let image: UIImageView = historyScreen?.searchImageView ?? UIImageView()
+        image.isHidden = true
+        return image
+    }()
     
+    lazy var backgorundLabelSelect: UILabel = {
+        let backgroundLabel: UILabel = historyScreen?.backgroundSearchLabel ?? UILabel()
+        backgroundLabel.isHidden = true
+        return backgroundLabel
+    }()
+    
+    lazy var yearsTableViewSelect: UITableView = {
+        let tableView: UITableView = historyScreen?.yearsTableView ?? UITableView()
+        tableView.isHidden = true
+        return tableView
+    }()
+    
+    private func animateList(toogle: Bool) {
+        if toogle {
+            UIView.animate(withDuration: 0.3) {
+                self.backgorundLabelSelect.isHidden = false
+                self.searchImageViewSelect.isHidden = false
+                self.textFieldSearchSelect.isHidden = false
+                self.yearsTableViewSelect.isHidden = false
+            }
+        } else {
+            UIView.animate(withDuration: 0.3) {
+                self.backgorundLabelSelect.isHidden = true
+                self.searchImageViewSelect.isHidden = true
+                self.textFieldSearchSelect.isHidden = true
+                self.yearsTableViewSelect.isHidden = true
+            }
+        }
+    }
+
     @objc func onClickSelectYear(_ sender: Any) {
-        selectedYearButton = buttonYearSelect
-        addTransparentView(frames: buttonYearSelect.frame)
+        if self.yearsTableViewSelect.isHidden {
+            animateList(toogle: true)
+            clearSearchField()
+        } else {
+            animateList(toogle: false)
+        }
     }
     
+    private func clearSearchField() {
+        textFieldSearchSelect.text = ""
+    }
     
 //MARK: - Config selectable tableView
     
@@ -148,7 +163,7 @@ class HistoryViewController: UIViewController {
 extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == tableViewYear {
+        if tableView == historyScreen?.yearsTableView {
             return historyViewModel.numberOfRowsYears
         } else {
             if buttonDriversVC.isSelected == true {
@@ -160,10 +175,16 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == tableViewYear {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-                cell.textLabel?.text = String(historyViewModel.getYear(indexPath: indexPath))
-                return cell
+        if tableView == historyScreen?.yearsTableView {
+            let cell: HistoryYearsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryYearsTableViewCell.identifier) as? HistoryYearsTableViewCell
+            cell?.textLabel?.text = historyViewModel.getYear(indexPath: indexPath)
+            cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+            cell?.textLabel?.textColor = .white
+            cell?.textLabel?.textAlignment = .center
+            let backgroundView = UIView()
+            backgroundView.backgroundColor = .none
+            cell?.selectedBackgroundView = backgroundView
+            return cell ?? UITableViewCell()
         } else {
             if historyScreen?.driversTableView.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
@@ -184,7 +205,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if tableView == tableViewYear {
+        if tableView == historyScreen?.yearsTableView {
             return 45
         } else {
             if tableView == historyScreen?.driversTableView {
@@ -194,7 +215,13 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == historyScreen?.yearsTableView {
+            buttonYearSelect.setTitle("\(historyViewModel.getYear(indexPath: indexPath))", for: .normal)
+            animateList(toogle: false)
+            clearSearchField()
+        }
+    }
 }
 
-class CellClassHistory: UITableViewCell {
-}
