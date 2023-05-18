@@ -124,5 +124,4 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
             dataBackgroundLabel.bottomAnchor.constraint(equalTo: divisionLabels.bottomAnchor, constant: 5),
         ])
     }
-
 }

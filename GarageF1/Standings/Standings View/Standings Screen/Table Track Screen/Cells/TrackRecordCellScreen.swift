@@ -91,5 +91,4 @@ class TrackRecordCellScreen: UITableViewCell {
             trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
         ])
     }
-
 }

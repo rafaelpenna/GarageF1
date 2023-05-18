@@ -30,7 +30,6 @@ class DuelViewController: UIViewController {
         return button
     }()
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         gettingInfoDriversDuelScreen()
@@ -77,7 +76,6 @@ class DuelViewController: UIViewController {
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
-    
     
     //MARK: - Dropdown configuration
     

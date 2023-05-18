@@ -49,21 +49,21 @@ class HistoryViewModel {
     }
     
     private func configArrayListYear(){
-        self.listYear.append(HistoryYearModel(year: 2022))
-        self.listYear.append(HistoryYearModel(year: 2021))
-        self.listYear.append(HistoryYearModel(year: 2020))
-        self.listYear.append(HistoryYearModel(year: 2019))
-        self.listYear.append(HistoryYearModel(year: 2018))
-        self.listYear.append(HistoryYearModel(year: 2017))
-        self.listYear.append(HistoryYearModel(year: 2016))
-        self.listYear.append(HistoryYearModel(year: 2015))
-        self.listYear.append(HistoryYearModel(year: 2014))
-        self.listYear.append(HistoryYearModel(year: 2013))
-        self.listYear.append(HistoryYearModel(year: 2012))
-        self.listYear.append(HistoryYearModel(year: 2011))
-        self.listYear.append(HistoryYearModel(year: 2010))
-        self.listYear.append(HistoryYearModel(year: 2009))
-        self.listYear.append(HistoryYearModel(year: 2008))
+        self.listYear.append(HistoryYearModel(year: "2022"))
+        self.listYear.append(HistoryYearModel(year: "2021"))
+        self.listYear.append(HistoryYearModel(year: "2020"))
+        self.listYear.append(HistoryYearModel(year: "2019"))
+        self.listYear.append(HistoryYearModel(year: "2018"))
+        self.listYear.append(HistoryYearModel(year: "2017"))
+        self.listYear.append(HistoryYearModel(year: "2016"))
+        self.listYear.append(HistoryYearModel(year: "2015"))
+        self.listYear.append(HistoryYearModel(year: "2014"))
+        self.listYear.append(HistoryYearModel(year: "2013"))
+        self.listYear.append(HistoryYearModel(year: "2012"))
+        self.listYear.append(HistoryYearModel(year: "2011"))
+        self.listYear.append(HistoryYearModel(year: "2010"))
+        self.listYear.append(HistoryYearModel(year: "2009"))
+        self.listYear.append(HistoryYearModel(year: "2008"))
     }
     
     
@@ -127,7 +127,7 @@ class HistoryViewModel {
         return self.listYear.count
     }
     
-    public func getYear(indexPath: IndexPath) -> Int {
+    public func getYear(indexPath: IndexPath) -> String {
         return listYear[indexPath.row].year
     }
 }

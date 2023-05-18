@@ -56,6 +56,9 @@
 		1C0C684C2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C684B2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift */; };
 		1C0C684E2996E75600A7C1BE /* DriversCustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C684D2996E75600A7C1BE /* DriversCustomCellViewModel.swift */; };
 		1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */; };
+		1C43E52D2A12EFDB00B977DB /* CustomCellHistoryYears.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E52C2A12EFDB00B977DB /* CustomCellHistoryYears.swift */; };
+		1C43E52F2A12EFF600B977DB /* HistoryYearsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E52E2A12EFF600B977DB /* HistoryYearsTableViewCell.swift */; };
+		1C43E5312A12F16B00B977DB /* YearsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E5302A12F16B00B977DB /* YearsScreenViewModel.swift */; };
 		1C44CDCF29CF105D00D8F32F /* RacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDCE29CF105D00D8F32F /* RacesViewModel.swift */; };
 		1C44CDD829CF1C4200D8F32F /* RacesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDD729CF1C4200D8F32F /* RacesCustomTableViewCell.swift */; };
 		1C44CDDA29CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDD929CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift */; };
@@ -211,6 +214,9 @@
 		1C0C684B2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1C0C684D2996E75600A7C1BE /* DriversCustomCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversCustomCellViewModel.swift; sourceTree = "<group>"; };
 		1C4323B6298812C9000AE209 /* HistoryTeamsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTeamsTableViewCell.swift; sourceTree = "<group>"; };
+		1C43E52C2A12EFDB00B977DB /* CustomCellHistoryYears.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryYears.swift; sourceTree = "<group>"; };
+		1C43E52E2A12EFF600B977DB /* HistoryYearsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryYearsTableViewCell.swift; sourceTree = "<group>"; };
+		1C43E5302A12F16B00B977DB /* YearsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsScreenViewModel.swift; sourceTree = "<group>"; };
 		1C44CDCE29CF105D00D8F32F /* RacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewModel.swift; sourceTree = "<group>"; };
 		1C44CDD729CF1C4200D8F32F /* RacesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C44CDD929CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
@@ -762,6 +768,7 @@
 			children = (
 				0B32CA5929D0EACE00E5B51A /* TeamsScreenViewModel.swift */,
 				0B32CA5329D0E9E000E5B51A /* DriversScreenViewModel.swift */,
+				1C43E5302A12F16B00B977DB /* YearsScreenViewModel.swift */,
 				1C550FB829AD293A00AC2E51 /* HistoryViewModel.swift */,
 			);
 			path = "History ViewModel";
@@ -792,6 +799,15 @@
 				1C550FBF29AD3EF500AC2E51 /* CustomCellHistoryTeams.swift */,
 			);
 			path = "Teams Screen";
+			sourceTree = "<group>";
+		};
+		1C43E52B2A12EF1A00B977DB /* Years Screen */ = {
+			isa = PBXGroup;
+			children = (
+				1C43E52E2A12EFF600B977DB /* HistoryYearsTableViewCell.swift */,
+				1C43E52C2A12EFDB00B977DB /* CustomCellHistoryYears.swift */,
+			);
+			path = "Years Screen";
 			sourceTree = "<group>";
 		};
 		1C44CDC729CF0F3700D8F32F /* Races */ = {
@@ -903,6 +919,7 @@
 			isa = PBXGroup;
 			children = (
 				1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */,
+				1C43E52B2A12EF1A00B977DB /* Years Screen */,
 				1C1FED4629AC407100B989EE /* Drivers Screen */,
 				1C1FED4729AC407E00B989EE /* Teams Screen */,
 			);
@@ -1490,6 +1507,7 @@
 				34B996AE29F8BE5200DCBE69 /* SecondDriverScreen.swift in Sources */,
 				34B996C229F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift in Sources */,
 				0B0462AC29F9EE550067EFAA /* FullResultsViewModel.swift in Sources */,
+				1C43E5312A12F16B00B977DB /* YearsScreenViewModel.swift in Sources */,
 				34B996C029F8BE5200DCBE69 /* HomeCustomTableViewCell.swift in Sources */,
 				1CB39D2C299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift in Sources */,
 				1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */,
@@ -1503,6 +1521,7 @@
 				0B10DD50295A5AB300CB397A /* LoginVC.swift in Sources */,
 				1CB39D32299D3B95009DBE86 /* ChampionshipsWinCustomTableViewCellScreen.swift in Sources */,
 				1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */,
+				1C43E52D2A12EFDB00B977DB /* CustomCellHistoryYears.swift in Sources */,
 				0B0462B029F9F6840067EFAA /* FirstDriverViewModel.swift in Sources */,
 				1CB39D30299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift in Sources */,
 				0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */,
@@ -1519,6 +1538,7 @@
 				1C0C683F2996DB3900A7C1BE /* Drivers.swift in Sources */,
 				1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */,
 				0B1E887329D9CE470027C8C6 /* RecoverPasswordVC.swift in Sources */,
+				1C43E52F2A12EFF600B977DB /* HistoryYearsTableViewCell.swift in Sources */,
 				0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */,
 				0B568FDB2A0C6B7E00D89FCF /* LoadingScreen.swift in Sources */,
 				1CB39D38299D3BDE009DBE86 /* PointsCustomTableViewCellScreen.swift in Sources */,
