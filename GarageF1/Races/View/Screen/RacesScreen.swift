@@ -14,7 +14,8 @@ class RacesScreen: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        tableView.register(RacesCustomTableViewCell.self, forCellReuseIdentifier: "RacesCustomTableViewCell")
+        tableView.register(RacesCustomTableViewCell.self, forCellReuseIdentifier: RacesCustomTableViewCell.identifier)
+
         return tableView
     }()
     

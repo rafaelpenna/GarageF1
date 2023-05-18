@@ -40,7 +40,7 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DriversCustomTableViewCell") as? DriversCustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: DriversCustomTableViewCell.identifier) as? DriversCustomTableViewCell
         cell?.setupCell(driver: driversViewModel.loadCurrentDriver(indexPath: indexPath))
         let backgroundView = UIView()
         backgroundView.backgroundColor = .none

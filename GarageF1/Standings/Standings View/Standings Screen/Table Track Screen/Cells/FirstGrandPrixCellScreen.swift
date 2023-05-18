@@ -9,7 +9,7 @@ import UIKit
 
 class FirstGrandPrixCellScreen: UITableViewCell {
 
-    static let identifier = "FirstGrandPrixCellScreen"
+    static let identifier = String(describing: FirstGrandPrixCellScreen.self)
     
     lazy var backgroundCellWhite: UILabel = {
         let label = UILabel()

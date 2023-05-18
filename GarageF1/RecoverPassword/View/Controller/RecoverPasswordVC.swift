@@ -20,8 +20,8 @@ class RecoverPasswordVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configDelegate()
-        auth = Auth.auth()
+        configDelegateAndAuth()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,9 +30,11 @@ class RecoverPasswordVC: UIViewController {
         self.recoverPasswordScreen.sendEmailButton.isEnabled = false
     }
     
-    private func configDelegate() {
+    private func configDelegateAndAuth() {
         recoverPasswordScreen.delegate(delegate: self)
         recoverPasswordScreen.configTextFieldDelegate(delegate: self)
+        
+        auth = Auth.auth()
     }
 
 }

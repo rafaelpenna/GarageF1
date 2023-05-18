@@ -58,14 +58,14 @@ class DriversDetailScreenView: UIView {
         tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
         tableView.backgroundView = UIImageView(image: UIImage(named: "backgroundFlag"))
-        tableView.register(BirthDateCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthDateCustomTableViewCellScreen")
-        tableView.register(BirthLocationCustomTableViewCellScreen.self, forCellReuseIdentifier: "BirthLocationCustomTableViewCellScreen")
-        tableView.register(ChampionshipsWinCustomTableViewCellScreen.self, forCellReuseIdentifier: "ChampionshipsWinCustomTableViewCellScreen")
-        tableView.register(RacesCustomTableViewCellScreen.self, forCellReuseIdentifier: "RacesCustomTableViewCellScreen")
-        tableView.register(PodiumsCustomTableViewCellScreen.self, forCellReuseIdentifier: "PodiumsCustomTableViewCellScreen")
-        tableView.register(PointsCustomTableViewCellScreen.self, forCellReuseIdentifier: "PointsCustomTableViewCellScreen")
-        tableView.register(BestRacePositionCustomTableViewCellScreen.self, forCellReuseIdentifier: "BestRacePositionCustomTableViewCellScreen")
-        tableView.register(BestGridPositionCustomTableViewCellScreen.self, forCellReuseIdentifier: "BestGridPositionCustomTableViewCellScreen")
+        tableView.register(BirthDateCustomTableViewCellScreen.self, forCellReuseIdentifier: BirthDateCustomTableViewCellScreen.identifier)
+        tableView.register(BirthLocationCustomTableViewCellScreen.self, forCellReuseIdentifier: BirthLocationCustomTableViewCellScreen.identifier)
+        tableView.register(ChampionshipsWinCustomTableViewCellScreen.self, forCellReuseIdentifier: ChampionshipsWinCustomTableViewCellScreen.identifier)
+        tableView.register(RacesCustomTableViewCellScreen.self, forCellReuseIdentifier: RacesCustomTableViewCellScreen.identifier)
+        tableView.register(PodiumsCustomTableViewCellScreen.self, forCellReuseIdentifier: PodiumsCustomTableViewCellScreen.identifier)
+        tableView.register(PointsCustomTableViewCellScreen.self, forCellReuseIdentifier: PointsCustomTableViewCellScreen.identifier)
+        tableView.register(BestRacePositionCustomTableViewCellScreen.self, forCellReuseIdentifier: BestRacePositionCustomTableViewCellScreen.identifier)
+        tableView.register(BestGridPositionCustomTableViewCellScreen.self, forCellReuseIdentifier: BestGridPositionCustomTableViewCellScreen.identifier)
         return tableView
     }()
     

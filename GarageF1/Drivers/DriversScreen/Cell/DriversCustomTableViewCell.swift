@@ -10,7 +10,7 @@ import UIKit
 class DriversCustomTableViewCell: UITableViewCell {
     
     var cellViewModel: DriversCustomCellViewModel?
-    
+    static let identifier: String = String(describing: DriversCustomTableViewCell.self)
     var screen: DriversCustomTableViewCellScreen = DriversCustomTableViewCellScreen()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {

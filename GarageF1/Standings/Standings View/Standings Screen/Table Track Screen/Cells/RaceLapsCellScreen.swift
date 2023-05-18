@@ -9,7 +9,7 @@ import UIKit
 
 class RaceLapsCellScreen: UITableViewCell {
 
-    static let identifier = "RaceLapsCellScreen"
+    static let identifier = String(describing: RaceLapsCellScreen.self)
     
     lazy var backgroundCellWhite: UILabel = {
         let label = UILabel()

@@ -10,7 +10,7 @@ import UIKit
 
 class BestGridPositionCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "BestGridPositionCustomTableViewCellScreen"
+    static let identifier = String(describing: BestGridPositionCustomTableViewCellScreen.self)
     
     var bestGridPositionTitleLabel: UILabel = {
         let variable = UILabel()

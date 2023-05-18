@@ -10,7 +10,7 @@ import UIKit
 
 class PointsCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "PointsCustomTableViewCellScreen"
+    static let identifier = String(describing: PointsCustomTableViewCellScreen.self)
     
     var pointsTitleLabel: UILabel = {
         let variable = UILabel()

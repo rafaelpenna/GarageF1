@@ -36,6 +36,10 @@ class HistoryViewController: UIViewController {
         view.addSubview(yearsTableViewSelect)
     }
     
+    private func cellRegister() {
+        tableViewYear.register(CellClassHistory.self, forCellReuseIdentifier: CellClassHistory.identifier)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
@@ -176,15 +180,15 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == historyScreen?.yearsTableView {
-            let cell: HistoryYearsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryYearsTableViewCell.identifier) as? HistoryYearsTableViewCell
-            cell?.textLabel?.text = historyViewModel.getYear(indexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: CellClassHistory.identifier, for: indexPath)
+            cell.textLabel?.text = String(historyViewModel.getYear(indexPath: indexPath))
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
             let backgroundView = UIView()
             backgroundView.backgroundColor = .none
             cell?.selectedBackgroundView = backgroundView
-            return cell ?? UITableViewCell()
+            return cell
         } else {
             if historyScreen?.driversTableView.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
@@ -222,6 +226,5 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             animateList(toogle: false)
             clearSearchField()
         }
-    }
+    } 
 }
-

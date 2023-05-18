@@ -10,7 +10,7 @@ import UIKit
 
 class RacesCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "RacesCustomTableViewCellScreen"
+    static let identifier = String(describing: RacesCustomTableViewCellScreen.self)
     
     var racesTitleLabel: UILabel = {
         let variable = UILabel()

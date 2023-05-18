@@ -10,7 +10,7 @@ import UIKit
 
 class BestRacePositionCustomTableViewCellScreen: UITableViewCell {
     
-    static let identifier = "BestRacePositionCustomTableViewCellScreen"
+    static let identifier = String(describing: BestRacePositionCustomTableViewCellScreen.self)
     
     var bestRacePositionTitleLabel: UILabel = {
         let variable = UILabel()
