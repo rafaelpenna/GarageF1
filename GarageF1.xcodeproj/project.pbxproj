@@ -43,6 +43,10 @@
 		0B568FE32A0C7C7600D89FCF /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B568FE22A0C7C7600D89FCF /* LogoutVC.swift */; };
 		0B5BD8B629D9108300184C1E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B529D9108300184C1E /* ProfileVC.swift */; };
 		0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */; };
+		0B6D46F32A1A8AFC00409410 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F22A1A8AFC00409410 /* LoginViewModel.swift */; };
+		0B6D46F62A1A8D3100409410 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F52A1A8D3100409410 /* ProfileViewModel.swift */; };
+		0B6D46F92A1A8EAF00409410 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */; };
+		0B6D46FC2A1A8F7E00409410 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */; };
 		0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */; };
 		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
 		0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */; };
@@ -199,6 +203,10 @@
 		0B568FE22A0C7C7600D89FCF /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
 		0B5BD8B529D9108300184C1E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
+		0B6D46F22A1A8AFC00409410 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		0B6D46F52A1A8D3100409410 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
+		0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultVC.swift; sourceTree = "<group>"; };
 		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
 		0B9CF6822962692C002E3405 /* GarageF1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1.entitlements; sourceTree = "<group>"; };
@@ -403,6 +411,7 @@
 		0B1E887B29DA1F350027C8C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B6D46F12A1A8AE700409410 /* ViewModel */,
 				0B1E887E29DA1F490027C8C6 /* Screen */,
 				0B1E887D29DA1F430027C8C6 /* Controller */,
 			);
@@ -436,6 +445,7 @@
 		0B1E888129DA20310027C8C6 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0B6D46F42A1A8D1500409410 /* ViewModel */,
 				0B1E888429DA205F0027C8C6 /* Screen */,
 				0B1E888329DA20530027C8C6 /* Controller */,
 			);
@@ -461,6 +471,7 @@
 		0B1E888529DA20C80027C8C6 /* RecoverPassword */ = {
 			isa = PBXGroup;
 			children = (
+				0B6D46F72A1A8E9B00409410 /* ViewModel */,
 				0B1E888629DA20D50027C8C6 /* View */,
 			);
 			path = RecoverPassword;
@@ -653,6 +664,38 @@
 				0B568FE22A0C7C7600D89FCF /* LogoutVC.swift */,
 			);
 			path = LogoutAnimation;
+			sourceTree = "<group>";
+		};
+		0B6D46F12A1A8AE700409410 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B6D46F22A1A8AFC00409410 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0B6D46F42A1A8D1500409410 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B6D46F52A1A8D3100409410 /* ProfileViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0B6D46F72A1A8E9B00409410 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		0B6D46FA2A1A8F6C00409410 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		0B9509D02963C4C500069D7D /* Alert */ = {
@@ -1212,6 +1255,7 @@
 		34B996CE29F8C0E000DCBE69 /* Email */ = {
 			isa = PBXGroup;
 			children = (
+				0B6D46FA2A1A8F6C00409410 /* ViewModel */,
 				0B0462B429FA02B80067EFAA /* Controller */,
 				0B0462B329FA02A90067EFAA /* Screen */,
 			);
@@ -1500,6 +1544,7 @@
 				1C550FB729AD27D200AC2E51 /* HistoryModel.swift in Sources */,
 				34B996B529F8BE5200DCBE69 /* TableViewBirthDateCellScreen.swift in Sources */,
 				34B996CB29F8BF1F00DCBE69 /* EmailLoginVC.swift in Sources */,
+				0B6D46F62A1A8D3100409410 /* ProfileViewModel.swift in Sources */,
 				1C726E4429B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift in Sources */,
 				34B996C529F8BE6900DCBE69 /* HomeScreen.swift in Sources */,
 				0B32CA5C29D0EB2600E5B51A /* RaceViewController.swift in Sources */,
@@ -1539,6 +1584,7 @@
 				1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */,
 				0B1E887329D9CE470027C8C6 /* RecoverPasswordVC.swift in Sources */,
 				1C43E52F2A12EFF600B977DB /* HistoryYearsTableViewCell.swift in Sources */,
+				0B6D46F32A1A8AFC00409410 /* LoginViewModel.swift in Sources */,
 				0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */,
 				0B568FDB2A0C6B7E00D89FCF /* LoadingScreen.swift in Sources */,
 				1CB39D38299D3BDE009DBE86 /* PointsCustomTableViewCellScreen.swift in Sources */,
@@ -1559,6 +1605,7 @@
 				1C99A82529BFD5FA004CD81C /* StandingsViewModel.swift in Sources */,
 				0B32CA5E29D0EBC300E5B51A /* StandingsViewController.swift in Sources */,
 				1CB39D36299D3BC6009DBE86 /* PodiumsCustomTableViewCellScreen.swift in Sources */,
+				0B6D46FC2A1A8F7E00409410 /* EmailViewModel.swift in Sources */,
 				1C99A83029BFF740004CD81C /* StandingsTableViewCell.swift in Sources */,
 				1C44CDCF29CF105D00D8F32F /* RacesViewModel.swift in Sources */,
 				1C726E4229B7A96A006591C9 /* DuelCustomTableViewCell.swift in Sources */,
@@ -1576,6 +1623,7 @@
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,
 				1CB39D3C299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift in Sources */,
 				34B996B329F8BE5200DCBE69 /* TableViewBestGridPositionCustomCellScreen.swift in Sources */,
+				0B6D46F92A1A8EAF00409410 /* RecoverPasswordViewModel.swift in Sources */,
 				1CB39D3A299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift in Sources */,
 				0B568FD92A0C6B6C00D89FCF /* LoadingVC.swift in Sources */,
 				0B10DD4E295A5A8E00CB397A /* LoginScreen.swift in Sources */,

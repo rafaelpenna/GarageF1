@@ -17,7 +17,7 @@ class EmailLoginVC: UIViewController {
     override func loadView() {
         view = emailLoginScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configProtocolsAuthAlert()
@@ -50,11 +50,15 @@ extension EmailLoginVC: UITextFieldDelegate {
 extension EmailLoginVC: EmailLoginScreenProtocol {
     
     func actionVisibleInvisibleButton() {
+        
+        let visibleButton = EmailViewModel.namesAndWarnings.visibleButton
+        let invisibleButton = EmailViewModel.namesAndWarnings.invisibleButton
+        
         if emailLoginScreen?.passwordTextField.isSecureTextEntry == true {
-            emailLoginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            emailLoginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: visibleButton.getDescription()), for: .normal)
             emailLoginScreen?.passwordTextField.isSecureTextEntry = false
         } else {
-            emailLoginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            emailLoginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: invisibleButton.getDescription()), for: .normal)
             emailLoginScreen?.passwordTextField.isSecureTextEntry = true
         }
     }
@@ -66,13 +70,18 @@ extension EmailLoginVC: EmailLoginScreenProtocol {
     
     func actionRegisterButton() {
         
+        let atention = EmailViewModel.namesAndWarnings.atention
+        let congratulations = EmailViewModel.namesAndWarnings.congratulations
+        let erro = EmailViewModel.namesAndWarnings.tryAgain
+        let registeredUser = EmailViewModel.namesAndWarnings.registeredUser
+        
         guard let register = emailLoginScreen else {return}
         
         auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
             if error != nil {
-                self.alert?.getAlert(titulo: "Atenção", message: "Erro ao cadastrar, verifique e tente novamente!")
+                self.alert?.getAlert(titulo: atention.getDescription(), message: erro.getDescription())
             } else {
-                self.alert?.getAlert(titulo: "Parabéns", message: "Usuário cadastrado com sucesso", completion: {
+                self.alert?.getAlert(titulo: congratulations.getDescription(), message: registeredUser.getDescription(), completion: {
                     self.navigationController?.popViewController(animated: true)
                 })
             }

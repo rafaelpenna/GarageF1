@@ -50,5 +50,4 @@ class TableViewPointsCustomCellScreen: UITableViewCell {
             pointsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

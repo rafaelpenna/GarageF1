@@ -37,8 +37,7 @@ class TabBarVC: UITabBarController {
                     createNavController(for: DriversViewController(), title: "Drivers", image: UIImage(systemName: "crown") ?? UIImage()),
                     createNavController(for: HistoryViewController(), title: "History", image: UIImage(systemName: "doc.text.magnifyingglass") ?? UIImage()),
                     createNavController(for: ProfileVC(), title: "Perfil", image: UIImage(systemName: "person.crop.circle") ?? UIImage())
-                ]
-        }
+                ]}
     
     func configTaBar() {
         tabBar.layer.borderWidth = 0.2
@@ -46,5 +45,4 @@ class TabBarVC: UITabBarController {
         tabBar.backgroundColor = .white
         tabBar.isTranslucent = false
     }
-    
 }

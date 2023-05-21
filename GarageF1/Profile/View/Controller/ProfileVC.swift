@@ -8,7 +8,7 @@
 import UIKit
 
 class ProfileVC: UIViewController {
-
+    
     var profileScreen: ProfileScreen = ProfileScreen()
     var alert: Alert?
     
@@ -35,15 +35,22 @@ class ProfileVC: UIViewController {
 extension ProfileVC: ProfileScreenProtocol {
     func actionSaveButton() {
         
-        self.alert?.getAlert(titulo: "GarageF1", message: "Alterações salvas com sucesso!")
+        let garageF1 = ProfileViewModel.namesAndWarnings.garageF1
+        let savedChanges = ProfileViewModel.namesAndWarnings.savedChanges
+        
+        self.alert?.getAlert(titulo: garageF1.getDescription(), message: savedChanges.getDescription())
     }
     
     func actionLogOutButton() {
         let logoutVC: LogoutVC = LogoutVC()
+        let atention = ProfileViewModel.namesAndWarnings.atention
+        let outGarageF1 = ProfileViewModel.namesAndWarnings.outGarageF1
+        let out = ProfileViewModel.namesAndWarnings.out
+        let cancel = ProfileViewModel.namesAndWarnings.cancel
         
-        let alert = UIAlertController(title: "Atenção!", message: "Deseja realmente sair do GarageF1?", preferredStyle: .alert)
+        let alert = UIAlertController(title: atention.getDescription(), message: outGarageF1.getDescription(), preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Sair", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: out.getDescription(), style: .destructive, handler: { action in
             
             logoutVC.modalPresentationStyle = .fullScreen
             self.present(logoutVC, animated: true)
@@ -52,7 +59,7 @@ extension ProfileVC: ProfileScreenProtocol {
             
         }))
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: cancel.getDescription(), style: .cancel))
         
         present(alert, animated: true)
     }

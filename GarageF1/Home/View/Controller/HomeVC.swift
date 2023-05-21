@@ -36,7 +36,6 @@ class HomeVC: UIViewController {
 
 }
 
-
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
     
@@ -106,8 +105,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
-
-
 
 extension HomeVC: FullResultButtonTableViewCellProtocol {
     func actionFullResultButton() {
