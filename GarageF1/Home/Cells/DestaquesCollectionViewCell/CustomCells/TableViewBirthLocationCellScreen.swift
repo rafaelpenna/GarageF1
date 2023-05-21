@@ -50,5 +50,4 @@ class TableViewBirthLocationCellScreen: UITableViewCell {
             birbirthLocationAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

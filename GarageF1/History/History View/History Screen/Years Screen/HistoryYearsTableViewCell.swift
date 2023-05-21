@@ -13,7 +13,7 @@ class HistoryYearsTableViewCell: UITableViewCell {
     var customInfoYears: CustomCellHistoryYears = CustomCellHistoryYears()
     var yearsViewModel: YearsScreenViewModel?
     
-    static let identifier: String = "HistoryYearsTableViewCell"
+    static let identifier: String = String(describing: HistoryYearsTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

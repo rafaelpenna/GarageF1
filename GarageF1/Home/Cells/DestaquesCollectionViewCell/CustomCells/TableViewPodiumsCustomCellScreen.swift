@@ -50,5 +50,4 @@ class TableViewPodiumsCustomCellScreen: UITableViewCell {
             podiumsAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

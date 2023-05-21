@@ -50,5 +50,4 @@ class TableViewBestGridPositionCustomCellScreen: UITableViewCell {
             bestGridPositionAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

@@ -17,7 +17,7 @@ class RecoverPasswordVC: UIViewController {
         view = recoverPasswordScreen
         
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configDelegateAndAuth()
@@ -36,7 +36,7 @@ class RecoverPasswordVC: UIViewController {
         
         auth = Auth.auth()
     }
-
+    
 }
 
 extension RecoverPasswordVC: UITextFieldDelegate {
@@ -54,21 +54,28 @@ extension RecoverPasswordVC: UITextFieldDelegate {
 extension RecoverPasswordVC: RecoverPasswordScreenProtocol {
     func actionSendEmailButton() {
         
+        let garageF1 = RecoverPasswordViewModel.Warnings.garageF1
+        let recoverPassword = RecoverPasswordViewModel.Warnings.recoverEmail
+        let tapEmail = RecoverPasswordViewModel.Warnings.tapEmail
+        let ok = RecoverPasswordViewModel.Warnings.ok
+        let emptyTF = RecoverPasswordViewModel.Warnings.emptyTF
+        
+        
         if let emailTextField = recoverPasswordScreen.emailTextField.text, !emailTextField.isEmpty {
-            let alert = UIAlertController(title: "GarageF1", message: "Um e-mail de recuperação foi enviado, siga as instruções para redefinir sua senha.", preferredStyle: .alert)
+            let alert = UIAlertController(title: garageF1.getDescription(), message: recoverPassword.getDescription(), preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+            alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: { action in
                 self.auth.sendPasswordReset(withEmail: emailTextField)
             }))
             
             present(alert, animated: true)
         } else {
-            let alert = UIAlertController(title: "GarageF1", message: "Digite um e-mail válido!", preferredStyle: .alert)
+            let alert = UIAlertController(title: garageF1.getDescription(), message: tapEmail.getDescription(), preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Ok", style: .default))
+            alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default))
             present(alert, animated: true)
         }
-        self.recoverPasswordScreen.emailTextField.text = ""
+        self.recoverPasswordScreen.emailTextField.text = emptyTF.getDescription()
     }
     
     func actionBackButton() {

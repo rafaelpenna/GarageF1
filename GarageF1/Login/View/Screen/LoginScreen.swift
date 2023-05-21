@@ -26,6 +26,7 @@ class LoginScreen: UIView {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(named: "facebookicon"), for: .normal)
+        button.contentMode = .scaleAspectFit
         button.clipsToBounds = true
         button.layer.cornerRadius = 20
         button.backgroundColor = .white
@@ -35,7 +36,8 @@ class LoginScreen: UIView {
     lazy var appleButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "appleicon"), for: .normal)
+        button.setImage(UIImage(named: "googlelogo"), for: .normal)
+        button.contentMode = .scaleAspectFit
         button.clipsToBounds = true
         button.layer.cornerRadius = 20
         button.backgroundColor = .white

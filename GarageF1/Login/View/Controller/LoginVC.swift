@@ -28,6 +28,7 @@ class LoginVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: false)
         configEmptyTextFields()
+        
     }
     
     private func configProtocolsAlertAuth() {
@@ -38,8 +39,14 @@ class LoginVC: UIViewController {
     }
     
     private func configEmptyTextFields() {
-        loginScreen?.emailTextField.text = ""
-        loginScreen?.passwordTextField.text = ""
+        let emptyTextField = LoginViewModel.Strings.emptyString
+        let invisibleButton = LoginViewModel.Strings.invisibleButton
+        
+        loginScreen?.emailTextField.text = emptyTextField.getDescription()
+        loginScreen?.passwordTextField.text = emptyTextField.getDescription()
+        
+        loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: invisibleButton.getDescription()), for: .normal)
+        loginScreen?.passwordTextField.isSecureTextEntry = true
     }
 }
 
@@ -62,11 +69,14 @@ extension LoginVC: LoginScreenProtocol {
     
     func actionVisibleInvisibleButton() {
         
+        let invisibleButton = LoginViewModel.Strings.invisibleButton
+        let visibleButton = LoginViewModel.Strings.visibleButton
+        
         if loginScreen?.passwordTextField.isSecureTextEntry == true {
-            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye"), for: .normal)
+            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: visibleButton.getDescription()), for: .normal)
             loginScreen?.passwordTextField.isSecureTextEntry = false
         } else {
-            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+            loginScreen?.visibleInvisibleButton.setImage(UIImage(systemName: invisibleButton.getDescription()), for: .normal)
             loginScreen?.passwordTextField.isSecureTextEntry = true
         }
     }
@@ -75,16 +85,19 @@ extension LoginVC: LoginScreenProtocol {
         
         let tabBarHome: TabBarVC = TabBarVC()
         let loadingVC: LoadingVC = LoadingVC()
+        let atention = LoginViewModel.Strings.atention
+        let wrongData = LoginViewModel.Strings.wrongData
+        let unexpectedProblem = LoginViewModel.Strings.unexpectedProblem
 
         guard let login = loginScreen else { return }
         
         auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
             if error != nil {
-                self.alert?.getAlert(titulo: "Atenção!", message: "Dados incorretos, verifique e tente novamente!")
+                self.alert?.getAlert(titulo: atention.getDescription(), message: wrongData.getDescription())
                 
             } else {
                 if usuario == nil {
-                    self.alert?.getAlert(titulo: "Atenção", message: "Tivemos um problema inesperado, tente novamente mais tarde")
+                    self.alert?.getAlert(titulo: atention.getDescription(), message: unexpectedProblem.getDescription())
                 } else {
                     loadingVC.modalPresentationStyle = .fullScreen
                     self.present(loadingVC, animated: true)

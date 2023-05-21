@@ -50,5 +50,4 @@ class TableViewChampionshipsWinCellScreen: UITableViewCell {
             championshipsWinAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

@@ -50,5 +50,4 @@ class TableViewRacesCustomTCellScreen: UITableViewCell {
             racesAnswer.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }
-
 }

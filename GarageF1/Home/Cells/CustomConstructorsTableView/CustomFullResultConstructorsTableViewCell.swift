@@ -53,7 +53,5 @@ class CustomFullResultConstructorsTableViewCell: UITableViewCell {
             customFullResultScreen.bottomAnchor.constraint(equalTo: bottomAnchor),
         
         ])
-        
     }
-    
 }
