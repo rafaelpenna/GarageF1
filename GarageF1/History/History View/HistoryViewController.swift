@@ -12,6 +12,8 @@ class HistoryViewController: UIViewController {
     let historyScreen: HistoryScreenView? = HistoryScreenView()
     let historyViewModel: HistoryViewModel = HistoryViewModel()
     
+    var listYearsSearch = [String]()
+    
     override func loadView() {
         view = historyScreen
     }
@@ -20,6 +22,7 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
+        listYearsSearch = historyViewModel.getDataYear
     }
     
     private func setupProtocols() {
@@ -53,6 +56,7 @@ class HistoryViewController: UIViewController {
     lazy var textFieldSearchSelect: UITextField = {
         let textField: UITextField = historyScreen?.searchTextField ?? UITextField()
         textField.isHidden = true
+        textField.addTarget(self, action: #selector(searchYearEditing), for: .editingChanged)
         return textField
     }()
     
@@ -88,6 +92,7 @@ class HistoryViewController: UIViewController {
                 self.searchImageViewSelect.isHidden = true
                 self.textFieldSearchSelect.isHidden = true
                 self.yearsTableViewSelect.isHidden = true
+                self.textFieldSearchSelect.text = ""
             }
         }
     }
@@ -101,8 +106,19 @@ class HistoryViewController: UIViewController {
         }
     }
     
+    @objc func searchYearEditing(_ sender: UITextField) {
+        if let searchText = sender.text {
+            listYearsSearch = historyViewModel.getDataYear.filter{$0.lowercased().contains(searchText.lowercased())}
+            historyScreen?.yearsTableView.reloadData()
+        }
+        clearSearchField()
+    }
+    
     private func clearSearchField() {
-        textFieldSearchSelect.text = ""
+        if textFieldSearchSelect.text == "" {
+            listYearsSearch = historyViewModel.getDataYear
+            historyScreen?.yearsTableView.reloadData()
+        }
     }
     
 //MARK: - Config selectable tableView
@@ -164,7 +180,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == historyScreen?.yearsTableView {
-            return historyViewModel.numberOfRowsYears
+            return listYearsSearch.count
         } else {
             if buttonDriversVC.isSelected == true {
                 return historyViewModel.numberOfRowsDrivers
@@ -177,7 +193,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == historyScreen?.yearsTableView {
             let cell: HistoryYearsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryYearsTableViewCell.identifier) as? HistoryYearsTableViewCell
-            cell?.textLabel?.text = String(historyViewModel.getYear(indexPath: indexPath))
+            cell?.textLabel?.text = String(listYearsSearch[indexPath.row])
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
@@ -218,8 +234,9 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == historyScreen?.yearsTableView {
-            buttonYearSelect.setTitle("\(historyViewModel.getYear(indexPath: indexPath))", for: .normal)
+            buttonYearSelect.setTitle("\(listYearsSearch[indexPath.row])", for: .normal)
             animateList(toogle: false)
+            textFieldSearchSelect.text = ""
             clearSearchField()
         }
     }

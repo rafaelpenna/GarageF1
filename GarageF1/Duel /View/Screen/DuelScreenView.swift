@@ -11,7 +11,6 @@ import UIKit
 
 class DuelScreenView: UIView {
     
-
     lazy var duelTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -60,19 +59,13 @@ class DuelScreenView: UIView {
         return button
     }()
     
-    lazy var driversFirstNameLeftLabel: UILabel = {
+    lazy var driversNameLeftLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 23)
-        return label
-    }()
-    
-    lazy var driversLastNameLeftLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
     
@@ -83,25 +76,51 @@ class DuelScreenView: UIView {
         return imageView
     }()
     
+    lazy var leftBackgroundSearchLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1).cgColor
+        return label
+    }()
+    
+    lazy var leftSearchTextField: UITextField = {
+       let searchField = UITextField()
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.layer.backgroundColor = .none
+        searchField.textColor = .white
+        return searchField
+    }()
+    
+    lazy var leftSearchImageView: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "magnifyingglass")
+        image.tintColor = .white
+        return image
+    }()
+    
+    lazy var leftNameDriversTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+        tableView.register(DuelDriversTableViewCell.self, forCellReuseIdentifier: DuelDriversTableViewCell.identifier)
+        return tableView
+    }()
+    
     lazy var rightDriverButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    lazy var driversFirstNameRightLabel: UILabel = {
+    lazy var driversNameRightLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 23)
-        return label
-    }()
-    
-    lazy var driversLastNameRightLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 23)
         return label
     }()
     
@@ -110,6 +129,38 @@ class DuelScreenView: UIView {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = UIImage(named: "blackArrow")
         return imageView
+    }()
+    
+    lazy var rightBackgroundSearchLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1).cgColor
+        return label
+    }()
+    
+    lazy var rightSearchTextField: UITextField = {
+       let searchField = UITextField()
+        searchField.translatesAutoresizingMaskIntoConstraints = false
+        searchField.layer.backgroundColor = .none
+        searchField.textColor = .white
+        return searchField
+    }()
+    
+    lazy var rightSearchImageView: UIImageView = {
+       let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.image = UIImage(systemName: "magnifyingglass")
+        image.tintColor = .white
+        return image
+    }()
+    
+    lazy var rightNameDriversTableView: UITableView = {
+        let tableView = UITableView()
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
+        tableView.register(DuelDriversTableViewCell.self, forCellReuseIdentifier: DuelDriversTableViewCell.identifier)
+        return tableView
     }()
     
     lazy var infoTableView: UITableView = {
@@ -166,13 +217,19 @@ class DuelScreenView: UIView {
         addSubview(leftDriverButton)
         addSubview(rightDriverButton)
         
-        leftDriverButton.addSubview(driversFirstNameLeftLabel)
-        leftDriverButton.addSubview(driversLastNameLeftLabel)
+        leftDriverButton.addSubview(driversNameLeftLabel)
         leftDriverButton.addSubview(leftArrowIconImage)
+        addSubview(leftBackgroundSearchLabel)
+        addSubview(leftSearchTextField)
+        addSubview(leftSearchImageView)
+        addSubview(leftNameDriversTableView)
         
-        rightDriverButton.addSubview(driversFirstNameRightLabel)
-        rightDriverButton.addSubview(driversLastNameRightLabel)
+        rightDriverButton.addSubview(driversNameRightLabel)
         rightDriverButton.addSubview(rightArrowIconImage)
+        addSubview(rightBackgroundSearchLabel)
+        addSubview(rightSearchTextField)
+        addSubview(rightSearchImageView)
+        addSubview(rightNameDriversTableView)
         
         addSubview(backButtonNavigation)
         addSubview(infoTableView)
@@ -208,39 +265,87 @@ class DuelScreenView: UIView {
             namesBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             namesBackgroundLabel.heightAnchor.constraint(equalToConstant: 120),
             
+            //MARK: - Left Button Driver Constraints
+            
             leftDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            leftDriverButton.topAnchor.constraint(equalTo: driversFirstNameLeftLabel.topAnchor),
+            leftDriverButton.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
             leftDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
-            leftDriverButton.leadingAnchor.constraint(equalTo: driversLastNameLeftLabel.leadingAnchor),
-            leftDriverButton.trailingAnchor.constraint(equalTo: leftArrowIconImage.trailingAnchor),
+            leftDriverButton.leadingAnchor.constraint(equalTo: namesBackgroundLabel.leadingAnchor, constant: 10),
+            leftDriverButton.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -3),
             
-            driversFirstNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            driversFirstNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
-
-            driversLastNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
-            driversLastNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            driversNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
+            driversNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            driversNameLeftLabel.leadingAnchor.constraint(equalTo: namesBackgroundLabel.leadingAnchor, constant: 7),
+            driversNameLeftLabel.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
+            driversNameLeftLabel.trailingAnchor.constraint(equalTo: leftArrowIconImage.leadingAnchor, constant: -7),
             
-            leftArrowIconImage.centerXAnchor.constraint(equalTo: driversLastNameLeftLabel.trailingAnchor, constant: 8),
+            leftArrowIconImage.trailingAnchor.constraint(equalTo: leftDriverButton.trailingAnchor, constant: -4),
             leftArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
             leftArrowIconImage.heightAnchor.constraint(equalToConstant: 15),
             leftArrowIconImage.widthAnchor.constraint(equalToConstant: 15),
             
-            rightDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            rightDriverButton.topAnchor.constraint(equalTo: driversFirstNameRightLabel.topAnchor),
-            rightDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
-            rightDriverButton.leadingAnchor.constraint(equalTo: driversLastNameRightLabel.leadingAnchor),
-            rightDriverButton.trailingAnchor.constraint(equalTo: rightArrowIconImage.trailingAnchor),
+            leftBackgroundSearchLabel.topAnchor.constraint(equalTo: leftDriverButton.bottomAnchor),
+            leftBackgroundSearchLabel.centerXAnchor.constraint(equalTo: leftDriverButton.centerXAnchor),
+            leftBackgroundSearchLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            leftBackgroundSearchLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
+            leftBackgroundSearchLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            driversFirstNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            driversFirstNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
-
-            driversLastNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 80),
-            driversLastNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            leftSearchImageView.topAnchor.constraint(equalTo: leftBackgroundSearchLabel.topAnchor, constant: 5),
+            leftSearchImageView.leadingAnchor.constraint(equalTo: leftBackgroundSearchLabel.leadingAnchor, constant: 5),
+            leftSearchImageView.widthAnchor.constraint(equalToConstant: 20),
+            leftSearchImageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            leftSearchTextField.topAnchor.constraint(equalTo: leftBackgroundSearchLabel.topAnchor, constant: 5),
+            leftSearchTextField.leadingAnchor.constraint(equalTo: leftSearchImageView.trailingAnchor, constant: 5),
+            leftSearchTextField.trailingAnchor.constraint(equalTo: leftBackgroundSearchLabel.trailingAnchor, constant: -5),
+            leftSearchTextField.bottomAnchor.constraint(equalTo: leftBackgroundSearchLabel.bottomAnchor, constant: -5),
+            
+            leftNameDriversTableView.topAnchor.constraint(equalTo: leftBackgroundSearchLabel.bottomAnchor),
+            leftNameDriversTableView.centerXAnchor.constraint(equalTo: leftBackgroundSearchLabel.centerXAnchor),
+            leftNameDriversTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            leftNameDriversTableView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
+            leftNameDriversTableView.heightAnchor.constraint(equalToConstant: 220),
+            
+            //MARK: - Right Button Driver Constraints
+            
+            rightDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 100),
+            rightDriverButton.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
+            rightDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            rightDriverButton.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 10),
+            rightDriverButton.trailingAnchor.constraint(equalTo: namesBackgroundLabel.trailingAnchor, constant: -10),
+            
+            driversNameRightLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 100),
+            driversNameRightLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
+            driversNameRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 12),
+            driversNameRightLabel.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
+            driversNameRightLabel.trailingAnchor.constraint(equalTo: namesBackgroundLabel.trailingAnchor, constant: -25),
                         
-            rightArrowIconImage.leadingAnchor.constraint(equalTo: driversLastNameRightLabel.trailingAnchor, constant: 12),
+            rightArrowIconImage.trailingAnchor.constraint(equalTo: rightDriverButton.trailingAnchor),
             rightArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
             rightArrowIconImage.heightAnchor.constraint(equalToConstant: 15),
             rightArrowIconImage.widthAnchor.constraint(equalToConstant: 15),
+            
+            rightBackgroundSearchLabel.topAnchor.constraint(equalTo: rightDriverButton.bottomAnchor),
+            rightBackgroundSearchLabel.centerXAnchor.constraint(equalTo: rightDriverButton.centerXAnchor),
+            rightBackgroundSearchLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 10),
+            rightBackgroundSearchLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            rightBackgroundSearchLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            rightSearchImageView.topAnchor.constraint(equalTo: rightBackgroundSearchLabel.topAnchor, constant: 5),
+            rightSearchImageView.leadingAnchor.constraint(equalTo: rightBackgroundSearchLabel.leadingAnchor, constant: 5),
+            rightSearchImageView.widthAnchor.constraint(equalToConstant: 20),
+            rightSearchImageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            rightSearchTextField.topAnchor.constraint(equalTo: rightBackgroundSearchLabel.topAnchor, constant: 5),
+            rightSearchTextField.leadingAnchor.constraint(equalTo: rightSearchImageView.trailingAnchor, constant: 5),
+            rightSearchTextField.trailingAnchor.constraint(equalTo: rightBackgroundSearchLabel.trailingAnchor, constant: -5),
+            rightSearchTextField.bottomAnchor.constraint(equalTo: rightBackgroundSearchLabel.bottomAnchor, constant: -5),
+            
+            rightNameDriversTableView.topAnchor.constraint(equalTo: rightBackgroundSearchLabel.bottomAnchor),
+            rightNameDriversTableView.centerXAnchor.constraint(equalTo: rightBackgroundSearchLabel.centerXAnchor),
+            rightNameDriversTableView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 10),
+            rightNameDriversTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            rightNameDriversTableView.heightAnchor.constraint(equalToConstant: 220),
             
             backButtonNavigation.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             backButtonNavigation.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),

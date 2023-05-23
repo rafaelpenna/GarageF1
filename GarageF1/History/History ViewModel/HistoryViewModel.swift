@@ -13,11 +13,13 @@ class HistoryViewModel {
     
     private var dataTeams:[HistoryTeamsModel] = []
     
-    private var listYear:[HistoryYearModel] = []
+    private var listYearDataInsert:[HistoryYearModel] = []
+    private var listYear:[String] = []
     
     init(){
         self.configArrayDataDrivers()
         self.configArrayDataTeams()
+        self.configArrayListYearDataInsert()
         self.configArrayListYear()
     }
     
@@ -48,24 +50,29 @@ class HistoryViewModel {
         self.dataTeams.append(HistoryTeamsModel(teamsPosition: "10", teamsName: "Alfa Romeo", seasonTeamsPoints: "0"))
     }
     
-    private func configArrayListYear(){
-        self.listYear.append(HistoryYearModel(year: "2022"))
-        self.listYear.append(HistoryYearModel(year: "2021"))
-        self.listYear.append(HistoryYearModel(year: "2020"))
-        self.listYear.append(HistoryYearModel(year: "2019"))
-        self.listYear.append(HistoryYearModel(year: "2018"))
-        self.listYear.append(HistoryYearModel(year: "2017"))
-        self.listYear.append(HistoryYearModel(year: "2016"))
-        self.listYear.append(HistoryYearModel(year: "2015"))
-        self.listYear.append(HistoryYearModel(year: "2014"))
-        self.listYear.append(HistoryYearModel(year: "2013"))
-        self.listYear.append(HistoryYearModel(year: "2012"))
-        self.listYear.append(HistoryYearModel(year: "2011"))
-        self.listYear.append(HistoryYearModel(year: "2010"))
-        self.listYear.append(HistoryYearModel(year: "2009"))
-        self.listYear.append(HistoryYearModel(year: "2008"))
+    private func configArrayListYearDataInsert(){
+        self.listYearDataInsert.append(HistoryYearModel(year: "2022"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2021"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2020"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2019"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2018"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2017"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2016"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2015"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2014"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2013"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2012"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2011"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2010"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2009"))
+        self.listYearDataInsert.append(HistoryYearModel(year: "2008"))
     }
     
+    private func configArrayListYear() {
+        for years in 0 ..< listYearDataInsert.count {
+            self.listYear.append(listYearDataInsert[years].year)
+        }
+    }
     
     //MARK: - Functions to get info to Drivers Data
     
@@ -120,14 +127,9 @@ class HistoryViewModel {
         return dataTeams[indexPath.row].seasonTeamsPoints
     }
     
-    
     //MARK: - Functions to get info to Dropdown Data
     
-    public var numberOfRowsYears: Int{
-        return self.listYear.count
-    }
-    
-    public func getYear(indexPath: IndexPath) -> String {
-        return listYear[indexPath.row].year
+    public var getDataYear: [String] {
+        return listYear
     }
 }
