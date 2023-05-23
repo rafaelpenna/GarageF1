@@ -74,6 +74,8 @@
 		1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */; };
 		1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */; };
 		1C550FC029AD3EF500AC2E51 /* CustomCellHistoryTeams.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBF29AD3EF500AC2E51 /* CustomCellHistoryTeams.swift */; };
+		1C6DA9B62A1C154700F46F6D /* DuelDriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DA9B52A1C154700F46F6D /* DuelDriversTableViewCell.swift */; };
+		1C6DA9B82A1C158200F46F6D /* CustomCellDuelDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C6DA9B72A1C158200F46F6D /* CustomCellDuelDrivers.swift */; };
 		1C726E3829B79924006591C9 /* DuelModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3729B79924006591C9 /* DuelModel.swift */; };
 		1C726E3A29B79B6E006591C9 /* DuelScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3929B79B6E006591C9 /* DuelScreenView.swift */; };
 		1C726E3C29B7A430006591C9 /* DuelViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E3B29B7A430006591C9 /* DuelViewModel.swift */; };
@@ -236,6 +238,8 @@
 		1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenView.swift; sourceTree = "<group>"; };
 		1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryDrivers.swift; sourceTree = "<group>"; };
 		1C550FBF29AD3EF500AC2E51 /* CustomCellHistoryTeams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryTeams.swift; sourceTree = "<group>"; };
+		1C6DA9B52A1C154700F46F6D /* DuelDriversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelDriversTableViewCell.swift; sourceTree = "<group>"; };
+		1C6DA9B72A1C158200F46F6D /* CustomCellDuelDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellDuelDrivers.swift; sourceTree = "<group>"; };
 		1C726E3729B79924006591C9 /* DuelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelModel.swift; sourceTree = "<group>"; };
 		1C726E3929B79B6E006591C9 /* DuelScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelScreenView.swift; sourceTree = "<group>"; };
 		1C726E3B29B7A430006591C9 /* DuelViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelViewModel.swift; sourceTree = "<group>"; };
@@ -969,6 +973,15 @@
 			path = "History Screen";
 			sourceTree = "<group>";
 		};
+		1C6DA9B42A1C14E800F46F6D /* Drivers TableScreen */ = {
+			isa = PBXGroup;
+			children = (
+				1C6DA9B52A1C154700F46F6D /* DuelDriversTableViewCell.swift */,
+				1C6DA9B72A1C158200F46F6D /* CustomCellDuelDrivers.swift */,
+			);
+			path = "Drivers TableScreen";
+			sourceTree = "<group>";
+		};
 		1C726E3229B797B8006591C9 /* Duel  */ = {
 			isa = PBXGroup;
 			children = (
@@ -993,6 +1006,7 @@
 			children = (
 				1C726E3D29B7A6A8006591C9 /* DuelViewController.swift */,
 				1C726E3629B798FE006591C9 /* Screen */,
+				1C6DA9B42A1C14E800F46F6D /* Drivers TableScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1553,6 +1567,7 @@
 				34B996C229F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift in Sources */,
 				0B0462AC29F9EE550067EFAA /* FullResultsViewModel.swift in Sources */,
 				1C43E5312A12F16B00B977DB /* YearsScreenViewModel.swift in Sources */,
+				1C6DA9B62A1C154700F46F6D /* DuelDriversTableViewCell.swift in Sources */,
 				34B996C029F8BE5200DCBE69 /* HomeCustomTableViewCell.swift in Sources */,
 				1CB39D2C299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift in Sources */,
 				1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */,
@@ -1629,6 +1644,7 @@
 				0B10DD4E295A5A8E00CB397A /* LoginScreen.swift in Sources */,
 				0B10DD52295A630700CB397A /* Alert.swift in Sources */,
 				0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */,
+				1C6DA9B82A1C158200F46F6D /* CustomCellDuelDrivers.swift in Sources */,
 				34B996C129F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift in Sources */,
 				0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */,
 				0B568FE32A0C7C7600D89FCF /* LogoutVC.swift in Sources */,

@@ -10,10 +10,10 @@ import UIKit
 class CustomCellHistoryYears: UIView {
     
     lazy var yearLabel: UILabel = {
-        let positionLabel = UILabel()
-        positionLabel.translatesAutoresizingMaskIntoConstraints = false
-        positionLabel.font = UIFont.systemFont(ofSize: 18)
-        return positionLabel
+        let yearLabel = UILabel()
+        yearLabel.translatesAutoresizingMaskIntoConstraints = false
+        yearLabel.font = UIFont.systemFont(ofSize: 18)
+        return yearLabel
     }()
 
     override init(frame: CGRect) {

@@ -10,9 +10,14 @@ import UIKit
 class DuelViewModel {
     
     private var driverList:[DuelDropdownModel] = []
+    private var leftNameDriverData:[String] = []
+    private var rightNameDriverData:[String] = []
     
     init(){
         self.configArrayListDriver()
+        self.configLeftNameDriver()
+        self.configRightNameDriver()
+        
     }
     
     //MARK: - Mock Data (será retirado conforme implantação da API)
@@ -32,7 +37,18 @@ class DuelViewModel {
         self.driverList.append(DuelDropdownModel(duelDriverName: "Mika Hakkinen"))
         self.driverList.append(DuelDropdownModel(duelDriverName: "Rubens Barrichello"))
         self.driverList.append(DuelDropdownModel(duelDriverName: "Sebastian Vettel"))
-        
+    }
+    
+    private func configLeftNameDriver() {
+        for name in 0 ..< driverList.count {
+            self.leftNameDriverData.append(driverList[name].duelDriverName)
+        }
+    }
+    
+    private func configRightNameDriver() {
+        for name in 0 ..< driverList.count {
+            self.rightNameDriverData.append(driverList[name].duelDriverName)
+        }
     }
     
     
@@ -139,11 +155,11 @@ class DuelViewModel {
     
     //MARK: - Functions to get data to Drivers Dropdown
     
-    public var numberOfRowsDrivers: Int{
-        return self.driverList.count
+    public var getLeftNameDriver: [String] {
+        return leftNameDriverData
     }
     
-    public func getDriverName(indexPath: IndexPath) -> String {
-        return driverList[indexPath.row].duelDriverName
+    public var getRightNameDriver: [String] {
+        return rightNameDriverData
     }
 }

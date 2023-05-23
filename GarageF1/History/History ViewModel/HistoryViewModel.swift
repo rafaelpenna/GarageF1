@@ -74,7 +74,6 @@ class HistoryViewModel {
         }
     }
     
-    
     //MARK: - Functions to get info to Drivers Data
     
     public var numberOfRowsDrivers:Int{
