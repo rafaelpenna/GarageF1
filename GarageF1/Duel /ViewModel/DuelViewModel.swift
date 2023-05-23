@@ -51,7 +51,6 @@ class DuelViewModel {
         }
     }
     
-    
     //MARK: - Functions to get Left Driver Data
     
     public func getDriversNameLeft() -> String {

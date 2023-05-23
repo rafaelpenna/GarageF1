@@ -11,7 +11,6 @@ import UIKit
 
 class DuelScreenView: UIView {
     
-
     lazy var duelTopRedLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,7 +64,7 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 23)
         return label
     }()
@@ -120,7 +119,7 @@ class DuelScreenView: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 23)
         return label
     }()
@@ -266,6 +265,8 @@ class DuelScreenView: UIView {
             namesBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             namesBackgroundLabel.heightAnchor.constraint(equalToConstant: 120),
             
+            //MARK: - Left Button Driver Constraints
+            
             leftDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
             leftDriverButton.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
             leftDriverButton.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
@@ -274,9 +275,9 @@ class DuelScreenView: UIView {
             
             driversNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: -100),
             driversNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -30),
-            driversNameLeftLabel.leadingAnchor.constraint(equalTo: namesBackgroundLabel.leadingAnchor, constant: 5),
+            driversNameLeftLabel.leadingAnchor.constraint(equalTo: namesBackgroundLabel.leadingAnchor, constant: 7),
             driversNameLeftLabel.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),
-            driversNameLeftLabel.trailingAnchor.constraint(equalTo: leftArrowIconImage.leadingAnchor, constant: -4),
+            driversNameLeftLabel.trailingAnchor.constraint(equalTo: leftArrowIconImage.leadingAnchor, constant: -7),
             
             leftArrowIconImage.trailingAnchor.constraint(equalTo: leftDriverButton.trailingAnchor, constant: -4),
             leftArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundLabel.bottomAnchor, constant: -55),
@@ -304,6 +305,8 @@ class DuelScreenView: UIView {
             leftNameDriversTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             leftNameDriversTableView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
             leftNameDriversTableView.heightAnchor.constraint(equalToConstant: 220),
+            
+            //MARK: - Right Button Driver Constraints
             
             rightDriverButton.centerXAnchor.constraint(equalTo: namesBackgroundLabel.centerXAnchor, constant: 100),
             rightDriverButton.topAnchor.constraint(equalTo: namesBackgroundLabel.topAnchor, constant: 30),

@@ -23,6 +23,10 @@ class DuelViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
+        setupArraysOfSearch()
+    }
+    
+    func setupArraysOfSearch() {
         leftListDriver = duelViewModel.getLeftNameDriver
         rightListDriver = duelViewModel.getRightNameDriver
     }
@@ -233,7 +237,6 @@ class DuelViewController: UIViewController {
         }
     }
 }
-
 
 //MARK: - Protocols configuration
 
