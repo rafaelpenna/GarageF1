@@ -64,6 +64,15 @@ class EmailLoginScreen: UIView {
         return email
     }()
     
+    lazy var viewPasswordTextField: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 5.0
+        return view
+    }()
+    
     lazy var passwordTextField: UITextField = {
         let password = UITextField()
         password.translatesAutoresizingMaskIntoConstraints = false
@@ -118,8 +127,9 @@ class EmailLoginScreen: UIView {
         addSubview(imageRegister)
         addSubview(nameTextField)
         addSubview(emailTextField)
-        addSubview(passwordTextField)
-        addSubview(visibleInvisibleButton)
+        addSubview(viewPasswordTextField)
+        viewPasswordTextField.addSubview(passwordTextField)
+        viewPasswordTextField.addSubview(visibleInvisibleButton)
         addSubview(registerButton)
     }
     
@@ -194,18 +204,24 @@ class EmailLoginScreen: UIView {
             emailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             emailTextField.heightAnchor.constraint(equalToConstant: 45),
             
+            viewPasswordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
+            viewPasswordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            viewPasswordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            viewPasswordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
+            
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 15),
             passwordTextField.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
-            passwordTextField.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            passwordTextField.trailingAnchor.constraint(equalTo: visibleInvisibleButton.leadingAnchor, constant: -2),
             passwordTextField.heightAnchor.constraint(equalTo: emailTextField.heightAnchor),
             
-            visibleInvisibleButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor, constant: -15),
-            visibleInvisibleButton.centerYAnchor.constraint(equalTo: passwordTextField.centerYAnchor),
+            visibleInvisibleButton.trailingAnchor.constraint(equalTo: viewPasswordTextField.trailingAnchor, constant: -10),
+            visibleInvisibleButton.leadingAnchor.constraint(equalTo: viewPasswordTextField.leadingAnchor, constant: 310),
+            visibleInvisibleButton.centerYAnchor.constraint(equalTo: viewPasswordTextField.centerYAnchor),
             
             registerButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 25),
-            registerButton.leadingAnchor.constraint(equalTo: passwordTextField.leadingAnchor),
-            registerButton.trailingAnchor.constraint(equalTo: passwordTextField.trailingAnchor),
-            registerButton.heightAnchor.constraint(equalTo: passwordTextField.heightAnchor)
+            registerButton.leadingAnchor.constraint(equalTo: emailTextField.leadingAnchor),
+            registerButton.trailingAnchor.constraint(equalTo: emailTextField.trailingAnchor),
+            registerButton.heightAnchor.constraint(equalTo: emailTextField.heightAnchor)
         ])
     }
 }

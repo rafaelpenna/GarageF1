@@ -40,10 +40,10 @@ class LoadingScreen: UIView {
         animation.frame = .init(x: 25, y: 10, width: 300, height: 230)
         animation.contentMode = .scaleAspectFit
         animation.loopMode = .loop
-        animation.animationSpeed = 0.8
+        animation.animationSpeed = 0.9
         animation.play(fromFrame: 0, toFrame: 50)
         
-        Timer.scheduledTimer(timeInterval: 7, target: self, selector: #selector(timerConfig), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 3.7, target: self, selector: #selector(timerConfig), userInfo: nil, repeats: false)
         return animation
     }()
     

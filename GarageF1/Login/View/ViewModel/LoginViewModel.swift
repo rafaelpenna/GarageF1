@@ -6,8 +6,21 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+protocol LoginViewModelProtocol: AnyObject {
+    func success()
+    func errorLogin()
+    func unexpectedProblem()
+}
 
 class LoginViewModel {
+    
+    private var auth = Auth.auth()
+    private var delegate: LoginViewModelProtocol?
+    public func delegate(delegate: LoginViewModelProtocol?) {
+        self.delegate = delegate
+    }
     
     public enum Strings {
          case emptyString
@@ -37,4 +50,18 @@ class LoginViewModel {
              }
          }
      }
+    
+    public func login(email: String, password: String) {
+        auth.signIn(withEmail: email, password: password) { usuario, error in
+            if error != nil {
+                self.delegate?.errorLogin()
+            } else {
+                if usuario == nil {
+                    self.delegate?.unexpectedProblem()
+                } else {
+                    self.delegate?.success()
+                }
+            }
+        }
+    }
 }

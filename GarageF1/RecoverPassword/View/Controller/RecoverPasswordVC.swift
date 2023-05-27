@@ -12,6 +12,7 @@ class RecoverPasswordVC: UIViewController {
     
     var recoverPasswordScreen: RecoverPasswordScreen = RecoverPasswordScreen()
     var auth = Auth.auth()
+    var alert: Alert?
     
     override func loadView() {
         view = recoverPasswordScreen
@@ -33,7 +34,7 @@ class RecoverPasswordVC: UIViewController {
     private func configDelegateAndAuth() {
         recoverPasswordScreen.delegate(delegate: self)
         recoverPasswordScreen.configTextFieldDelegate(delegate: self)
-        
+        alert = Alert(controller: self)
         auth = Auth.auth()
     }
     
@@ -63,19 +64,15 @@ extension RecoverPasswordVC: RecoverPasswordScreenProtocol {
         
         if let emailTextField = recoverPasswordScreen.emailTextField.text, !emailTextField.isEmpty {
             let alert = UIAlertController(title: garageF1.getDescription(), message: recoverPassword.getDescription(), preferredStyle: .alert)
-            
+
             alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: { action in
                 self.auth.sendPasswordReset(withEmail: emailTextField)
             }))
-            
+
             present(alert, animated: true)
         } else {
-            let alert = UIAlertController(title: garageF1.getDescription(), message: tapEmail.getDescription(), preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default))
-            present(alert, animated: true)
+            self.alert?.getAlert(titulo: garageF1.getDescription(), message: tapEmail.getDescription())
         }
-        self.recoverPasswordScreen.emailTextField.text = emptyTF.getDescription()
     }
     
     func actionBackButton() {

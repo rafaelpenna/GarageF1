@@ -10,8 +10,9 @@ import Firebase
 
 class LoginVC: UIViewController {
     
+    var loginViewModel: LoginViewModel? = LoginViewModel()
     var loginScreen: LoginScreen? = LoginScreen()
-    var recoverPasswordVC: RecoverPasswordVC = RecoverPasswordVC()
+    var recoverPasswordVC: RecoverPasswordVC? = RecoverPasswordVC()
     var alert: Alert?
     var auth: Auth?
     
@@ -34,6 +35,7 @@ class LoginVC: UIViewController {
     private func configProtocolsAlertAuth() {
         loginScreen?.delegate(delegate: self)
         loginScreen?.configTextFieldDelegate(delegate: self)
+        loginViewModel?.delegate(delegate: self)
         alert = Alert(controller: self)
         auth = Auth.auth()
     }
@@ -65,6 +67,32 @@ extension LoginVC: UITextFieldDelegate {
     }
 }
 
+extension LoginVC: LoginViewModelProtocol {
+    
+    func unexpectedProblem() {
+        let atention = LoginViewModel.Strings.atention
+        let unexpectedProblem = LoginViewModel.Strings.unexpectedProblem
+        
+        self.alert?.getAlert(titulo: atention.getDescription(), message: unexpectedProblem.getDescription())
+    }
+    
+    func success() {
+        let loadingVC: LoadingVC = LoadingVC()
+        let tabBarHome: TabBarVC = TabBarVC()
+        
+        loadingVC.modalPresentationStyle = .fullScreen
+        self.present(loadingVC, animated: true)
+        self.navigationController?.pushViewController(tabBarHome, animated: true)
+    }
+    
+    func errorLogin() {
+        let atention = LoginViewModel.Strings.atention
+        let wrongData = LoginViewModel.Strings.wrongData
+        
+        self.alert?.getAlert(titulo: atention.getDescription(), message: wrongData.getDescription())
+    }
+}
+
 extension LoginVC: LoginScreenProtocol {
     
     func actionVisibleInvisibleButton() {
@@ -82,29 +110,7 @@ extension LoginVC: LoginScreenProtocol {
     }
 
     func actionLoginButton() {
-        
-        let tabBarHome: TabBarVC = TabBarVC()
-        let loadingVC: LoadingVC = LoadingVC()
-        let atention = LoginViewModel.Strings.atention
-        let wrongData = LoginViewModel.Strings.wrongData
-        let unexpectedProblem = LoginViewModel.Strings.unexpectedProblem
-
-        guard let login = loginScreen else { return }
-        
-        auth?.signIn(withEmail: login.getEmail(), password: login.getPassword(), completion: { (usuario, error) in
-            if error != nil {
-                self.alert?.getAlert(titulo: atention.getDescription(), message: wrongData.getDescription())
-                
-            } else {
-                if usuario == nil {
-                    self.alert?.getAlert(titulo: atention.getDescription(), message: unexpectedProblem.getDescription())
-                } else {
-                    loadingVC.modalPresentationStyle = .fullScreen
-                    self.present(loadingVC, animated: true)
-                    self.navigationController?.pushViewController(tabBarHome, animated: true)
-                }
-            }
-        })
+        loginViewModel?.login(email: loginScreen?.emailTextField.text ?? "", password: loginScreen?.passwordTextField.text ?? "")
     }
     
     func actionRegisterButton() {
@@ -117,6 +123,7 @@ extension LoginVC: LoginScreenProtocol {
     }
     
     func actionForgotThePassword() {
-        self.navigationController?.pushViewController(self.recoverPasswordVC, animated: true)
+        guard let recoverVC = recoverPasswordVC else { return }
+        self.navigationController?.pushViewController(recoverVC, animated: true)
     }
 }
