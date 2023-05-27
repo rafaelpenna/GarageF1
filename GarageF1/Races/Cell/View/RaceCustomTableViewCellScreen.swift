@@ -66,11 +66,11 @@ class RaceCustomTableViewCellScreen: UIView {
         return fowardButton
     }()
     
-    lazy var divisionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.backgroundColor = UIColor.darkGray.cgColor
-        return label
+    lazy var divisionView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.backgroundColor = UIColor.darkGray.cgColor
+        return view
     }()
 
     override init(frame: CGRect) {
@@ -90,7 +90,7 @@ class RaceCustomTableViewCellScreen: UIView {
         addSubview(dayLabel)
         addSubview(monthLabel)
         addSubview(fowardButton)
-        addSubview(divisionLabel)
+        addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
@@ -118,10 +118,10 @@ class RaceCustomTableViewCellScreen: UIView {
             fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             fowardButton.topAnchor.constraint(equalTo: topAnchor, constant: 60),
             
-            divisionLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
-            divisionLabel.heightAnchor.constraint(equalToConstant: 0.3),
-            divisionLabel.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor),
-            divisionLabel.trailingAnchor.constraint(equalTo: fowardButton.leadingAnchor),
+            divisionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            divisionView.heightAnchor.constraint(equalToConstant: 0.3),
+            divisionView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor),
+            divisionView.trailingAnchor.constraint(equalTo: fowardButton.leadingAnchor),
             
         ])
     }

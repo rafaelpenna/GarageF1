@@ -57,18 +57,18 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    lazy var divisionLabels: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var divisionView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    lazy var dataBackgroundLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
-        return label
+    lazy var dataBackgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        return view
     }()
     
     public func configure() {
@@ -82,13 +82,13 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     }
     
     private func addSubViews(){
-        addSubview(dataBackgroundLabel)
+        addSubview(dataBackgroundView)
         addSubview(birthLocationTitle)
         addSubview(birthLocationAnswerLeft)
         addSubview(birthLocationAnswerRight)
         addSubview(countrynAnswerLeft)
         addSubview(countrynAnswerRight)
-        addSubview(divisionLabels)
+        addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
@@ -109,15 +109,15 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
             countrynAnswerRight.topAnchor.constraint(equalTo: birthLocationAnswerRight.bottomAnchor, constant: 4),
             countrynAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionLabels.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
-            divisionLabels.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionLabels.bottomAnchor.constraint(equalTo: countrynAnswerLeft.bottomAnchor),
-            divisionLabels.widthAnchor.constraint(equalToConstant: 2),
+            divisionView.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
+            divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            divisionView.bottomAnchor.constraint(equalTo: countrynAnswerLeft.bottomAnchor),
+            divisionView.widthAnchor.constraint(equalToConstant: 2),
             
-            dataBackgroundLabel.topAnchor.constraint(equalTo: topAnchor),
-            dataBackgroundLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            dataBackgroundLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            dataBackgroundLabel.bottomAnchor.constraint(equalTo: divisionLabels.bottomAnchor, constant: 5),
+            dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),
+            dataBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            dataBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            dataBackgroundView.bottomAnchor.constraint(equalTo: divisionView.bottomAnchor, constant: 5),
         ])
     }
 }

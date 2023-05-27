@@ -33,7 +33,7 @@ class HistoryViewController: UIViewController {
         buttonTeams(buttonTeamsVC)
         buttonDrivers(buttonDriversVC)
         view.addSubview(buttonYearSelect)
-        view.addSubview(backgorundLabelSelect)
+        view.addSubview(backgorundViewSelect)
         view.addSubview(textFieldSearchSelect)
         view.addSubview(searchImageViewSelect)
         view.addSubview(yearsTableViewSelect)
@@ -66,10 +66,10 @@ class HistoryViewController: UIViewController {
         return image
     }()
     
-    lazy var backgorundLabelSelect: UILabel = {
-        let backgroundLabel: UILabel = historyScreen?.backgroundSearchLabel ?? UILabel()
-        backgroundLabel.isHidden = true
-        return backgroundLabel
+    lazy var backgorundViewSelect: UIView = {
+        let backgroundView: UIView = historyScreen?.backgroundSearchView ?? UIView()
+        backgroundView.isHidden = true
+        return backgroundView
     }()
     
     lazy var yearsTableViewSelect: UITableView = {
@@ -81,14 +81,14 @@ class HistoryViewController: UIViewController {
     private func animateList(toogle: Bool) {
         if toogle {
             UIView.animate(withDuration: 0.3) {
-                self.backgorundLabelSelect.isHidden = false
+                self.backgorundViewSelect.isHidden = false
                 self.searchImageViewSelect.isHidden = false
                 self.textFieldSearchSelect.isHidden = false
                 self.yearsTableViewSelect.isHidden = false
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.backgorundLabelSelect.isHidden = true
+                self.backgorundViewSelect.isHidden = true
                 self.searchImageViewSelect.isHidden = true
                 self.textFieldSearchSelect.isHidden = true
                 self.yearsTableViewSelect.isHidden = true

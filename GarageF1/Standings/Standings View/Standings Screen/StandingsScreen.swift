@@ -11,18 +11,18 @@ class StandingsScreen: UIView {
     
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
 
-    lazy var topRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    lazy var backgroundTopRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var backgroundTopRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     lazy var backButton: UIButton = {
@@ -111,8 +111,8 @@ class StandingsScreen: UIView {
     }
     
     private func addElements() {
-        addSubview(backgroundTopRedLabel)
-        addSubview(topRedLabel)
+        addSubview(backgroundTopRedView)
+        addSubview(topRedView)
         addSubview(circuitCountryLabel)
         addSubview(trackButton)
         addSubview(standingsButton)
@@ -130,43 +130,43 @@ class StandingsScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 135),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
             
             circuitCountryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             circuitCountryLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            backButton.topAnchor.constraint(equalTo: backgroundTopRedLabel.bottomAnchor, constant: 5),
+            backButton.topAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: 5),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 15),
             
-            standingsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
+            standingsButton.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -10),
             standingsButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),
             
-            trackButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
+            trackButton.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -10),
             trackButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
             
-            trackTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: 15),
+            trackTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: 15),
             trackTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
             trackTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
             trackTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
 //MARK: - StandingsBoardView Constraints
          
-            standingsBoardView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            standingsBoardView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             standingsBoardView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             standingsBoardView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsBoardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -90),
                         
-            standingsHeader.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            standingsHeader.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             standingsHeader.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             standingsHeader.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsHeader.heightAnchor.constraint(equalToConstant: 100),

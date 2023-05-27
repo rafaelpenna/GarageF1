@@ -19,18 +19,18 @@ class RacesScreen: UIView {
         return tableView
     }()
     
-    lazy var topRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    lazy var backgroundTopRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var backgroundTopRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     lazy var racesHeaderLabel: UILabel = {
@@ -74,8 +74,8 @@ class RacesScreen: UIView {
     
     private func addElements() {
         addSubview(infoRacesTableView)
-        addSubview(topRedLabel)
-        addSubview(backgroundTopRedLabel)
+        addSubview(topRedView)
+        addSubview(backgroundTopRedView)
         addSubview(racesHeaderLabel)
         addSubview(seasonLabel)
         addSubview(driversDescriptionLabel)
@@ -94,28 +94,28 @@ class RacesScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 135),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
             
-            infoRacesTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            infoRacesTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             infoRacesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             infoRacesTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             infoRacesTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
             racesHeaderLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            racesHeaderLabel.centerXAnchor.constraint(equalTo: topRedLabel.centerXAnchor),
+            racesHeaderLabel.centerXAnchor.constraint(equalTo: topRedView.centerXAnchor),
             
             seasonLabel.bottomAnchor.constraint(equalTo: driversDescriptionLabel.topAnchor, constant: -4),
             seasonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
-            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -8),
+            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -8),
             driversDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             driversDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])

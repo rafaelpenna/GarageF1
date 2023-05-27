@@ -44,14 +44,14 @@ class DuelViewController: UIViewController {
         
         view.addSubview(selectDriverLeftButton)
         view.addSubview(leftNameDriver)
-        view.addSubview(leftBackgorundLabelSelect)
+        view.addSubview(leftBackgorundViewSelect)
         view.addSubview(leftTextFieldSearchSelect)
         view.addSubview(leftSearchImageViewSelect)
         view.addSubview(leftNameDriverTableViewSelect)
         
         view.addSubview(selectDriverRightButton)
         view.addSubview(rightNameDriver)
-        view.addSubview(rightBackgorundLabelSelect)
+        view.addSubview(rightBackgorundViewSelect)
         view.addSubview(rightTextFieldSearchSelect)
         view.addSubview(rightSearchImageViewSelect)
         view.addSubview(rightNameDriverTableViewSelect)
@@ -101,10 +101,10 @@ class DuelViewController: UIViewController {
         return image
     }()
     
-    lazy var leftBackgorundLabelSelect: UILabel = {
-        let backgroundLabel: UILabel = duelScreen?.leftBackgroundSearchLabel ?? UILabel()
-        backgroundLabel.isHidden = true
-        return backgroundLabel
+    lazy var leftBackgorundViewSelect: UIView = {
+        let backgroundView: UIView = duelScreen?.leftBackgroundSearchView ?? UIView()
+        backgroundView.isHidden = true
+        return backgroundView
     }()
     
     lazy var leftNameDriverTableViewSelect: UITableView = {
@@ -139,10 +139,10 @@ class DuelViewController: UIViewController {
         return image
     }()
     
-    lazy var rightBackgorundLabelSelect: UILabel = {
-        let backgroundLabel: UILabel = duelScreen?.rightBackgroundSearchLabel ?? UILabel()
-        backgroundLabel.isHidden = true
-        return backgroundLabel
+    lazy var rightBackgorundViewSelect: UIView = {
+        let backgroundView: UIView = duelScreen?.rightBackgroundSearchView ?? UIView()
+        backgroundView.isHidden = true
+        return backgroundView
     }()
     
     lazy var rightNameDriverTableViewSelect: UITableView = {
@@ -154,14 +154,14 @@ class DuelViewController: UIViewController {
     private func leftAnimateList(toogle: Bool) {
         if toogle {
             UIView.animate(withDuration: 0.3) {
-                self.leftBackgorundLabelSelect.isHidden = false
+                self.leftBackgorundViewSelect.isHidden = false
                 self.leftSearchImageViewSelect.isHidden = false
                 self.leftTextFieldSearchSelect.isHidden = false
                 self.leftNameDriverTableViewSelect.isHidden = false
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.leftBackgorundLabelSelect.isHidden = true
+                self.leftBackgorundViewSelect.isHidden = true
                 self.leftSearchImageViewSelect.isHidden = true
                 self.leftTextFieldSearchSelect.isHidden = true
                 self.leftNameDriverTableViewSelect.isHidden = true
@@ -173,14 +173,14 @@ class DuelViewController: UIViewController {
     private func rightAnimateList(toogle: Bool) {
         if toogle {
             UIView.animate(withDuration: 0.3) {
-                self.rightBackgorundLabelSelect.isHidden = false
+                self.rightBackgorundViewSelect.isHidden = false
                 self.rightSearchImageViewSelect.isHidden = false
                 self.rightTextFieldSearchSelect.isHidden = false
                 self.rightNameDriverTableViewSelect.isHidden = false
             }
         } else {
             UIView.animate(withDuration: 0.3) {
-                self.rightBackgorundLabelSelect.isHidden = true
+                self.rightBackgorundViewSelect.isHidden = true
                 self.rightSearchImageViewSelect.isHidden = true
                 self.rightTextFieldSearchSelect.isHidden = true
                 self.rightNameDriverTableViewSelect.isHidden = true

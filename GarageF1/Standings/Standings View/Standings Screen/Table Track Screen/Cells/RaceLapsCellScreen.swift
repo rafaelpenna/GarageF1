@@ -11,11 +11,11 @@ class RaceLapsCellScreen: UITableViewCell {
 
     static let identifier = String(describing: RaceLapsCellScreen.self)
     
-    lazy var backgroundCellWhite: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .white
-        return label
+    lazy var backgroundCellWhiteView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        return view
     }()
     
     lazy var trackLapsTitle: UILabel = {
@@ -43,7 +43,7 @@ class RaceLapsCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(backgroundCellWhite)
+        addSubview(backgroundCellWhiteView)
         addSubview(trackLapsTitle)
         addSubview(trackLapsAnswer)
     }
@@ -55,10 +55,10 @@ class RaceLapsCellScreen: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            backgroundCellWhite.topAnchor.constraint(equalTo: topAnchor),
-            backgroundCellWhite.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundCellWhite.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundCellWhite.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            backgroundCellWhiteView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundCellWhiteView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhiteView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             trackLapsTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             trackLapsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),

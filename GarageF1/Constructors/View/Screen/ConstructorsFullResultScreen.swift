@@ -18,18 +18,18 @@ class ConstructorsFullResultScreen: UIView {
         self.delegate = delegate
     }
     
-    private lazy var topLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    private lazy var topView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    private lazy var topRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    private lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     lazy var backButton: UIButton = {
@@ -89,8 +89,8 @@ class ConstructorsFullResultScreen: UIView {
     }
     
     private func addSubview() {
-        addSubview(topLabel)
-        addSubview(topRedLabel)
+        addSubview(topView)
+        addSubview(topRedView)
         addSubview(backButton)
         addSubview(titleLabel)
         addSubview(descriptionLabel)
@@ -109,29 +109,29 @@ class ConstructorsFullResultScreen: UIView {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
         
-            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 135),
+            topView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topView.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 50),
         
             backButton.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 13),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
             backButton.heightAnchor.constraint(equalToConstant: 20),
             backButton.widthAnchor.constraint(equalToConstant: 15),
             
-            titleLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
+            titleLabel.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             titleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
             descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             
-            constructorsTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            constructorsTableView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             constructorsTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             constructorsTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
             constructorsTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
