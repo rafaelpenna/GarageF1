@@ -31,11 +31,6 @@ class DuelDriversTableViewCell: UITableViewCell {
         customDriversName.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(customDriversName)
     }
-
-//    func setupCell(driveData:HistoryYearModel){
-//        self.yearsViewModel = YearsScreenViewModel(data: driveData)
-//        customInfoYears.yearLabel.text = yearsViewModel?.getYearSeason
-//    }
     
     private func configConstraints(){
         NSLayoutConstraint.activate([

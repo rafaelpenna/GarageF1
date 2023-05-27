@@ -9,18 +9,18 @@ import UIKit
 
 class HistoryScreenView: UIView {
 
-    lazy var topRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    lazy var backgroundTopRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var backgroundTopRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     lazy var historyTitleLabel: UILabel = {
@@ -63,11 +63,11 @@ class HistoryScreenView: UIView {
         return imageView
     }()
     
-    lazy var backgroundSearchLabel: UILabel = {
-       let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1).cgColor
-        return label
+    lazy var backgroundSearchView: UIView = {
+       let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1).cgColor
+        return view
     }()
     
     lazy var searchTextField: UITextField = {
@@ -142,14 +142,14 @@ class HistoryScreenView: UIView {
     }
     
     private func addElements() {
-        addSubview(topRedLabel)
-        addSubview(backgroundTopRedLabel)
+        addSubview(topRedView)
+        addSubview(backgroundTopRedView)
         addSubview(historyTitleLabel)
         addSubview(historyDescriptionLabel)
         addSubview(seasonYearButton)
         seasonYearButton.addSubview(seasonYearTitleLabel)
         seasonYearButton.addSubview(seasonYearIconImage)
-        addSubview(backgroundSearchLabel)
+        addSubview(backgroundSearchView)
         addSubview(searchTextField)
         addSubview(searchImageView)
         addSubview(yearsTableView)
@@ -176,20 +176,20 @@ class HistoryScreenView: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 135),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
             
             historyTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             historyTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            historyDescriptionLabel.centerYAnchor.constraint(equalTo: topRedLabel.centerYAnchor),
+            historyDescriptionLabel.centerYAnchor.constraint(equalTo: topRedView.centerYAnchor),
             historyDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
             seasonYearButton.topAnchor.constraint(equalTo: historyDescriptionLabel.topAnchor, constant: -5),
@@ -204,37 +204,37 @@ class HistoryScreenView: UIView {
             seasonYearIconImage.trailingAnchor.constraint(equalTo: seasonYearButton.trailingAnchor),
             seasonYearIconImage.topAnchor.constraint(equalTo: seasonYearButton.topAnchor, constant: 12),
             
-            backgroundSearchLabel.topAnchor.constraint(equalTo: seasonYearButton.bottomAnchor),
-            backgroundSearchLabel.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor),
-            backgroundSearchLabel.widthAnchor.constraint(equalToConstant: 90),
-            backgroundSearchLabel.heightAnchor.constraint(equalToConstant: 30),
+            backgroundSearchView.topAnchor.constraint(equalTo: seasonYearButton.bottomAnchor),
+            backgroundSearchView.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor),
+            backgroundSearchView.widthAnchor.constraint(equalToConstant: 90),
+            backgroundSearchView.heightAnchor.constraint(equalToConstant: 30),
             
-            searchImageView.topAnchor.constraint(equalTo: backgroundSearchLabel.topAnchor, constant: 5),
+            searchImageView.topAnchor.constraint(equalTo: backgroundSearchView.topAnchor, constant: 5),
             searchImageView.leadingAnchor.constraint(equalTo: seasonYearButton.leadingAnchor, constant: 3),
             searchImageView.widthAnchor.constraint(equalToConstant: 20),
             searchImageView.heightAnchor.constraint(equalToConstant: 20),
             
-            searchTextField.topAnchor.constraint(equalTo: backgroundSearchLabel.topAnchor, constant: 5),
+            searchTextField.topAnchor.constraint(equalTo: backgroundSearchView.topAnchor, constant: 5),
             searchTextField.leadingAnchor.constraint(equalTo: searchImageView.trailingAnchor, constant: 5),
             searchTextField.widthAnchor.constraint(equalToConstant: 55),
             
-            yearsTableView.topAnchor.constraint(equalTo: backgroundSearchLabel.bottomAnchor),
-            yearsTableView.leadingAnchor.constraint(equalTo: backgroundSearchLabel.leadingAnchor),
+            yearsTableView.topAnchor.constraint(equalTo: backgroundSearchView.bottomAnchor),
+            yearsTableView.leadingAnchor.constraint(equalTo: backgroundSearchView.leadingAnchor),
             yearsTableView.widthAnchor.constraint(equalToConstant: 90),
             yearsTableView.heightAnchor.constraint(equalToConstant: 220),
             
-            driversButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
+            driversButton.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -10),
             driversButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 60),
             
-            teamsButton.bottomAnchor.constraint(equalTo: topRedLabel.bottomAnchor, constant: -10),
+            teamsButton.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -10),
             teamsButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -60),
             
-            driversTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            driversTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             driversTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             driversTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             driversTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
             
-            teamsTableView.topAnchor.constraint(equalTo: topRedLabel.bottomAnchor),
+            teamsTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             teamsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             teamsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             teamsTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),

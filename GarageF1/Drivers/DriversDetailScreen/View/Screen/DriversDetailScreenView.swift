@@ -9,18 +9,18 @@ import UIKit
 
 class DriversDetailScreenView: UIView {
 
-    lazy var topLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    lazy var backgroundTopRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    lazy var backgroundTopRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     lazy var backButton: UIButton = {
@@ -80,8 +80,8 @@ class DriversDetailScreenView: UIView {
     }
     
     private func addElements() {
-        addSubview(topLabel)
-        addSubview(backgroundTopRedLabel)
+        addSubview(topRedView)
+        addSubview(backgroundTopRedView)
         addSubview(backButton)
         addSubview(firstNameLabel)
         addSubview(lastNameLabel)
@@ -97,15 +97,15 @@ class DriversDetailScreenView: UIView {
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
             
-            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 135),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -114,19 +114,19 @@ class DriversDetailScreenView: UIView {
             
             
             firstNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            firstNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -40),
+            firstNameLabel.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -40),
             
             lastNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
-            lastNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -15),
+            lastNameLabel.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -15),
             
             driverPhotoImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
-            driverPhotoImage.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            driverPhotoImage.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor),
             driverPhotoImage.heightAnchor.constraint(equalToConstant: 120),
             driverPhotoImage.widthAnchor.constraint(equalToConstant: 120),
             
             infoDriversTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             infoDriversTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
-            infoDriversTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            infoDriversTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }

@@ -18,18 +18,18 @@ class HomeScreen: UIView {
         self.delegate = delegate
     }
 
-    private lazy var topLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    private lazy var topView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
-    private lazy var topRedLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
+    private lazy var topRedView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .red
+        return view
     }()
     
     private lazy var homeLabel: UILabel = {
@@ -87,8 +87,8 @@ class HomeScreen: UIView {
     }
     
     func addElements() {
-        addSubview(topRedLabel)
-        addSubview(topLabel)
+        addSubview(topRedView)
+        addSubview(topView)
         addSubview(homeLabel)
         addSubview(welcomeLabel)
         addSubview(userNameLabel)
@@ -106,23 +106,23 @@ class HomeScreen: UIView {
             welcomeLabel.bottomAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: -25),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             
-            userNameLabel.bottomAnchor.constraint(equalTo: topLabel.bottomAnchor, constant: -10),
+            userNameLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10),
             userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
             
-            topLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topLabel.heightAnchor.constraint(equalToConstant: 135),
+            topView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            topView.heightAnchor.constraint(equalToConstant: 135),
             
-            topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            topRedView.topAnchor.constraint(equalTo: topAnchor),
+            topRedView.heightAnchor.constraint(equalToConstant: 50),
             
-            homeLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
+            homeLabel.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             homeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             
-            superTableView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            superTableView.topAnchor.constraint(equalTo: topView.bottomAnchor),
             superTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             superTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             superTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
