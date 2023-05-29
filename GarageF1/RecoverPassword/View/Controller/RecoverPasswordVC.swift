@@ -6,23 +6,21 @@
 //
 
 import UIKit
-import Firebase
 
 class RecoverPasswordVC: UIViewController {
     
     var recoverPasswordScreen: RecoverPasswordScreen = RecoverPasswordScreen()
-    var auth = Auth.auth()
+    var recoverPasswordViewModel: RecoverPasswordViewModel = RecoverPasswordViewModel()
     var alert: Alert?
     
     override func loadView() {
         view = recoverPasswordScreen
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        recoverPasswordViewModel.delegate(delegate: self)
         configDelegateAndAuth()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,9 +33,7 @@ class RecoverPasswordVC: UIViewController {
         recoverPasswordScreen.delegate(delegate: self)
         recoverPasswordScreen.configTextFieldDelegate(delegate: self)
         alert = Alert(controller: self)
-        auth = Auth.auth()
     }
-    
 }
 
 extension RecoverPasswordVC: UITextFieldDelegate {
@@ -52,24 +48,37 @@ extension RecoverPasswordVC: UITextFieldDelegate {
     }
 }
 
-extension RecoverPasswordVC: RecoverPasswordScreenProtocol {
-    func actionSendEmailButton() {
+extension RecoverPasswordVC: RecoverPasswordViewModelProtocol {
+    func error() {
+        let garageF1 = RecoverPasswordViewModel.Warnings.garageF1
+        let unexpectedProblem = RecoverPasswordViewModel.Warnings.unexpectedProblem
+        let ok = RecoverPasswordViewModel.Warnings.ok
         
+        let alert = UIAlertController(title: garageF1.getDescription(), message: unexpectedProblem.getDescription(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: nil))
+        present(alert, animated: true)
+        recoverPasswordScreen.emailTextField.text = ""
+    }
+    
+    func success() {
         let garageF1 = RecoverPasswordViewModel.Warnings.garageF1
         let recoverPassword = RecoverPasswordViewModel.Warnings.recoverEmail
-        let tapEmail = RecoverPasswordViewModel.Warnings.tapEmail
         let ok = RecoverPasswordViewModel.Warnings.ok
-        let emptyTF = RecoverPasswordViewModel.Warnings.emptyTF
         
+        let alert = UIAlertController(title: garageF1.getDescription(), message: recoverPassword.getDescription(), preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: nil))
+        present(alert, animated: true)
+        recoverPasswordScreen.emailTextField.text = ""
+    }
+}
+
+extension RecoverPasswordVC: RecoverPasswordScreenProtocol {
+    func actionSendEmailButton() {
+        let garageF1 = RecoverPasswordViewModel.Warnings.garageF1
+        let tapEmail = RecoverPasswordViewModel.Warnings.tapEmail
         
         if let emailTextField = recoverPasswordScreen.emailTextField.text, !emailTextField.isEmpty {
-            let alert = UIAlertController(title: garageF1.getDescription(), message: recoverPassword.getDescription(), preferredStyle: .alert)
-
-            alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: { action in
-                self.auth.sendPasswordReset(withEmail: emailTextField)
-            }))
-
-            present(alert, animated: true)
+            self.recoverPasswordViewModel.recoverPassword(email: self.recoverPasswordScreen.emailTextField.text ?? "")
         } else {
             self.alert?.getAlert(titulo: garageF1.getDescription(), message: tapEmail.getDescription())
         }

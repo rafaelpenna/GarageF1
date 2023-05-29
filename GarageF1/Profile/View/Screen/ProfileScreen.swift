@@ -101,6 +101,15 @@ class ProfileScreen: UIView {
         return pencil
     }()
     
+    lazy var viewNameTextField: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        return view
+    }()
+    
     lazy var tfFirstName: UITextField = {
         let email = UITextField()
         email.translatesAutoresizingMaskIntoConstraints = false
@@ -115,14 +124,13 @@ class ProfileScreen: UIView {
         return email
     }()
     
-    lazy var pencilChance1: UIImageView = {
-        let pencil = UIImageView()
-        pencil.translatesAutoresizingMaskIntoConstraints = false
-        pencil.image = UIImage(systemName: "pencil")
-        pencil.contentMode = .scaleAspectFit
-        pencil.tintColor = UIColor(red: 69/255, green: 48/255, blue: 20/255, alpha: 1)
-        
-        return pencil
+    lazy var viewEmailTextField: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        return view
     }()
     
     lazy var pencilChance2: UIImageView = {
@@ -147,6 +155,15 @@ class ProfileScreen: UIView {
         email.leftViewMode = .always
         
         return email
+    }()
+    
+    lazy var viewPasswordTextField: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .white
+        view.clipsToBounds = true
+        view.layer.cornerRadius = 10
+        return view
     }()
     
     lazy var pencilChance3: UIImageView = {
@@ -223,16 +240,18 @@ class ProfileScreen: UIView {
         addSubview(profileLabel)
         addSubview(editLabel)
         addSubview(userPhoto)
-        addSubview(tfFirstName)
-        addSubview(tfEmail)
-        addSubview(tfPassword)
+        addSubview(viewNameTextField)
+        viewNameTextField.addSubview(tfFirstName)
+        viewNameTextField.addSubview(pencilChance)
+        addSubview(viewEmailTextField)
+        viewEmailTextField.addSubview(tfEmail)
+        viewEmailTextField.addSubview(pencilChance2)
+        addSubview(viewPasswordTextField)
+        viewPasswordTextField.addSubview(tfPassword)
+        viewPasswordTextField.addSubview(pencilChance3)
         addSubview(nameLabel)
         addSubview(emailLabel)
         addSubview(passwordLabel)
-        addSubview(pencilChance)
-        addSubview(pencilChance1)
-        addSubview(pencilChance2)
-        addSubview(pencilChance3)
         addSubview(saveButton)
         addSubview(logOutButton)
         
@@ -272,36 +291,51 @@ class ProfileScreen: UIView {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -310),
             
-            pencilChance.trailingAnchor.constraint(equalTo: tfFirstName.trailingAnchor, constant: -15),
-            pencilChance.centerYAnchor.constraint(equalTo: tfFirstName.centerYAnchor),
+            pencilChance.trailingAnchor.constraint(equalTo: viewNameTextField.trailingAnchor, constant: -15),
+            pencilChance.centerYAnchor.constraint(equalTo: viewNameTextField.centerYAnchor),
             
-            tfFirstName.topAnchor.constraint(equalTo: userPhoto.bottomAnchor, constant: 40),
+            viewNameTextField.topAnchor.constraint(equalTo: userPhoto.bottomAnchor, constant: 40),
+            viewNameTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            viewNameTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            viewNameTextField.heightAnchor.constraint(equalToConstant: 35),
+            
+            tfFirstName.topAnchor.constraint(equalTo: viewNameTextField.topAnchor),
             tfFirstName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tfFirstName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            tfFirstName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             tfFirstName.heightAnchor.constraint(equalToConstant: 35),
             
             emailLabel.bottomAnchor.constraint(equalTo: tfEmail.topAnchor, constant: -5),
             emailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             emailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -300),
             
-            pencilChance2.trailingAnchor.constraint(equalTo: tfEmail.trailingAnchor, constant: -15),
-            pencilChance2.centerYAnchor.constraint(equalTo: tfEmail.centerYAnchor),
+            viewEmailTextField.topAnchor.constraint(equalTo: tfFirstName.bottomAnchor, constant: 30),
+            viewEmailTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            viewEmailTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            viewEmailTextField.heightAnchor.constraint(equalToConstant: 35),
             
-            tfEmail.topAnchor.constraint(equalTo: tfFirstName.bottomAnchor, constant: 30),
+            pencilChance2.trailingAnchor.constraint(equalTo: viewEmailTextField.trailingAnchor, constant: -15),
+            pencilChance2.centerYAnchor.constraint(equalTo: viewEmailTextField.centerYAnchor),
+            
+            tfEmail.topAnchor.constraint(equalTo: viewEmailTextField.topAnchor),
             tfEmail.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tfEmail.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            tfEmail.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             tfEmail.heightAnchor.constraint(equalToConstant: 35),
             
             passwordLabel.bottomAnchor.constraint(equalTo: tfPassword.topAnchor, constant: -5),
             passwordLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             passwordLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -300),
             
-            pencilChance3.trailingAnchor.constraint(equalTo: tfPassword.trailingAnchor, constant: -15),
-            pencilChance3.centerYAnchor.constraint(equalTo: tfPassword.centerYAnchor),
+            pencilChance3.trailingAnchor.constraint(equalTo: viewPasswordTextField.trailingAnchor, constant: -15),
+            pencilChance3.centerYAnchor.constraint(equalTo: viewPasswordTextField.centerYAnchor),
             
-            tfPassword.topAnchor.constraint(equalTo: tfEmail.bottomAnchor, constant: 30),
+            viewPasswordTextField.topAnchor.constraint(equalTo: tfEmail.bottomAnchor, constant: 30),
+            viewPasswordTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            viewPasswordTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            viewPasswordTextField.heightAnchor.constraint(equalToConstant: 35),
+            
+            tfPassword.topAnchor.constraint(equalTo: viewPasswordTextField.topAnchor),
             tfPassword.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            tfPassword.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            tfPassword.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             tfPassword.heightAnchor.constraint(equalToConstant: 35),
             
             saveButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -15),

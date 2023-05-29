@@ -11,6 +11,7 @@ import Firebase
 class EmailLoginVC: UIViewController {
     
     let emailLoginScreen: EmailLoginScreen? = EmailLoginScreen()
+    let emailLoginViewModel: EmailViewModel? = EmailViewModel()
     var auth: Auth?
     var alert: Alert?
     
@@ -20,6 +21,7 @@ class EmailLoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailLoginViewModel?.delegate(delegate: self)
         configProtocolsAuthAlert()
     }
     
@@ -47,6 +49,25 @@ extension EmailLoginVC: UITextFieldDelegate {
     }
 }
 
+extension EmailLoginVC: EmailViewModelProtocol {
+    func error() {
+        let atention = EmailViewModel.namesAndWarnings.atention
+        let erro = EmailViewModel.namesAndWarnings.tryAgain
+        
+        
+        self.alert?.getAlert(titulo: atention.getDescription(), message: erro.getDescription())
+    }
+    
+    func success() {
+        let registeredUser = EmailViewModel.namesAndWarnings.registeredUser
+        let congratulations = EmailViewModel.namesAndWarnings.congratulations
+        
+        self.alert?.getAlert(titulo: congratulations.getDescription(), message: registeredUser.getDescription(), completion: {
+            self.navigationController?.popViewController(animated: true)
+        })
+    }
+}
+
 extension EmailLoginVC: EmailLoginScreenProtocol {
     
     func actionVisibleInvisibleButton() {
@@ -64,28 +85,11 @@ extension EmailLoginVC: EmailLoginScreenProtocol {
     }
     
     func actionBackButton() {
-        
         navigationController?.popViewController(animated: true)
     }
     
     func actionRegisterButton() {
-        
-        let atention = EmailViewModel.namesAndWarnings.atention
-        let congratulations = EmailViewModel.namesAndWarnings.congratulations
-        let erro = EmailViewModel.namesAndWarnings.tryAgain
-        let registeredUser = EmailViewModel.namesAndWarnings.registeredUser
-        
         guard let register = emailLoginScreen else {return}
-        
-        auth?.createUser(withEmail: register.getEmail(), password: register.getPassword(), completion: { (result, error) in
-            if error != nil {
-                self.alert?.getAlert(titulo: atention.getDescription(), message: erro.getDescription())
-            } else {
-                self.alert?.getAlert(titulo: congratulations.getDescription(), message: registeredUser.getDescription(), completion: {
-                    self.navigationController?.popViewController(animated: true)
-                })
-            }
-        })
+        self.emailLoginViewModel?.createUser(email: register.getEmail(), password: register.getPassword())
     }
 }
-

@@ -6,8 +6,30 @@
 //
 
 import UIKit
+import FirebaseAuth
+
+protocol EmailViewModelProtocol: AnyObject {
+    func error()
+    func success()
+}
 
 class EmailViewModel: NSObject {
+    
+    private var auth = Auth.auth()
+    private var delegate: EmailViewModelProtocol?
+    public func delegate(delegate: EmailViewModelProtocol?) {
+        self.delegate = delegate
+    }
+    
+    public func createUser(email: String, password: String) {
+        auth.createUser(withEmail: email, password: password) { result, error in
+            if error != nil {
+                self.delegate?.error()
+            } else {
+                self.delegate?.success()
+            }
+        }
+    }
     
     public enum namesAndWarnings {
         case emptyString
@@ -18,8 +40,6 @@ class EmailViewModel: NSObject {
         case registeredUser
         case tryAgain
         case other(String)
-        
-        
         
         public func getDescription() -> String {
             switch self {
