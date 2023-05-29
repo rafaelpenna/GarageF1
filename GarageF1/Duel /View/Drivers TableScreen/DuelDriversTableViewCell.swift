@@ -34,7 +34,6 @@ class DuelDriversTableViewCell: UITableViewCell {
     
     private func configConstraints(){
         NSLayoutConstraint.activate([
-            
             customDriversName.leadingAnchor.constraint(equalTo: leadingAnchor),
             customDriversName.trailingAnchor.constraint(equalTo: trailingAnchor),
             customDriversName.topAnchor.constraint(equalTo: topAnchor),

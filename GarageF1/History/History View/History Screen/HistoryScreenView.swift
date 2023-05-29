@@ -161,12 +161,12 @@ class HistoryScreenView: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.driversTableView.delegate = delegate
-        self.driversTableView.dataSource = dataSource
-        self.teamsTableView.delegate = delegate
-        self.teamsTableView.dataSource = dataSource
-        self.yearsTableView.delegate = delegate
-        self.yearsTableView.dataSource = dataSource
+        driversTableView.delegate = delegate
+        driversTableView.dataSource = dataSource
+        teamsTableView.delegate = delegate
+        teamsTableView.dataSource = dataSource
+        yearsTableView.delegate = delegate
+        yearsTableView.dataSource = dataSource
     }
         
     private func backgroundColor() {
