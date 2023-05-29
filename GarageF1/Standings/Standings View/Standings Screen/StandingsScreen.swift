@@ -104,10 +104,10 @@ class StandingsScreen: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.standingsTableView.delegate = delegate
-        self.standingsTableView.dataSource = dataSource
-        self.trackTableView.delegate = delegate
-        self.trackTableView.dataSource = dataSource
+        standingsTableView.delegate = delegate
+        standingsTableView.dataSource = dataSource
+        trackTableView.delegate = delegate
+        trackTableView.dataSource = dataSource
     }
     
     private func addElements() {

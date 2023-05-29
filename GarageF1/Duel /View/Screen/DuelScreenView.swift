@@ -200,8 +200,8 @@ class DuelScreenView: UIView {
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.infoTableView.delegate = delegate
-        self.infoTableView.dataSource = dataSource
+        infoTableView.delegate = delegate
+        infoTableView.dataSource = dataSource
     }
     
     required init?(coder: NSCoder) {

@@ -87,8 +87,8 @@ class RacesScreen: UIView {
     
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.infoRacesTableView.delegate = delegate
-        self.infoRacesTableView.dataSource = dataSource
+        infoRacesTableView.delegate = delegate
+        infoRacesTableView.dataSource = dataSource
     }
 
     private func configConstraints(){

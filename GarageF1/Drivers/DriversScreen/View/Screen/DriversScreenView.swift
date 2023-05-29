@@ -75,8 +75,8 @@ class DriversScreenView: UIView {
     
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
-        self.infoDriversTableView.delegate = delegate
-        self.infoDriversTableView.dataSource = dataSource
+        infoDriversTableView.delegate = delegate
+        infoDriversTableView.dataSource = dataSource
     }
 
     private func configConstraints(){
