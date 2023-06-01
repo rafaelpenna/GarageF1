@@ -197,24 +197,18 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = historyScreen?.backgroundView
             return cell ?? UITableViewCell()
         } else {
             if historyScreen?.driversTableView.isHidden == false {
                 let cell: HistoryDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryDriversTableViewCell.identifier) as? HistoryDriversTableViewCell
                 cell?.setupCell(driveData: historyViewModel.loadCurrentDriver(indexPath: indexPath))
-                let backgroundView = UIView()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = historyScreen?.backgroundView
                     return cell ?? UITableViewCell()
             } else {
                 let cell: HistoryTeamsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: HistoryTeamsTableViewCell.identifier) as? HistoryTeamsTableViewCell
                 cell?.setupCell(teamData: historyViewModel.loadCurrentTeam(indexPath: indexPath))
-                let backgroundView = UIView()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = historyScreen?.backgroundView
                 return cell ?? UITableViewCell()
             }
         }

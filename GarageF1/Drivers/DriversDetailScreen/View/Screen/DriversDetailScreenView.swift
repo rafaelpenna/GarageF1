@@ -69,6 +69,13 @@ class DriversDetailScreenView: UIView {
         return tableView
     }()
     
+    lazy var backgroundView: UIView = {
+       let background = UIView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.backgroundColor = .none
+        return background
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()

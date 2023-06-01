@@ -8,6 +8,17 @@
 import Foundation
 import UIKit
 
+enum DriversInfoTableViewSection: Int {
+    case birthDate
+    case birthLocation
+    case championshipsWin
+    case races
+    case podiums
+    case points
+    case bestRacePosition
+    case bestGridPosition
+}
+
 class DriversDetailViewController: UIViewController {
     
     let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
@@ -64,7 +75,6 @@ class DriversDetailViewController: UIViewController {
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
-    
 }
 
 extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSource {
@@ -78,70 +88,57 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 0 {
+        switch DriversInfoTableViewSection(rawValue: indexPath.row){
+        case .birthDate:
             let cell = tableView.dequeueReusableCell(withIdentifier: BirthDateCustomTableViewCellScreen.identifier) as? BirthDateCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.birthDateAnswerLabel.text = birthDate
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 1 {
+        case .birthLocation:
             let cell = tableView.dequeueReusableCell(withIdentifier: BirthLocationCustomTableViewCellScreen.identifier) as? BirthLocationCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.birthLocationAnswerLabel.text = birthLocation
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 2 {
+        case .championshipsWin:
             let cell = tableView.dequeueReusableCell(withIdentifier: ChampionshipsWinCustomTableViewCellScreen.identifier) as? ChampionshipsWinCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.championshipsWinAnswerLabel.text = championshipsWon
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 3 {
+        case .races:
             let cell = tableView.dequeueReusableCell(withIdentifier: RacesCustomTableViewCellScreen.identifier) as? RacesCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.racesAnswerLabel.text = racesParticipated
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 4 {
+        case .podiums:
             let cell = tableView.dequeueReusableCell(withIdentifier: PodiumsCustomTableViewCellScreen.identifier) as? PodiumsCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.podiumsAnswerLabel.text = podiumsEarned
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 5 {
+        case .points:
             let cell = tableView.dequeueReusableCell(withIdentifier: PointsCustomTableViewCellScreen.identifier) as? PointsCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.pointsAnswerLabel.text = pointsEarned
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else if indexPath.row == 6 {
+        case .bestRacePosition:
             let cell = tableView.dequeueReusableCell(withIdentifier: BestRacePositionCustomTableViewCellScreen.identifier) as? BestRacePositionCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.bestRacePositionAnswerLabel.text = bestPositionRaces
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
-        } else {
+        case .bestGridPosition:
             let cell = tableView.dequeueReusableCell(withIdentifier: BestGridPositionCustomTableViewCellScreen.identifier) as? BestGridPositionCustomTableViewCellScreen
             cell?.configure()
-            let backgroundView = UIView()
             cell?.bestGridPositionAnswerLabel.text = bestGridPosition
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
             return cell ?? UITableViewCell()
+        default:
+            return UITableViewCell()
         }
     }
 }

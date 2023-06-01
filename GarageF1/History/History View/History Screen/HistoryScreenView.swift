@@ -112,6 +112,13 @@ class HistoryScreenView: UIView {
         return button
     }()
     
+    lazy var backgroundView: UIView = {
+       let background = UIView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.backgroundColor = .none
+        return background
+    }()
+    
     lazy var driversTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false

@@ -69,6 +69,13 @@ class StandingsScreen: UIView {
         return label
     }()
     
+    lazy var backgroundView: UIView = {
+       let background = UIView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.backgroundColor = .none
+        return background
+    }()
+    
     lazy var standingsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
