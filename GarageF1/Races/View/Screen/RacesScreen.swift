@@ -102,7 +102,7 @@ class RacesScreen: UIView {
             backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
             
             infoRacesTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
             infoRacesTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),

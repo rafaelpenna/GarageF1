@@ -138,7 +138,7 @@ class StandingsScreen: UIView {
             backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
             
             circuitCountryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             circuitCountryLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

@@ -120,7 +120,7 @@ class SecondDriverScreen: UIView {
             topRedViewBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedViewBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedViewBackground.topAnchor.constraint(equalTo: topAnchor),
-            topRedViewBackground.heightAnchor.constraint(equalToConstant: 50),
+            topRedViewBackground.heightAnchor.constraint(equalToConstant: 80),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),

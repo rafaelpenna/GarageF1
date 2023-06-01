@@ -105,7 +105,7 @@ class DriversDetailScreenView: UIView {
             backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
