@@ -13,10 +13,15 @@ class DuelViewModel {
     private var leftNameDriverData:[String] = []
     private var rightNameDriverData:[String] = []
     
+    private var leftListDriver = [String]()
+    private var rightListDriver = [String]()
+    
     init(){
         self.configArrayListDriver()
         self.configLeftNameDriver()
         self.configRightNameDriver()
+        leftListDriver = getLeftNameDriver
+        rightListDriver = getRightNameDriver
         
     }
     
@@ -154,11 +159,36 @@ class DuelViewModel {
     
     //MARK: - Functions to get data to Drivers Dropdown
     
-    public var getLeftNameDriver: [String] {
+    private var getLeftNameDriver: [String] {
         return leftNameDriverData
     }
     
-    public var getRightNameDriver: [String] {
+    private var getRightNameDriver: [String] {
         return rightNameDriverData
     }
+    
+    public var getFilterLeftNameDriver: [String] {
+        return leftListDriver
+    }
+    
+    public var getFilterRightNameDriver: [String] {
+        return rightListDriver
+    }
+    
+    public func filterLeftList(searchText: String) {
+        leftListDriver = getLeftNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+    }
+    
+    public func filterRightList(searchText: String) {
+        rightListDriver = getRightNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+    }
+    
+    public func clearLeftFilterList() {
+        leftListDriver = leftNameDriverData
+    }
+    
+    public func clearRightFilterList() {
+        rightListDriver = rightNameDriverData
+    }
+    
 }

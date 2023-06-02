@@ -15,12 +15,14 @@ class HistoryViewModel {
     
     private var listYearDataInsert:[HistoryYearModel] = []
     private var listYear:[String] = []
+    private var listYearsSearch = [String]()
     
     init(){
         self.configArrayDataDrivers()
         self.configArrayDataTeams()
         self.configArrayListYearDataInsert()
         self.configArrayListYear()
+        listYearsSearch = listYear
     }
     
     //MARK: - Mock Data (será retirado conforme implantação da API)
@@ -129,7 +131,19 @@ class HistoryViewModel {
     
     //MARK: - Functions to get info to Dropdown Data
     
-    public var getDataYear: [String] {
+    private var getDataYear: [String] {
         return listYear
+    }
+    
+    public var getFilterDataYear: [String] {
+        return listYearsSearch
+    }
+    
+    public func filterList(searchText: String) {
+        listYearsSearch = getDataYear.filter{$0.lowercased().contains(searchText.lowercased())}
+    }
+    
+    public func clearFilterList() {
+        listYearsSearch = listYear
     }
 }

@@ -22,9 +22,6 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView? = DuelScreenView()
     var duelViewModel: DuelViewModel = DuelViewModel()
     
-    var leftListDriver = [String]()
-    var rightListDriver = [String]()
-    
     override func loadView() {
         view = duelScreen
     }
@@ -33,12 +30,6 @@ class DuelViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
-        setupArraysOfSearch()
-    }
-    
-    func setupArraysOfSearch() {
-        leftListDriver = duelViewModel.getLeftNameDriver
-        rightListDriver = duelViewModel.getRightNameDriver
     }
     
     func setupProtocols() {
@@ -219,7 +210,7 @@ class DuelViewController: UIViewController {
     
     @objc func leftSearchNameDriverEditing(_ sender: UITextField) {
         if let searchText = sender.text {
-            leftListDriver = duelViewModel.getLeftNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+            duelViewModel.filterLeftList(searchText: searchText)
             duelScreen?.leftNameDriversTableView.reloadData()
         }
         clearLeftSearchField()
@@ -227,7 +218,7 @@ class DuelViewController: UIViewController {
     
     @objc func rightSearchNameDriverEditing(_ sender: UITextField) {
         if let searchText = sender.text {
-            rightListDriver = duelViewModel.getRightNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+            duelViewModel.filterRightList(searchText: searchText)
             duelScreen?.rightNameDriversTableView.reloadData()
         }
         clearRightSearchField()
@@ -235,14 +226,14 @@ class DuelViewController: UIViewController {
     
     @objc private func clearLeftSearchField() {
         if leftTextFieldSearchSelect.text == "" {
-            leftListDriver = duelViewModel.getLeftNameDriver
+            duelViewModel.clearLeftFilterList()
             duelScreen?.leftNameDriversTableView.reloadData()
         }
     }
     
     @objc private func clearRightSearchField() {
         if rightTextFieldSearchSelect.text == "" {
-            rightListDriver = duelViewModel.getRightNameDriver
+            duelViewModel.clearRightFilterList()
             duelScreen?.rightNameDriversTableView.reloadData()
         }
     }
@@ -254,9 +245,9 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == leftNameDriverTableViewSelect  {
-            return leftListDriver.count
+            return duelViewModel.getFilterLeftNameDriver.count
         } else if tableView == rightNameDriverTableViewSelect {
-            return rightListDriver.count
+            return duelViewModel.getFilterRightNameDriver.count
         } else {
             return 7
         }
@@ -265,7 +256,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == leftNameDriverTableViewSelect  {
             let cell: DuelDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DuelDriversTableViewCell.identifier) as? DuelDriversTableViewCell
-            cell?.textLabel?.text = String(leftListDriver[indexPath.row])
+            cell?.textLabel?.text = String(duelViewModel.getFilterLeftNameDriver[indexPath.row])
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
@@ -273,7 +264,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             return cell ?? UITableViewCell()
         } else if tableView == rightNameDriverTableViewSelect {
             let cell: DuelDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DuelDriversTableViewCell.identifier) as? DuelDriversTableViewCell
-            cell?.textLabel?.text = String(rightListDriver[indexPath.row])
+            cell?.textLabel?.text = String(duelViewModel.getFilterRightNameDriver[indexPath.row])
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
@@ -358,12 +349,12 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == duelScreen?.leftNameDriversTableView {
-            leftNameDriver.text = "\(leftListDriver[indexPath.row])"
+            leftNameDriver.text = "\(duelViewModel.getFilterLeftNameDriver[indexPath.row])"
             leftAnimateList(toogle: false)
             leftTextFieldSearchSelect.text = ""
             clearLeftSearchField()
         } else if tableView == duelScreen?.rightNameDriversTableView {
-            rightNameDriver.text = "\(rightListDriver[indexPath.row])"
+            rightNameDriver.text = "\(duelViewModel.getFilterRightNameDriver[indexPath.row])"
             rightAnimateList(toogle: false)
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()
