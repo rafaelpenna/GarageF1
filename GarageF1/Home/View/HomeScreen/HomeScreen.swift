@@ -117,7 +117,7 @@ class HomeScreen: UIView {
             topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedView.topAnchor.constraint(equalTo: topAnchor),
-            topRedView.heightAnchor.constraint(equalToConstant: 50),
+            topRedView.heightAnchor.constraint(equalToConstant: 80),
             
             homeLabel.centerXAnchor.constraint(equalTo: topView.centerXAnchor),
             homeLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),

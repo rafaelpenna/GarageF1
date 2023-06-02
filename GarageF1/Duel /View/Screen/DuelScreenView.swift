@@ -192,6 +192,13 @@ class DuelScreenView: UIView {
         return view
     }()
     
+    lazy var backgroundView: UIView = {
+       let background = UIView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.backgroundColor = .none
+        return background
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addElements()
@@ -251,7 +258,7 @@ class DuelScreenView: UIView {
             backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 50),
+            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
             
             duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),

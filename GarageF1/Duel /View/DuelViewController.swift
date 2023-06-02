@@ -7,13 +7,20 @@
 
 import UIKit
 
+enum DuelInfoTableViewSection: Int {
+    case duelBirthDate
+    case duelBirthLocation
+    case duelChampionships
+    case duelRacesParticipated
+    case duelPodiumsEarned
+    case duelPointsEarned
+    case duelWins
+}
+
 class DuelViewController: UIViewController {
     
     var duelScreen: DuelScreenView? = DuelScreenView()
     var duelViewModel: DuelViewModel = DuelViewModel()
-    
-    var leftListDriver = [String]()
-    var rightListDriver = [String]()
     
     override func loadView() {
         view = duelScreen
@@ -23,12 +30,6 @@ class DuelViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
-        setupArraysOfSearch()
-    }
-    
-    func setupArraysOfSearch() {
-        leftListDriver = duelViewModel.getLeftNameDriver
-        rightListDriver = duelViewModel.getRightNameDriver
     }
     
     func setupProtocols() {
@@ -209,7 +210,7 @@ class DuelViewController: UIViewController {
     
     @objc func leftSearchNameDriverEditing(_ sender: UITextField) {
         if let searchText = sender.text {
-            leftListDriver = duelViewModel.getLeftNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+            duelViewModel.filterLeftList(searchText: searchText)
             duelScreen?.leftNameDriversTableView.reloadData()
         }
         clearLeftSearchField()
@@ -217,7 +218,7 @@ class DuelViewController: UIViewController {
     
     @objc func rightSearchNameDriverEditing(_ sender: UITextField) {
         if let searchText = sender.text {
-            rightListDriver = duelViewModel.getRightNameDriver.filter{$0.lowercased().contains(searchText.lowercased())}
+            duelViewModel.filterRightList(searchText: searchText)
             duelScreen?.rightNameDriversTableView.reloadData()
         }
         clearRightSearchField()
@@ -225,14 +226,14 @@ class DuelViewController: UIViewController {
     
     @objc private func clearLeftSearchField() {
         if leftTextFieldSearchSelect.text == "" {
-            leftListDriver = duelViewModel.getLeftNameDriver
+            duelViewModel.clearLeftFilterList()
             duelScreen?.leftNameDriversTableView.reloadData()
         }
     }
     
     @objc private func clearRightSearchField() {
         if rightTextFieldSearchSelect.text == "" {
-            rightListDriver = duelViewModel.getRightNameDriver
+            duelViewModel.clearRightFilterList()
             duelScreen?.rightNameDriversTableView.reloadData()
         }
     }
@@ -244,9 +245,9 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == leftNameDriverTableViewSelect  {
-            return leftListDriver.count
+            return duelViewModel.getFilterLeftNameDriver.count
         } else if tableView == rightNameDriverTableViewSelect {
-            return rightListDriver.count
+            return duelViewModel.getFilterRightNameDriver.count
         } else {
             return 7
         }
@@ -255,92 +256,77 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == leftNameDriverTableViewSelect  {
             let cell: DuelDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DuelDriversTableViewCell.identifier) as? DuelDriversTableViewCell
-            cell?.textLabel?.text = String(leftListDriver[indexPath.row])
+            cell?.textLabel?.text = String(duelViewModel.getFilterLeftNameDriver[indexPath.row])
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = duelScreen?.backgroundView
             return cell ?? UITableViewCell()
         } else if tableView == rightNameDriverTableViewSelect {
             let cell: DuelDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DuelDriversTableViewCell.identifier) as? DuelDriversTableViewCell
-            cell?.textLabel?.text = String(rightListDriver[indexPath.row])
+            cell?.textLabel?.text = String(duelViewModel.getFilterRightNameDriver[indexPath.row])
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
-            let backgroundView = UIView()
-            backgroundView.backgroundColor = .none
-            cell?.selectedBackgroundView = backgroundView
+            cell?.selectedBackgroundView = duelScreen?.backgroundView
             return cell ?? UITableViewCell()
         } else {
-            if indexPath.row == 0 {
+            switch DuelInfoTableViewSection(rawValue: indexPath.row){
+            case .duelBirthDate:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthDateCustomTableViewCell.identifier) as? DuelBirthDateCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.birthDateAnswerLeft.text = duelViewModel.getDriversBirthDateLeft()
                 cell?.birthDateAnswerRight.text = duelViewModel.getDriversBirthDateRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else if indexPath.row == 1 {
+            case .duelBirthLocation:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthLocationCustomTableViewCell.identifier) as? DuelBirthLocationCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.birthLocationAnswerLeft.text = duelViewModel.getDriversBirthPlaceLeft()
                 cell?.birthLocationAnswerRight.text = duelViewModel.getDriversBirthPlaceRight()
                 cell?.countrynAnswerLeft.text = duelViewModel.getDriversCountryLeft()
                 cell?.countrynAnswerRight.text = duelViewModel.getDriversCountryRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else if indexPath.row == 2 {
+            case .duelChampionships:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelChampionshipsWonCustomTableViewCell.identifier) as? DuelChampionshipsWonCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.championshipsWinAnswerLeft.text = duelViewModel.getChampionshipsWonLeft()
                 cell?.championshipsWinAnswerRight.text = duelViewModel.getChampionshipsWonRight()
                 cell?.championshipsWinAnswerYearLeft.text = duelViewModel.getChampionshipsWinYearLeft()
                 cell?.championshipsWinAnswerYearRight.text = duelViewModel.getChampionshipsWinYearRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else if indexPath.row == 3 {
+            case .duelRacesParticipated:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelRacesParticipatedCustomTableViewCell.identifier) as? DuelRacesParticipatedCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.racesAnswerLeft.text = duelViewModel.getRacesParticipatedLeft()
                 cell?.racesAnswerRight.text = duelViewModel.getRacesParticipatedRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else if indexPath.row == 4 {
+            case .duelPodiumsEarned:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPodiumsEarnedCustomTableViewCell.identifier) as? DuelPodiumsEarnedCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.podiumsAnswerLeft.text = duelViewModel.getPodiumsWonLeft()
                 cell?.podiumsAnswerRight.text = duelViewModel.getPodiumsWonRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else if indexPath.row == 5 {
+            case .duelPointsEarned:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPointsEarnedCustomTableViewCell.identifier) as? DuelPointsEarnedCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.pointsAnswerLeft.text = duelViewModel.getPointsEarnedLeft()
                 cell?.pointsAnswerRight.text = duelViewModel.getPointsEarnedRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            } else {
+            case .duelWins:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelWinsCustomTableViewCell.identifier) as? DuelWinsCustomTableViewCell
                 cell?.configure()
-                let backgroundView = UIView()
                 cell?.winsAnswerLeft.text = duelViewModel.getWinsLeft()
                 cell?.winsAnswerRight.text = duelViewModel.getWinsRight()
-                backgroundView.backgroundColor = .none
-                cell?.selectedBackgroundView = backgroundView
+                cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
+            default:
+                return UITableViewCell()
             }
         }
     }
@@ -363,12 +349,12 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == duelScreen?.leftNameDriversTableView {
-            leftNameDriver.text = "\(leftListDriver[indexPath.row])"
+            leftNameDriver.text = "\(duelViewModel.getFilterLeftNameDriver[indexPath.row])"
             leftAnimateList(toogle: false)
             leftTextFieldSearchSelect.text = ""
             clearLeftSearchField()
         } else if tableView == duelScreen?.rightNameDriversTableView {
-            rightNameDriver.text = "\(rightListDriver[indexPath.row])"
+            rightNameDriver.text = "\(duelViewModel.getFilterRightNameDriver[indexPath.row])"
             rightAnimateList(toogle: false)
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()

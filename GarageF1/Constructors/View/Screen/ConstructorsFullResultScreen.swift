@@ -117,7 +117,7 @@ class ConstructorsFullResultScreen: UIView {
             topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedView.topAnchor.constraint(equalTo: topAnchor),
-            topRedView.heightAnchor.constraint(equalToConstant: 50),
+            topRedView.heightAnchor.constraint(equalToConstant: 80),
         
             backButton.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 13),
             backButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),

@@ -272,7 +272,7 @@ class ProfileScreen: UIView {
             topRedLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             topRedLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topRedLabel.topAnchor.constraint(equalTo: topAnchor),
-            topRedLabel.heightAnchor.constraint(equalToConstant: 50),
+            topRedLabel.heightAnchor.constraint(equalToConstant: 80),
             
             profileLabel.centerXAnchor.constraint(equalTo: topLabel.centerXAnchor),
             profileLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
