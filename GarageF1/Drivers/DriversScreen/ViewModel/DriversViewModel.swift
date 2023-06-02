@@ -65,7 +65,46 @@ class DriversViewModel {
     }
     
     public func getDriverPhoto(indexPath: IndexPath) -> UIImage {
-        return UIImage(named: "charles") ?? UIImage()
+        if dataDriversScreen[indexPath.row].driver.familyName == "Verstappen" {
+            return UIImage(named: "max") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Pérez" {
+            return UIImage(named: "sergio") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Stroll" {
+            return UIImage(named: "lance") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Sainz" {
+            return UIImage(named: "carlos") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Russel" {
+            return UIImage(named: "george") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Hamilton" {
+            return UIImage(named: "lewis") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Alonso" {
+            return UIImage(named: "fernando") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Ocon" {
+            return UIImage(named: "esteban") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Gasly" {
+            return UIImage(named: "pierre") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Norris" {
+            return UIImage(named: "lando") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Hülkenberg" {
+            return UIImage(named: "nico") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Piastri" {
+            return UIImage(named: "oscar") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Bottas" {
+            return UIImage(named: "valteri") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Zhou" {
+            return UIImage(named: "guanyu") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Tsunoda" {
+            return UIImage(named: "yuki") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Magnussen" {
+            return UIImage(named: "kevin") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Albon" {
+            return UIImage(named: "alexander") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "de Vries" {
+            return UIImage(named: "nick") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Sargeant" {
+            return UIImage(named: "logan") ?? UIImage()
+        }
+        return UIImage()
     }
     
     public func getDriverName(indexPath: IndexPath) -> String {

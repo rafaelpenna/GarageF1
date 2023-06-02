@@ -20,7 +20,7 @@ class DriversCustomCellViewModel {
     }
     
     public var getDriversPhoto: UIImage {
-        return UIImage(named: "charles") ?? UIImage()
+        return UIImage()
     }
     
     public var getDriversName: String {
