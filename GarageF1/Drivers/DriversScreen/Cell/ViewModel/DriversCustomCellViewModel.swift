@@ -9,14 +9,14 @@ import UIKit
 
 class DriversCustomCellViewModel {
     
-    private var data: StandingsList
+    private var data: DriverStanding
     
-    init(data:StandingsList){
+    init(data:DriverStanding){
         self.data = data
     }
     
     public var getDriversPosition: String {
-        return data.driverStandings[0].positionText
+        return data.positionText
     }
     
     public var getDriversPhoto: UIImage {
@@ -24,18 +24,18 @@ class DriversCustomCellViewModel {
     }
     
     public var getDriversName: String {
-        return data.driverStandings[0].driver.givenName
+        return data.driver.givenName
     }
     
     public var getDriversLastName: String {
-        return data.driverStandings[0].driver.familyName
+        return data.driver.familyName
     }
     
     public var getTeam: String {
-        return data.driverStandings[0].constructors[0].name
+        return data.constructors[0].name
     }
     
     public var getPoints: String {
-        return data.driverStandings[0].points
+        return data.points
     }
 }

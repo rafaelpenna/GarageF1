@@ -19,16 +19,14 @@ class DriversViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
-        driversViewModel.fetch(.request)
+        driversViewModel.fetch(.mock)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
-    
     private func setupProtocols() {
-        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         driversViewModel.delegate(delegate: self)
     }
 }
@@ -74,11 +72,10 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension DriversViewController: DriversViewModelDelegate {
     func success() {
-        print("Deu certo")
         driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
     }
     
     func error(_ message: String) {
-        print("Deu ruim \(message)")
+    
     }
 }

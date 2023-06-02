@@ -106,7 +106,7 @@ class DriversCustomTableViewCellScreen: UIView {
             nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
             
             lastNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 5),
             
             teamLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 1),
             teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
