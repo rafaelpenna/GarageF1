@@ -9,33 +9,33 @@ import UIKit
 
 class DriversCustomCellViewModel {
     
-    private var data: Drivers
+    private var data: StandingsList
     
-    init(data:Drivers){
+    init(data:StandingsList){
         self.data = data
     }
     
     public var getDriversPosition: String {
-        return data.driversPosition
+        return data.driverStandings[0].positionText
     }
     
     public var getDriversPhoto: UIImage {
-        return data.driversPhoto
+        return UIImage(named: "charles") ?? UIImage()
     }
     
     public var getDriversName: String {
-        return data.driversName
+        return data.driverStandings[0].driver.givenName
     }
     
     public var getDriversLastName: String {
-        return data.driversLastName
+        return data.driverStandings[0].driver.familyName
     }
     
     public var getTeam: String {
-        return data.teamsName
+        return data.driverStandings[0].constructors[0].name
     }
     
     public var getPoints: String {
-        return data.currentDriverPoints
+        return data.driverStandings[0].points
     }
 }

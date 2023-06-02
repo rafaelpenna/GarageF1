@@ -32,7 +32,7 @@ class DriversCustomTableViewCell: UITableViewCell {
         self.contentView.addSubview(self.screen)
     }
 
-    func setupCell(driver:Drivers){
+    func setupCell(driver:StandingsList){
         self.cellViewModel = DriversCustomCellViewModel(data: driver)
         
         screen.positionLabel.text = cellViewModel?.getDriversPosition

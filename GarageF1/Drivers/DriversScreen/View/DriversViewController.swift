@@ -19,6 +19,7 @@ class DriversViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
+        driversViewModel.fetch(.request)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -28,6 +29,7 @@ class DriversViewController: UIViewController {
     
     private func setupProtocols() {
         driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        driversViewModel.delegate(delegate: self)
     }
 }
 
@@ -67,5 +69,16 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
         vc.pointsEarned = driversViewModel.getPointsEarned(indexPath: indexPath)
         vc.bestPositionRaces = driversViewModel.getBestPositionRaces(indexPath: indexPath)
         vc.bestGridPosition = driversViewModel.getBestGridPosition(indexPath: indexPath)
+    }
+}
+
+extension DriversViewController: DriversViewModelDelegate {
+    func success() {
+        print("Deu certo")
+        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+    }
+    
+    func error(_ message: String) {
+        print("Deu ruim \(message)")
     }
 }
