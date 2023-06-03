@@ -73,7 +73,7 @@ class DriversViewModel {
             return UIImage(named: "lance") ?? UIImage()
         } else if dataDriversScreen[indexPath.row].driver.familyName == "Sainz" {
             return UIImage(named: "carlos") ?? UIImage()
-        } else if dataDriversScreen[indexPath.row].driver.familyName == "Russel" {
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Russell" {
             return UIImage(named: "george") ?? UIImage()
         } else if dataDriversScreen[indexPath.row].driver.familyName == "Hamilton" {
             return UIImage(named: "lewis") ?? UIImage()
@@ -100,9 +100,11 @@ class DriversViewModel {
         } else if dataDriversScreen[indexPath.row].driver.familyName == "Albon" {
             return UIImage(named: "alexander") ?? UIImage()
         } else if dataDriversScreen[indexPath.row].driver.familyName == "de Vries" {
-            return UIImage(named: "nick") ?? UIImage()
+            return UIImage(named: "nyck") ?? UIImage()
         } else if dataDriversScreen[indexPath.row].driver.familyName == "Sargeant" {
             return UIImage(named: "logan") ?? UIImage()
+        } else if dataDriversScreen[indexPath.row].driver.familyName == "Leclerc" {
+            return UIImage(named: "charles") ?? UIImage()
         }
         return UIImage()
     }

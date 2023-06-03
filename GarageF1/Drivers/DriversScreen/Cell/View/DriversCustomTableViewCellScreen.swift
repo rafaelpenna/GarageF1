@@ -98,18 +98,18 @@ class DriversCustomTableViewCellScreen: UIView {
             positionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 
             photoDriverImageView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            photoDriverImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            photoDriverImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
             photoDriverImageView.heightAnchor.constraint(equalToConstant: 50),
             photoDriverImageView.widthAnchor.constraint(equalToConstant: 50),
 
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 110),
             
             lastNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 5),
             
             teamLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 1),
-            teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
+            teamLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),
             pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -55),
