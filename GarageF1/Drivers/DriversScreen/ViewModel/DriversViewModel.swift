@@ -30,7 +30,7 @@ class DriversViewModel {
     public func fetch(_ typeFetch: TypeFetch){
         switch typeFetch {
         case .mock:
-            self.service.getSeasonDriversFromJson { success, error in
+            self.service.getSeasonDriversFromJson(fromFileName: "seasonDrivers") { success, error in
                 if let success = success {
                     self.dataDriversScreen = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()
@@ -39,7 +39,7 @@ class DriversViewModel {
                 }
             }
         case .request:
-            self.service.getDrivers { success, error in
+            self.service.getDrivers(fromURL: "https://ergast.com/api/f1/current/driverStandings.json") { success, error in
                 if let success = success {
                     self.dataDriversScreen = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()

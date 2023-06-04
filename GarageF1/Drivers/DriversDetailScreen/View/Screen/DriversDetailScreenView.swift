@@ -14,14 +14,12 @@ class DriversDetailScreenView: UIView {
     lazy var topRedView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = driverBackgroundColor
         return view
     }()
     
     lazy var backgroundTopRedView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-//        view.backgroundColor = driverBackgroundColor
         return view
     }()
     
@@ -140,51 +138,4 @@ class DriversDetailScreenView: UIView {
         ])
     }
 }
-
-extension DriversDetailScreenView {
-    var driverBackgroundColor: UIColor {
-        if lastNameLabel.text == "Verstappen" {
-                return UIColor(red: 47/255, green: 48/255, blue: 60/255, alpha: 1)
-            } else if lastNameLabel.text == "Pérez" {
-                return UIColor(red: 47/255, green: 48/255, blue: 60/255, alpha: 1)
-            } else if lastNameLabel.text == "Stroll" {
-                return UIColor(red: 1/255, green: 97/255, blue: 118/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
-//                return UIColor(red: 161/255, green: 2/255, blue: 9/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
-//                return UIColor(red: 12/255, green: 12/255, blue: 12/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
-//                return UIColor(red: 12/255, green: 12/255, blue: 12/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Alonso" {
-//                return UIColor(red: 1/255, green: 97/255, blue: 118/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Ocon" {
-//                return UIColor(red: 127/255, green: 59/255, blue: 82/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
-//                return UIColor(red: 127/255, green: 59/255, blue: 82/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
-//                return UIColor(red: 214/255, green: 68/255, blue: 7/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
-//                return UIColor(red: 82/255, green: 82/255, blue: 85/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
-//                return UIColor(red: 214/255, green: 68/255, blue: 7/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
-//                return UIColor(red: 111/255, green: 8/255, blue: 22/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
-//                return UIColor(red: 111/255, green: 8/255, blue: 22/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
-//                return UIColor(red: 27/255, green: 40/255, blue: 58/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
-//                return UIColor(red: 82/255, green: 82/255, blue: 85/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
-//                return UIColor(red: 1/255, green: 45/255, blue: 147/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
-//                return UIColor(red: 27/255, green: 40/255, blue: 58/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
-//                return UIColor(red: 1/255, green: 45/255, blue: 147/255, alpha: 1)
-//            } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
-//                return UIColor(red: 161/255, green: 2/255, blue: 9/255, alpha: 1)
-            }
-        return .red
-        }
-    }
 
