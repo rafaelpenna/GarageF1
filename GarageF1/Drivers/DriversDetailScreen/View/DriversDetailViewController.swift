@@ -22,7 +22,8 @@ enum DriversInfoTableViewSection: Int {
 class DriversDetailViewController: UIViewController {
     
     let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
-    let drivertsViewModel: DriversViewModel = DriversViewModel()
+    let driversViewController: DriversViewController = DriversViewController()
+    let driversViewModel: DriversViewModel = DriversViewModel()
     
     var nameDriver = ""
     var lastNameDriver = ""
@@ -62,14 +63,47 @@ class DriversDetailViewController: UIViewController {
     }
     
     private func addElements() {
+        self.view.addSubview(topView)
+        self.view.addSubview(topBackgorundView)
         self.view.addSubview(backButton)
+        self.view.addSubview(givenName)
+        self.view.addSubview(familyName)
+        self.view.addSubview(imageDriver)
+        
     }
+    
+    lazy var topBackgorundView: UIView = {
+        let view: UIView = driversDetailScreen?.backgroundTopRedView ?? UIView()
+        view.backgroundColor = driverBackgroundColor
+        return view
+    }()
+    
+    lazy var topView: UIView = {
+        let view: UIView = driversDetailScreen?.topRedView ?? UIView()
+        view.backgroundColor = driverBackgroundColor
+        return view
+    }()
     
     lazy var backButton: UIButton = {
         let button: UIButton = driversDetailScreen?.backButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
         return button
+    }()
+    
+    lazy var givenName: UILabel = {
+        let label: UILabel = driversDetailScreen?.firstNameLabel ?? UILabel()
+        return label
+    }()
+    
+    lazy var familyName: UILabel = {
+        let label: UILabel = driversDetailScreen?.lastNameLabel ?? UILabel()
+        return label
+    }()
+    
+    lazy var imageDriver: UIImageView = {
+        let image: UIImageView = driversDetailScreen?.driverPhotoImage ?? UIImageView()
+        return image
     }()
 
     @objc func backScreen() {
@@ -142,3 +176,52 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
         }
     }
 }
+
+
+extension DriversDetailViewController {
+    
+    var driverBackgroundColor: UIColor {
+        if  lastNameDriver == "Verstappen" {
+            return UIColor(red: 47/255, green: 48/255, blue: 60/255, alpha: 1)
+            } else if lastNameDriver == "Pérez" {
+                return UIColor(red: 47/255, green: 48/255, blue: 60/255, alpha: 1)
+            } else if lastNameDriver == "Stroll" {
+                return UIColor(red: 1/255, green: 97/255, blue: 118/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
+                return UIColor(red: 161/255, green: 2/255, blue: 9/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
+                return UIColor(red: 12/255, green: 12/255, blue: 12/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
+                return UIColor(red: 12/255, green: 12/255, blue: 12/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Alonso" {
+                return UIColor(red: 1/255, green: 97/255, blue: 118/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Ocon" {
+                return UIColor(red: 127/255, green: 59/255, blue: 82/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
+                return UIColor(red: 127/255, green: 59/255, blue: 82/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
+                return UIColor(red: 214/255, green: 68/255, blue: 7/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
+                return UIColor(red: 82/255, green: 82/255, blue: 85/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
+                return UIColor(red: 214/255, green: 68/255, blue: 7/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
+                return UIColor(red: 111/255, green: 8/255, blue: 22/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
+                return UIColor(red: 111/255, green: 8/255, blue: 22/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
+                return UIColor(red: 27/255, green: 40/255, blue: 58/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
+                return UIColor(red: 82/255, green: 82/255, blue: 85/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
+                return UIColor(red: 1/255, green: 45/255, blue: 147/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
+                return UIColor(red: 27/255, green: 40/255, blue: 58/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
+                return UIColor(red: 1/255, green: 45/255, blue: 147/255, alpha: 1)
+            } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
+                return UIColor(red: 161/255, green: 2/255, blue: 9/255, alpha: 1)
+            }
+        return .red
+        }
+    }
