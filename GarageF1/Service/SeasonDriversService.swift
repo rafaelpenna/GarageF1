@@ -19,15 +19,10 @@ class SeasonDriversService: SeasonDriversServiceDelegate {
         let url: String = url
         
         AF.request(url, method: .get).validate().responseDecodable(of: SeasonDriversModel.self) { response in
-            print(#function)
-            debugPrint(response)
-            
             switch response.result {
             case .success(let success):
-                print("SUCCESS -> \(#function)")
                 completion(success, nil)
             case .failure(let error):
-                print("ERROR -> \(#function)")
                 completion(nil, Error.errorRequest(error))
             }
         }

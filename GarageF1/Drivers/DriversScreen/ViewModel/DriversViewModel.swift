@@ -12,6 +12,10 @@ enum TypeFetch {
     case request
 }
 
+protocol DriversViewModelProtocol: AnyObject {
+    func reloadTableView()
+}
+
 protocol DriversViewModelDelegate: AnyObject {
     func success()
     func error(_ message: String)

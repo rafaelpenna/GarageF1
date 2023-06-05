@@ -19,7 +19,7 @@ class DriversViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
-        driversViewModel.fetch(.mock)
+        driversViewModel.fetch(.request)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -73,9 +73,18 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
 extension DriversViewController: DriversViewModelDelegate {
     func success() {
         driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
     }
     
     func error(_ message: String) {
     
+    }
+}
+
+extension DriversViewController: DriversViewModelProtocol {
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.driversScreen?.infoDriversTableView.reloadData()
+        }
     }
 }
