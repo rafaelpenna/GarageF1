@@ -9,7 +9,6 @@ import UIKit
 
 class HistoryTeamsTableViewCell: UITableViewCell {
 
-    var data: [HistoryTeamsModel] = []
     var customInfoTeams: CustomCellHistoryTeams = CustomCellHistoryTeams()
     var teamsViewModel: TeamsScreenViewModel?
     
@@ -31,7 +30,7 @@ class HistoryTeamsTableViewCell: UITableViewCell {
         contentView.addSubview(customInfoTeams)
     }
 
-    func setupCell(teamData: HistoryTeamsModel){
+    func setupCell(teamData: ConstructorStanding1){
         self.teamsViewModel = TeamsScreenViewModel(data: teamData)
         
         customInfoTeams.positionLabel.text = teamsViewModel?.getTeamsPosition

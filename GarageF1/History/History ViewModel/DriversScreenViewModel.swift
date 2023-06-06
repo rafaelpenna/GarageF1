@@ -9,29 +9,29 @@ import UIKit
 
 class DriversScreenViewModel {
     
-    private var data: HistoryDriversModel
+    private var data: DriverStanding
     
-    init(data:HistoryDriversModel){
+    init(data:DriverStanding){
         self.data = data
     }
     
     public var getDriversPosition: String {
-        return data.driversPosition
+        return data.positionText
     }
     
     public var getDriversName: String {
-        return data.driversName
+        return data.driver.givenName
     }
     
     public var getDriversLastName: String {
-        return data.driversLastName
+        return data.driver.familyName
     }
     
     public var getTeamsDriversName: String {
-        return data.teamsDriversName
+        return data.constructors[0].name
     }
     
     public var getSeasonDriversPoints: String {
-        return data.seasonDriversPoints
+        return data.points
     }
 }

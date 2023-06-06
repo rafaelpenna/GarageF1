@@ -18,8 +18,11 @@ class HistoryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupProtocols()
         addElements()
+        setupProtocols()
+        historyViewModel.fetchHistoryTeams(.mock)
+        historyViewModel.fetchHistoryDrivers(.request)
+        reloadTableView()
     }
     
     private func setupProtocols() {
@@ -232,3 +235,24 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+extension HistoryViewController: HistoryViewModelDelegate {
+    func success() {
+        historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension HistoryViewController: HistoryViewModelProtocol {
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.historyScreen?.driversTableView.reloadData()
+            self.historyScreen?.driversTableView.reloadData()
+        }
+    }
+}
+

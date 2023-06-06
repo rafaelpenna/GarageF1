@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum TypeFetch {
+enum DriversTypeFetch {
     case mock
     case request
 }
@@ -23,7 +23,7 @@ protocol DriversViewModelDelegate: AnyObject {
 
 class DriversViewModel {
     
-    private let service: SeasonDriversService = SeasonDriversService()
+    private let service: DriversService = DriversService()
     private weak var delegate: DriversViewModelDelegate?
     private var dataDriversScreen:[DriverStanding] = []
     
@@ -31,10 +31,10 @@ class DriversViewModel {
         self.delegate = delegate
     }
     
-    public func fetch(_ typeFetch: TypeFetch){
+    public func fetch(_ typeFetch: DriversTypeFetch){
         switch typeFetch {
         case .mock:
-            self.service.getSeasonDriversFromJson(fromFileName: "seasonDrivers") { success, error in
+            self.service.getDriversDataFromJson(fromFileName: "seasonDrivers") { success, error in
                 if let success = success {
                     self.dataDriversScreen = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()
@@ -43,7 +43,7 @@ class DriversViewModel {
                 }
             }
         case .request:
-            self.service.getDrivers(fromURL: "https://ergast.com/api/f1/current/driverStandings.json") { success, error in
+            self.service.getDriversData(fromURL: "https://ergast.com/api/f1/current/driverStandings.json") { success, error in
                 if let success = success {
                     self.dataDriversScreen = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()

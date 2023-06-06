@@ -9,21 +9,21 @@ import UIKit
 
 class TeamsScreenViewModel {
     
-    private var data: HistoryTeamsModel
+    private var data: ConstructorStanding1
     
-    init(data:HistoryTeamsModel){
+    init(data:ConstructorStanding1){
         self.data = data
     }
     
     public var getTeamsPosition: String {
-        return data.teamsPosition
+        return data.position
     }
     
     public var getTeamsName: String {
-        return data.teamsName
+        return data.constructor.name
     }
     
     public var getSeasonTeamsPoints: String {
-        return data.seasonTeamsPoints
+        return data.points
     }
 }
