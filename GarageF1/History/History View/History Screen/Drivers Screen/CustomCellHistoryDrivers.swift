@@ -80,13 +80,13 @@ class CustomCellHistoryDrivers: UIView {
             positionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             
             lastNameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
+            lastNameLabel.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 5),
 
             teamLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 1),
-            teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),
             pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),

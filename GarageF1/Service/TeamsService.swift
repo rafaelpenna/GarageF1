@@ -34,7 +34,7 @@ class TeamsService: TeamsServiceDelegate {
                 let listDrivers = try JSONDecoder().decode(HistoryModel.self, from: data)
                 completion(listDrivers, nil)
             } catch {
-                completion(nil, Error.fileDecodingFailed(name: "seasonDrivers", error))
+                completion(nil, Error.fileDecodingFailed(name: "seasonConstructors", error))
             }
         }
     }

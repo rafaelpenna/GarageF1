@@ -22,17 +22,17 @@ protocol HistoryViewModelDelegate: AnyObject {
 }
 
 class HistoryViewModel {
-    
     private var dataDrivers:[DriverStanding] = []
     private var dataTeams:[ConstructorStanding1] = []
     
-    private var listYearDataInsert:[HistoryYearModel] = []
+    private var listYearDataInsert:[Season2] = []
+    private var listYearsData:[String] = []
     private var listYear:[String] = []
-    private var listYearsSearch = [String]()
-    
+    private var listYearsSearch:[String] = []
     
     private let driversService: DriversService = DriversService()
     private let teamsService: TeamsService = TeamsService()
+    private let yearsService: YearsService = YearsService()
     private weak var delegate: HistoryViewModelDelegate?
     
     public func delegate(delegate: HistoryViewModelDelegate?) {
@@ -85,39 +85,43 @@ class HistoryViewModel {
         }
     }
     
+    public func fetchHistoryYears(_ typeFetch: HistoryTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.yearsService.getYearsDataFromJson(fromFileName: "yearsSeason") { success, error in
+                if let success = success {
+                    self.listYearDataInsert = success.mrData.seasonTable.seasons
+                    self.configArrayListYear()
+                    self.listYearsData = self.listYear.reversed()
+                    self.listYearsSearch = self.listYearsData
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.yearsService.getYearsData(fromURL: "https://ergast.com/api/f1/seasons.json?limit=73") { success, error in
+                if let success = success {
+                    self.listYearDataInsert = success.mrData.seasonTable.seasons
+                    self.configArrayListYear()
+                    self.listYearsData = self.listYear.reversed()
+                    self.listYearsSearch = self.listYearsData
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
+    }
+    
 
     
 
-    
-    init(){
-        self.configArrayListYearDataInsert()
-        self.configArrayListYear()
-        listYearsSearch = listYear
-    }
-    
-    //MARK: - Mock Data (será retirado conforme implantação da API)
-    
-    private func configArrayListYearDataInsert(){
-        self.listYearDataInsert.append(HistoryYearModel(year: "2022"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2021"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2020"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2019"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2018"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2017"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2016"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2015"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2014"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2013"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2012"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2011"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2010"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2009"))
-        self.listYearDataInsert.append(HistoryYearModel(year: "2008"))
-    }
+
     
     private func configArrayListYear() {
         for years in 0 ..< listYearDataInsert.count {
-            self.listYear.append(listYearDataInsert[years].year)
+            self.listYear.append(listYearDataInsert[years].season)
         }
     }
     
@@ -177,7 +181,7 @@ class HistoryViewModel {
     //MARK: - Functions to get info to Dropdown Data
     
     private var getDataYear: [String] {
-        return listYear
+        return listYearsData
     }
     
     public var getFilterDataYear: [String] {
@@ -189,6 +193,6 @@ class HistoryViewModel {
     }
     
     public func clearFilterList() {
-        listYearsSearch = listYear
+        listYearsSearch = listYearsData
     }
 }

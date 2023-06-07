@@ -8,11 +8,6 @@
 import Foundation
 import UIKit
 
-struct HistoryYearModel {
-    var year: String
-}
-
-
 // MARK: - Welcome
 struct HistoryModel: Codable {
     let mrData: MRData1
@@ -79,6 +74,51 @@ struct Constructor1: Codable {
         case constructorID = "constructorId"
         case url, name, nationality
     }
+}
+
+
+
+
+
+
+
+
+// MARK: - Welcome
+struct HistoryYearModel: Codable {
+    let mrData: MRData2
+
+    enum CodingKeys: String, CodingKey {
+        case mrData = "MRData"
+    }
+}
+
+// MARK: - MRData
+struct MRData2: Codable {
+    let xmlns: String
+    let series: String
+    let url: String
+    let limit, offset, total: String
+    let seasonTable: SeasonTable2
+
+    enum CodingKeys: String, CodingKey {
+        case xmlns, series, url, limit, offset, total
+        case seasonTable = "SeasonTable"
+    }
+}
+
+// MARK: - SeasonTable
+struct SeasonTable2: Codable {
+    let seasons: [Season2]
+
+    enum CodingKeys: String, CodingKey {
+        case seasons = "Seasons"
+    }
+}
+
+// MARK: - Season
+struct Season2: Codable {
+    let season: String
+    let url: String
 }
 
 

@@ -114,6 +114,8 @@
 		1CB39D3A299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D39299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift */; };
 		1CB39D3C299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D3B299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift */; };
 		1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */; };
+		1CDF86492A30A8DA00F3ECB4 /* YearsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDF86482A30A8DA00F3ECB4 /* YearsService.swift */; };
+		1CDF864B2A30A9F100F3ECB4 /* yearsSeason.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CDF864A2A30A9F100F3ECB4 /* yearsSeason.json */; };
 		27260257834CDAC8ADA3A004 /* Pods_GarageF1Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88589B93D518063277FE39F1 /* Pods_GarageF1Tests.framework */; };
 		34B996A029F8BE5200DCBE69 /* CustomFullResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */; };
 		34B996A129F8BE5200DCBE69 /* CustomResultsFullTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */; };
@@ -282,6 +284,8 @@
 		1CB39D39299D3BFA009DBE86 /* BestRacePositionCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestRacePositionCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CB39D3B299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestGridPositionCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CD44CC9298010EF00E4B9DD /* HistoryDriversTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDriversTableViewCell.swift; sourceTree = "<group>"; };
+		1CDF86482A30A8DA00F3ECB4 /* YearsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsService.swift; sourceTree = "<group>"; };
+		1CDF864A2A30A9F100F3ECB4 /* yearsSeason.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = yearsSeason.json; sourceTree = "<group>"; };
 		34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultsScreen.swift; sourceTree = "<group>"; };
 		34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomResultsFullTableView.swift; sourceTree = "<group>"; };
 		34B9967629F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStandingCollectionScreen.swift; sourceTree = "<group>"; };
@@ -990,6 +994,7 @@
 			children = (
 				1C5CE37D2A2A38F6003FB86D /* seasonDrivers.json */,
 				1C7553992A2F6261003CB6DA /* seasonContructors.json */,
+				1CDF864A2A30A9F100F3ECB4 /* yearsSeason.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -999,6 +1004,7 @@
 			children = (
 				1C5CE3822A2A3DB9003FB86D /* DriversService.swift */,
 				1C7553952A2ED2DC003CB6DA /* TeamsService.swift */,
+				1CDF86482A30A8DA00F3ECB4 /* YearsService.swift */,
 				1C5CE3842A2A3E37003FB86D /* GenericService.swift */,
 			);
 			path = Service;
@@ -1444,6 +1450,7 @@
 				0B4CC62D2953E90900D29D4C /* LaunchScreen.storyboard in Resources */,
 				0B568FD32A0C663300D89FCF /* raceflag.json in Resources */,
 				0B568FDD2A0C7B4300D89FCF /* logout.json in Resources */,
+				1CDF864B2A30A9F100F3ECB4 /* yearsSeason.json in Resources */,
 				0B4CC62A2953E90900D29D4C /* Assets.xcassets in Resources */,
 				1C75539A2A2F6261003CB6DA /* seasonContructors.json in Resources */,
 			);
@@ -1607,6 +1614,7 @@
 				1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */,
 				1CB39D34299D3BA9009DBE86 /* RacesCustomTableViewCellScreen.swift in Sources */,
 				0B32CA5829D0EA8900E5B51A /* FirstGrandPrixCellScreen.swift in Sources */,
+				1CDF86492A30A8DA00F3ECB4 /* YearsService.swift in Sources */,
 				1C726E3E29B7A6A8006591C9 /* DuelViewController.swift in Sources */,
 				1C44CDDA29CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift in Sources */,
 				34B996A129F8BE5200DCBE69 /* CustomResultsFullTableView.swift in Sources */,

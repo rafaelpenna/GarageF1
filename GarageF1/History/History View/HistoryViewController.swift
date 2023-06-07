@@ -20,13 +20,13 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
-        historyViewModel.fetchHistoryTeams(.mock)
+        historyViewModel.fetchHistoryTeams(.request)
         historyViewModel.fetchHistoryDrivers(.request)
-        reloadTableView()
+        historyViewModel.fetchHistoryYears(.request)
     }
     
     private func setupProtocols() {
-        historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        historyViewModel.delegate(delegate: self)
     }
     
     private func addElements() {
@@ -229,6 +229,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == historyScreen?.yearsTableView {
             buttonYearSelect.setTitle("\(historyViewModel.getFilterDataYear[indexPath.row])", for: .normal)
+            reloadTableView()
             animateList(toogle: false)
             textFieldSearchSelect.text = ""
             clearSearchField()
@@ -251,7 +252,8 @@ extension HistoryViewController: HistoryViewModelProtocol {
     func reloadTableView() {
         DispatchQueue.main.async {
             self.historyScreen?.driversTableView.reloadData()
-            self.historyScreen?.driversTableView.reloadData()
+            self.historyScreen?.teamsTableView.reloadData()
+            self.historyScreen?.yearsTableView.reloadData()
         }
     }
 }

@@ -22,7 +22,6 @@ protocol DriversViewModelDelegate: AnyObject {
 }
 
 class DriversViewModel {
-    
     private let service: DriversService = DriversService()
     private weak var delegate: DriversViewModelDelegate?
     private var dataDriversScreen:[DriverStanding] = []
