@@ -16,7 +16,7 @@ enum StandingsTableViewSection: Int {
     case trackRecord
 }
 
-class StandingsViewController: UIViewController {
+class StandingsViewController: UIViewController, DriversViewModelDelegate {
     
     var standingsScreen: StandingsScreen? = StandingsScreen()
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
@@ -29,6 +29,7 @@ class StandingsViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
+        standingsViewModel.fetchStandings(.request)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,7 +43,7 @@ class StandingsViewController: UIViewController {
     }
     
     private func setupProtocols() {
-        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        standingsViewModel.delegate(delegate: self)
     }
 
     
@@ -181,6 +182,25 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return 105
             }
+        }
+    }
+}
+
+extension StandingsViewController: StandingsViewModelDelegate {
+    func success() {
+        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension StandingsViewController: StandingsViewModelProtocol {
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.standingsScreen?.standingsTableView.reloadData()
         }
     }
 }

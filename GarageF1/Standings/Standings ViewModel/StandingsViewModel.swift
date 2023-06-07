@@ -8,31 +8,50 @@
 import Foundation
 import UIKit
 
+enum StandingsTypeFetch {
+    case mock
+    case request
+}
+
+protocol StandingsViewModelProtocol: AnyObject {
+    func reloadTableView()
+}
+
+protocol StandingsViewModelDelegate: AnyObject {
+    func success()
+    func error(_ message: String)
+}
+
 class StandingsViewModel {
+    private let service: StandingsService = StandingsService()
+    private weak var delegate: StandingsViewModelDelegate?
+    private var dataStandings:[Result4] = []
     
-    private var dataStandings:[Standings] = []
-    
-    init(){
-        self.configArrayDataStandings()
+    public func delegate(delegate: StandingsViewModelDelegate?) {
+        self.delegate = delegate
     }
     
-    //MARK: - Mock Data (será retirado conforme implantação da API)
-    
-    private func configArrayDataStandings(){
-    
-        self.dataStandings.append(Standings(position: "1", teamsName: "Mercedes", driversCode: "RUS", time: "1:38:34.044", pointsWon: "26"))
-        self.dataStandings.append(Standings(position: "2", teamsName: "Mercedes", driversCode: "HAM", time: "+ 1.529s", pointsWon: "18"))
-        self.dataStandings.append(Standings(position: "3", teamsName: "Ferrari", driversCode: "SAI", time: "+ 4.051s", pointsWon: "15"))
-        self.dataStandings.append(Standings(position: "4", teamsName: "Ferrari", driversCode: "LEC", time: "+ 8.441s", pointsWon: "12"))
-        self.dataStandings.append(Standings(position: "5", teamsName: "Alpine", driversCode: "ALO", time: "+ 9.561s", pointsWon: "10"))
-        self.dataStandings.append(Standings(position: "6", teamsName: "Red Bull Racing", driversCode: "VER", time: "+ 10.056s", pointsWon: "8"))
-        self.dataStandings.append(Standings(position: "7", teamsName: "Red Bull Racing", driversCode: "PER", time: "+ 14.08s", pointsWon: "6"))
-        self.dataStandings.append(Standings(position: "8", teamsName: "Alpine", driversCode: "OCO", time: "+ 18.69s", pointsWon: "4"))
-        self.dataStandings.append(Standings(position: "9", teamsName: "Alfa Romeo", driversCode: "BOT", time: "+ 22.552s", pointsWon: "2"))
-        self.dataStandings.append(Standings(position: "10", teamsName: "Aston Martin", driversCode: "STR", time: "+ 23.552s", pointsWon: "1"))
-        self.dataStandings.append(Standings(position: "11", teamsName: "Aston Martin", driversCode: "VET", time: "+ 26.183s", pointsWon: "0"))
-        self.dataStandings.append(Standings(position: "12", teamsName: "Alfa Romeo", driversCode: "ZHO", time: "+ 29.325s", pointsWon: "0"))
-        self.dataStandings.append(Standings(position: "13", teamsName: "F1 Haas", driversCode: "MSC", time: "+ 29.899s", pointsWon: "0"))
+    public func fetchStandings(_ typeFetch: StandingsTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.service.getStandingsDataFromJson(fromFileName: "standingsRound1") { success, error in
+                if let success = success {
+                    self.dataStandings = success.mrData.raceTable.races[0].results
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.service.getStandingsData(fromURL: "https://ergast.com/api/f1/2023/1/results.json") { success, error in
+                if let success = success {
+                    self.dataStandings = success.mrData.raceTable.races[0].results
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
     }
     
     private var dataTracks:Tracks = Tracks(circuitCountry: "Brazil", circuitImage: UIImage(named: "interlagos") ?? UIImage(), circuitLength: "4.309", circuitLaps: "71", firstGP: "1973", raceDistance: "305.879", trackRecord: "1.10.540", trackRecordDriver: "Valtteri Bottas", trackRecordYear: "2018")
@@ -46,7 +65,7 @@ class StandingsViewModel {
         return self.dataStandings.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> Standings {
+    public func loadCurrentDriver(indexPath: IndexPath) -> Result4 {
         return dataStandings[indexPath.row]
     }
     
@@ -55,19 +74,19 @@ class StandingsViewModel {
     }
     
     public func getTeamsName(indexPath: IndexPath) -> String {
-        return dataStandings[indexPath.row].teamsName
+        return dataStandings[indexPath.row].constructor.name
     }
     
     public func getDriversCode(indexPath: IndexPath) -> String {
-        return dataStandings[indexPath.row].driversCode
+        return dataStandings[indexPath.row].driver.code
     }
     
     public func getTime(indexPath: IndexPath) -> String {
-        return dataStandings[indexPath.row].time
+        return dataStandings[indexPath.row].time?.time ?? dataStandings[indexPath.row].status
     }
     
     public func getPointsWon(indexPath: IndexPath) -> String {
-        return dataStandings[indexPath.row].pointsWon
+        return dataStandings[indexPath.row].points
     }
     
     

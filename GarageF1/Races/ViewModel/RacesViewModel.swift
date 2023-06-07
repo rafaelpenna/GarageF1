@@ -23,14 +23,14 @@ protocol RacesViewModelDelegate: AnyObject {
 
 class RacesViewModel {
     private let service: RacesService = RacesService()
-    private weak var delegate: DriversViewModelDelegate?
+    private weak var delegate: RacesViewModelDelegate?
     private var dataRacesScreen:[Race3] = []
     
-    public func delegate(delegate: DriversViewModelDelegate?) {
+    public func delegate(delegate: RacesViewModelDelegate?) {
         self.delegate = delegate
     }
     
-    public func fetchRaces(_ typeFetch: DriversTypeFetch){
+    public func fetchRaces(_ typeFetch: RacesTypeFetch){
         switch typeFetch {
         case .mock:
             self.service.getRacesDataFromJson(fromFileName: "seasonRaces") { success, error in
@@ -48,7 +48,6 @@ class RacesViewModel {
                     self.delegate?.success()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
-                    print("Oi")
                 }
             }
         }
