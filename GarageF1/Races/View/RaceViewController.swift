@@ -7,26 +7,27 @@
 
 import UIKit
 
-class RaceViewController: UIViewController {
+class RaceViewController: UIViewController, DriversViewModelDelegate {
     
     let racesScreen: RacesScreen? = RacesScreen()
     let racesViewModel: RacesViewModel = RacesViewModel()
-
+    
     override func loadView() {
-      view = racesScreen
+        view = racesScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
+        racesViewModel.fetchRaces(.request)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
     private func setupProtocols() {
-        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        racesViewModel.delegate(delegate: self)
     }
 }
 
@@ -53,5 +54,24 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StandingsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension RaceViewController: RacesViewModelDelegate {
+    func success() {
+        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension RaceViewController: RacesViewModelProtocol {
+    func reloadTableView() {
+        DispatchQueue.main.async {
+            self.racesScreen?.infoRacesTableView.reloadData()
+        }
     }
 }
