@@ -45,6 +45,11 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
     private func setupProtocols() {
         standingsViewModel.delegate(delegate: self)
     }
+    
+    private func bestLapData() {
+        self.standoutName.text = standingsViewModel.bestLapDataName
+        self.standoutLap.text = standingsViewModel.bestLapDataTime
+    }
 
     
     lazy var buttonStandingsVC: UIButton = {
@@ -67,6 +72,17 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
         button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
         return button
     }()
+    
+    lazy var standoutName: UILabel = {
+        let label: UILabel = standingsScreen?.standingsHeader.standoutNameLabel ?? UILabel()
+        return label
+    }()
+    
+    lazy var standoutLap: UILabel = {
+        let label: UILabel = standingsScreen?.standingsHeader.standoutTimeLabel ?? UILabel()
+        return label
+    }()
+    
     
     @objc func buttonStandings(_ sender: UIButton) {
         if buttonStandingsVC.isSelected == false {
@@ -201,6 +217,7 @@ extension StandingsViewController: StandingsViewModelProtocol {
     func reloadTableView() {
         DispatchQueue.main.async {
             self.standingsScreen?.standingsTableView.reloadData()
+            self.bestLapData()
         }
     }
 }

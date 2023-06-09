@@ -38,6 +38,8 @@ class StandingsViewModel {
                 if let success = success {
                     self.dataStandings = success.mrData.raceTable.races[0].results
                     self.delegate?.success()
+                    self.getBestLapTime()
+                    self.getBestLapNameDriver()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
@@ -47,6 +49,8 @@ class StandingsViewModel {
                 if let success = success {
                     self.dataStandings = success.mrData.raceTable.races[0].results
                     self.delegate?.success()
+                    self.getBestLapTime()
+                    self.getBestLapNameDriver()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
@@ -55,8 +59,6 @@ class StandingsViewModel {
     }
     
     private var dataTracks:Tracks = Tracks(circuitCountry: "Brazil", circuitImage: UIImage(named: "interlagos") ?? UIImage(), circuitLength: "4.309", circuitLaps: "71", firstGP: "1973", raceDistance: "305.879", trackRecord: "1.10.540", trackRecordDriver: "Valtteri Bottas", trackRecordYear: "2018")
-    
-    private var dataBestLap:BestLap = BestLap(nameDriver: "RUSSEL", bestTime: "1:13:785")
     
     
     //MARK: - Functions to get info to Drivers Standings Table View
@@ -89,15 +91,28 @@ class StandingsViewModel {
         return dataStandings[indexPath.row].points
     }
     
-    
     //MARK: - Functions to get info to Best Lap Display
     
-    public func getBestLapNameDriver() -> String {
-        return dataBestLap.nameDriver
+    public var bestLapDataName: String = ""
+    public var bestLapDataTime: String = ""
+    
+    
+    private func getBestLapNameDriver() -> String {
+        for n in 0..<dataStandings.count {
+            if dataStandings[n].fastestLap.rank == "1" {
+                bestLapDataName = dataStandings[n].driver.familyName.uppercased()
+            }
+        }
+        return bestLapDataName
     }
     
-    public func getBestLapTime() -> String {
-        return dataBestLap.bestTime
+    private func getBestLapTime() -> String {
+        for n in 0..<dataStandings.count {
+            if dataStandings[n].fastestLap.rank == "1" {
+                bestLapDataTime = dataStandings[n].fastestLap.time.time.lowercased()
+            }
+        }
+        return bestLapDataTime
     }
     
     
