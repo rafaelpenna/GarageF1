@@ -85,7 +85,6 @@ class HeaderStandings: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 30)
-        label.text = "teste"
         return label
     }()
     
@@ -93,7 +92,6 @@ class HeaderStandings: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.italicSystemFont(ofSize: 22)
-        label.text = "1:11:123"
         return label
     }()
     

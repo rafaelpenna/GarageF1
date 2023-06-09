@@ -26,6 +26,7 @@ class StandingsViewModel {
     private let service: StandingsService = StandingsService()
     private weak var delegate: StandingsViewModelDelegate?
     private var dataStandings:[Result4] = []
+    public var selectedRound: Int = 0
     
     public func delegate(delegate: StandingsViewModelDelegate?) {
         self.delegate = delegate
@@ -45,7 +46,7 @@ class StandingsViewModel {
                 }
             }
         case .request:
-            self.service.getStandingsData(fromURL: "https://ergast.com/api/f1/2023/1/results.json") { success, error in
+            self.service.getStandingsData(fromURL: "https://ergast.com/api/f1/2023/\(selectedRound + 1)/results.json") { success, error in
                 if let success = success {
                     self.dataStandings = success.mrData.raceTable.races[0].results
                     self.delegate?.success()

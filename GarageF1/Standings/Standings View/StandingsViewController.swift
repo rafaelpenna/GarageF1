@@ -20,6 +20,7 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
     
     var standingsScreen: StandingsScreen? = StandingsScreen()
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
+    var selectedRound: Int = 0
     
     override func loadView() {
         view = standingsScreen
@@ -29,6 +30,7 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
         super.viewDidLoad()
         addElements()
         setupProtocols()
+        standingsViewModel.selectedRound = selectedRound
         standingsViewModel.fetchStandings(.request)
     }
     
