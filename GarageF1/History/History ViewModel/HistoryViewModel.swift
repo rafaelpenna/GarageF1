@@ -114,11 +114,6 @@ class HistoryViewModel {
         }
     }
     
-
-    
-
-
-    
     private func configArrayListYear() {
         for years in 0 ..< listYearDataInsert.count {
             self.listYear.append(listYearDataInsert[years].season)
