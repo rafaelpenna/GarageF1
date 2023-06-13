@@ -21,6 +21,7 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
     var standingsScreen: StandingsScreen? = StandingsScreen()
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
     var selectedRound: Int = 0
+    var circuitCountryNameLabel: String = ""
     
     override func loadView() {
         view = standingsScreen
@@ -30,6 +31,7 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
         super.viewDidLoad()
         addElements()
         setupProtocols()
+        passingHeaderData()
         standingsViewModel.selectedRound = selectedRound
         standingsViewModel.fetchStandings(.request)
     }
@@ -52,7 +54,10 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
         self.standoutName.text = standingsViewModel.bestLapDataName
         self.standoutLap.text = standingsViewModel.bestLapDataTime
     }
-
+    
+    private func passingHeaderData() {
+        standingsScreen?.circuitCountryLabel.text = circuitCountryNameLabel
+    }
     
     lazy var buttonStandingsVC: UIButton = {
         let button: UIButton = standingsScreen?.standingsButton ?? UIButton()
@@ -133,7 +138,13 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == standingsScreen?.standingsTableView {
-            return (standingsViewModel.numberOfRowsResults)
+            if standingsViewModel.numberOfRowsResults != 0 {
+                standingsScreen?.eventSoonLabel.isHidden = true
+                return (standingsViewModel.numberOfRowsResults)
+            } else {
+                standingsScreen?.eventSoonLabel.isHidden = false
+                return 0
+            }
         } else {
             return 6
         }
@@ -208,10 +219,11 @@ extension StandingsViewController: StandingsViewModelDelegate {
     func success() {
         standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         reloadTableView()
+        standingsScreen?.resultsLoadFailLabel.isHidden = true
     }
     
     func error(_ message: String) {
-    
+        standingsScreen?.resultsLoadFailLabel.isHidden = false
     }
 }
 

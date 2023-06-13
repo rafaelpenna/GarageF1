@@ -35,7 +35,6 @@ class StandingsScreen: UIView {
     lazy var circuitCountryLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = standingsViewModel.getCircuitCountry()
         label.textColor = .white
         label.font = UIFont.boldSystemFont(ofSize: 35)
         return label
@@ -74,6 +73,30 @@ class StandingsScreen: UIView {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = .none
         return background
+    }()
+    
+    lazy var resultsLoadFailLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Estamos tendo problemas para carregar os resultados. Por favor tente novamente em instantes."
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.isHidden = true
+        return label
+    }()
+    
+    lazy var eventSoonLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Este evento ocorrerá em breve."
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = UIFont.boldSystemFont(ofSize: 24)
+        label.isHidden = true
+        return label
     }()
     
     lazy var standingsTableView: UITableView = {
@@ -127,6 +150,8 @@ class StandingsScreen: UIView {
         addSubview(standingsBoardView)
         standingsBoardView.self.addSubview(standingsHeader)
         standingsBoardView.self.addSubview(standingsTableView)
+        standingsBoardView.self.addArrangedSubview(resultsLoadFailLabel)
+        standingsBoardView.self.addArrangedSubview(eventSoonLabel)
         addSubview(trackTableView)
     }
     
@@ -182,6 +207,10 @@ class StandingsScreen: UIView {
             standingsTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             standingsTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             standingsTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            resultsLoadFailLabel.topAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: 100),
+            resultsLoadFailLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            resultsLoadFailLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
         ])
     }
 }
