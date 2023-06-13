@@ -7,37 +7,7 @@
 import Foundation
 import UIKit
 
-struct Standings {
-    var position: String
-    var teamsName: String
-    var driversCode: String
-    var time: String
-    var pointsWon: String
-}
 
-struct BestLap {
-    var nameDriver: String
-    var bestTime: String
-}
-
-struct Tracks {
-    var circuitCountry: String
-    var circuitImage: UIImage
-    var circuitLength: String
-    var circuitLaps: String
-    var firstGP: String
-    var raceDistance: String
-    var trackRecord: String
-    var trackRecordDriver: String
-    var trackRecordYear: String
-}
-
-
-
-
-
-
-// MARK: - Welcome
 struct StandingsModel: Codable {
     let mrData: MRData4
 
@@ -182,3 +152,71 @@ struct FastestLapTime4: Codable {
 struct ResultTime4: Codable {
     let millis, time: String
 }
+
+
+
+
+
+
+// MARK: - CircuitModel
+struct CircuitModel: Codable {
+    let mrData: MRData6
+
+    enum CodingKeys: String, CodingKey {
+        case mrData = "MRData"
+    }
+}
+
+// MARK: - MRData
+struct MRData6: Codable {
+    let xmlns: String
+    let series: String
+    let url: String
+    let limit, offset, total: String
+    let circuitTable: CircuitTable
+
+    enum CodingKeys: String, CodingKey {
+        case xmlns, series, url, limit, offset, total
+        case circuitTable = "CircuitTable"
+    }
+}
+
+// MARK: - CircuitTable
+struct CircuitTable: Codable {
+    let season: String
+    let circuits: [Circuit]
+
+    enum CodingKeys: String, CodingKey {
+        case season
+        case circuits = "Circuits"
+    }
+}
+
+// MARK: - Circuit
+struct Circuit: Codable {
+    let round, circuitID: String
+    let url: String
+    let circuitName: String
+    let circuitInfo: CircuitInfo
+    let circuitLapRecord: CircuitLapRecord
+
+    enum CodingKeys: String, CodingKey {
+        case round
+        case circuitID = "circuitId"
+        case url, circuitName
+        case circuitInfo = "CircuitInfo"
+        case circuitLapRecord = "CircuitLapRecord"
+    }
+}
+
+// MARK: - CircuitInfo
+struct CircuitInfo: Codable {
+    let circuitLayoutImage, numberLaps, lenght, raceDistance: String
+    let firstGrandPrix, locality, country: String
+}
+
+// MARK: - CircuitLapRecord
+struct CircuitLapRecord: Codable {
+    let lapRecordNameDriver, lapRecordTime, lapRecordYear: String
+}
+

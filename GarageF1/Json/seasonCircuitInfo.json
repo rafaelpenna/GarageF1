@@ -22,13 +22,12 @@
                         "firstGrandPrix": "1996",
                         "locality": "Melbourne",
                         "country": "Australia"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Sergio Perez",
                         "lapRecordTime": "1:20.235",
                         "lapRecordYear": "2023"
                     }
-
                 },
                 {
                     "round": "18",
@@ -43,13 +42,12 @@
                         "firstGrandPrix": "2012",
                         "locality": "Austin",
                         "country": "USA"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Charles Leclerc",
                         "lapRecordTime": "1:36.169",
                         "lapRecordYear": "2019"
                     }
-
                 },
                 {
                     "round": "1",
@@ -64,13 +62,12 @@
                         "firstGrandPrix": "2004",
                         "locality": "Sakhir",
                         "country": "Bahrain"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Pedro de la Rosa",
                         "lapRecordTime": "1:31.447",
                         "lapRecordYear": "2005"
                     }
-
                 },
                 {
                     "round": "4",
@@ -85,13 +82,12 @@
                         "firstGrandPrix": "2016",
                         "locality": "Baku",
                         "country": "Azerbaijan"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Charles Leclerc",
                         "lapRecordTime": "1:43.009",
                         "lapRecordYear": "2019"
                     }
-
                 },
                 {
                     "round": "7",
@@ -106,13 +102,12 @@
                         "firstGrandPrix": "1991",
                         "locality": "Montmeló",
                         "country": "Spain"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Max Verstappen",
                         "lapRecordTime": "1:16.330",
                         "lapRecordYear": "2023"
                     }
-
                 },
                 {
                     "round": "11",
@@ -127,13 +122,12 @@
                         "firstGrandPrix": "1986",
                         "locality": "Budapest",
                         "country": "Hungary"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:16.627",
                         "lapRecordYear": "2020"
                     }
-
                 },
                 {
                     "round": "20",
@@ -148,13 +142,12 @@
                         "firstGrandPrix": "1973",
                         "locality": "São Paulo",
                         "country": "Brazil"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Valtteri Bottas",
                         "lapRecordTime": "1:10.540",
                         "lapRecordYear": "2018"
                     }
-
                 },
                 {
                     "round": "2",
@@ -169,13 +162,12 @@
                         "firstGrandPrix": "2021",
                         "locality": "Jeddah",
                         "country": "Saudi Arabia"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:30.734",
                         "lapRecordYear": "2021"
                     }
-
                 },
                 {
                     "round": "17",
@@ -190,13 +182,12 @@
                         "firstGrandPrix": "2021",
                         "locality": "Al Daayen",
                         "country": "Qatar"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:20.827",
                         "lapRecordYear": "2021"
                     }
-
                 },
                 {
                     "round": "15",
@@ -211,13 +202,12 @@
                         "firstGrandPrix": "2008",
                         "locality": "Marina Bay",
                         "country": "Singapore"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Kevin Magnussen",
                         "lapRecordTime": "1:41.905",
                         "lapRecordYear": "2018"
                     }
-
                 },
                 {
                     "round": "5",
@@ -232,13 +222,12 @@
                         "firstGrandPrix": "2022",
                         "locality": "Miami",
                         "country": "USA"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Max Verstappen",
                         "lapRecordTime": "1:29.708",
                         "lapRecordYear": "2023"
                     }
-
                 },
                 {
                     "round": "6",
@@ -253,13 +242,12 @@
                         "firstGrandPrix": "1950",
                         "locality": "Monte-Carlo",
                         "country": "Monaco"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:12.909",
                         "lapRecordYear": "2021"
                     }
-
                 },
                 {
                     "round": "14",
@@ -274,13 +262,12 @@
                         "firstGrandPrix": "1980",
                         "locality": "Monza",
                         "country": "Italy"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:15.484",
                         "lapRecordYear": "2020"
                     }
-
                 },
                 {
                     "round": "9",
@@ -295,13 +282,12 @@
                         "firstGrandPrix": "1970",
                         "locality": "Spielberg",
                         "country": "Austria"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Carlos Sainz",
                         "lapRecordTime": "1:05.619",
                         "lapRecordYear": "2020"
                     }
-
                 },
                 {
                     "round": "19",
@@ -316,13 +302,12 @@
                         "firstGrandPrix": "1963",
                         "locality": "Mexico City",
                         "country": "Mexico"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Valtteri Bottas",
                         "lapRecordTime": "1:17.774",
                         "lapRecordYear": "2021"
                     }
-
                 },
                 {
                     "round": "10",
@@ -337,13 +322,12 @@
                         "firstGrandPrix": "1950",
                         "locality": "Silverstone",
                         "country": "UK"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Max Verstappen",
                         "lapRecordTime": "1:27.097",
                         "lapRecordYear": "2020"
                     }
-
                 },
                 {
                     "round": "12",
@@ -358,13 +342,12 @@
                         "firstGrandPrix": "1950",
                         "locality": "Spa",
                         "country": "Belgium"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Valtteri Bottas",
                         "lapRecordTime": "1:46.286",
                         "lapRecordYear": "2018"
                     }
-
                 },
                 {
                     "round": "16",
@@ -379,16 +362,15 @@
                         "firstGrandPrix": "1987",
                         "locality": "Suzuka",
                         "country": "Japan"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:30.983",
                         "lapRecordYear": "2019"
                     }
-
                 },
                 {
-                    "round": "21"
+                    "round": "21",
                     "circuitId": "vegas",
                     "url": "https://en.wikipedia.org/wiki/Las_Vegas_Grand_Prix#Circuit",
                     "circuitName": "Las Vegas Strip Street Circuit",
@@ -400,13 +382,12 @@
                         "firstGrandPrix": "2023",
                         "locality": "Las Vegas",
                         "country": "United States"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "N/A",
                         "lapRecordTime": "N/A",
                         "lapRecordYear": "N/A"
                     }
-
                 },
                 {
                     "round": "8",
@@ -421,13 +402,12 @@
                         "firstGrandPrix": "1978",
                         "locality": "Montreal",
                         "country": "Canada"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Valtteri Bottas",
                         "lapRecordTime": "1:13.078",
                         "lapRecordYear": "2019"
                     }
-
                 },
                 {
                     "round": "22",
@@ -442,13 +422,12 @@
                         "firstGrandPrix": "2009",
                         "locality": "Abu Dhabi",
                         "country": "UAE"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Max Verstappen",
                         "lapRecordTime": "1:26.103",
                         "lapRecordYear": "2021"
                     }
-
                 },
                 {
                     "round": "13"
@@ -463,14 +442,13 @@
                         "firstGrandPrix": "1952",
                         "locality": "Zandvoort",
                         "country": "Netherlands"
-                    }
+                    },
                     "CircuitLapRecord": {
                         "lapRecordNameDriver": "Lewis Hamilton",
                         "lapRecordTime": "1:11.097",
                         "lapRecordYear": "2021"
                     }
-
-                },
+                }
             ]
         }
     }
