@@ -9,10 +9,11 @@ import UIKit
 
 class RaceViewController: UIViewController, DriversViewModelDelegate {
     
-    let racesScreen: RacesScreen? = RacesScreen()
+    var racesScreen: RacesScreen?
     let racesViewModel: RacesViewModel = RacesViewModel()
     
     override func loadView() {
+        racesScreen = RacesScreen()
         view = racesScreen
     }
     

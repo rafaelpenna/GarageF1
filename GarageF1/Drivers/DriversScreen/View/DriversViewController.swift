@@ -9,10 +9,11 @@ import UIKit
 
 class DriversViewController: UIViewController {
     
-    let driversScreen: DriversScreenView? = DriversScreenView()
+    var driversScreen: DriversScreenView?
     let driversViewModel: DriversViewModel = DriversViewModel()
 
     override func loadView() {
+        driversScreen = DriversScreenView()
       view = driversScreen
     }
 

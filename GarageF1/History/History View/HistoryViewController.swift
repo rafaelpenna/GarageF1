@@ -9,10 +9,11 @@ import UIKit
 
 class HistoryViewController: UIViewController {
     
-    let historyScreen: HistoryScreenView? = HistoryScreenView()
+    var historyScreen: HistoryScreenView?
     let historyViewModel: HistoryViewModel = HistoryViewModel()
     
     override func loadView() {
+        historyScreen = HistoryScreenView()
         view = historyScreen
     }
 

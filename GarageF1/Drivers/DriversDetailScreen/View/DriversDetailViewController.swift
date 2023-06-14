@@ -21,7 +21,7 @@ enum DriversInfoTableViewSection: Int {
 
 class DriversDetailViewController: UIViewController {
     
-    let driversDetailScreen: DriversDetailScreenView? = DriversDetailScreenView()
+    var driversDetailScreen: DriversDetailScreenView?
     let driversViewController: DriversViewController = DriversViewController()
     let driversViewModel: DriversViewModel = DriversViewModel()
     
@@ -38,6 +38,7 @@ class DriversDetailViewController: UIViewController {
     var bestGridPosition = ""
     
     override func loadView() {
+        driversDetailScreen = DriversDetailScreenView()
         self.view = driversDetailScreen
     }
     

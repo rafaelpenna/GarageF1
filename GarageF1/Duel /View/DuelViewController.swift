@@ -19,10 +19,11 @@ enum DuelInfoTableViewSection: Int {
 
 class DuelViewController: UIViewController {
     
-    var duelScreen: DuelScreenView? = DuelScreenView()
+    var duelScreen: DuelScreenView?
     var duelViewModel: DuelViewModel = DuelViewModel()
     
     override func loadView() {
+        duelScreen = DuelScreenView()
         view = duelScreen
     }
     

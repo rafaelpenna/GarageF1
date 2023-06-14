@@ -18,12 +18,13 @@ enum StandingsTableViewSection: Int {
 
 class StandingsViewController: UIViewController, DriversViewModelDelegate {
     
-    var standingsScreen: StandingsScreen? = StandingsScreen()
+    var standingsScreen: StandingsScreen?
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
     var selectedRound: Int = 0
     var circuitCountryNameLabel: String = ""
     
     override func loadView() {
+        standingsScreen = StandingsScreen()
         view = standingsScreen
     }
     
