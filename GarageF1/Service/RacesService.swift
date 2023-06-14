@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 protocol RacesServiceDelegate: GenericService {
-    func getRacesDataFromJson(fromFileName name: String, completion: @escaping completion<RacesModel?>)
+    func getRacesDataFromJson(fromFileName name: String, completion: completion<RacesModel?>)
     func getRacesData(fromURL url: String, completion: @escaping completion<RacesModel?>)
 }
 
@@ -27,12 +27,12 @@ class RacesService: RacesServiceDelegate {
         }
     }
     
-    func getRacesDataFromJson(fromFileName name: String, completion: @escaping completion<RacesModel?>) {
+    func getRacesDataFromJson(fromFileName name: String, completion: completion<RacesModel?>) {
         if let name = Bundle.main.url(forResource: name, withExtension: "json"){
             do {
                 let data = try Data(contentsOf: name)
-                let listDrivers = try JSONDecoder().decode(RacesModel.self, from: data)
-                completion(listDrivers, nil)
+                let listRaces = try JSONDecoder().decode(RacesModel.self, from: data)
+                completion(listRaces, nil)
             } catch {
                 completion(nil, Error.fileDecodingFailed(name: "seasonRaces", error))
             }

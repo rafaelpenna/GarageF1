@@ -109,6 +109,7 @@
 		1C9F8F642A312AB8008E53A2 /* StandingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C9F8F632A312AB8008E53A2 /* StandingsService.swift */; };
 		1C9F8F662A312B40008E53A2 /* standingsRound1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C9F8F652A312B40008E53A2 /* standingsRound1.json */; };
 		1CA77AE42A39222100475B96 /* seasonCircuitInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1CA77AE32A39222100475B96 /* seasonCircuitInfo.json */; };
+		1CB156F32A3A0E2F00104DD0 /* CircuitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB156F22A3A0E2F00104DD0 /* CircuitService.swift */; };
 		1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D29299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift */; };
 		1CB39D2C299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D2B299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift */; };
 		1CB39D30299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB39D2F299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift */; };
@@ -284,6 +285,7 @@
 		1C9F8F632A312AB8008E53A2 /* StandingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsService.swift; sourceTree = "<group>"; };
 		1C9F8F652A312B40008E53A2 /* standingsRound1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = standingsRound1.json; sourceTree = "<group>"; };
 		1CA77AE32A39222100475B96 /* seasonCircuitInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = seasonCircuitInfo.json; sourceTree = "<group>"; };
+		1CB156F22A3A0E2F00104DD0 /* CircuitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircuitService.swift; sourceTree = "<group>"; };
 		1CB39D29299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1CB39D2B299D309E009DBE86 /* BirthDateCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthDateCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
 		1CB39D2F299D3B7A009DBE86 /* BirthLocationCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthLocationCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
@@ -1020,6 +1022,7 @@
 				1CDF86482A30A8DA00F3ECB4 /* YearsService.swift */,
 				1C8FFEBF2A31011D00E8FBE1 /* RacesService.swift */,
 				1C9F8F632A312AB8008E53A2 /* StandingsService.swift */,
+				1CB156F22A3A0E2F00104DD0 /* CircuitService.swift */,
 				1C5CE3842A2A3E37003FB86D /* GenericService.swift */,
 			);
 			path = Service;
@@ -1730,6 +1733,7 @@
 				1C99A83B29C01237004CD81C /* RaceDistanceCellScreen.swift in Sources */,
 				0B32CA6029D0EBF000E5B51A /* RacesScreen.swift in Sources */,
 				1C99A83D29C01331004CD81C /* TrackRecordCellScreen.swift in Sources */,
+				1CB156F32A3A0E2F00104DD0 /* CircuitService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

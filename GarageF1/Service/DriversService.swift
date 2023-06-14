@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 protocol DriverServiceDelegate: GenericService {
-    func getDriversDataFromJson(fromFileName name: String, completion: @escaping completion<DriversModel?>)
+    func getDriversDataFromJson(fromFileName name: String, completion: completion<DriversModel?>)
     func getDriversData(fromURL url: String, completion: @escaping completion<DriversModel?>)
 }
 
@@ -28,7 +28,7 @@ class DriversService: DriverServiceDelegate {
         }
     }
     
-    func getDriversDataFromJson(fromFileName name: String, completion: @escaping completion<DriversModel?>) {
+    func getDriversDataFromJson(fromFileName name: String, completion: completion<DriversModel?>) {
         if let name = Bundle.main.url(forResource: name, withExtension: "json"){
             do {
                 let data = try Data(contentsOf: name)

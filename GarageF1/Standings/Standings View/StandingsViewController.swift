@@ -16,7 +16,7 @@ enum StandingsTableViewSection: Int {
     case trackRecord
 }
 
-class StandingsViewController: UIViewController, DriversViewModelDelegate {
+class StandingsViewController: UIViewController {
     
     var standingsScreen: StandingsScreen?
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
@@ -35,6 +35,7 @@ class StandingsViewController: UIViewController, DriversViewModelDelegate {
         passingHeaderData()
         standingsViewModel.selectedRound = selectedRound
         standingsViewModel.fetchStandings(.request)
+        standingsViewModel.fetchCircuitInfo()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -233,6 +234,7 @@ extension StandingsViewController: StandingsViewModelProtocol {
         DispatchQueue.main.async {
             self.standingsScreen?.standingsTableView.reloadData()
             self.bestLapData()
+            self.standingsScreen?.trackTableView.reloadData()
         }
     }
 }

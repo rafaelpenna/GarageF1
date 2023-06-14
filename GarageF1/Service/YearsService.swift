@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 protocol YearsServiceDelegate: GenericService {
-    func getYearsDataFromJson(fromFileName name: String, completion: @escaping completion<HistoryYearModel?>)
+    func getYearsDataFromJson(fromFileName name: String, completion: completion<HistoryYearModel?>)
     func getYearsData(fromURL url: String, completion: @escaping completion<HistoryYearModel?>)
 }
 
@@ -27,12 +27,12 @@ class YearsService: YearsServiceDelegate {
         }
     }
     
-    func getYearsDataFromJson(fromFileName name: String, completion: @escaping completion<HistoryYearModel?>) {
+    func getYearsDataFromJson(fromFileName name: String, completion: completion<HistoryYearModel?>) {
         if let name = Bundle.main.url(forResource: name, withExtension: "json"){
             do {
                 let data = try Data(contentsOf: name)
-                let listDrivers = try JSONDecoder().decode(HistoryYearModel.self, from: data)
-                completion(listDrivers, nil)
+                let listYears = try JSONDecoder().decode(HistoryYearModel.self, from: data)
+                completion(listYears, nil)
             } catch {
                 completion(nil, Error.fileDecodingFailed(name: "yearsSeason", error))
             }

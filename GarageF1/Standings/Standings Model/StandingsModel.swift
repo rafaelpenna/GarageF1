@@ -173,7 +173,7 @@ struct MRData6: Codable {
     let series: String
     let url: String
     let limit, offset, total: String
-    let circuitTable: CircuitTable
+    let circuitTable: CircuitTable6
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -182,9 +182,9 @@ struct MRData6: Codable {
 }
 
 // MARK: - CircuitTable
-struct CircuitTable: Codable {
+struct CircuitTable6: Codable {
     let season: String
-    let circuits: [Circuit]
+    let circuits: [Circuit6]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -193,12 +193,12 @@ struct CircuitTable: Codable {
 }
 
 // MARK: - Circuit
-struct Circuit: Codable {
+struct Circuit6: Codable {
     let round, circuitID: String
     let url: String
     let circuitName: String
-    let circuitInfo: CircuitInfo
-    let circuitLapRecord: CircuitLapRecord
+    let circuitInfo: CircuitInfo6
+    let circuitLapRecord: CircuitLapRecord6
 
     enum CodingKeys: String, CodingKey {
         case round
@@ -210,13 +210,13 @@ struct Circuit: Codable {
 }
 
 // MARK: - CircuitInfo
-struct CircuitInfo: Codable {
+struct CircuitInfo6: Codable {
     let circuitLayoutImage, numberLaps, lenght, raceDistance: String
     let firstGrandPrix, locality, country: String
 }
 
 // MARK: - CircuitLapRecord
-struct CircuitLapRecord: Codable {
+struct CircuitLapRecord6: Codable {
     let lapRecordNameDriver, lapRecordTime, lapRecordYear: String
 }
 

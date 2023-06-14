@@ -23,10 +23,13 @@ protocol StandingsViewModelDelegate: AnyObject {
 }
 
 class StandingsViewModel {
-    private let service: StandingsService = StandingsService()
+    private let standingsService: StandingsService = StandingsService()
+    private let circuitService: CircuitService = CircuitService()
     private weak var delegate: StandingsViewModelDelegate?
+    private var raceViewModel: RacesViewModel = RacesViewModel()
     private var dataStandings:[Result4] = []
     private var dataCircuit: [Race4] = []
+    private var dataCircuitInfo: [Circuit6] = []
     public var selectedRound: Int = 0
     
     public func delegate(delegate: StandingsViewModelDelegate?) {
@@ -36,7 +39,7 @@ class StandingsViewModel {
     public func fetchStandings(_ typeFetch: StandingsTypeFetch){
         switch typeFetch {
         case .mock:
-            self.service.getStandingsDataFromJson(fromFileName: "standingsRound1") { success, error in
+            self.standingsService.getStandingsDataFromJson(fromFileName: "standingsRound1") { success, error in
                 if let success = success {
                     self.dataStandings = success.mrData.raceTable.races[0].results
                     self.delegate?.success()
@@ -47,7 +50,7 @@ class StandingsViewModel {
                 }
             }
         case .request:
-            self.service.getStandingsData(fromURL: "https://ergast.com/api/f1/2023/\(selectedRound + 1)/results.json") { success, error in
+            self.standingsService.getStandingsData(fromURL: "https://ergast.com/api/f1/2023/\(selectedRound + 1)/results.json") { success, error in
                 if let success = success {
                     if success.mrData.raceTable.races.isEmpty == false {
                         self.dataStandings = success.mrData.raceTable.races[0].results
@@ -64,7 +67,19 @@ class StandingsViewModel {
         }
     }
     
-    private var dataTracks:Tracks = Tracks(circuitCountry: "Brazil", circuitImage: UIImage(named: "interlagos") ?? UIImage(), circuitLength: "4.309", circuitLaps: "71", firstGP: "1973", raceDistance: "305.879", trackRecord: "1.10.540", trackRecordDriver: "Valtteri Bottas", trackRecordYear: "2018")
+    public func fetchCircuitInfo() {
+        self.circuitService.getCircuitDataFromJson(fromFileName: "seasonCircuitInfo") { success, error in
+            if let success = success {
+                self.dataCircuitInfo = success.mrData.circuitTable.circuits
+                self.delegate?.success()
+            } else {
+                self.delegate?.error(error?.localizedDescription ?? "")
+                print("náo deu")
+            }
+        }
+    }
+    
+    private var dataTracks = ["Brazil", UIImage(named: "interlagos") , "4.309", "71", "1973", "305.879", "1.10.540", "Valtteri Bottas", "2018"] as [Any]
     
     
     //MARK: - Functions to get info to Drivers Standings Table View
@@ -128,39 +143,39 @@ class StandingsViewModel {
     
     //MARK: - Functions to get info to Track Data
     
-    public func getCircuitCountry() -> String {
-        return dataTracks.circuitCountry
-    }
+    public var circuitNumberOfLaps: String = ""
     
     public func getCircuitImage() -> UIImage {
-        return dataTracks.circuitImage
+        return dataTracks[1] as! UIImage
     }
     
     public func getCircuitLength() -> String {
-        return dataTracks.circuitLength
+        return dataTracks[2] as! String
     }
     
     public func getCircuitLaps() -> String {
-        return dataTracks.circuitLaps
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound)" {
+                circuitNumberOfLaps = dataCircuitInfo[n].circuitInfo.numberLaps
+            }
+        }
+        return circuitNumberOfLaps
     }
     
     public func getFirstGP() -> String {
-        return dataTracks.firstGP
+        return dataTracks[4] as! String
     }
     
     public func getRaceDistance() -> String {
-        return dataTracks.raceDistance
+        return dataTracks[5] as! String
     }
     
     public func getTrackRecord() -> String {
-        return dataTracks.trackRecord
-    }
+        return dataTracks[6] as! String    }
     
     public func getTrackRecordDriver() -> String {
-        return dataTracks.trackRecordDriver
-    }
+        return dataTracks[7] as! String    }
     
     public func getTrackRecordYear() -> String {
-        return dataTracks.trackRecordYear
-    }
+        return dataTracks[8] as! String    }
 }
