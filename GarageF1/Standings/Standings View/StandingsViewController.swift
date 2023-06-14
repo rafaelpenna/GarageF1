@@ -158,7 +158,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             case .trackImage:
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
-                cell?.trackImage.image = standingsViewModel.getCircuitImage()
+                cell?.trackImage.image = UIImage(named: "\(standingsViewModel.circuitImage)")
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .circuitLenght:
@@ -221,12 +221,13 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
 extension StandingsViewController: StandingsViewModelDelegate {
     func success() {
         standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
-        reloadTableView()
         standingsScreen?.resultsLoadFailLabel.isHidden = true
+        reloadTableView()
     }
     
     func error(_ message: String) {
         standingsScreen?.resultsLoadFailLabel.isHidden = false
+        standingsScreen?.eventSoonLabel.isHidden = true
     }
 }
 

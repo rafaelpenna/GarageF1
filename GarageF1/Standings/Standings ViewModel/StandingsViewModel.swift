@@ -72,6 +72,7 @@ class StandingsViewModel {
             if let success = success {
                 self.dataCircuitInfo = success.mrData.circuitTable.circuits
                 self.delegate?.success()
+                self.getCircuitImage()
                 self.getCircuitLaps()
                 self.getCircuitLength()
                 self.getFirstGP()
@@ -84,10 +85,6 @@ class StandingsViewModel {
             }
         }
     }
-    
-
-    
-    private var dataTracks = ["Brazil", UIImage(named: "interlagos") , "4.309", "71", "1973", "305.879", "1.10.540", "Valtteri Bottas", "2018"] as [Any]
     
     
     //MARK: - Functions to get info to Drivers Standings Table View
@@ -151,6 +148,7 @@ class StandingsViewModel {
     
     //MARK: - Functions to get info to Track Data
     
+    public var circuitImage: String = ""
     public var circuitNumberOfLaps: String = ""
     public var circuitLength: String = ""
     public var firstGP: String = ""
@@ -159,8 +157,13 @@ class StandingsViewModel {
     public var circuitRecordTime: String = ""
     public var circuitRecordYear: String = ""
     
-    public func getCircuitImage() -> UIImage {
-        return dataTracks[1] as! UIImage
+    public func getCircuitImage() -> String {
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                circuitImage = dataCircuitInfo[n].circuitInfo.circuitLayoutImage
+            }
+        }
+        return circuitImage
     }
     
     public func getCircuitLength() -> String {
