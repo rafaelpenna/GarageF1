@@ -84,8 +84,6 @@ extension DriversViewController: DriversViewModelDelegate {
 
 extension DriversViewController: DriversViewModelProtocol {
     func reloadTableView() {
-        DispatchQueue.main.async {
-            self.driversScreen?.infoDriversTableView.reloadData()
-        }
+        self.driversScreen?.infoDriversTableView.reloadData()
     }
 }

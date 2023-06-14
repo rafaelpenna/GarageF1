@@ -430,7 +430,7 @@
                     }
                 },
                 {
-                    "round": "13"
+                    "round": "13",
                     "circuitId": "zandvoort",
                     "url": "http://en.wikipedia.org/wiki/Circuit_Zandvoort",
                     "circuitName": "Circuit Park Zandvoort",

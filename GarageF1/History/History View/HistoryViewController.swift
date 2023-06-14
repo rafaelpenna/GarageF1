@@ -251,11 +251,9 @@ extension HistoryViewController: HistoryViewModelDelegate {
 
 extension HistoryViewController: HistoryViewModelProtocol {
     func reloadTableView() {
-        DispatchQueue.main.async {
-            self.historyScreen?.driversTableView.reloadData()
-            self.historyScreen?.teamsTableView.reloadData()
-            self.historyScreen?.yearsTableView.reloadData()
-        }
+        self.historyScreen?.driversTableView.reloadData()
+        self.historyScreen?.teamsTableView.reloadData()
+        self.historyScreen?.yearsTableView.reloadData()
     }
 }
 

@@ -67,17 +67,25 @@ class StandingsViewModel {
         }
     }
     
-    public func fetchCircuitInfo() {
+    public func fetchCircuit(){
         self.circuitService.getCircuitDataFromJson(fromFileName: "seasonCircuitInfo") { success, error in
             if let success = success {
                 self.dataCircuitInfo = success.mrData.circuitTable.circuits
                 self.delegate?.success()
+                self.getCircuitLaps()
+                self.getCircuitLength()
+                self.getFirstGP()
+                self.getRaceDistance()
+                self.getTrackRecord()
+                self.getTrackRecordDriver()
+                self.getTrackRecordYear()
             } else {
                 self.delegate?.error(error?.localizedDescription ?? "")
-                print("náo deu")
             }
         }
     }
+    
+
     
     private var dataTracks = ["Brazil", UIImage(named: "interlagos") , "4.309", "71", "1973", "305.879", "1.10.540", "Valtteri Bottas", "2018"] as [Any]
     
@@ -144,18 +152,29 @@ class StandingsViewModel {
     //MARK: - Functions to get info to Track Data
     
     public var circuitNumberOfLaps: String = ""
+    public var circuitLength: String = ""
+    public var firstGP: String = ""
+    public var raceDistance: String = ""
+    public var circuitRecordName: String = ""
+    public var circuitRecordTime: String = ""
+    public var circuitRecordYear: String = ""
     
     public func getCircuitImage() -> UIImage {
         return dataTracks[1] as! UIImage
     }
     
     public func getCircuitLength() -> String {
-        return dataTracks[2] as! String
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                circuitLength = dataCircuitInfo[n].circuitInfo.lenght
+            }
+        }
+        return circuitLength
     }
     
     public func getCircuitLaps() -> String {
         for n in 0..<dataCircuitInfo.count {
-            if dataCircuitInfo[n].round == "\(selectedRound)" {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitNumberOfLaps = dataCircuitInfo[n].circuitInfo.numberLaps
             }
         }
@@ -163,19 +182,47 @@ class StandingsViewModel {
     }
     
     public func getFirstGP() -> String {
-        return dataTracks[4] as! String
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                firstGP = dataCircuitInfo[n].circuitInfo.firstGrandPrix
+            }
+        }
+        return firstGP
     }
     
     public func getRaceDistance() -> String {
-        return dataTracks[5] as! String
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                raceDistance = dataCircuitInfo[n].circuitInfo.raceDistance
+            }
+        }
+        return raceDistance
     }
     
     public func getTrackRecord() -> String {
-        return dataTracks[6] as! String    }
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                circuitRecordTime = dataCircuitInfo[n].circuitLapRecord.lapRecordTime
+            }
+        }
+        return circuitRecordTime
+    }
     
     public func getTrackRecordDriver() -> String {
-        return dataTracks[7] as! String    }
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                circuitRecordName = dataCircuitInfo[n].circuitLapRecord.lapRecordNameDriver
+            }
+        }
+        return circuitRecordName
+    }
     
     public func getTrackRecordYear() -> String {
-        return dataTracks[8] as! String    }
+        for n in 0..<dataCircuitInfo.count {
+            if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
+                circuitRecordYear = dataCircuitInfo[n].circuitLapRecord.lapRecordYear
+            }
+        }
+        return circuitRecordYear
+    }
 }

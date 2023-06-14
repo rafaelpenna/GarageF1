@@ -10,15 +10,29 @@ import Alamofire
 
 protocol CircuitServiceDelegate: GenericService {
     func getCircuitDataFromJson(fromFileName name: String, completion: completion<CircuitModel?>)
+    func getCircuitData(fromURL url: String, completion: @escaping completion<CircuitModel?>)
 }
 
 class CircuitService: CircuitServiceDelegate {
+    func getCircuitData(fromURL url: String, completion: @escaping completion<CircuitModel?>) {
+        let url: String = url
+        
+        AF.request(url, method: .get).validate().responseDecodable(of: CircuitModel.self) { response in
+            switch response.result {
+            case .success(let success):
+                completion(success, nil)
+            case .failure(let error):
+                completion(nil, Error.errorRequest(error))
+            }
+        }
+    }
+    
     func getCircuitDataFromJson(fromFileName name: String, completion: completion<CircuitModel?>) {
         if let name = Bundle.main.url(forResource: name, withExtension: "json"){
             do {
                 let data = try Data(contentsOf: name)
-                let listCircuit = try JSONDecoder().decode(CircuitModel.self, from: data)
-                completion(listCircuit, nil)
+                let listStandings = try JSONDecoder().decode(CircuitModel.self, from: data)
+                completion(listStandings, nil)
             } catch {
                 completion(nil, Error.fileDecodingFailed(name: "seasonCircuitInfo", error))
             }

@@ -72,8 +72,6 @@ extension RaceViewController: RacesViewModelDelegate {
 
 extension RaceViewController: RacesViewModelProtocol {
     func reloadTableView() {
-        DispatchQueue.main.async {
-            self.racesScreen?.infoRacesTableView.reloadData()
-        }
+        self.racesScreen?.infoRacesTableView.reloadData()
     }
 }

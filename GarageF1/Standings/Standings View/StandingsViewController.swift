@@ -35,7 +35,7 @@ class StandingsViewController: UIViewController {
         passingHeaderData()
         standingsViewModel.selectedRound = selectedRound
         standingsViewModel.fetchStandings(.request)
-        standingsViewModel.fetchCircuitInfo()
+        standingsViewModel.fetchCircuit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -164,33 +164,33 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             case .circuitLenght:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircuitLenghtCellScreen.identifier) as? CircuitLenghtCellScreen
                 cell?.configure()
-                cell?.trackLenghtAnswer.text = standingsViewModel.getCircuitLength()
+                cell?.trackLenghtAnswer.text = standingsViewModel.circuitLength
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .raceLaps:
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceLapsCellScreen.identifier) as? RaceLapsCellScreen
                 cell?.configure()
-                cell?.trackLapsAnswer.text = standingsViewModel.getCircuitLaps()
+                cell?.trackLapsAnswer.text = standingsViewModel.circuitNumberOfLaps
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .firstGrandPrix:
                 let cell = tableView.dequeueReusableCell(withIdentifier: FirstGrandPrixCellScreen.identifier) as? FirstGrandPrixCellScreen
                 cell?.configure()
-                cell?.firstGrandPrixAnswer.text = standingsViewModel.getFirstGP()
+                cell?.firstGrandPrixAnswer.text = standingsViewModel.firstGP
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .raceDistance:
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceDistanceCellScreen.identifier) as? RaceDistanceCellScreen
                 cell?.configure()
-                cell?.raceDistanceAnswer.text = standingsViewModel.getRaceDistance()
+                cell?.raceDistanceAnswer.text = standingsViewModel.raceDistance
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .trackRecord:
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackRecordCellScreen.identifier) as? TrackRecordCellScreen
                 cell?.configure()
-                cell?.trackRecordAnswer.text = standingsViewModel.getTrackRecord()
-                cell?.trackRecordOwner.text = standingsViewModel.getTrackRecordDriver()
-                cell?.trackRecordYear.text = standingsViewModel.getTrackRecordYear()
+                cell?.trackRecordAnswer.text = standingsViewModel.circuitRecordTime
+                cell?.trackRecordOwner.text = standingsViewModel.circuitRecordName
+                cell?.trackRecordYear.text = "(\(standingsViewModel.circuitRecordYear))"
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             default:
@@ -199,6 +199,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell: StandingsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.identifier) as? StandingsTableViewCell
             cell?.setupCell(data: standingsViewModel.loadCurrentDriver(indexPath: indexPath))
+            bestLapData()
             cell?.selectedBackgroundView = standingsScreen?.backgroundView
             return cell ?? UITableViewCell()
         }
@@ -231,11 +232,8 @@ extension StandingsViewController: StandingsViewModelDelegate {
 
 extension StandingsViewController: StandingsViewModelProtocol {
     func reloadTableView() {
-        DispatchQueue.main.async {
-            self.standingsScreen?.standingsTableView.reloadData()
-            self.bestLapData()
-            self.standingsScreen?.trackTableView.reloadData()
-        }
+        self.standingsScreen?.standingsTableView.reloadData()
+        self.standingsScreen?.trackTableView.reloadData()
     }
 }
     
