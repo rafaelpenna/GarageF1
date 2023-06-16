@@ -8,8 +8,95 @@
 import Foundation
 import UIKit
 
+
+struct HistoryDriversModel: Codable {
+    var mrData: MRData8
+
+    enum CodingKeys: String, CodingKey {
+        case mrData = "MRData"
+    }
+}
+
+// MARK: - MRData
+struct MRData8: Codable {
+    var xmlns: String
+    var series: String
+    var url: String
+    var limit, offset, total: String
+    var standingsTable: StandingsTable8
+
+    enum CodingKeys: String, CodingKey {
+        case xmlns, series, url, limit, offset, total
+        case standingsTable = "StandingsTable"
+    }
+}
+
+// MARK: - StandingsTable
+struct StandingsTable8: Codable {
+    var season: String
+    var standingsLists: [StandingsList8]
+
+    enum CodingKeys: String, CodingKey {
+        case season
+        case standingsLists = "StandingsLists"
+    }
+}
+
+// MARK: - StandingsList
+struct StandingsList8: Codable {
+    var season, round: String
+    var driverStandings: [DriverStanding8]
+
+    enum CodingKeys: String, CodingKey {
+        case season, round
+        case driverStandings = "DriverStandings"
+    }
+}
+
+// MARK: - DriverStanding
+struct DriverStanding8: Codable {
+    var position, positionText, points, wins: String
+    var driver: Driver8
+    var constructors: [Constructor8]
+
+    enum CodingKeys: String, CodingKey {
+        case position, positionText, points, wins
+        case driver = "Driver"
+        case constructors = "Constructors"
+    }
+}
+
+// MARK: - Constructor
+struct Constructor8: Codable {
+    var constructorID: String
+    var url: String
+    var name, nationality: String
+
+    enum CodingKeys: String, CodingKey {
+        case constructorID = "constructorId"
+        case url, name, nationality
+    }
+}
+
+// MARK: - Driver
+struct Driver8: Codable {
+    var driverID: String
+    var url: String
+    var givenName, familyName, dateOfBirth, nationality: String
+
+    enum CodingKeys: String, CodingKey {
+        case driverID = "driverId"
+        case url, givenName, familyName, dateOfBirth, nationality
+    }
+}
+
+
+
+
+
+
 // MARK: - Welcome
-struct HistoryModel: Codable {
+struct ConstructorHistoryModel: Codable {
     let mrData: MRData1
 
     enum CodingKeys: String, CodingKey {

@@ -3,4 +3,165 @@
    uuid = "1D84B5E7-C88D-4248-9868-00999D024301"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C6255576-3783-4A82-8346-041F809AE0E1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GarageF1/History/History ViewModel/HistoryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "fetchHistoryDrivers(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C6255576-3783-4A82-8346-041F809AE0E1 - 340ab8f8eff8809d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "C6255576-3783-4A82-8346-041F809AE0E1 - 7cf1919b685b4856"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.DriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "C6255576-3783-4A82-8346-041F809AE0E1 - f682e6026fd258a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.HistoryDriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10FB7602-E156-4F4C-94DF-00BA952A1616"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GarageF1/History/History ViewModel/HistoryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
+            landmarkName = "fetchHistoryDrivers(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "10FB7602-E156-4F4C-94DF-00BA952A1616 - 7cf1919b685b4894"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.DriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "612">
+               </Location>
+               <Location
+                  uuid = "10FB7602-E156-4F4C-94DF-00BA952A1616 - f682e6026fd25867"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.HistoryDriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "612">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "07CA265E-4E2C-4AA2-99FA-F5BAE7FEEEC6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GarageF1/History/History ViewModel/HistoryViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "fetchHistoryDrivers(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "07CA265E-4E2C-4AA2-99FA-F5BAE7FEEEC6 - 7cf1919b685b48da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.DriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "07CA265E-4E2C-4AA2-99FA-F5BAE7FEEEC6 - f682e6026fd25829"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (Swift.Optional&lt;GarageF1.HistoryDriversModel&gt;, Swift.Optional&lt;GarageF1.Error&gt;) -&gt; () in GarageF1.HistoryViewModel.fetchHistoryDrivers(GarageF1.HistoryTypeFetch) -&gt; ()"
+                  moduleName = "GarageF1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/rafaelpenna/SwiftFiles/GarageF1/GarageF1/History/History%20ViewModel/HistoryViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "220">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

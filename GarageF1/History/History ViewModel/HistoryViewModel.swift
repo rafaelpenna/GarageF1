@@ -22,15 +22,16 @@ protocol HistoryViewModelDelegate: AnyObject {
 }
 
 class HistoryViewModel {
-    private var dataDrivers:[DriverStanding] = []
+    private var dataDrivers:[DriverStanding8] = []
     private var dataTeams:[ConstructorStanding1] = []
     
     private var listYearDataInsert:[Season2] = []
     private var listYearsData:[String] = []
     private var listYear:[String] = []
     private var listYearsSearch:[String] = []
+    public var seasonSelectedYear: String = ""
     
-    private let driversService: DriversService = DriversService()
+    private let driversService: HistoryDriversService = HistoryDriversService()
     private let teamsService: TeamsService = TeamsService()
     private let yearsService: YearsService = YearsService()
     private weak var delegate: HistoryViewModelDelegate?
@@ -51,7 +52,7 @@ class HistoryViewModel {
                 }
             }
         case .request:
-            self.teamsService.getTeamsData(fromURL: "https://ergast.com/api/f1/2020/constructorStandings.json") { success, error in
+            self.teamsService.getTeamsData(fromURL: "https://ergast.com/api/f1/\(seasonSelectedYear)/constructorStandings.json") { success, error in
                 if let success = success {
                     self.dataTeams = success.mrData.standingsTable.standingsLists[0].constructorStandings
                     self.delegate?.success()
@@ -74,7 +75,7 @@ class HistoryViewModel {
                 }
             }
         case .request:
-            self.driversService.getDriversData(fromURL: "https://ergast.com/api/f1/2020/driverStandings.json") { success, error in
+            self.driversService.getDriversData(fromURL: "https://ergast.com/api/f1/\(seasonSelectedYear)/driverStandings.json?limit=40") { success, error in
                 if let success = success {
                     self.dataDrivers = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()
@@ -126,7 +127,7 @@ class HistoryViewModel {
         return self.dataDrivers.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding {
+    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding8 {
         return dataDrivers[indexPath.row]
     }
     

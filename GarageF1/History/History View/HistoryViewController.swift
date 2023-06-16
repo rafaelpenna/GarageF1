@@ -11,6 +11,7 @@ class HistoryViewController: UIViewController {
     
     var historyScreen: HistoryScreenView?
     let historyViewModel: HistoryViewModel = HistoryViewModel()
+    var seasonSelectedYear: String = "2022"
     
     override func loadView() {
         historyScreen = HistoryScreenView()
@@ -21,6 +22,7 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
+        historyViewModel.seasonSelectedYear = seasonSelectedYear
         historyViewModel.fetchHistoryTeams(.request)
         historyViewModel.fetchHistoryDrivers(.request)
         historyViewModel.fetchHistoryYears(.request)
@@ -230,6 +232,10 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == historyScreen?.yearsTableView {
             buttonYearSelect.setTitle("\(historyViewModel.getFilterDataYear[indexPath.row])", for: .normal)
+            seasonSelectedYear = buttonYearSelect.titleLabel?.text ?? String()
+            historyViewModel.seasonSelectedYear = seasonSelectedYear
+            historyViewModel.fetchHistoryDrivers(.request)
+            historyViewModel.fetchHistoryTeams(.request)
             reloadTableView()
             animateList(toogle: false)
             textFieldSearchSelect.text = ""

@@ -80,12 +80,12 @@ struct Constructor: Codable {
 
 // MARK: - Driver
 struct Driver: Codable {
-    var driverID, permanentNumber, code: String
+    var driverID, code: String
     var url: String
     var givenName, familyName, dateOfBirth, nationality: String
 
     enum CodingKeys: String, CodingKey {
         case driverID = "driverId"
-        case permanentNumber, code, url, givenName, familyName, dateOfBirth, nationality
+        case code, url, givenName, familyName, dateOfBirth, nationality
     }
 }
