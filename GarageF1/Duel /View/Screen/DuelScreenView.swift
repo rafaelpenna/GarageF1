@@ -283,9 +283,9 @@ class DuelScreenView: UIView {
             
             driversNameLeftLabel.centerXAnchor.constraint(equalTo: namesBackgroundView.centerXAnchor, constant: -100),
             driversNameLeftLabel.bottomAnchor.constraint(equalTo: namesBackgroundView.bottomAnchor, constant: -30),
-            driversNameLeftLabel.leadingAnchor.constraint(equalTo: namesBackgroundView.leadingAnchor, constant: 7),
+            driversNameLeftLabel.leadingAnchor.constraint(equalTo: namesBackgroundView.leadingAnchor, constant: 10),
             driversNameLeftLabel.topAnchor.constraint(equalTo: namesBackgroundView.topAnchor, constant: 30),
-            driversNameLeftLabel.trailingAnchor.constraint(equalTo: leftArrowIconImage.leadingAnchor, constant: -7),
+            driversNameLeftLabel.trailingAnchor.constraint(equalTo: leftArrowIconImage.leadingAnchor, constant: -10),
             
             leftArrowIconImage.trailingAnchor.constraint(equalTo: leftDriverButton.trailingAnchor, constant: -4),
             leftArrowIconImage.bottomAnchor.constraint(equalTo: namesBackgroundView.bottomAnchor, constant: -55),

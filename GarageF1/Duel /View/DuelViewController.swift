@@ -31,6 +31,8 @@ class DuelViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
+        duelViewModel.fetchDuelDriversList(.request)
+        reloadTableView()
     }
     
     func setupProtocols() {
@@ -86,7 +88,7 @@ class DuelViewController: UIViewController {
     
     lazy var leftNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameLeftLabel ?? UILabel()
-        label.text = "Michael Schumacher"
+        label.text = "Schumacher, Michael"
         return label
     }()
     
@@ -124,7 +126,7 @@ class DuelViewController: UIViewController {
     
     lazy var rightNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameRightLabel ?? UILabel()
-        label.text = "Lewis Hamilton"
+        label.text = "Hamilton, Lewis"
         return label
     }()
     
@@ -257,7 +259,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == leftNameDriverTableViewSelect  {
             let cell: DuelDriversTableViewCell? = tableView.dequeueReusableCell(withIdentifier: DuelDriversTableViewCell.identifier) as? DuelDriversTableViewCell
-            cell?.textLabel?.text = String(duelViewModel.getFilterLeftNameDriver[indexPath.row])
+            cell?.textLabel?.text = "\(duelViewModel.getFilterLeftNameDriver[indexPath.row])"
             cell?.backgroundColor = UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1)
             cell?.textLabel?.textColor = .white
             cell?.textLabel?.textAlignment = .center
@@ -360,5 +362,23 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()
         }
+    }
+}
+
+extension DuelViewController: DuelViewModelDelegate {
+    func success() {
+        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension DuelViewController: DuelViewModelProtocol {
+    func reloadTableView() {
+        self.duelScreen?.leftNameDriversTableView.reloadData()
+        self.duelScreen?.rightNameDriversTableView.reloadData()
     }
 }

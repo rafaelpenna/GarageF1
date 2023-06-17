@@ -11,7 +11,6 @@ import UIKit
 
 class DuelDriversTableViewCell: UITableViewCell {
 
-    var data: [DuelDropdownModel] = []
     var customDriversName: CustomCellDuelDrivers = CustomCellDuelDrivers()
     var yearsViewModel: DuelViewModel?
     

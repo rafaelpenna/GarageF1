@@ -7,17 +7,66 @@
 
 import UIKit
 
+enum DuelTypeFetch {
+    case mock
+    case request
+}
+
+protocol DuelViewModelProtocol: AnyObject {
+    func reloadTableView()
+}
+
+protocol DuelViewModelDelegate: AnyObject {
+    func success()
+    func error(_ message: String)
+}
+
 class DuelViewModel {
     
-    private var driverList:[DuelDropdownModel] = []
+    private var driverList:[Driver9] = []
     private var leftNameDriverData:[String] = []
     private var rightNameDriverData:[String] = []
     
     private var leftListDriver = [String]()
     private var rightListDriver = [String]()
     
+    private let duelService: DuelService = DuelService()
+    private weak var delegate: DuelViewModelDelegate?
+    
+    public func delegate(delegate: DuelViewModelDelegate?) {
+        self.delegate = delegate
+    }
+    
+    public func fetchDuelDriversList(_ typeFetch: DuelTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.duelService.getDriversNameFromJson(fromFileName: "allDriversList") { success, error in
+                if let success = success {
+                    self.driverList = success.mrData.driverTable.drivers
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.duelService.getDriversName(fromURL: "https://ergast.com/api/f1/drivers.json?limit=857") { success, error in
+                if let success = success {
+                    self.driverList = success.mrData.driverTable.drivers
+                    self.configLeftNameDriver()
+                    self.configRightNameDriver()
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+    
     init(){
-        self.configArrayListDriver()
         self.configLeftNameDriver()
         self.configRightNameDriver()
         leftListDriver = getLeftNameDriver
@@ -31,28 +80,16 @@ class DuelViewModel {
     
     private var dataDriversRight:DuelModel = DuelModel(driversName: "Max", driversLastName: "Verstappen", driversBirthDate: "30/09/1997", driversAge: "(24 anos)", driversBirthPlace: "Hasselt", driversCountry: "Bélgica", driversChampionshipsWon: "2", driversChampionshipsWinYear: "2021, 2022", driversRacesParticipated: "163", driversPodiumsWon: "77", driversPointsEarned: "2011", driversWins: "35")
     
-    private func configArrayListDriver(){
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Alan Prost"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Ayrton Senna"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "David Coulthard"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Kimi Raikonnen"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Lewis Hammilton"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Juan Manuel Fangio"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Michael Schumacher"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Mika Hakkinen"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Rubens Barrichello"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Sebastian Vettel"))
-    }
     
     private func configLeftNameDriver() {
         for name in 0 ..< driverList.count {
-            self.leftNameDriverData.append(driverList[name].duelDriverName)
+            self.leftNameDriverData.append("\(driverList[name].familyName), \(driverList[name].givenName)")
         }
     }
     
     private func configRightNameDriver() {
         for name in 0 ..< driverList.count {
-            self.rightNameDriverData.append(driverList[name].duelDriverName)
+            self.rightNameDriverData.append("\(driverList[name].familyName), \(driverList[name].givenName)")
         }
     }
     
