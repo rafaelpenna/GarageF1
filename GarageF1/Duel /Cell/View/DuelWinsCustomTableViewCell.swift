@@ -14,7 +14,7 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
     var winsTitle: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
-        variable.text = "Melhor colocação em corridas"
+        variable.text = "Vitórias"
         variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0

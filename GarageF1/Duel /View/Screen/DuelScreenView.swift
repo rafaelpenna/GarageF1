@@ -171,8 +171,8 @@ class DuelScreenView: UIView {
         tableView.register(DuelBirthDateCustomTableViewCell.self, forCellReuseIdentifier: DuelBirthDateCustomTableViewCell.identifier)
         tableView.register(DuelBirthLocationCustomTableViewCell.self, forCellReuseIdentifier: DuelBirthLocationCustomTableViewCell.identifier)
         tableView.register(DuelChampionshipsWonCustomTableViewCell.self, forCellReuseIdentifier: DuelChampionshipsWonCustomTableViewCell.identifier)
-        tableView.register(DuelRacesParticipatedCustomTableViewCell.self, forCellReuseIdentifier: DuelRacesParticipatedCustomTableViewCell.identifier)
-        tableView.register(DuelPodiumsEarnedCustomTableViewCell.self, forCellReuseIdentifier: DuelPodiumsEarnedCustomTableViewCell.identifier)
+        tableView.register(DuelSeasonsOnTop3CustomTableViewCell.self, forCellReuseIdentifier: DuelSeasonsOnTop3CustomTableViewCell.identifier)
+        tableView.register(DuelSeasonsParticipatedCustomTableViewCell.self, forCellReuseIdentifier: DuelSeasonsParticipatedCustomTableViewCell.identifier)
         tableView.register(DuelPointsEarnedCustomTableViewCell.self, forCellReuseIdentifier: DuelPointsEarnedCustomTableViewCell.identifier)
         tableView.register(DuelWinsCustomTableViewCell.self, forCellReuseIdentifier: DuelWinsCustomTableViewCell.identifier)
         return tableView

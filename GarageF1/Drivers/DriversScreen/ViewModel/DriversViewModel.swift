@@ -56,7 +56,7 @@ class DriversViewModel {
     //MARK: - Functions to get info to TableView Drivers
     
     public var numberOfRows:Int{
-        return self.dataDriversScreen.count
+        return dataDriversScreen.count
     }
     
     public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding {

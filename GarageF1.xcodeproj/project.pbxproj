@@ -62,6 +62,8 @@
 		1C43E52D2A12EFDB00B977DB /* CustomCellHistoryYears.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E52C2A12EFDB00B977DB /* CustomCellHistoryYears.swift */; };
 		1C43E52F2A12EFF600B977DB /* HistoryYearsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E52E2A12EFF600B977DB /* HistoryYearsTableViewCell.swift */; };
 		1C43E5312A12F16B00B977DB /* YearsScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C43E5302A12F16B00B977DB /* YearsScreenViewModel.swift */; };
+		1C44C1612A3E28BD001F5315 /* DriversDuelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44C1602A3E28BD001F5315 /* DriversDuelService.swift */; };
+		1C44C1632A3E2936001F5315 /* driverDuelInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 1C44C1622A3E2936001F5315 /* driverDuelInfo.json */; };
 		1C44CDCF29CF105D00D8F32F /* RacesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDCE29CF105D00D8F32F /* RacesViewModel.swift */; };
 		1C44CDD829CF1C4200D8F32F /* RacesCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDD729CF1C4200D8F32F /* RacesCustomTableViewCell.swift */; };
 		1C44CDDA29CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C44CDD929CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift */; };
@@ -87,8 +89,8 @@
 		1C726E4429B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4329B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift */; };
 		1C726E4629B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4529B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift */; };
 		1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4729B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift */; };
-		1C726E4A29B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4929B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift */; };
-		1C726E4C29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4B29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift */; };
+		1C726E4A29B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4929B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift */; };
+		1C726E4C29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4B29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift */; };
 		1C726E4E29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4D29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift */; };
 		1C726E5029B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */; };
 		1C726E5629B7BAD5006591C9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0B10DD57295A931700CB397A /* GoogleService-Info.plist */; };
@@ -242,6 +244,8 @@
 		1C43E52C2A12EFDB00B977DB /* CustomCellHistoryYears.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryYears.swift; sourceTree = "<group>"; };
 		1C43E52E2A12EFF600B977DB /* HistoryYearsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryYearsTableViewCell.swift; sourceTree = "<group>"; };
 		1C43E5302A12F16B00B977DB /* YearsScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearsScreenViewModel.swift; sourceTree = "<group>"; };
+		1C44C1602A3E28BD001F5315 /* DriversDuelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDuelService.swift; sourceTree = "<group>"; };
+		1C44C1622A3E2936001F5315 /* driverDuelInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = driverDuelInfo.json; sourceTree = "<group>"; };
 		1C44CDCE29CF105D00D8F32F /* RacesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesViewModel.swift; sourceTree = "<group>"; };
 		1C44CDD729CF1C4200D8F32F /* RacesCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RacesCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C44CDD929CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceCustomTableViewCellScreen.swift; sourceTree = "<group>"; };
@@ -267,8 +271,8 @@
 		1C726E4329B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelBirthDateCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4529B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelBirthLocationCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4729B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelChampionshipsWonCustomTableViewCell.swift; sourceTree = "<group>"; };
-		1C726E4929B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelRacesParticipatedCustomTableViewCell.swift; sourceTree = "<group>"; };
-		1C726E4B29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelPodiumsEarnedCustomTableViewCell.swift; sourceTree = "<group>"; };
+		1C726E4929B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelSeasonsOnTop3CustomTableViewCell.swift; sourceTree = "<group>"; };
+		1C726E4B29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelSeasonsParticipatedCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4D29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelPointsEarnedCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DuelWinsCustomTableViewCell.swift; sourceTree = "<group>"; };
 		1C7553952A2ED2DC003CB6DA /* TeamsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamsService.swift; sourceTree = "<group>"; };
@@ -1017,6 +1021,7 @@
 				1C9F8F652A312B40008E53A2 /* standingsRound1.json */,
 				1CA77AE32A39222100475B96 /* seasonCircuitInfo.json */,
 				1CD063282A3CF46B0030BB62 /* allDriversList.json */,
+				1C44C1622A3E2936001F5315 /* driverDuelInfo.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -1032,6 +1037,7 @@
 				1C9F8F632A312AB8008E53A2 /* StandingsService.swift */,
 				1CB156F22A3A0E2F00104DD0 /* CircuitService.swift */,
 				1CD0632A2A3CF6500030BB62 /* DuelService.swift */,
+				1C44C1602A3E28BD001F5315 /* DriversDuelService.swift */,
 				1C5CE3842A2A3E37003FB86D /* GenericService.swift */,
 			);
 			path = Service;
@@ -1106,8 +1112,8 @@
 				1C726E4329B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift */,
 				1C726E4529B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift */,
 				1C726E4729B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift */,
-				1C726E4929B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift */,
-				1C726E4B29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift */,
+				1C726E4929B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift */,
+				1C726E4B29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift */,
 				1C726E4D29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift */,
 				1C726E4F29B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift */,
 			);
@@ -1476,6 +1482,7 @@
 				1C726E5629B7BAD5006591C9 /* GoogleService-Info.plist in Resources */,
 				1CA77AE42A39222100475B96 /* seasonCircuitInfo.json in Resources */,
 				1C9F8F662A312B40008E53A2 /* standingsRound1.json in Resources */,
+				1C44C1632A3E2936001F5315 /* driverDuelInfo.json in Resources */,
 				0B4CC62D2953E90900D29D4C /* LaunchScreen.storyboard in Resources */,
 				0B568FD32A0C663300D89FCF /* raceflag.json in Resources */,
 				0B568FDD2A0C7B4300D89FCF /* logout.json in Resources */,
@@ -1665,7 +1672,7 @@
 				1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */,
 				1C44CDD829CF1C4200D8F32F /* RacesCustomTableViewCell.swift in Sources */,
 				0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */,
-				1C726E4A29B7AABC006591C9 /* DuelRacesParticipatedCustomTableViewCell.swift in Sources */,
+				1C726E4A29B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift in Sources */,
 				34B996B029F8BE5200DCBE69 /* SecondDriverVC.swift in Sources */,
 				34B996A429F8BE5200DCBE69 /* StandingCustomTableViewCell.swift in Sources */,
 				34B996BB29F8BE5200DCBE69 /* FirstDriverVC.swift in Sources */,
@@ -1710,7 +1717,7 @@
 				1C99A83229BFF765004CD81C /* CustomStandingsTableViewScreen.swift in Sources */,
 				1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */,
 				34B996A229F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift in Sources */,
-				1C726E4C29B7AADA006591C9 /* DuelPodiumsEarnedCustomTableViewCell.swift in Sources */,
+				1C726E4C29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift in Sources */,
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,
 				1CB39D3C299D3C1C009DBE86 /* BestGridPositionCustomTableViewCellScreen.swift in Sources */,
 				34B996B329F8BE5200DCBE69 /* TableViewBestGridPositionCustomCellScreen.swift in Sources */,
@@ -1744,6 +1751,7 @@
 				1C99A83529C00EE3004CD81C /* CircuitLenghtCellScreen.swift in Sources */,
 				1C99A83B29C01237004CD81C /* RaceDistanceCellScreen.swift in Sources */,
 				0B32CA6029D0EBF000E5B51A /* RacesScreen.swift in Sources */,
+				1C44C1612A3E28BD001F5315 /* DriversDuelService.swift in Sources */,
 				1C99A83D29C01331004CD81C /* TrackRecordCellScreen.swift in Sources */,
 				1CB156F32A3A0E2F00104DD0 /* CircuitService.swift in Sources */,
 			);

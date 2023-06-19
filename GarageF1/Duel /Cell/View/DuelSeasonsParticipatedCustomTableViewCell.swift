@@ -7,14 +7,14 @@
 
 import UIKit
 
-class DuelPodiumsEarnedCustomTableViewCell: UITableViewCell {
+class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
 
-    static let identifier = String(describing: DuelPodiumsEarnedCustomTableViewCell.self)
+    static let identifier = String(describing: DuelSeasonsParticipatedCustomTableViewCell.self)
     
     var podiumsTitle: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
-        variable.text = "Pódios"
+        variable.text = "Temporadas"
         variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0

@@ -11,8 +11,8 @@ enum DuelInfoTableViewSection: Int {
     case duelBirthDate
     case duelBirthLocation
     case duelChampionships
-    case duelRacesParticipated
-    case duelPodiumsEarned
+    case duelSeasonsOnTop3
+    case duelSeasonsParticipated
     case duelPointsEarned
     case duelWins
 }
@@ -32,6 +32,8 @@ class DuelViewController: UIViewController {
         setupProtocols()
         addElements()
         duelViewModel.fetchDuelDriversList(.request)
+        duelViewModel.fetchLeftDuelDriversInfo(.request)
+        duelViewModel.fetchRightDuelDriversInfo(.request)
         reloadTableView()
     }
     
@@ -88,7 +90,7 @@ class DuelViewController: UIViewController {
     
     lazy var leftNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameLeftLabel ?? UILabel()
-        label.text = "Schumacher, Michael"
+        label.text = "Senna, Ayrton"
         return label
     }()
     
@@ -287,8 +289,6 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.configure()
                 cell?.birthLocationAnswerLeft.text = duelViewModel.getDriversBirthPlaceLeft()
                 cell?.birthLocationAnswerRight.text = duelViewModel.getDriversBirthPlaceRight()
-                cell?.countrynAnswerLeft.text = duelViewModel.getDriversCountryLeft()
-                cell?.countrynAnswerRight.text = duelViewModel.getDriversCountryRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelChampionships:
@@ -296,22 +296,20 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
                 cell?.configure()
                 cell?.championshipsWinAnswerLeft.text = duelViewModel.getChampionshipsWonLeft()
                 cell?.championshipsWinAnswerRight.text = duelViewModel.getChampionshipsWonRight()
-                cell?.championshipsWinAnswerYearLeft.text = duelViewModel.getChampionshipsWinYearLeft()
-                cell?.championshipsWinAnswerYearRight.text = duelViewModel.getChampionshipsWinYearRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            case .duelRacesParticipated:
-                let cell = tableView.dequeueReusableCell(withIdentifier: DuelRacesParticipatedCustomTableViewCell.identifier) as? DuelRacesParticipatedCustomTableViewCell
+            case .duelSeasonsOnTop3:
+                let cell = tableView.dequeueReusableCell(withIdentifier: DuelSeasonsOnTop3CustomTableViewCell.identifier) as? DuelSeasonsOnTop3CustomTableViewCell
                 cell?.configure()
-                cell?.racesAnswerLeft.text = duelViewModel.getRacesParticipatedLeft()
-                cell?.racesAnswerRight.text = duelViewModel.getRacesParticipatedRight()
+                cell?.racesAnswerLeft.text = duelViewModel.getLeftSeasonTop3()
+                cell?.racesAnswerRight.text = duelViewModel.getRightSeasonTop3()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
-            case .duelPodiumsEarned:
-                let cell = tableView.dequeueReusableCell(withIdentifier: DuelPodiumsEarnedCustomTableViewCell.identifier) as? DuelPodiumsEarnedCustomTableViewCell
+            case .duelSeasonsParticipated:
+                let cell = tableView.dequeueReusableCell(withIdentifier: DuelSeasonsParticipatedCustomTableViewCell.identifier) as? DuelSeasonsParticipatedCustomTableViewCell
                 cell?.configure()
-                cell?.podiumsAnswerLeft.text = duelViewModel.getPodiumsWonLeft()
-                cell?.podiumsAnswerRight.text = duelViewModel.getPodiumsWonRight()
+                cell?.podiumsAnswerLeft.text = duelViewModel.getLeftSeasonsParticipated()
+                cell?.podiumsAnswerRight.text = duelViewModel.getRightSeasonsParticipated()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelPointsEarned:
@@ -340,13 +338,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
         } else if tableView == rightNameDriverTableViewSelect  {
             return 50
         } else {
-            if indexPath.row == 0 || indexPath.row == 3 || indexPath.row == 4 || indexPath.row == 5 || indexPath.row == 6 {
-                return 68
-            } else if indexPath.row == 1 {
-                return 95
-            } else {
-                return 117
-            }
+            return 68
         }
     }
     
@@ -356,11 +348,13 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             leftAnimateList(toogle: false)
             leftTextFieldSearchSelect.text = ""
             clearLeftSearchField()
+            reloadTableView()
         } else if tableView == duelScreen?.rightNameDriversTableView {
             rightNameDriver.text = "\(duelViewModel.getFilterRightNameDriver[indexPath.row])"
             rightAnimateList(toogle: false)
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()
+            reloadTableView()
         }
     }
 }
@@ -380,5 +374,6 @@ extension DuelViewController: DuelViewModelProtocol {
     func reloadTableView() {
         self.duelScreen?.leftNameDriversTableView.reloadData()
         self.duelScreen?.rightNameDriversTableView.reloadData()
+        self.duelScreen?.infoTableView.reloadData()
     }
 }
