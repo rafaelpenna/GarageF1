@@ -114,7 +114,6 @@ class DuelViewModel {
         }
     }
     
-    
     private func configLeftNameDriver() {
         for name in 0 ..< driverList.count {
             self.leftNameDriverData.append("\(driverList[name].familyName), \(driverList[name].givenName)")
@@ -128,15 +127,9 @@ class DuelViewModel {
     }
     
     //MARK: - Functions to get Left Driver Data
-    
-    var leftDateBirth = ""
-    var leftPlaceBirth = ""
-    var leftChampionshipsWon = 0
-    var leftSeasonTop3 = 0
-    var leftPoints = 0
-    var leftWins = 0
-    
+
     public func getDriversBirthDateLeft() -> String {
+        var leftDateBirth = ""
         for seasons in 0 ..< dataDriversLeft.count {
             leftDateBirth = dataDriversLeft[seasons].driverStandings[0].driver.dateOfBirth
         }
@@ -144,6 +137,7 @@ class DuelViewModel {
     }
     
     public func getDriversBirthPlaceLeft() -> String {
+        var leftPlaceBirth = ""
         for seasons in 0 ..< dataDriversLeft.count {
             leftPlaceBirth = dataDriversLeft[seasons].driverStandings[0].driver.nationality
         }
@@ -151,18 +145,20 @@ class DuelViewModel {
     }
     
     public func getChampionshipsWonLeft() -> String {
+        var leftChampionshipsWon = 0
         for seasons in 0 ..< dataDriversLeft.count {
             if dataDriversLeft[seasons].driverStandings[0].position == "1" {
-                self.leftChampionshipsWon += 1
+                leftChampionshipsWon += 1
             }
         }
         return String(leftChampionshipsWon)
     }
     
     public func getLeftSeasonTop3() -> String {
+        var leftSeasonTop3 = 0
         for seasons in 0 ..< dataDriversLeft.count {
             if dataDriversLeft[seasons].driverStandings[0].position == "1" || dataDriversLeft[seasons].driverStandings[0].position == "2" || dataDriversLeft[seasons].driverStandings[0].position == "3" {
-                self.leftSeasonTop3 += 1
+                leftSeasonTop3 += 1
             }
         }
         return String(leftSeasonTop3)
@@ -173,6 +169,7 @@ class DuelViewModel {
     }
     
     public func getPointsEarnedLeft() -> String {
+        var leftPoints = 0
         for seasons in 0 ..< dataDriversLeft.count {
             leftPoints += Int(dataDriversLeft[seasons].driverStandings[0].points) ?? 0
         }
@@ -180,6 +177,7 @@ class DuelViewModel {
     }
     
     public func getWinsLeft() -> String {
+        var leftWins = 0
         for seasons in 0 ..< dataDriversLeft.count {
             leftWins += Int(dataDriversLeft[seasons].driverStandings[0].wins) ?? 0
         }
@@ -188,14 +186,8 @@ class DuelViewModel {
     
     //MARK: - Functions to get Right Driver Data
     
-    var rightDateBirth = ""
-    var rightPlaceBirth = ""
-    var rightChampionshipsWon = 0
-    var rightSeasonTop3 = 0
-    var rightPoints = 0
-    var rightWins = 0
-    
     public func getDriversBirthDateRight() -> String {
+        var rightDateBirth = ""
         for seasons in 0 ..< dataDriversRight.count {
             rightDateBirth = dataDriversRight[seasons].driverStandings[0].driver.dateOfBirth
         }
@@ -203,6 +195,7 @@ class DuelViewModel {
     }
     
     public func getDriversBirthPlaceRight() -> String {
+        var rightPlaceBirth = ""
         for seasons in 0 ..< dataDriversRight.count {
             rightPlaceBirth = dataDriversRight[seasons].driverStandings[0].driver.nationality
         }
@@ -210,18 +203,20 @@ class DuelViewModel {
     }
     
     public func getChampionshipsWonRight() -> String {
+        var rightChampionshipsWon = 0
         for seasons in 0 ..< dataDriversRight.count {
             if dataDriversRight[seasons].driverStandings[0].position == "1" {
-                self.rightChampionshipsWon += 1
+                rightChampionshipsWon += 1
             }
         }
         return String(rightChampionshipsWon)
     }
     
     public func getRightSeasonTop3() -> String {
+        var rightSeasonTop3 = 0
         for seasons in 0 ..< dataDriversRight.count {
             if dataDriversRight[seasons].driverStandings[0].position == "1" || dataDriversRight[seasons].driverStandings[0].position == "2" || dataDriversRight[seasons].driverStandings[0].position == "3" {
-                self.rightSeasonTop3 += 1
+                rightSeasonTop3 += 1
             }
         }
         return String(rightSeasonTop3)
@@ -232,6 +227,7 @@ class DuelViewModel {
     }
     
     public func getPointsEarnedRight() -> String {
+        var rightPoints = 0
         for seasons in 0 ..< dataDriversRight.count {
             rightPoints += Int(dataDriversRight[seasons].driverStandings[0].points) ?? 0
         }
@@ -239,6 +235,7 @@ class DuelViewModel {
     }
     
     public func getWinsRight() -> String {
+        var rightWins = 0
         for seasons in 0 ..< dataDriversRight.count {
             rightWins += Int(dataDriversRight[seasons].driverStandings[0].wins) ?? 0
         }
@@ -279,5 +276,4 @@ class DuelViewModel {
     public func clearRightFilterList() {
         rightListDriver = rightNameDriverData
     }
-    
 }

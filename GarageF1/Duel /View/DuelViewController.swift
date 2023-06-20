@@ -22,6 +22,9 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView?
     var duelViewModel: DuelViewModel = DuelViewModel()
     
+    var selectedLeftDriver: String = "Senna, Ayrton"
+    var selectedRightDriver: String = "Hamilton, Lewis"
+    
     override func loadView() {
         duelScreen = DuelScreenView()
         view = duelScreen
@@ -348,12 +351,14 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             leftAnimateList(toogle: false)
             leftTextFieldSearchSelect.text = ""
             clearLeftSearchField()
+            duelViewModel.fetchLeftDuelDriversInfo(.request)
             reloadTableView()
         } else if tableView == duelScreen?.rightNameDriversTableView {
             rightNameDriver.text = "\(duelViewModel.getFilterRightNameDriver[indexPath.row])"
             rightAnimateList(toogle: false)
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()
+            duelViewModel.fetchRightDuelDriversInfo(.request)
             reloadTableView()
         }
     }
