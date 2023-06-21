@@ -60,11 +60,15 @@ class DriversDetailScreenView: UIView {
         return image
     }()
     
-    lazy var photoDivider: UIView = {
-        let image = UIView()
-        image.translatesAutoresizingMaskIntoConstraints = false
-        image.backgroundColor = .black
-        return image
+    lazy var countryFlag: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        imageView.layer.cornerRadius = 25
+//        imageView.clipsToBounds = true
+//        imageView.layer.borderWidth = 0.5
+//        imageView.layer.borderColor = UIColor.lightGray.cgColor
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     lazy var infoDriversTableView: UITableView = {
@@ -73,14 +77,7 @@ class DriversDetailScreenView: UIView {
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 10
         tableView.backgroundColor = UIColor(red: 157/255, green: 157/255, blue: 157/255, alpha: 1)
-        tableView.register(BirthDateCustomTableViewCellScreen.self, forCellReuseIdentifier: BirthDateCustomTableViewCellScreen.identifier)
-        tableView.register(BirthLocationCustomTableViewCellScreen.self, forCellReuseIdentifier: BirthLocationCustomTableViewCellScreen.identifier)
-        tableView.register(ChampionshipsWinCustomTableViewCellScreen.self, forCellReuseIdentifier: ChampionshipsWinCustomTableViewCellScreen.identifier)
-        tableView.register(RacesCustomTableViewCellScreen.self, forCellReuseIdentifier: RacesCustomTableViewCellScreen.identifier)
-        tableView.register(PodiumsCustomTableViewCellScreen.self, forCellReuseIdentifier: PodiumsCustomTableViewCellScreen.identifier)
-        tableView.register(PointsCustomTableViewCellScreen.self, forCellReuseIdentifier: PointsCustomTableViewCellScreen.identifier)
-        tableView.register(BestRacePositionCustomTableViewCellScreen.self, forCellReuseIdentifier: BestRacePositionCustomTableViewCellScreen.identifier)
-        tableView.register(BestGridPositionCustomTableViewCellScreen.self, forCellReuseIdentifier: BestGridPositionCustomTableViewCellScreen.identifier)
+        tableView.register(InfoDriversCustomTableViewCellScreen.self, forCellReuseIdentifier: InfoDriversCustomTableViewCellScreen.identifier)
         return tableView
     }()
     
@@ -89,11 +86,6 @@ class DriversDetailScreenView: UIView {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = .none
         return background
-    }()
-    
-    lazy var flagNationality: UIImage = {
-       let image = UIImage()
-        return image
     }()
     
     lazy var constructorLogo: UIImageView = {
@@ -123,8 +115,8 @@ class DriversDetailScreenView: UIView {
         addSubview(driverPhotoImage)
         addSubview(permanentNumber)
         addSubview(constructorLogo)
+        addSubview(countryFlag)
         addSubview(infoDriversTableView)
-        addSubview(photoDivider)
     }
     
     public func setupTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource){
@@ -160,6 +152,11 @@ class DriversDetailScreenView: UIView {
             lastNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             lastNameLabel.bottomAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: -15),
             
+            countryFlag.topAnchor.constraint(equalTo: firstNameLabel.topAnchor),
+            countryFlag.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 20),
+            countryFlag.heightAnchor.constraint(equalToConstant: 40),
+            countryFlag.widthAnchor.constraint(equalToConstant: 40),
+            
             permanentNumber.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor),
             permanentNumber.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             
@@ -168,11 +165,6 @@ class DriversDetailScreenView: UIView {
             driverPhotoImage.heightAnchor.constraint(equalToConstant: 250),
             driverPhotoImage.widthAnchor.constraint(equalToConstant: 250),
             
-            photoDivider.topAnchor.constraint(equalTo: driverPhotoImage.bottomAnchor),
-            photoDivider.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
-            photoDivider.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
-            photoDivider.heightAnchor.constraint(equalToConstant: 10),
-            
             constructorLogo.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor),
             constructorLogo.heightAnchor.constraint(equalToConstant: 80),
             constructorLogo.widthAnchor.constraint(equalToConstant: 160),
@@ -180,8 +172,8 @@ class DriversDetailScreenView: UIView {
             
             infoDriversTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             infoDriversTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            infoDriversTableView.topAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: 25),
-            infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+            infoDriversTableView.topAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: 40),
+            infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
         ])
     }
 }
