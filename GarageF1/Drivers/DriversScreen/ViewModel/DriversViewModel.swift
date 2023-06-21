@@ -135,31 +135,31 @@ class DriversViewModel {
         return dataDriversScreen[indexPath.row].driver.dateOfBirth
     }
 
-    public func getBirthLocation(indexPath: IndexPath) -> String {
+    public func getNationality(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.nationality
     }
 
-    public func getChampionshipsWon(indexPath: IndexPath) -> String {
+    public func getGivenName(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.givenName
     }
 
-    public func getRacesParticipated(indexPath: IndexPath) -> String {
+    public func getDriverCode(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.code
     }
 
-    public func getPodiumsEarned(indexPath: IndexPath) -> String {
+    public func getDriverPoints(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].points
     }
 
-    public func getPointsEarned(indexPath: IndexPath) -> String {
+    public func getConstructorName(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].constructors[0].name
     }
 
-    public func getBestPositionRaces(indexPath: IndexPath) -> String {
+    public func getPermanentNumber(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.permanentNumber
     }
 
-    public func getBestGridPosition(indexPath: IndexPath) -> String {
+    public func getDriverNumberWins(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].wins
     }
 }

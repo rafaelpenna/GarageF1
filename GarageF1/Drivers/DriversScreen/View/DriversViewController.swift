@@ -61,13 +61,13 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
         vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
         vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)
         vc.birthDate = driversViewModel.getBirthDate(indexPath: indexPath)
-        vc.birthLocation = driversViewModel.getBirthLocation(indexPath: indexPath)
-        vc.championshipsWon = driversViewModel.getChampionshipsWon(indexPath: indexPath)
-        vc.racesParticipated = driversViewModel.getRacesParticipated(indexPath: indexPath)
-        vc.podiumsEarned = driversViewModel.getPodiumsEarned(indexPath: indexPath)
-        vc.pointsEarned = driversViewModel.getPointsEarned(indexPath: indexPath)
-        vc.bestPositionRaces = driversViewModel.getBestPositionRaces(indexPath: indexPath)
-        vc.bestGridPosition = driversViewModel.getBestGridPosition(indexPath: indexPath)
+        vc.birthLocation = driversViewModel.getNationality(indexPath: indexPath)
+        vc.championshipsWon = driversViewModel.getGivenName(indexPath: indexPath)
+        vc.racesParticipated = driversViewModel.getDriverCode(indexPath: indexPath)
+        vc.podiumsEarned = driversViewModel.getDriverPoints(indexPath: indexPath)
+        vc.pointsEarned = driversViewModel.getConstructorName(indexPath: indexPath)
+        vc.permanentNumber = driversViewModel.getPermanentNumber(indexPath: indexPath)
+        vc.bestGridPosition = driversViewModel.getDriverNumberWins(indexPath: indexPath)
     }
 }
 
