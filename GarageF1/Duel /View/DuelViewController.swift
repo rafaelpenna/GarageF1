@@ -25,6 +25,7 @@ class DuelViewController: UIViewController {
     var selectedLeftDriver: String = "Senna, Ayrton"
     var selectedRightDriver: String = "Hamilton, Lewis"
     
+    
     override func loadView() {
         duelScreen = DuelScreenView()
         view = duelScreen
@@ -35,8 +36,6 @@ class DuelViewController: UIViewController {
         setupProtocols()
         addElements()
         duelViewModel.fetchDuelDriversList(.request)
-        duelViewModel.fetchLeftDuelDriversInfo(.request)
-        duelViewModel.fetchRightDuelDriversInfo(.request)
         reloadTableView()
     }
     
@@ -348,6 +347,8 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == duelScreen?.leftNameDriversTableView {
             leftNameDriver.text = "\(duelViewModel.getFilterLeftNameDriver[indexPath.row])"
+            selectedLeftDriver = leftNameDriver.text ?? String()
+            duelViewModel.selectedLeftDriver = selectedLeftDriver
             leftAnimateList(toogle: false)
             leftTextFieldSearchSelect.text = ""
             clearLeftSearchField()
@@ -355,6 +356,8 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             reloadTableView()
         } else if tableView == duelScreen?.rightNameDriversTableView {
             rightNameDriver.text = "\(duelViewModel.getFilterRightNameDriver[indexPath.row])"
+            selectedRightDriver = rightNameDriver.text ?? String()
+            duelViewModel.selectedRightDriver = selectedRightDriver
             rightAnimateList(toogle: false)
             rightTextFieldSearchSelect.text = ""
             clearRightSearchField()

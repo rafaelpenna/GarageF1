@@ -30,6 +30,9 @@ class DuelViewModel {
     private var leftListDriver = [String]()
     private var rightListDriver = [String]()
     
+    var selectedLeftDriver: String = ""
+    var selectedRightDriver: String = ""
+    
     private var dataDriversLeft: [StandingsList11] = []
     private var dataDriversRight: [StandingsList11] = []
     
@@ -80,7 +83,7 @@ class DuelViewModel {
                 }
             }
         case .request:
-            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/senna/driverStandings.json") { success, error in
+            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/\(getLeftDriverId())/driverStandings.json") { success, error in
                 if let success = success {
                     self.dataDriversLeft = success.mrData.standingsTable.standingsLists
                     self.delegate?.success()
@@ -103,7 +106,7 @@ class DuelViewModel {
                 }
             }
         case .request:
-            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/hamilton/driverStandings.json") { success, error in
+            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/\(getRightDriverId())/driverStandings.json") { success, error in
                 if let success = success {
                     self.dataDriversRight = success.mrData.standingsTable.standingsLists
                     self.delegate?.success()
@@ -275,5 +278,62 @@ class DuelViewModel {
     
     public func clearRightFilterList() {
         rightListDriver = rightNameDriverData
+    }
+    
+    
+//    MARK
+    
+    private func getLeftFamilyName() -> String {
+        var delimiter = ","
+        var selectedDriver = selectedLeftDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[0]
+    }
+    
+    private func getLeftGivenName() -> String {
+        var delimiter = ", "
+        var selectedDriver = selectedLeftDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[1]
+    }
+    
+    private func getLeftDriverId() -> String {
+        var indexDriver = ""
+        getLeftGivenName()
+        getLeftFamilyName()
+        for name in 0 ..< driverList.count {
+            if driverList[name].givenName == getLeftGivenName() && driverList[name].familyName == getLeftFamilyName() {
+                return driverList[name].driverID
+            }
+        }
+        return String()
+    }
+    
+//     MARK
+    
+    private func getRightFamilyName() -> String {
+        var delimiter = ","
+        var selectedDriver = selectedRightDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[0]
+    }
+    
+    private func getRightGivenName() -> String {
+        var delimiter = ", "
+        var selectedDriver = selectedRightDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[1]
+    }
+    
+    private func getRightDriverId() -> String {
+        var indexDriver = ""
+        getRightGivenName()
+        getRightFamilyName()
+        for name in 0 ..< driverList.count {
+            if driverList[name].givenName == getRightGivenName() && driverList[name].familyName == getRightFamilyName() {
+                return driverList[name].driverID
+            }
+        }
+        return String()
     }
 }
