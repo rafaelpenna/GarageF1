@@ -7,26 +7,28 @@
 
 import UIKit
 
-class RaceViewController: UIViewController {
+class RaceViewController: UIViewController, DriversViewModelDelegate {
     
-    let racesScreen: RacesScreen? = RacesScreen()
+    var racesScreen: RacesScreen?
     let racesViewModel: RacesViewModel = RacesViewModel()
-
+    
     override func loadView() {
-      view = racesScreen
+        racesScreen = RacesScreen()
+        view = racesScreen
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
+        racesViewModel.fetchRaces(.request)
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
     private func setupProtocols() {
-        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        racesViewModel.delegate(delegate: self)
     }
 }
 
@@ -43,7 +45,6 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
         backgroundView.backgroundColor = .none
         cell?.selectedBackgroundView = backgroundView
         return cell ?? UITableViewCell()
-        
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -53,5 +54,24 @@ extension RaceViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = StandingsViewController()
         self.navigationController?.pushViewController(vc, animated: true)
+        vc.selectedRound = indexPath.row
+        vc.circuitCountryNameLabel = racesViewModel.getRaceCountry(indexPath: indexPath)
+    }
+}
+
+extension RaceViewController: RacesViewModelDelegate {
+    func success() {
+        racesScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension RaceViewController: RacesViewModelProtocol {
+    func reloadTableView() {
+        self.racesScreen?.infoRacesTableView.reloadData()
     }
 }

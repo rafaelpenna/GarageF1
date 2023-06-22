@@ -33,7 +33,7 @@ class RaceCustomTableViewCellScreen: UIView {
         label.textAlignment = .left
         label.textColor = .lightGray
         label.numberOfLines = 2
-        label.font = UIFont.systemFont(ofSize: 12)
+        label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
@@ -97,7 +97,8 @@ class RaceCustomTableViewCellScreen: UIView {
         NSLayoutConstraint.activate([
             
             dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
+            dayLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            dayLabel.widthAnchor.constraint(equalToConstant: 60),
             
             monthLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 4),
             monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -118,7 +119,7 @@ class RaceCustomTableViewCellScreen: UIView {
             fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             fowardButton.topAnchor.constraint(equalTo: topAnchor, constant: 60),
             
-            divisionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
             divisionView.heightAnchor.constraint(equalToConstant: 0.3),
             divisionView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor),
             divisionView.trailingAnchor.constraint(equalTo: fowardButton.leadingAnchor),

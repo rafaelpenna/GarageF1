@@ -30,7 +30,7 @@ class HistoryYearsTableViewCell: UITableViewCell {
         contentView.addSubview(customInfoYears)
     }
 
-    func setupCell(driveData:HistoryYearModel){
+    func setupCell(driveData:Season2){
         self.yearsViewModel = YearsScreenViewModel(data: driveData)
         customInfoYears.yearLabel.text = yearsViewModel?.getYearSeason
     }

@@ -9,6 +9,7 @@ target 'GarageF1' do
 
 pod 'Firebase/Auth'
 pod 'lottie-ios'
+pod 'Alamofire'
 
   target 'GarageF1Tests' do
     inherit! :search_paths

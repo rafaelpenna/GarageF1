@@ -33,13 +33,13 @@ class RacesCustomTableViewCell: UITableViewCell {
     }
     
 
-    func setupCell(driver:RacesModel){
+    func setupCell(driver:Race3){
         viewModel = RacesCustomCellViewModel(data: driver)
         backgroundColor = .none
         screen.roundLabel.text = "Round \(viewModel!.getRaceRound)"
         screen.countryLabel.text = viewModel?.getRaceCountry
         screen.descriptionLabel.text = viewModel?.getRaceDescription
-        screen.dayLabel.text = viewModel?.getRaceDay
+        screen.dayLabel.text = "\((viewModel?.getRaceDay ?? 0)-2)-\(viewModel?.getRaceDay ?? 0)"
         screen.monthLabel.text = viewModel?.getRaceMonth
     }
     

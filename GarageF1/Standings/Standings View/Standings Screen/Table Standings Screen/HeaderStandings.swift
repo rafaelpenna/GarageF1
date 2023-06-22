@@ -84,7 +84,6 @@ class HeaderStandings: UIView {
     lazy var standoutNameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = standingsViewModel.getBestLapNameDriver()
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label
     }()
@@ -92,7 +91,6 @@ class HeaderStandings: UIView {
     lazy var standoutTimeLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = standingsViewModel.getBestLapTime()
         label.font = UIFont.italicSystemFont(ofSize: 22)
         return label
     }()

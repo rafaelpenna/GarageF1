@@ -9,21 +9,27 @@ import UIKit
 
 class HistoryViewController: UIViewController {
     
-    let historyScreen: HistoryScreenView? = HistoryScreenView()
+    var historyScreen: HistoryScreenView?
     let historyViewModel: HistoryViewModel = HistoryViewModel()
+    var seasonSelectedYear: String = "2022"
     
     override func loadView() {
+        historyScreen = HistoryScreenView()
         view = historyScreen
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupProtocols()
         addElements()
+        setupProtocols()
+        historyViewModel.seasonSelectedYear = seasonSelectedYear
+        historyViewModel.fetchHistoryTeams(.request)
+        historyViewModel.fetchHistoryDrivers(.request)
+        historyViewModel.fetchHistoryYears(.request)
     }
     
     private func setupProtocols() {
-        historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        historyViewModel.delegate(delegate: self)
     }
     
     private func addElements() {
@@ -226,9 +232,34 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == historyScreen?.yearsTableView {
             buttonYearSelect.setTitle("\(historyViewModel.getFilterDataYear[indexPath.row])", for: .normal)
+            seasonSelectedYear = buttonYearSelect.titleLabel?.text ?? String()
+            historyViewModel.seasonSelectedYear = seasonSelectedYear
+            historyViewModel.fetchHistoryDrivers(.request)
+            historyViewModel.fetchHistoryTeams(.request)
+            reloadTableView()
             animateList(toogle: false)
             textFieldSearchSelect.text = ""
             clearSearchField()
         }
     }
 }
+
+extension HistoryViewController: HistoryViewModelDelegate {
+    func success() {
+        historyScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension HistoryViewController: HistoryViewModelProtocol {
+    func reloadTableView() {
+        self.historyScreen?.driversTableView.reloadData()
+        self.historyScreen?.teamsTableView.reloadData()
+        self.historyScreen?.yearsTableView.reloadData()
+    }
+}
+

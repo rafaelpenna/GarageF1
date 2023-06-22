@@ -9,7 +9,6 @@ import UIKit
 
 class HistoryDriversTableViewCell: UITableViewCell {
 
-    var data: [HistoryDriversModel] = []
     var customInfoDrivers: CustomCellHistoryDrivers = CustomCellHistoryDrivers()
     var driversViewModel: DriversScreenViewModel?
     
@@ -30,7 +29,7 @@ class HistoryDriversTableViewCell: UITableViewCell {
         contentView.addSubview(customInfoDrivers)
     }
 
-    func setupCell(driveData:HistoryDriversModel){
+    func setupCell(driveData:DriverStanding8){
         self.driversViewModel = DriversScreenViewModel(data: driveData)
         
         customInfoDrivers.positionLabel.text = driversViewModel?.getDriversPosition

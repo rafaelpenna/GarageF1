@@ -9,9 +9,9 @@ import UIKit
 
 class RacesCustomCellViewModel {
     
-    private var data: RacesModel
+    private var data: Race3
     
-    init(data:RacesModel){
+    init(data:Race3){
         self.data = data
     }
     
@@ -20,18 +20,47 @@ class RacesCustomCellViewModel {
     }
     
     public var getRaceCountry: String {
-        return data.country
+        return data.circuit.location.country
     }
     
     public var getRaceDescription: String {
-        return data.description
+        return data.circuit.circuitName
     }
     
-    public var getRaceDay: String {
-        return data.day
+    public var getRaceDay: Int {
+        return Int(String(data.date.suffix(2))) ?? 00
+    }
+    
+    public var getRaceMonthNumber: String {
+        return String(data.date.prefix(7))
     }
     
     public var getRaceMonth: String {
-        return data.month
+        if String(data.date.prefix(7)) == "2023-01" {
+            return "JAN"
+        } else if String(data.date.prefix(7)) == "2023-02" {
+            return "FEV"
+        } else if String(data.date.prefix(7)) == "2023-03" {
+            return "MAR"
+        } else if String(data.date.prefix(7)) == "2023-04" {
+            return "ABR"
+        } else if String(data.date.prefix(7)) == "2023-05" {
+            return "MAI"
+        } else if String(data.date.prefix(7)) == "2023-06" {
+            return "JUN"
+        } else if String(data.date.prefix(7)) == "2023-07" {
+            return "JUL"
+        } else if String(data.date.prefix(7)) == "2023-08" {
+            return "AGO"
+        } else if String(data.date.prefix(7)) == "2023-09" {
+            return "SET"
+        } else if String(data.date.prefix(7)) == "2023-10" {
+            return "OUT"
+        } else if String(data.date.prefix(7)) == "2023-11" {
+            return "NOV"
+        } else if String(data.date.prefix(7)) == "2023-12" {
+            return "DEZ"
+        }
+        return " "
     }
 }

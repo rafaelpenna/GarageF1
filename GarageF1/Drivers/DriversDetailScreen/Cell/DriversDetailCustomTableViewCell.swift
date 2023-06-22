@@ -9,14 +9,7 @@ import UIKit
 
 class DriversDetailCustomTableViewCell: UITableViewCell {
     
-    var birthDate: BirthDateCustomTableViewCellScreen = BirthDateCustomTableViewCellScreen()
-    var birthLocation: BirthLocationCustomTableViewCellScreen = BirthLocationCustomTableViewCellScreen()
-    var championshipsWin: ChampionshipsWinCustomTableViewCellScreen = ChampionshipsWinCustomTableViewCellScreen()
-    var races: RacesCustomTableViewCellScreen = RacesCustomTableViewCellScreen()
-    var podiums: PodiumsCustomTableViewCellScreen = PodiumsCustomTableViewCellScreen()
-    var points: PointsCustomTableViewCellScreen = PointsCustomTableViewCellScreen()
-    var bestRacePosition: BestRacePositionCustomTableViewCellScreen = BestRacePositionCustomTableViewCellScreen()
-    var bestGridPosition: BestGridPositionCustomTableViewCellScreen = BestGridPositionCustomTableViewCellScreen()
+    var infoDrivers: InfoDriversCustomTableViewCellScreen = InfoDriversCustomTableViewCellScreen()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -26,25 +19,11 @@ class DriversDetailCustomTableViewCell: UITableViewCell {
     }
     
     private func autoresizingFalse() {
-        birthDate.translatesAutoresizingMaskIntoConstraints = false
-        birthLocation.translatesAutoresizingMaskIntoConstraints = false
-        championshipsWin.translatesAutoresizingMaskIntoConstraints = false
-        races.translatesAutoresizingMaskIntoConstraints = false
-        podiums.translatesAutoresizingMaskIntoConstraints = false
-        points.translatesAutoresizingMaskIntoConstraints = false
-        bestRacePosition.translatesAutoresizingMaskIntoConstraints = false
-        bestGridPosition.translatesAutoresizingMaskIntoConstraints = false
+        infoDrivers.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func addElements() {
-        contentView.addSubview(birthDate)
-        contentView.addSubview(birthLocation)
-        contentView.addSubview(championshipsWin)
-        contentView.addSubview(races)
-        contentView.addSubview(podiums)
-        contentView.addSubview(points)
-        contentView.addSubview(bestRacePosition)
-        contentView.addSubview(bestGridPosition)
+        contentView.addSubview(infoDrivers)
     }
     
     required init?(coder: NSCoder) {
@@ -53,15 +32,9 @@ class DriversDetailCustomTableViewCell: UITableViewCell {
     
     private func configScreenConstraints(){
         NSLayoutConstraint.activate([
-            birthDate.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            birthDate.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            birthDate.topAnchor.constraint(equalTo: self.topAnchor),
-            birthDate.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            birthLocation.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            birthLocation.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            birthLocation.topAnchor.constraint(equalTo: self.topAnchor),
-            birthLocation.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            infoDrivers.leadingAnchor.constraint(equalTo: leadingAnchor),
+            infoDrivers.trailingAnchor.constraint(equalTo: trailingAnchor),
+            infoDrivers.centerYAnchor.constraint(equalTo: centerYAnchor),
         ])
     }
 }

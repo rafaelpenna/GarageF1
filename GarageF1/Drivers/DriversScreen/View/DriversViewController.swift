@@ -9,25 +9,26 @@ import UIKit
 
 class DriversViewController: UIViewController {
     
-    let driversScreen: DriversScreenView? = DriversScreenView()
+    var driversScreen: DriversScreenView?
     let driversViewModel: DriversViewModel = DriversViewModel()
 
     override func loadView() {
+        driversScreen = DriversScreenView()
       view = driversScreen
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
+        driversViewModel.fetch(.request)
     }
 
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
-    
     private func setupProtocols() {
-        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        driversViewModel.delegate(delegate: self)
     }
 }
 
@@ -59,13 +60,27 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
         vc.nameDriver = driversViewModel.getDriverName(indexPath: indexPath)
         vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
         vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)
-        vc.birthDate = driversViewModel.getBirthDate(indexPath: indexPath)
-        vc.birthLocation = driversViewModel.getBirthLocation(indexPath: indexPath)
-        vc.championshipsWon = driversViewModel.getChampionshipsWon(indexPath: indexPath)
-        vc.racesParticipated = driversViewModel.getRacesParticipated(indexPath: indexPath)
-        vc.podiumsEarned = driversViewModel.getPodiumsEarned(indexPath: indexPath)
-        vc.pointsEarned = driversViewModel.getPointsEarned(indexPath: indexPath)
-        vc.bestPositionRaces = driversViewModel.getBestPositionRaces(indexPath: indexPath)
-        vc.bestGridPosition = driversViewModel.getBestGridPosition(indexPath: indexPath)
+        vc.position = driversViewModel.getDriverPosition(indexPath: indexPath)
+        vc.points = driversViewModel.getDriverPoints(indexPath: indexPath)
+        vc.code = driversViewModel.getDriverCode(indexPath: indexPath)
+        vc.permanentNumber = driversViewModel.getPermanentNumber(indexPath: indexPath)
+        vc.wins = driversViewModel.getDriverNumberWins(indexPath: indexPath)
+    }
+}
+
+extension DriversViewController: DriversViewModelDelegate {
+    func success() {
+        driversScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+    
+    }
+}
+
+extension DriversViewController: DriversViewModelProtocol {
+    func reloadTableView() {
+        self.driversScreen?.infoDriversTableView.reloadData()
     }
 }

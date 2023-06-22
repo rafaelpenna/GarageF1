@@ -64,7 +64,7 @@ class CustomCellHistoryTeams: UIView {
             positionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
 
             teamLabel.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 50),
+            teamLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
 
             pointsLabel.topAnchor.constraint(equalTo: topAnchor, constant: 23),
             pointsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -38),

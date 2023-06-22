@@ -12,8 +12,8 @@ class DuelCustomTableViewCell: UITableViewCell {
     var birthDate: DuelBirthDateCustomTableViewCell = DuelBirthDateCustomTableViewCell()
     var birthLocation: DuelBirthLocationCustomTableViewCell = DuelBirthLocationCustomTableViewCell()
     var championshipsWon: DuelChampionshipsWonCustomTableViewCell = DuelChampionshipsWonCustomTableViewCell()
-    var racesParticipated: DuelRacesParticipatedCustomTableViewCell = DuelRacesParticipatedCustomTableViewCell()
-    var podiumsEarned: DuelPodiumsEarnedCustomTableViewCell = DuelPodiumsEarnedCustomTableViewCell()
+    var racesParticipated: DuelSeasonsOnTop3CustomTableViewCell = DuelSeasonsOnTop3CustomTableViewCell()
+    var podiumsEarned: DuelSeasonsParticipatedCustomTableViewCell = DuelSeasonsParticipatedCustomTableViewCell()
     var pointsEarned: DuelPointsEarnedCustomTableViewCell = DuelPointsEarnedCustomTableViewCell()
     var wins: DuelWinsCustomTableViewCell = DuelWinsCustomTableViewCell()
     

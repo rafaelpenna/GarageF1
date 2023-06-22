@@ -7,153 +7,242 @@
 
 import UIKit
 
+enum DuelTypeFetch {
+    case mock
+    case request
+}
+
+protocol DuelViewModelProtocol: AnyObject {
+    func reloadTableView()
+}
+
+protocol DuelViewModelDelegate: AnyObject {
+    func success()
+    func error(_ message: String)
+}
+
 class DuelViewModel {
     
-    private var driverList:[DuelDropdownModel] = []
+    private var driverList:[Driver9] = []
     private var leftNameDriverData:[String] = []
     private var rightNameDriverData:[String] = []
     
     private var leftListDriver = [String]()
     private var rightListDriver = [String]()
     
-    init(){
-        self.configArrayListDriver()
-        self.configLeftNameDriver()
-        self.configRightNameDriver()
-        leftListDriver = getLeftNameDriver
-        rightListDriver = getRightNameDriver
-        
+    var selectedLeftDriver: String = ""
+    var selectedRightDriver: String = ""
+    
+    private var dataDriversLeft: [StandingsList11] = []
+    private var dataDriversRight: [StandingsList11] = []
+    
+    private let duelService: DuelService = DuelService()
+    private let duelInfoDriversService: DriversDuelService = DriversDuelService()
+    private weak var delegate: DuelViewModelDelegate?
+    
+    public func delegate(delegate: DuelViewModelDelegate?) {
+        self.delegate = delegate
     }
     
-    //MARK: - Mock Data (será retirado conforme implantação da API)
+    public func fetchDuelDriversList(_ typeFetch: DuelTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.duelService.getDriversNameFromJson(fromFileName: "allDriversList") { success, error in
+                if let success = success {
+                    self.driverList = success.mrData.driverTable.drivers
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.duelService.getDriversName(fromURL: "https://ergast.com/api/f1/drivers.json?limit=857") { success, error in
+                if let success = success {
+                    self.driverList = success.mrData.driverTable.drivers
+                    self.configLeftNameDriver()
+                    self.configRightNameDriver()
+                    self.leftListDriver = self.getLeftNameDriver
+                    self.rightListDriver = self.getRightNameDriver
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
+    }
     
-    private var dataDriversLeft:DuelModel = DuelModel(driversName: "Michael", driversLastName: "Schumacher", driversBirthDate: "03/01/1969", driversAge: "(53 anos)", driversBirthPlace: "Hurth-Hermullheim", driversCountry: "Alemanha", driversChampionshipsWon: "7",driversChampionshipsWinYear: "1994, 1995, 2000, 2002, 2003, 2004", driversRacesParticipated: "308", driversPodiumsWon: "155", driversPointsEarned: "1566", driversWins: "91")
+    public func fetchLeftDuelDriversInfo(_ typeFetch: DuelTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.duelInfoDriversService.getDriversDuelDataFromJson(fromFileName: "driverDuelInfo") { success, error in
+                if let success = success {
+                    self.dataDriversLeft = success.mrData.standingsTable.standingsLists
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/\(getLeftDriverId())/driverStandings.json") { success, error in
+                if let success = success {
+                    self.dataDriversLeft = success.mrData.standingsTable.standingsLists
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
+    }
     
-    private var dataDriversRight:DuelModel = DuelModel(driversName: "Max", driversLastName: "Verstappen", driversBirthDate: "30/09/1997", driversAge: "(24 anos)", driversBirthPlace: "Hasselt", driversCountry: "Bélgica", driversChampionshipsWon: "2", driversChampionshipsWinYear: "2021, 2022", driversRacesParticipated: "163", driversPodiumsWon: "77", driversPointsEarned: "2011", driversWins: "35")
-    
-    private func configArrayListDriver(){
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Alan Prost"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Ayrton Senna"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "David Coulthard"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Kimi Raikonnen"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Lewis Hammilton"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Juan Manuel Fangio"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Michael Schumacher"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Mika Hakkinen"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Rubens Barrichello"))
-        self.driverList.append(DuelDropdownModel(duelDriverName: "Sebastian Vettel"))
+    public func fetchRightDuelDriversInfo(_ typeFetch: DuelTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.duelInfoDriversService.getDriversDuelDataFromJson(fromFileName: "driverDuelInfo") { success, error in
+                if let success = success {
+                    self.dataDriversRight = success.mrData.standingsTable.standingsLists
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.duelInfoDriversService.getDriversDuelData(fromURL: "https://ergast.com/api/f1/drivers/\(getRightDriverId())/driverStandings.json") { success, error in
+                if let success = success {
+                    self.dataDriversRight = success.mrData.standingsTable.standingsLists
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
     }
     
     private func configLeftNameDriver() {
         for name in 0 ..< driverList.count {
-            self.leftNameDriverData.append(driverList[name].duelDriverName)
+            self.leftNameDriverData.append("\(driverList[name].familyName), \(driverList[name].givenName)")
         }
     }
     
     private func configRightNameDriver() {
         for name in 0 ..< driverList.count {
-            self.rightNameDriverData.append(driverList[name].duelDriverName)
+            self.rightNameDriverData.append("\(driverList[name].familyName), \(driverList[name].givenName)")
         }
     }
     
     //MARK: - Functions to get Left Driver Data
-    
-    public func getDriversNameLeft() -> String {
-        return dataDriversLeft.driversName
-    }
-    
-    public func getDriversLastNameLeft() -> String {
-        return dataDriversLeft.driversLastName
-    }
-    
+
     public func getDriversBirthDateLeft() -> String {
-        return dataDriversLeft.driversBirthDate
+        var leftDateBirth = ""
+        for seasons in 0 ..< dataDriversLeft.count {
+            leftDateBirth = dataDriversLeft[seasons].driverStandings[0].driver.dateOfBirth
+        }
+        return leftDateBirth
     }
     
     public func getDriversBirthPlaceLeft() -> String {
-        return dataDriversLeft.driversBirthPlace
-    }
-    
-    public func getDriversCountryLeft() -> String {
-        return dataDriversLeft.driversCountry
-    }
-    
-    public func getDriversAgeLeft() -> String {
-        return dataDriversLeft.driversAge
+        var leftPlaceBirth = ""
+        for seasons in 0 ..< dataDriversLeft.count {
+            leftPlaceBirth = dataDriversLeft[seasons].driverStandings[0].driver.nationality
+        }
+        return leftPlaceBirth
     }
     
     public func getChampionshipsWonLeft() -> String {
-        return dataDriversLeft.driversChampionshipsWon
+        var leftChampionshipsWon = 0
+        for seasons in 0 ..< dataDriversLeft.count {
+            if dataDriversLeft[seasons].driverStandings[0].position == "1" {
+                leftChampionshipsWon += 1
+            }
+        }
+        return String(leftChampionshipsWon)
     }
     
-    public func getChampionshipsWinYearLeft() -> String {
-        return dataDriversLeft.driversChampionshipsWinYear
+    public func getLeftSeasonTop3() -> String {
+        var leftSeasonTop3 = 0
+        for seasons in 0 ..< dataDriversLeft.count {
+            if dataDriversLeft[seasons].driverStandings[0].position == "1" || dataDriversLeft[seasons].driverStandings[0].position == "2" || dataDriversLeft[seasons].driverStandings[0].position == "3" {
+                leftSeasonTop3 += 1
+            }
+        }
+        return String(leftSeasonTop3)
     }
     
-    public func getRacesParticipatedLeft() -> String {
-        return dataDriversLeft.driversRacesParticipated
-    }
-    
-    public func getPodiumsWonLeft() -> String {
-        return dataDriversLeft.driversPodiumsWon
+    public func getLeftSeasonsParticipated() -> String {
+        return String(dataDriversLeft.count)
     }
     
     public func getPointsEarnedLeft() -> String {
-        return dataDriversLeft.driversPointsEarned
+        var leftPoints = 0
+        for seasons in 0 ..< dataDriversLeft.count {
+            leftPoints += Int(dataDriversLeft[seasons].driverStandings[0].points) ?? 0
+        }
+        return String(leftPoints)
     }
     
     public func getWinsLeft() -> String {
-        return dataDriversLeft.driversWins
+        var leftWins = 0
+        for seasons in 0 ..< dataDriversLeft.count {
+            leftWins += Int(dataDriversLeft[seasons].driverStandings[0].wins) ?? 0
+        }
+        return String(leftWins)
     }
     
     //MARK: - Functions to get Right Driver Data
     
-    public func getDriversNameRight() -> String {
-        return dataDriversRight.driversName
-    }
-    
-    public func getDriversLastNameRight() -> String {
-        return dataDriversRight.driversLastName
-    }
-    
     public func getDriversBirthDateRight() -> String {
-        return dataDriversRight.driversBirthDate
+        var rightDateBirth = ""
+        for seasons in 0 ..< dataDriversRight.count {
+            rightDateBirth = dataDriversRight[seasons].driverStandings[0].driver.dateOfBirth
+        }
+        return rightDateBirth
     }
     
     public func getDriversBirthPlaceRight() -> String {
-        return dataDriversRight.driversBirthPlace
-    }
-    
-    public func getDriversCountryRight() -> String {
-        return dataDriversRight.driversCountry
-    }
-    
-    public func getDriversAgeRight() -> String {
-        return dataDriversRight.driversAge
+        var rightPlaceBirth = ""
+        for seasons in 0 ..< dataDriversRight.count {
+            rightPlaceBirth = dataDriversRight[seasons].driverStandings[0].driver.nationality
+        }
+        return rightPlaceBirth
     }
     
     public func getChampionshipsWonRight() -> String {
-        return dataDriversRight.driversChampionshipsWon
+        var rightChampionshipsWon = 0
+        for seasons in 0 ..< dataDriversRight.count {
+            if dataDriversRight[seasons].driverStandings[0].position == "1" {
+                rightChampionshipsWon += 1
+            }
+        }
+        return String(rightChampionshipsWon)
     }
     
-    public func getChampionshipsWinYearRight() -> String {
-        return dataDriversRight.driversChampionshipsWinYear
+    public func getRightSeasonTop3() -> String {
+        var rightSeasonTop3 = 0
+        for seasons in 0 ..< dataDriversRight.count {
+            if dataDriversRight[seasons].driverStandings[0].position == "1" || dataDriversRight[seasons].driverStandings[0].position == "2" || dataDriversRight[seasons].driverStandings[0].position == "3" {
+                rightSeasonTop3 += 1
+            }
+        }
+        return String(rightSeasonTop3)
     }
     
-    public func getRacesParticipatedRight() -> String {
-        return dataDriversRight.driversRacesParticipated
-    }
-    
-    public func getPodiumsWonRight() -> String {
-        return dataDriversRight.driversPodiumsWon
+    public func getRightSeasonsParticipated() -> String {
+        return String(dataDriversRight.count)
     }
     
     public func getPointsEarnedRight() -> String {
-        return dataDriversRight.driversPointsEarned
+        var rightPoints = 0
+        for seasons in 0 ..< dataDriversRight.count {
+            rightPoints += Int(dataDriversRight[seasons].driverStandings[0].points) ?? 0
+        }
+        return String(rightPoints)
     }
     
     public func getWinsRight() -> String {
-        return dataDriversRight.driversWins
+        var rightWins = 0
+        for seasons in 0 ..< dataDriversRight.count {
+            rightWins += Int(dataDriversRight[seasons].driverStandings[0].wins) ?? 0
+        }
+        return String(rightWins)
     }
     
     
@@ -191,4 +280,60 @@ class DuelViewModel {
         rightListDriver = rightNameDriverData
     }
     
+    
+//    MARK
+    
+    private func getLeftFamilyName() -> String {
+        var delimiter = ","
+        var selectedDriver = selectedLeftDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[0]
+    }
+    
+    private func getLeftGivenName() -> String {
+        var delimiter = ", "
+        var selectedDriver = selectedLeftDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[1]
+    }
+    
+    private func getLeftDriverId() -> String {
+        var indexDriver = ""
+        getLeftGivenName()
+        getLeftFamilyName()
+        for name in 0 ..< driverList.count {
+            if driverList[name].givenName == getLeftGivenName() && driverList[name].familyName == getLeftFamilyName() {
+                return driverList[name].driverID
+            }
+        }
+        return String()
+    }
+    
+//     MARK
+    
+    private func getRightFamilyName() -> String {
+        var delimiter = ","
+        var selectedDriver = selectedRightDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[0]
+    }
+    
+    private func getRightGivenName() -> String {
+        var delimiter = ", "
+        var selectedDriver = selectedRightDriver
+        var name = selectedDriver.components(separatedBy: delimiter)
+        return name[1]
+    }
+    
+    private func getRightDriverId() -> String {
+        var indexDriver = ""
+        getRightGivenName()
+        getRightFamilyName()
+        for name in 0 ..< driverList.count {
+            if driverList[name].givenName == getRightGivenName() && driverList[name].familyName == getRightFamilyName() {
+                return driverList[name].driverID
+            }
+        }
+        return String()
+    }
 }

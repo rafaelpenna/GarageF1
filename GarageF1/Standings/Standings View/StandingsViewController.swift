@@ -18,10 +18,13 @@ enum StandingsTableViewSection: Int {
 
 class StandingsViewController: UIViewController {
     
-    var standingsScreen: StandingsScreen? = StandingsScreen()
+    var standingsScreen: StandingsScreen?
     var standingsViewModel: StandingsViewModel = StandingsViewModel()
+    var selectedRound: Int = 0
+    var circuitCountryNameLabel: String = ""
     
     override func loadView() {
+        standingsScreen = StandingsScreen()
         view = standingsScreen
     }
     
@@ -29,6 +32,10 @@ class StandingsViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
+        passingHeaderData()
+        standingsViewModel.selectedRound = selectedRound
+        standingsViewModel.fetchStandings(.request)
+        standingsViewModel.fetchCircuit()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -42,9 +49,17 @@ class StandingsViewController: UIViewController {
     }
     
     private func setupProtocols() {
-        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        standingsViewModel.delegate(delegate: self)
     }
-
+    
+    private func bestLapData() {
+        self.standoutName.text = standingsViewModel.bestLapDataName
+        self.standoutLap.text = standingsViewModel.bestLapDataTime
+    }
+    
+    private func passingHeaderData() {
+        standingsScreen?.circuitCountryLabel.text = circuitCountryNameLabel
+    }
     
     lazy var buttonStandingsVC: UIButton = {
         let button: UIButton = standingsScreen?.standingsButton ?? UIButton()
@@ -66,6 +81,17 @@ class StandingsViewController: UIViewController {
         button.addTarget(self, action: #selector(backScreen), for: .touchUpInside)
         return button
     }()
+    
+    lazy var standoutName: UILabel = {
+        let label: UILabel = standingsScreen?.standingsHeader.standoutNameLabel ?? UILabel()
+        return label
+    }()
+    
+    lazy var standoutLap: UILabel = {
+        let label: UILabel = standingsScreen?.standingsHeader.standoutTimeLabel ?? UILabel()
+        return label
+    }()
+    
     
     @objc func buttonStandings(_ sender: UIButton) {
         if buttonStandingsVC.isSelected == false {
@@ -114,7 +140,13 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == standingsScreen?.standingsTableView {
-            return (standingsViewModel.numberOfRowsResults)
+            if standingsViewModel.numberOfRowsResults != 0 {
+                standingsScreen?.eventSoonLabel.isHidden = true
+                return (standingsViewModel.numberOfRowsResults)
+            } else {
+                standingsScreen?.eventSoonLabel.isHidden = false
+                return 0
+            }
         } else {
             return 6
         }
@@ -126,39 +158,39 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             case .trackImage:
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackImageCellScreen.identifier) as? TrackImageCellScreen
                 cell?.configure()
-                cell?.trackImage.image = standingsViewModel.getCircuitImage()
+                cell?.trackImage.image = UIImage(named: "\(standingsViewModel.circuitImage)")
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .circuitLenght:
                 let cell = tableView.dequeueReusableCell(withIdentifier: CircuitLenghtCellScreen.identifier) as? CircuitLenghtCellScreen
                 cell?.configure()
-                cell?.trackLenghtAnswer.text = standingsViewModel.getCircuitLength()
+                cell?.trackLenghtAnswer.text = standingsViewModel.circuitLength
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .raceLaps:
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceLapsCellScreen.identifier) as? RaceLapsCellScreen
                 cell?.configure()
-                cell?.trackLapsAnswer.text = standingsViewModel.getCircuitLaps()
+                cell?.trackLapsAnswer.text = standingsViewModel.circuitNumberOfLaps
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .firstGrandPrix:
                 let cell = tableView.dequeueReusableCell(withIdentifier: FirstGrandPrixCellScreen.identifier) as? FirstGrandPrixCellScreen
                 cell?.configure()
-                cell?.firstGrandPrixAnswer.text = standingsViewModel.getFirstGP()
+                cell?.firstGrandPrixAnswer.text = standingsViewModel.firstGP
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .raceDistance:
                 let cell = tableView.dequeueReusableCell(withIdentifier: RaceDistanceCellScreen.identifier) as? RaceDistanceCellScreen
                 cell?.configure()
-                cell?.raceDistanceAnswer.text = standingsViewModel.getRaceDistance()
+                cell?.raceDistanceAnswer.text = standingsViewModel.raceDistance
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .trackRecord:
                 let cell = tableView.dequeueReusableCell(withIdentifier: TrackRecordCellScreen.identifier) as? TrackRecordCellScreen
                 cell?.configure()
-                cell?.trackRecordAnswer.text = standingsViewModel.getTrackRecord()
-                cell?.trackRecordOwner.text = standingsViewModel.getTrackRecordDriver()
-                cell?.trackRecordYear.text = standingsViewModel.getTrackRecordYear()
+                cell?.trackRecordAnswer.text = standingsViewModel.circuitRecordTime
+                cell?.trackRecordOwner.text = standingsViewModel.circuitRecordName
+                cell?.trackRecordYear.text = "(\(standingsViewModel.circuitRecordYear))"
                 cell?.selectedBackgroundView = standingsScreen?.backgroundView
                 return cell ?? UITableViewCell()
             default:
@@ -167,6 +199,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let cell: StandingsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: StandingsTableViewCell.identifier) as? StandingsTableViewCell
             cell?.setupCell(data: standingsViewModel.loadCurrentDriver(indexPath: indexPath))
+            bestLapData()
             cell?.selectedBackgroundView = standingsScreen?.backgroundView
             return cell ?? UITableViewCell()
         }
@@ -182,6 +215,26 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
                 return 105
             }
         }
+    }
+}
+
+extension StandingsViewController: StandingsViewModelDelegate {
+    func success() {
+        standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        standingsScreen?.resultsLoadFailLabel.isHidden = true
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+        standingsScreen?.resultsLoadFailLabel.isHidden = false
+        standingsScreen?.eventSoonLabel.isHidden = true
+    }
+}
+
+extension StandingsViewController: StandingsViewModelProtocol {
+    func reloadTableView() {
+        self.standingsScreen?.standingsTableView.reloadData()
+        self.standingsScreen?.trackTableView.reloadData()
     }
 }
     

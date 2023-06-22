@@ -14,7 +14,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     var birthLocationTitle: UILabel = {
         let variable = UILabel()
         variable.textColor = .gray
-        variable.text = "Local de Nascimento"
+        variable.text = "País de Nascimento"
         variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
