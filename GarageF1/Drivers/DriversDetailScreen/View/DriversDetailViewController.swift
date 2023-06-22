@@ -51,7 +51,6 @@ class DriversDetailViewController: UIViewController {
     }
     
     private func addElements() {
-        self.view.addSubview(topView)
         self.view.addSubview(topBackgorundView)
         self.view.addSubview(backButton)
         self.view.addSubview(givenName)
@@ -59,17 +58,12 @@ class DriversDetailViewController: UIViewController {
         self.view.addSubview(permanentDriverNumber)
         self.view.addSubview(imageDriver)
         self.view.addSubview(constructorImage)
+        self.view.addSubview(flagNationality)
     }
     
     lazy var topBackgorundView: UIView = {
         let view: UIView = driversDetailScreen?.backgroundTopRedView ?? UIView()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "\(driverBackgroundImage)") ?? UIImage())
-        return view
-    }()
-    
-    lazy var topView: UIView = {
-        let view: UIView = driversDetailScreen?.topRedView ?? UIView()
-        view.backgroundColor = driverBackgroundColor
         return view
     }()
     
@@ -143,92 +137,47 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
 
 extension DriversDetailViewController {
     
-    var driverBackgroundColor: UIColor {
-        if  driversDetailScreen?.lastNameLabel.text == "Verstappen" {
-            return UIColor(red: 7/255, green: 23/255, blue: 152/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Pérez" {
-                return UIColor(red: 7/255, green: 23/255, blue: 153/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Stroll" {
-                return UIColor(red: 45/255, green: 155/255, blue: 153/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
-                return UIColor(red: 207/255, green: 4/255, blue: 9/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
-                return UIColor(red: 64/255, green: 56/255, blue: 68/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
-                return UIColor(red: 64/255, green: 56/255, blue: 68/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Alonso" {
-                return UIColor(red: 45/255, green: 155/255, blue: 153/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Ocon" {
-                return UIColor(red: 248/255, green: 103/255, blue: 175/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
-                return UIColor(red: 248/255, green: 103/255, blue: 175/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
-                return UIColor(red: 255/255, green: 159/255, blue: 6/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
-                return UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
-                return UIColor(red: 255/255, green: 159/255, blue: 6/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
-                return UIColor(red: 155/255, green: 1/255, blue: 19/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
-                return UIColor(red: 155/255, green: 1/255, blue: 19/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
-                return UIColor(red: 19/255, green: 59/255, blue: 125/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
-                return UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
-                return UIColor(red: 6/255, green: 87/255, blue: 198/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
-                return UIColor(red: 19/255, green: 59/255, blue: 125/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
-                return UIColor(red: 6/255, green: 87/255, blue: 198/255, alpha: 1)
-            } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
-                return UIColor(red: 207/255, green: 4/255, blue: 9/255, alpha: 1)
-            }
-        return .red
-        }
-    
     var driverFlagNationality: UIImage {
         if  driversDetailScreen?.lastNameLabel.text == "Verstappen" {
             return UIImage(named: "netherland") ?? UIImage()
         } else if driversDetailScreen?.lastNameLabel.text == "Pérez" {
                 return UIImage(named: "mexico") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Stroll" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "canada") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "spain") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "uk") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "uk") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Alonso" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "spain") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Ocon" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "france") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "france") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "uk") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "germany") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "australia") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "finland") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "china") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
                 return UIImage(named: "mexico") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "denmark") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "thailand") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "netherland") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "us") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
-                return UIImage(named: "mexico") ?? UIImage()
+                return UIImage(named: "monaco") ?? UIImage()
             }
         return UIImage()
         }

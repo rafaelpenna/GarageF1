@@ -11,12 +11,6 @@ class DriversDetailScreenView: UIView {
     
     let driversDetailViewController: DriversViewController = DriversViewController()
 
-    lazy var topRedView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
     lazy var backgroundTopRedView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -63,12 +57,19 @@ class DriversDetailScreenView: UIView {
     lazy var countryFlag: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-//        imageView.layer.cornerRadius = 25
-//        imageView.clipsToBounds = true
-//        imageView.layer.borderWidth = 0.5
-//        imageView.layer.borderColor = UIColor.lightGray.cgColor
-        imageView.contentMode = .scaleAspectFit
+        imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor.darkGray.cgColor
+        imageView.contentMode = .scaleAspectFill
         return imageView
+    }()
+    
+    lazy var countryFlag2: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.backgroundColor = .red
+        return label
     }()
     
     lazy var infoDriversTableView: UITableView = {
@@ -76,7 +77,7 @@ class DriversDetailScreenView: UIView {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         tableView.layer.cornerRadius = 10
-        tableView.backgroundColor = UIColor(red: 157/255, green: 157/255, blue: 157/255, alpha: 1)
+        tableView.backgroundColor = .none
         tableView.register(InfoDriversCustomTableViewCellScreen.self, forCellReuseIdentifier: InfoDriversCustomTableViewCellScreen.identifier)
         return tableView
     }()
@@ -107,7 +108,6 @@ class DriversDetailScreenView: UIView {
     }
     
     private func addElements() {
-        addSubview(topRedView)
         addSubview(backgroundTopRedView)
         addSubview(backButton)
         addSubview(firstNameLabel)
@@ -115,7 +115,7 @@ class DriversDetailScreenView: UIView {
         addSubview(driverPhotoImage)
         addSubview(permanentNumber)
         addSubview(constructorLogo)
-        addSubview(countryFlag)
+        backgroundTopRedView.addSubview(countryFlag)
         addSubview(infoDriversTableView)
     }
     
@@ -130,11 +130,6 @@ class DriversDetailScreenView: UIView {
     
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
-            
-            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topRedView.heightAnchor.constraint(equalToConstant: 135),
             
             backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
             backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -152,10 +147,10 @@ class DriversDetailScreenView: UIView {
             lastNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             lastNameLabel.bottomAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: -15),
             
-            countryFlag.topAnchor.constraint(equalTo: firstNameLabel.topAnchor),
-            countryFlag.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 20),
+            countryFlag.centerYAnchor.constraint(equalTo: firstNameLabel.bottomAnchor),
+            countryFlag.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 30),
             countryFlag.heightAnchor.constraint(equalToConstant: 40),
-            countryFlag.widthAnchor.constraint(equalToConstant: 40),
+            countryFlag.widthAnchor.constraint(equalToConstant: 55),
             
             permanentNumber.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor),
             permanentNumber.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
