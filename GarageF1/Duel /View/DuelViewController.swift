@@ -40,7 +40,7 @@ class DuelViewController: UIViewController {
     }
     
     func setupProtocols() {
-        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        duelViewModel.delegate(delegate: self)
         leftNameDriverTableViewSelect.delegate = self
         leftNameDriverTableViewSelect.dataSource = self
         rightNameDriverTableViewSelect.delegate = self
@@ -235,6 +235,7 @@ class DuelViewController: UIViewController {
         if leftTextFieldSearchSelect.text == "" {
             duelViewModel.clearLeftFilterList()
             duelScreen?.leftNameDriversTableView.reloadData()
+            duelScreen?.infoTableView.reloadData()
         }
     }
     
@@ -242,6 +243,7 @@ class DuelViewController: UIViewController {
         if rightTextFieldSearchSelect.text == "" {
             duelViewModel.clearRightFilterList()
             duelScreen?.rightNameDriversTableView.reloadData()
+            duelScreen?.infoTableView.reloadData()
         }
     }
 }

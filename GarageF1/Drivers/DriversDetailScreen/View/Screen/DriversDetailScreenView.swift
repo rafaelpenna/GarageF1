@@ -14,6 +14,7 @@ class DriversDetailScreenView: UIView {
     lazy var backgroundTopRedView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.contentMode = .scaleToFill
         return view
     }()
     
@@ -152,18 +153,18 @@ class DriversDetailScreenView: UIView {
             countryFlag.heightAnchor.constraint(equalToConstant: 40),
             countryFlag.widthAnchor.constraint(equalToConstant: 55),
             
-            permanentNumber.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor),
-            permanentNumber.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
+            permanentNumber.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor, constant: -10),
+            permanentNumber.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
             driverPhotoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            driverPhotoImage.bottomAnchor.constraint(equalTo: firstNameLabel.topAnchor, constant: -10),
-            driverPhotoImage.heightAnchor.constraint(equalToConstant: 250),
-            driverPhotoImage.widthAnchor.constraint(equalToConstant: 250),
+            driverPhotoImage.bottomAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: -5),
+            driverPhotoImage.heightAnchor.constraint(equalToConstant: 280),
+            driverPhotoImage.widthAnchor.constraint(equalToConstant: 280),
             
-            constructorLogo.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor),
+            constructorLogo.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor, constant: -25),
             constructorLogo.heightAnchor.constraint(equalToConstant: 80),
             constructorLogo.widthAnchor.constraint(equalToConstant: 160),
-            constructorLogo.leadingAnchor.constraint(equalTo: backgroundTopRedView.leadingAnchor, constant: -20),
+            constructorLogo.centerXAnchor.constraint(equalTo: driverPhotoImage.leadingAnchor, constant: 15),
             
             infoDriversTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             infoDriversTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),

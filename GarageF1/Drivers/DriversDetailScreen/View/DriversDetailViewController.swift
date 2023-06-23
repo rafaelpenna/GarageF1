@@ -64,6 +64,7 @@ class DriversDetailViewController: UIViewController {
     lazy var topBackgorundView: UIView = {
         let view: UIView = driversDetailScreen?.backgroundTopRedView ?? UIView()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "\(driverBackgroundImage)") ?? UIImage())
+        view.contentMode = .scaleToFill
         return view
     }()
     
