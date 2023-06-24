@@ -362,7 +362,7 @@ class DuelScreenView: UIView {
             
             infoTableView.leadingAnchor.constraint(equalTo: leadingAnchor),
             infoTableView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            infoTableView.topAnchor.constraint(equalTo: namesBackgroundView.bottomAnchor, constant: 10),
+            infoTableView.topAnchor.constraint(equalTo: namesBackgroundView.bottomAnchor, constant: 20),
             infoTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             divisionTablesView.topAnchor.constraint(equalTo: namesBackgroundView.topAnchor, constant: 15),

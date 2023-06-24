@@ -87,13 +87,13 @@ class DriversDetailScreenView: UIView {
        let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = .none
+        background.contentMode = .bottomRight
         return background
     }()
     
     lazy var constructorLogo: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFit
         return image
     }()
     
@@ -162,7 +162,7 @@ class DriversDetailScreenView: UIView {
             driverPhotoImage.widthAnchor.constraint(equalToConstant: 280),
             
             constructorLogo.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor, constant: -25),
-            constructorLogo.heightAnchor.constraint(equalToConstant: 80),
+            constructorLogo.heightAnchor.constraint(equalToConstant: 100),
             constructorLogo.widthAnchor.constraint(equalToConstant: 160),
             constructorLogo.centerXAnchor.constraint(equalTo: driverPhotoImage.leadingAnchor, constant: 15),
             

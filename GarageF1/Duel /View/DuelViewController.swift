@@ -22,8 +22,8 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView?
     var duelViewModel: DuelViewModel = DuelViewModel()
     
-    var selectedLeftDriver: String = "Senna, Ayrton"
-    var selectedRightDriver: String = "Hamilton, Lewis"
+    var selectedLeftDriver: String = ""
+    var selectedRightDriver: String = ""
     
     
     override func loadView() {
@@ -92,7 +92,7 @@ class DuelViewController: UIViewController {
     
     lazy var leftNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameLeftLabel ?? UILabel()
-        label.text = "Senna, Ayrton"
+        label.text = "Selecione o piloto"
         return label
     }()
     
@@ -130,7 +130,7 @@ class DuelViewController: UIViewController {
     
     lazy var rightNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameRightLabel ?? UILabel()
-        label.text = "Hamilton, Lewis"
+        label.text = "Selecione o piloto"
         return label
     }()
     
@@ -342,7 +342,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
         } else if tableView == rightNameDriverTableViewSelect  {
             return 50
         } else {
-            return 68
+            return 75
         }
     }
     

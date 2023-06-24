@@ -191,7 +191,7 @@ extension DriversDetailViewController {
             } else if driversDetailScreen?.lastNameLabel.text == "Stroll" {
                 return UIImage(named: "astonmartinLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
-                return UIImage(named: "ferrariLogo") ?? UIImage()
+                return UIImage(named: "FerrariLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
                 return UIImage(named: "mercedesLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
@@ -203,23 +203,23 @@ extension DriversDetailViewController {
             } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
                 return UIImage(named: "alpineLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
-                return UIImage(named: "mclarenLogo") ?? UIImage()
+                return UIImage(named: "Mclaren") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
                 return UIImage(named: "haasLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
-                return UIImage(named: "mclarenLogo") ?? UIImage()
+                return UIImage(named: "Mclaren") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
-                return UIImage(named: "alfaromeoLogo") ?? UIImage()
+                return UIImage(named: "AlphaRomeo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
-                return UIImage(named: "alfaromeoLogo") ?? UIImage()
+                return UIImage(named: "AlphaRomeo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
-                return UIImage(named: "alphatauriLogo") ?? UIImage()
+                return UIImage(named: "AlphaTauri") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
                 return UIImage(named: "haasLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
                 return UIImage(named: "williamsLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
-                return UIImage(named: "alphatauriLogo") ?? UIImage()
+                return UIImage(named: "AlphaTauri") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
                 return UIImage(named: "williamsLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
