@@ -79,7 +79,7 @@ class DuelBirthDateCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthDateTitle.topAnchor.constraint(equalTo: topAnchor),
+            birthDateTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             birthDateTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             birthDateAnswerLeft.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),

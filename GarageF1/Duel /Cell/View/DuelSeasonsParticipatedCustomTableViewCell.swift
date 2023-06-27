@@ -79,7 +79,7 @@ class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            podiumsTitle.topAnchor.constraint(equalTo: topAnchor),
+            podiumsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             podiumsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             podiumsAnswerLeft.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),

@@ -79,7 +79,7 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            pointsTitle.topAnchor.constraint(equalTo: topAnchor),
+            pointsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             pointsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             pointsAnswerLeft.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),

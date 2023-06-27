@@ -79,7 +79,7 @@ class DuelSeasonsOnTop3CustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            racesTitle.topAnchor.constraint(equalTo: topAnchor),
+            racesTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             racesTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             racesAnswerLeft.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),

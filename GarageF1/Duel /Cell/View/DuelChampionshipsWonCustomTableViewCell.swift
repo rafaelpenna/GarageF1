@@ -79,7 +79,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor),
+            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor,  constant: 5),
             championshipsWinTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             championshipsWinAnswerLeft.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),

@@ -79,7 +79,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor),
+            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             birthLocationTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             birthLocationAnswerLeft.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
