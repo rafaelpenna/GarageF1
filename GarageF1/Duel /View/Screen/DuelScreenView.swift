@@ -68,7 +68,7 @@ class DuelScreenView: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -135,7 +135,7 @@ class DuelScreenView: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.numberOfLines = 0
-        label.font = UIFont.systemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -312,12 +312,12 @@ class DuelScreenView: UIView {
             leftBackgroundSearchView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -10),
             leftBackgroundSearchView.heightAnchor.constraint(equalToConstant: 30),
             
-            leftSearchImageView.topAnchor.constraint(equalTo: leftBackgroundSearchView.topAnchor, constant: 5),
-            leftSearchImageView.leadingAnchor.constraint(equalTo: leftBackgroundSearchView.leadingAnchor, constant: 5),
+            leftSearchImageView.topAnchor.constraint(equalTo: leftBackgroundSearchView.topAnchor, constant: 10),
+            leftSearchImageView.leadingAnchor.constraint(equalTo: leftBackgroundSearchView.leadingAnchor, constant: 8),
             leftSearchImageView.widthAnchor.constraint(equalToConstant: 20),
             leftSearchImageView.heightAnchor.constraint(equalToConstant: 20),
             
-            leftSearchTextField.topAnchor.constraint(equalTo: leftBackgroundSearchView.topAnchor, constant: 5),
+            leftSearchTextField.topAnchor.constraint(equalTo: leftBackgroundSearchView.topAnchor, constant: 10),
             leftSearchTextField.leadingAnchor.constraint(equalTo: leftSearchImageView.trailingAnchor, constant: 5),
             leftSearchTextField.trailingAnchor.constraint(equalTo: leftBackgroundSearchView.trailingAnchor, constant: -5),
             leftSearchTextField.bottomAnchor.constraint(equalTo: leftBackgroundSearchView.bottomAnchor, constant: -5),
@@ -348,13 +348,13 @@ class DuelScreenView: UIView {
             rightBackgroundSearchView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             rightBackgroundSearchView.heightAnchor.constraint(equalToConstant: 30),
             
-            rightSearchImageView.topAnchor.constraint(equalTo: rightBackgroundSearchView.topAnchor, constant: 5),
+            rightSearchImageView.topAnchor.constraint(equalTo: rightBackgroundSearchView.topAnchor, constant: 10),
             rightSearchImageView.leadingAnchor.constraint(equalTo: rightBackgroundSearchView.leadingAnchor, constant: 5),
             rightSearchImageView.widthAnchor.constraint(equalToConstant: 20),
             rightSearchImageView.heightAnchor.constraint(equalToConstant: 20),
             
-            rightSearchTextField.topAnchor.constraint(equalTo: rightBackgroundSearchView.topAnchor, constant: 5),
-            rightSearchTextField.leadingAnchor.constraint(equalTo: rightSearchImageView.trailingAnchor, constant: 5),
+            rightSearchTextField.topAnchor.constraint(equalTo: rightBackgroundSearchView.topAnchor, constant: 10),
+            rightSearchTextField.leadingAnchor.constraint(equalTo: rightSearchImageView.trailingAnchor, constant: 8),
             rightSearchTextField.trailingAnchor.constraint(equalTo: rightBackgroundSearchView.trailingAnchor, constant: -5),
             rightSearchTextField.bottomAnchor.constraint(equalTo: rightBackgroundSearchView.bottomAnchor, constant: -5),
             

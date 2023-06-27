@@ -212,7 +212,7 @@ extension StandingsViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row == 0 {
                 return 350
             } else {
-                return 105
+                return 110
             }
         }
     }

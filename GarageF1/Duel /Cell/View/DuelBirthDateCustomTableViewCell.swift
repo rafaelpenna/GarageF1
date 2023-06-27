@@ -90,7 +90,7 @@ class DuelBirthDateCustomTableViewCell: UITableViewCell {
             
             divisionView.topAnchor.constraint(equalTo: birthDateTitle.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.heightAnchor.constraint(equalTo: birthDateAnswerLeft.heightAnchor),
+            divisionView.heightAnchor.constraint(equalToConstant: 22),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),

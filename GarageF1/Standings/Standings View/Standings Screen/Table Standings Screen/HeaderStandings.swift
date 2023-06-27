@@ -141,7 +141,7 @@ class HeaderStandings: UIView {
             driverTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 55),
             driverTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
             
-            timeTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 160),
+            timeTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 15),
             timeTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
             
             ptsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),

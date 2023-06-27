@@ -191,7 +191,7 @@ extension DriversDetailViewController {
             } else if driversDetailScreen?.lastNameLabel.text == "Stroll" {
                 return UIImage(named: "astonmartinLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
-                return UIImage(named: "FerrariLogo") ?? UIImage()
+                return UIImage(named: "ferrariLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
                 return UIImage(named: "mercedesLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {

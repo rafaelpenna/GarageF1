@@ -15,6 +15,10 @@ class RaceDistanceCellScreen: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
     
@@ -67,13 +71,13 @@ class RaceDistanceCellScreen: UITableViewCell {
             
             backgroundCellWhiteView.topAnchor.constraint(equalTo: topAnchor),
             backgroundCellWhiteView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             backgroundCellWhiteView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             raceDistanceTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             raceDistanceTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),
 
-            raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            raceDistanceAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             raceDistanceAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
 
             raceDistanceUnit.leadingAnchor.constraint(equalTo: raceDistanceTitle.trailingAnchor, constant: 7),
