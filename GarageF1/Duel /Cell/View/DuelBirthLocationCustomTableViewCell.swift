@@ -13,7 +13,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     
     var birthLocationTitle: UILabel = {
         let variable = UILabel()
-        variable.textColor = .gray
+        variable.textColor = .white
         variable.text = "País de Nascimento"
         variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
@@ -23,16 +23,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     
     var birthLocationAnswerLeft: UILabel = {
         let variable = UILabel()
-        variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 18)
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        variable.numberOfLines = 0
-        return variable
-    }()
-    
-    var countrynAnswerLeft: UILabel = {
-        let variable = UILabel()
-        variable.textColor = .black
+        variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
@@ -41,16 +32,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     
     var birthLocationAnswerRight: UILabel = {
         let variable = UILabel()
-        variable.textColor = .black
-        variable.font = UIFont.boldSystemFont(ofSize: 18)
-        variable.translatesAutoresizingMaskIntoConstraints = false
-        variable.numberOfLines = 0
-        return variable
-    }()
-    
-    var countrynAnswerRight: UILabel = {
-        let variable = UILabel()
-        variable.textColor = .black
+        variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.numberOfLines = 0
@@ -67,7 +49,12 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     lazy var dataBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
         return view
     }()
     
@@ -86,15 +73,13 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
         addSubview(birthLocationTitle)
         addSubview(birthLocationAnswerLeft)
         addSubview(birthLocationAnswerRight)
-        addSubview(countrynAnswerLeft)
-        addSubview(countrynAnswerRight)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor),
+            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
             birthLocationTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             birthLocationAnswerLeft.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
@@ -103,20 +88,14 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
             birthLocationAnswerRight.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
             birthLocationAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            countrynAnswerLeft.topAnchor.constraint(equalTo: birthLocationAnswerLeft.bottomAnchor, constant: 4),
-            countrynAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
-            
-            countrynAnswerRight.topAnchor.constraint(equalTo: birthLocationAnswerRight.bottomAnchor, constant: 4),
-            countrynAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
-            
             divisionView.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.bottomAnchor.constraint(equalTo: countrynAnswerLeft.bottomAnchor),
+            divisionView.heightAnchor.constraint(equalToConstant: 22),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),
-            dataBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            dataBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            dataBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            dataBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             dataBackgroundView.bottomAnchor.constraint(equalTo: divisionView.bottomAnchor, constant: 5),
         ])
     }

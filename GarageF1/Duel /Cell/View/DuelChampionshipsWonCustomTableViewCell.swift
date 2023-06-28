@@ -13,7 +13,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     
     var championshipsWinTitle: UILabel = {
         let variable = UILabel()
-        variable.textColor = .gray
+        variable.textColor = .white
         variable.text = "Títulos"
         variable.font = UIFont.systemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
@@ -23,7 +23,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     
     var championshipsWinAnswerLeft: UILabel = {
         let variable = UILabel()
-        variable.textColor = .black
+        variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.textAlignment = .center
@@ -32,7 +32,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     
     var championshipsWinAnswerRight: UILabel = {
         let variable = UILabel()
-        variable.textColor = .black
+        variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
         variable.translatesAutoresizingMaskIntoConstraints = false
         variable.textAlignment = .center
@@ -49,7 +49,12 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     lazy var dataBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1)
+        view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
+        view.layer.cornerRadius = 10
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOpacity = 0.5
+        view.layer.shadowOffset = .zero
+        view.layer.shadowRadius = 10
         return view
     }()
     
@@ -74,7 +79,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor),
+            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor,  constant: 5),
             championshipsWinTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             championshipsWinAnswerLeft.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
@@ -89,8 +94,8 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),
-            dataBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            dataBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            dataBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
+            dataBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             dataBackgroundView.bottomAnchor.constraint(equalTo: divisionView.bottomAnchor, constant: 5),
         ])
     }

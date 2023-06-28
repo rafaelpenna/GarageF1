@@ -188,7 +188,7 @@ class StandingsScreen: UIView {
             
             trackTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: 15),
             trackTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 15),
-            trackTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -15),
+            trackTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             trackTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
 //MARK: - StandingsBoardView Constraints

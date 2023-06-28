@@ -47,7 +47,7 @@ class RacesScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "TEMPORADA 2023"
         label.textColor = .white
-        label.font = UIFont.boldSystemFont(ofSize: 17)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         return label
     }()
     
@@ -57,7 +57,7 @@ class RacesScreen: UIView {
         label.text = "Confira os resultados e informações de todas as etapas da temporada:"
         label.textColor = .white
         label.numberOfLines = 0
-        label.font = UIFont.boldSystemFont(ofSize: 14)
+        label.font = UIFont.boldSystemFont(ofSize: 16)
         return label
     }()
     

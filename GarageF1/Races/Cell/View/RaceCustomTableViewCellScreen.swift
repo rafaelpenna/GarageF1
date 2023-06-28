@@ -23,7 +23,7 @@ class RaceCustomTableViewCellScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.textColor = .black
-        label.font = UIFont.boldSystemFont(ofSize: 35)
+        label.font = UIFont.boldSystemFont(ofSize: 28)
         return label
     }()
     

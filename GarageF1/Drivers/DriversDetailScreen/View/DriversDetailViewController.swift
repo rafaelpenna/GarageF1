@@ -64,6 +64,7 @@ class DriversDetailViewController: UIViewController {
     lazy var topBackgorundView: UIView = {
         let view: UIView = driversDetailScreen?.backgroundTopRedView ?? UIView()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "\(driverBackgroundImage)") ?? UIImage())
+        view.contentMode = .scaleToFill
         return view
     }()
     
@@ -202,23 +203,23 @@ extension DriversDetailViewController {
             } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
                 return UIImage(named: "alpineLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
-                return UIImage(named: "mclarenLogo") ?? UIImage()
+                return UIImage(named: "Mclaren") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
                 return UIImage(named: "haasLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
-                return UIImage(named: "mclarenLogo") ?? UIImage()
+                return UIImage(named: "Mclaren") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
-                return UIImage(named: "alfaromeoLogo") ?? UIImage()
+                return UIImage(named: "AlphaRomeo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
-                return UIImage(named: "alfaromeoLogo") ?? UIImage()
+                return UIImage(named: "AlphaRomeo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
-                return UIImage(named: "alphatauriLogo") ?? UIImage()
+                return UIImage(named: "AlphaTauri") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
                 return UIImage(named: "haasLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
                 return UIImage(named: "williamsLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
-                return UIImage(named: "alphatauriLogo") ?? UIImage()
+                return UIImage(named: "AlphaTauri") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
                 return UIImage(named: "williamsLogo") ?? UIImage()
             } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {

@@ -75,7 +75,7 @@ class CustomStandingsTableViewScreen: UIView {
             nameCodeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
             timeLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            timeLabel.centerXAnchor.constraint(equalTo: leadingAnchor, constant: 210),
+            timeLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 15),
             timeLabel.widthAnchor.constraint(equalToConstant: 115),
             timeLabel.heightAnchor.constraint(equalToConstant: 20),
 

@@ -22,8 +22,8 @@ class DuelViewController: UIViewController {
     var duelScreen: DuelScreenView?
     var duelViewModel: DuelViewModel = DuelViewModel()
     
-    var selectedLeftDriver: String = "Senna, Ayrton"
-    var selectedRightDriver: String = "Hamilton, Lewis"
+    var selectedLeftDriver: String = ""
+    var selectedRightDriver: String = ""
     
     
     override func loadView() {
@@ -40,7 +40,7 @@ class DuelViewController: UIViewController {
     }
     
     func setupProtocols() {
-        duelScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
+        duelViewModel.delegate(delegate: self)
         leftNameDriverTableViewSelect.delegate = self
         leftNameDriverTableViewSelect.dataSource = self
         rightNameDriverTableViewSelect.delegate = self
@@ -92,7 +92,7 @@ class DuelViewController: UIViewController {
     
     lazy var leftNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameLeftLabel ?? UILabel()
-        label.text = "Senna, Ayrton"
+        label.text = "Selecione o piloto"
         return label
     }()
     
@@ -130,7 +130,7 @@ class DuelViewController: UIViewController {
     
     lazy var rightNameDriver: UILabel = {
         let label: UILabel = duelScreen?.driversNameRightLabel ?? UILabel()
-        label.text = "Hamilton, Lewis"
+        label.text = "Selecione o piloto"
         return label
     }()
     
@@ -235,6 +235,7 @@ class DuelViewController: UIViewController {
         if leftTextFieldSearchSelect.text == "" {
             duelViewModel.clearLeftFilterList()
             duelScreen?.leftNameDriversTableView.reloadData()
+            duelScreen?.infoTableView.reloadData()
         }
     }
     
@@ -242,6 +243,7 @@ class DuelViewController: UIViewController {
         if rightTextFieldSearchSelect.text == "" {
             duelViewModel.clearRightFilterList()
             duelScreen?.rightNameDriversTableView.reloadData()
+            duelScreen?.infoTableView.reloadData()
         }
     }
 }
@@ -340,7 +342,7 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
         } else if tableView == rightNameDriverTableViewSelect  {
             return 50
         } else {
-            return 68
+            return 75
         }
     }
     

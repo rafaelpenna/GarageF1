@@ -15,6 +15,10 @@ class TrackRecordCellScreen: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
     
@@ -75,20 +79,20 @@ class TrackRecordCellScreen: UITableViewCell {
             
             backgroundCellWhiteView.topAnchor.constraint(equalTo: topAnchor),
             backgroundCellWhiteView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             backgroundCellWhiteView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             trackRecordTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             trackRecordTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),
             
-            trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            trackRecordAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             trackRecordAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -30),
             
             trackRecordOwner.trailingAnchor.constraint(equalTo: trackRecordYear.leadingAnchor, constant: -2),
-            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            trackRecordOwner.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14),
             
-            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            trackRecordYear.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
+            trackRecordYear.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -14),
         ])
     }
 }

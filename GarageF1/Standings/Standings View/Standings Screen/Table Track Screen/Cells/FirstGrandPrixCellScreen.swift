@@ -15,6 +15,10 @@ class FirstGrandPrixCellScreen: UITableViewCell {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .white
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.layer.borderWidth = 0.5
+        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
     
@@ -57,13 +61,13 @@ class FirstGrandPrixCellScreen: UITableViewCell {
             
             backgroundCellWhiteView.topAnchor.constraint(equalTo: topAnchor),
             backgroundCellWhiteView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundCellWhiteView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
             backgroundCellWhiteView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
             firstGrandPrixTitle.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             firstGrandPrixTitle.topAnchor.constraint(equalTo: topAnchor, constant: 7),
 
-            firstGrandPrixAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            firstGrandPrixAnswer.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             firstGrandPrixAnswer.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
         ])
     }
