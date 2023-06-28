@@ -10,9 +10,9 @@ import UIKit
 class CustomStandingCollectionViewCell: UICollectionViewCell {
     
     static let identifier: String = String(describing: CustomStandingCollectionViewCell.self)
-    
-    var data: [HomeRacer] = []
     let customStandingCollectionScreen: CustomStandingCollectionScreen = CustomStandingCollectionScreen()
+    var cellViewModel: HomeCustomCellViewModel?
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,15 +20,23 @@ class CustomStandingCollectionViewCell: UICollectionViewCell {
         setUpConstraints()
     }
     
-    func setupCell(data: HomeRacer) {
-        customStandingCollectionScreen.pilot.image = UIImage(named: data.name)
-        customStandingCollectionScreen.namePilot.text = data.nameImage
-        customStandingCollectionScreen.nameTeams.text = data.nameTeams
-        customStandingCollectionScreen.indicePilot.text = data.indice
-    }
-    
-    func dataCollection(data: [HomeRacer]) {
-        self.data = data
+    func setupCell(driver: DriverStanding10) {
+        self.cellViewModel = HomeCustomCellViewModel(data: driver)
+        
+        customStandingCollectionScreen.namePilot.text = cellViewModel?.getDriversLastName
+        customStandingCollectionScreen.pilot.image = cellViewModel?.getDriversPhoto
+        customStandingCollectionScreen.namePilot.text = cellViewModel?.getDriversLastName
+        customStandingCollectionScreen.nameTeams.text = cellViewModel?.getTeam
+        customStandingCollectionScreen.indicePilot.text = cellViewModel?.getDriversPosition
+        
+
+        
+//        screen.positionLabel.text = cellViewModel?.getDriversPosition
+//        screen.photoDriverImageView.image = cellViewModel?.getDriversPhoto
+//        screen.nameLabel.text = cellViewModel?.getDriversName
+//        screen.lastNameLabel.text = cellViewModel?.getDriversLastName
+//        screen.teamLabel.text = cellViewModel?.getTeam
+//        screen.pointsLabel.text = cellViewModel?.getPoints
     }
     
     required init?(coder: NSCoder) {

@@ -13,7 +13,7 @@ class CustomStandingCollectionScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 80)
+        label.font = UIFont.boldSystemFont(ofSize: 48)
         label.textColor = .black
         return label
     }()
@@ -22,7 +22,7 @@ class CustomStandingCollectionScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 20)
+        label.font = UIFont.boldSystemFont(ofSize: 16.5)
         label.numberOfLines = 0
         label.textColor = .black
         return label
@@ -32,8 +32,9 @@ class CustomStandingCollectionScreen: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
-        label.font = UIFont.systemFont(ofSize: 16)
+        label.font = UIFont.systemFont(ofSize: 14.5)
         label.textColor = .black
+        label.numberOfLines = 0
         return label
     }()
     
@@ -66,21 +67,23 @@ class CustomStandingCollectionScreen: UIView {
     private func setUpConstraints() {
         NSLayoutConstraint.activate([
             
+            indicePilot.centerYAnchor.constraint(equalTo: centerYAnchor),
+            indicePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            indicePilot.widthAnchor.constraint(equalToConstant: 60),
+            
+            namePilot.topAnchor.constraint(equalTo: topAnchor, constant: 53),
+            namePilot.leadingAnchor.constraint(equalTo: indicePilot.trailingAnchor, constant: 8),
+            namePilot.trailingAnchor.constraint(equalTo: pilot.leadingAnchor),
+            
+            nameTeams.topAnchor.constraint(equalTo: namePilot.bottomAnchor, constant: 2),
+            nameTeams.leadingAnchor.constraint(equalTo: indicePilot.trailingAnchor, constant: 8),
+            nameTeams.trailingAnchor.constraint(equalTo: pilot.leadingAnchor),
+            
             pilot.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             pilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 170),
             pilot.trailingAnchor.constraint(equalTo: trailingAnchor),
-            pilot.heightAnchor.constraint(equalToConstant: 160),
+            pilot.heightAnchor.constraint(equalToConstant: 150),
             
-            namePilot.topAnchor.constraint(equalTo: topAnchor, constant: 40),
-            namePilot.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -180),
-
-            indicePilot.centerYAnchor.constraint(equalTo: centerYAnchor),
-            indicePilot.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-
-            nameTeams.topAnchor.constraint(equalTo: namePilot.bottomAnchor, constant: 2),
-            nameTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -170),
-
-        
         ])
     }
 }

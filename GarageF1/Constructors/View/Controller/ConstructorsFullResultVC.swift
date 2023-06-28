@@ -11,6 +11,7 @@ class ConstructorsFullResultVC: UIViewController {
     
     var constructorsFullResultScreen: ConstructorsFullResultScreen = ConstructorsFullResultScreen()
     var constructorsFullViewModel: ConstructorsFullViewModel = ConstructorsFullViewModel()
+    var fullConstructorsViewModel: FullConstructorsViewModel = FullConstructorsViewModel()
     
     override func loadView() {
         view = constructorsFullResultScreen
@@ -19,6 +20,8 @@ class ConstructorsFullResultVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configProtocols()
+        self.fullConstructorsViewModel.fetch(.request)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,7 +31,7 @@ class ConstructorsFullResultVC: UIViewController {
     
     private func configProtocols() {
         constructorsFullResultScreen.delegate(delegate: self)
-        constructorsFullResultScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        fullConstructorsViewModel.delegate(delegate: self)
     }
 }
 
@@ -46,12 +49,29 @@ extension ConstructorsFullResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: CustomFullResultConstructorsTableViewCell.identifier, for: indexPath) as? CustomFullResultConstructorsTableViewCell
-        cell?.setupCell(data: constructorsFullViewModel.getDataConstructors(index: indexPath.row))
+        cell?.setupCell(constructors: fullConstructorsViewModel.loadCurrentDriver(indexPath: indexPath))
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 100
+    }
+}
+
+extension ConstructorsFullResultVC: FullConstructorsViewModelDelegate {
+    func success() {
+        self.constructorsFullResultScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+        
+    }
+}
+
+extension ConstructorsFullResultVC: ConstructorsViewModelProtocol {
+    func reloadTableView() {
+        self.constructorsFullResultScreen.constructorsTableView.reloadData()
     }
 }

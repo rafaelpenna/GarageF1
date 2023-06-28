@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0B0462AA29F9E8840067EFAA /* StandingCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0462A929F9E8840067EFAA /* StandingCustomViewModel.swift */; };
 		0B0462AC29F9EE550067EFAA /* FullResultsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0462AB29F9EE550067EFAA /* FullResultsViewModel.swift */; };
 		0B0462B029F9F6840067EFAA /* FirstDriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0462AF29F9F6840067EFAA /* FirstDriverViewModel.swift */; };
 		0B0462B229F9FF560067EFAA /* SecondDriverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0462B129F9FF560067EFAA /* SecondDriverViewModel.swift */; };
@@ -41,13 +40,26 @@
 		0B568FDD2A0C7B4300D89FCF /* logout.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B568FDC2A0C7B4300D89FCF /* logout.json */; };
 		0B568FE12A0C7C5600D89FCF /* LogoutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B568FE02A0C7C5600D89FCF /* LogoutScreen.swift */; };
 		0B568FE32A0C7C7600D89FCF /* LogoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B568FE22A0C7C7600D89FCF /* LogoutVC.swift */; };
+		0B5ABA0F2A4BBECF005B02DA /* driverStandings.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B5ABA0E2A4BBECF005B02DA /* driverStandings.json */; };
+		0B5ABA112A4BBEE4005B02DA /* HighlightsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA102A4BBEE4005B02DA /* HighlightsService.swift */; };
+		0B5ABA132A4BBF07005B02DA /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA122A4BBF07005B02DA /* HomeModel.swift */; };
+		0B5ABA152A4BBF2F005B02DA /* HomeCustomCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA142A4BBF2F005B02DA /* HomeCustomCellViewModel.swift */; };
+		0B5ABA172A4BBF5D005B02DA /* StandingCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA162A4BBF5D005B02DA /* StandingCustomViewModel.swift */; };
+		0B5ABA192A4BBF89005B02DA /* StandingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA182A4BBF89005B02DA /* StandingCustomTableViewCell.swift */; };
+		0B5ABA1B2A4BC029005B02DA /* CustomStandingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA1A2A4BC029005B02DA /* CustomStandingCollectionViewCell.swift */; };
+		0B5ABA1D2A4BCE19005B02DA /* fullConstructors.json in Resources */ = {isa = PBXBuildFile; fileRef = 0B5ABA1C2A4BCE19005B02DA /* fullConstructors.json */; };
+		0B5ABA1F2A4BCE21005B02DA /* FullConstructorsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA1E2A4BCE21005B02DA /* FullConstructorsService.swift */; };
+		0B5ABA212A4BCE45005B02DA /* FullConstructorsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA202A4BCE45005B02DA /* FullConstructorsModel.swift */; };
+		0B5ABA242A4BCE5A005B02DA /* FullConstructorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA222A4BCE5A005B02DA /* FullConstructorsViewModel.swift */; };
+		0B5ABA252A4BCE5A005B02DA /* SecondFullConstructorsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA232A4BCE5A005B02DA /* SecondFullConstructorsViewModel.swift */; };
+		0B5ABA272A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA262A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift */; };
+		0B5ABA292A4BCF0B005B02DA /* ConstructorsFullResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5ABA282A4BCF0B005B02DA /* ConstructorsFullResultVC.swift */; };
 		0B5BD8B629D9108300184C1E /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B529D9108300184C1E /* ProfileVC.swift */; };
 		0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */; };
 		0B6D46F32A1A8AFC00409410 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F22A1A8AFC00409410 /* LoginViewModel.swift */; };
 		0B6D46F62A1A8D3100409410 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F52A1A8D3100409410 /* ProfileViewModel.swift */; };
 		0B6D46F92A1A8EAF00409410 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */; };
 		0B6D46FC2A1A8F7E00409410 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */; };
-		0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */; };
 		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
 		0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */; };
 		0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC34297483CD003B2D9C /* HomeResults.swift */; };
@@ -124,8 +136,6 @@
 		34B996A029F8BE5200DCBE69 /* CustomFullResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */; };
 		34B996A129F8BE5200DCBE69 /* CustomResultsFullTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */; };
 		34B996A229F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967629F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift */; };
-		34B996A329F8BE5200DCBE69 /* CustomStandingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967729F8BE5200DCBE69 /* CustomStandingCollectionViewCell.swift */; };
-		34B996A429F8BE5200DCBE69 /* StandingCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967929F8BE5200DCBE69 /* StandingCustomTableViewCell.swift */; };
 		34B996A529F8BE5200DCBE69 /* TopResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967A29F8BE5200DCBE69 /* TopResultsTableViewCell.swift */; };
 		34B996A629F8BE5200DCBE69 /* FullResultButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967B29F8BE5200DCBE69 /* FullResultButtonTableViewCell.swift */; };
 		34B996A729F8BE5200DCBE69 /* FullResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9967C29F8BE5200DCBE69 /* FullResultsTableViewCell.swift */; };
@@ -147,7 +157,6 @@
 		34B996BA29F8BE5200DCBE69 /* FirstDriverScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9969429F8BE5200DCBE69 /* FirstDriverScreen.swift */; };
 		34B996BB29F8BE5200DCBE69 /* FirstDriverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9969529F8BE5200DCBE69 /* FirstDriverVC.swift */; };
 		34B996C029F8BE5200DCBE69 /* HomeCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9969C29F8BE5200DCBE69 /* HomeCustomTableViewCell.swift */; };
-		34B996C129F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9969E29F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift */; };
 		34B996C229F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B9969F29F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift */; };
 		34B996C529F8BE6900DCBE69 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996C429F8BE6900DCBE69 /* HomeScreen.swift */; };
 		34B996C929F8BEEA00DCBE69 /* DataHomeConstructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34B996C829F8BEEA00DCBE69 /* DataHomeConstructors.swift */; };
@@ -175,7 +184,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B0462A929F9E8840067EFAA /* StandingCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingCustomViewModel.swift; sourceTree = "<group>"; };
 		0B0462AB29F9EE550067EFAA /* FullResultsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullResultsViewModel.swift; sourceTree = "<group>"; };
 		0B0462AF29F9F6840067EFAA /* FirstDriverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstDriverViewModel.swift; sourceTree = "<group>"; };
 		0B0462B129F9FF560067EFAA /* SecondDriverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondDriverViewModel.swift; sourceTree = "<group>"; };
@@ -214,13 +222,26 @@
 		0B568FDC2A0C7B4300D89FCF /* logout.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = logout.json; sourceTree = "<group>"; };
 		0B568FE02A0C7C5600D89FCF /* LogoutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutScreen.swift; sourceTree = "<group>"; };
 		0B568FE22A0C7C7600D89FCF /* LogoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutVC.swift; sourceTree = "<group>"; };
+		0B5ABA0E2A4BBECF005B02DA /* driverStandings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = driverStandings.json; sourceTree = "<group>"; };
+		0B5ABA102A4BBEE4005B02DA /* HighlightsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighlightsService.swift; sourceTree = "<group>"; };
+		0B5ABA122A4BBF07005B02DA /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		0B5ABA142A4BBF2F005B02DA /* HomeCustomCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomCellViewModel.swift; sourceTree = "<group>"; };
+		0B5ABA162A4BBF5D005B02DA /* StandingCustomViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingCustomViewModel.swift; sourceTree = "<group>"; };
+		0B5ABA182A4BBF89005B02DA /* StandingCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingCustomTableViewCell.swift; sourceTree = "<group>"; };
+		0B5ABA1A2A4BC029005B02DA /* CustomStandingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStandingCollectionViewCell.swift; sourceTree = "<group>"; };
+		0B5ABA1C2A4BCE19005B02DA /* fullConstructors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fullConstructors.json; sourceTree = "<group>"; };
+		0B5ABA1E2A4BCE21005B02DA /* FullConstructorsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullConstructorsService.swift; sourceTree = "<group>"; };
+		0B5ABA202A4BCE45005B02DA /* FullConstructorsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullConstructorsModel.swift; sourceTree = "<group>"; };
+		0B5ABA222A4BCE5A005B02DA /* FullConstructorsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullConstructorsViewModel.swift; sourceTree = "<group>"; };
+		0B5ABA232A4BCE5A005B02DA /* SecondFullConstructorsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondFullConstructorsViewModel.swift; sourceTree = "<group>"; };
+		0B5ABA262A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultConstructorsTableViewCell.swift; sourceTree = "<group>"; };
+		0B5ABA282A4BCF0B005B02DA /* ConstructorsFullResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultVC.swift; sourceTree = "<group>"; };
 		0B5BD8B529D9108300184C1E /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		0B5BD8B729D910AE00184C1E /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		0B6D46F22A1A8AFC00409410 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		0B6D46F52A1A8D3100409410 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
 		0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
-		0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultVC.swift; sourceTree = "<group>"; };
 		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
 		0B9CF6822962692C002E3405 /* GarageF1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1.entitlements; sourceTree = "<group>"; };
 		0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRacer.swift; sourceTree = "<group>"; };
@@ -297,8 +318,6 @@
 		34B9967329F8BE5200DCBE69 /* CustomFullResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultsScreen.swift; sourceTree = "<group>"; };
 		34B9967429F8BE5200DCBE69 /* CustomResultsFullTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomResultsFullTableView.swift; sourceTree = "<group>"; };
 		34B9967629F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStandingCollectionScreen.swift; sourceTree = "<group>"; };
-		34B9967729F8BE5200DCBE69 /* CustomStandingCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStandingCollectionViewCell.swift; sourceTree = "<group>"; };
-		34B9967929F8BE5200DCBE69 /* StandingCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StandingCustomTableViewCell.swift; sourceTree = "<group>"; };
 		34B9967A29F8BE5200DCBE69 /* TopResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopResultsTableViewCell.swift; sourceTree = "<group>"; };
 		34B9967B29F8BE5200DCBE69 /* FullResultButtonTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullResultButtonTableViewCell.swift; sourceTree = "<group>"; };
 		34B9967C29F8BE5200DCBE69 /* FullResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FullResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -320,7 +339,6 @@
 		34B9969429F8BE5200DCBE69 /* FirstDriverScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstDriverScreen.swift; sourceTree = "<group>"; };
 		34B9969529F8BE5200DCBE69 /* FirstDriverVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstDriverVC.swift; sourceTree = "<group>"; };
 		34B9969C29F8BE5200DCBE69 /* HomeCustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCustomTableViewCell.swift; sourceTree = "<group>"; };
-		34B9969E29F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultConstructorsTableViewCell.swift; sourceTree = "<group>"; };
 		34B9969F29F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomFullResultsConstructorsScreen.swift; sourceTree = "<group>"; };
 		34B996C429F8BE6900DCBE69 /* HomeScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		34B996C829F8BEEA00DCBE69 /* DataHomeConstructors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataHomeConstructors.swift; sourceTree = "<group>"; };
@@ -369,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				34B9969C29F8BE5200DCBE69 /* HomeCustomTableViewCell.swift */,
+				0B5ABA142A4BBF2F005B02DA /* HomeCustomCellViewModel.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -394,6 +413,7 @@
 			children = (
 				0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */,
 				0BA8BC34297483CD003B2D9C /* HomeResults.swift */,
+				0B5ABA122A4BBF07005B02DA /* HomeModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -418,7 +438,7 @@
 		0B1E887829DA18F80027C8C6 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				0B0462A929F9E8840067EFAA /* StandingCustomViewModel.swift */,
+				0B5ABA162A4BBF5D005B02DA /* StandingCustomViewModel.swift */,
 				0B0462AB29F9EE550067EFAA /* FullResultsViewModel.swift */,
 				0B0462AF29F9F6840067EFAA /* FirstDriverViewModel.swift */,
 				0B0462B129F9FF560067EFAA /* SecondDriverViewModel.swift */,
@@ -558,6 +578,7 @@
 			isa = PBXGroup;
 			children = (
 				34B996C829F8BEEA00DCBE69 /* DataHomeConstructors.swift */,
+				0B5ABA202A4BCE45005B02DA /* FullConstructorsModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -575,6 +596,8 @@
 			isa = PBXGroup;
 			children = (
 				0B0462B529FA05F80067EFAA /* ConstructorsFullViewModel.swift */,
+				0B5ABA222A4BCE5A005B02DA /* FullConstructorsViewModel.swift */,
+				0B5ABA232A4BCE5A005B02DA /* SecondFullConstructorsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -590,7 +613,7 @@
 		0B1E889229DA22100027C8C6 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0B8F7DC329CF744B0069FAE2 /* ConstructorsFullResultVC.swift */,
+				0B5ABA282A4BCF0B005B02DA /* ConstructorsFullResultVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1008,6 +1031,8 @@
 				1CA77AE32A39222100475B96 /* seasonCircuitInfo.json */,
 				1CD063282A3CF46B0030BB62 /* allDriversList.json */,
 				1C44C1622A3E2936001F5315 /* driverDuelInfo.json */,
+				0B5ABA0E2A4BBECF005B02DA /* driverStandings.json */,
+				0B5ABA1C2A4BCE19005B02DA /* fullConstructors.json */,
 			);
 			path = Json;
 			sourceTree = "<group>";
@@ -1025,6 +1050,8 @@
 				1CD0632A2A3CF6500030BB62 /* DuelService.swift */,
 				1C44C1602A3E28BD001F5315 /* DriversDuelService.swift */,
 				1C5CE3842A2A3E37003FB86D /* GenericService.swift */,
+				0B5ABA102A4BBEE4005B02DA /* HighlightsService.swift */,
+				0B5ABA1E2A4BCE21005B02DA /* FullConstructorsService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -1226,7 +1253,7 @@
 			isa = PBXGroup;
 			children = (
 				34B9967629F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift */,
-				34B9967729F8BE5200DCBE69 /* CustomStandingCollectionViewCell.swift */,
+				0B5ABA1A2A4BC029005B02DA /* CustomStandingCollectionViewCell.swift */,
 			);
 			path = CustomStandingCollection;
 			sourceTree = "<group>";
@@ -1234,7 +1261,7 @@
 		34B9967829F8BE5200DCBE69 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				34B9967929F8BE5200DCBE69 /* StandingCustomTableViewCell.swift */,
+				0B5ABA182A4BBF89005B02DA /* StandingCustomTableViewCell.swift */,
 				34B9967F29F8BE5200DCBE69 /* StandingCustomScreen.swift */,
 				34B9967E29F8BE5200DCBE69 /* DDuelCustomTableViewCell.swift */,
 				34B9967D29F8BE5200DCBE69 /* SimulationButtonTableViewCell.swift */,
@@ -1301,7 +1328,7 @@
 		34B9969D29F8BE5200DCBE69 /* CustomConstructorsTableView */ = {
 			isa = PBXGroup;
 			children = (
-				34B9969E29F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift */,
+				0B5ABA262A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift */,
 				34B9969F29F8BE5200DCBE69 /* CustomFullResultsConstructorsScreen.swift */,
 			);
 			path = CustomConstructorsTableView;
@@ -1466,7 +1493,9 @@
 				0B568FD32A0C663300D89FCF /* raceflag.json in Resources */,
 				0B568FDD2A0C7B4300D89FCF /* logout.json in Resources */,
 				1CDF864B2A30A9F100F3ECB4 /* yearsSeason.json in Resources */,
+				0B5ABA0F2A4BBECF005B02DA /* driverStandings.json in Resources */,
 				0B4CC62A2953E90900D29D4C /* Assets.xcassets in Resources */,
+				0B5ABA1D2A4BCE19005B02DA /* fullConstructors.json in Resources */,
 				1C8FFEC42A31019F00E8FBE1 /* seasonRaces.json in Resources */,
 				1C75539A2A2F6261003CB6DA /* seasonContructors.json in Resources */,
 				1CD063292A3CF46B0030BB62 /* allDriversList.json in Resources */,
@@ -1603,6 +1632,7 @@
 				1C0C684A2996E59000A7C1BE /* DriversCustomTableViewCell.swift in Sources */,
 				34B996A629F8BE5200DCBE69 /* FullResultButtonTableViewCell.swift in Sources */,
 				1C726E5029B7AB0E006591C9 /* DuelWinsCustomTableViewCell.swift in Sources */,
+				0B5ABA242A4BCE5A005B02DA /* FullConstructorsViewModel.swift in Sources */,
 				0B0462B629FA05F80067EFAA /* ConstructorsFullViewModel.swift in Sources */,
 				0B1E887129D9CD620027C8C6 /* RecoverPasswordScreen.swift in Sources */,
 				1C550FC029AD3EF500AC2E51 /* CustomCellHistoryTeams.swift in Sources */,
@@ -1620,6 +1650,7 @@
 				1C8994B62A3CC61500FC5A1B /* HistoryDriversService.swift in Sources */,
 				1C726E4429B7AA68006591C9 /* DuelBirthDateCustomTableViewCell.swift in Sources */,
 				34B996C529F8BE6900DCBE69 /* HomeScreen.swift in Sources */,
+				0B5ABA1B2A4BC029005B02DA /* CustomStandingCollectionViewCell.swift in Sources */,
 				0B32CA5C29D0EB2600E5B51A /* RaceViewController.swift in Sources */,
 				0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */,
 				34B996AE29F8BE5200DCBE69 /* SecondDriverScreen.swift in Sources */,
@@ -1629,9 +1660,11 @@
 				1C6DA9B62A1C154700F46F6D /* DuelDriversTableViewCell.swift in Sources */,
 				1C8FFEC02A31011D00E8FBE1 /* RacesService.swift in Sources */,
 				34B996C029F8BE5200DCBE69 /* HomeCustomTableViewCell.swift in Sources */,
+				0B5ABA212A4BCE45005B02DA /* FullConstructorsModel.swift in Sources */,
 				1CB39D2C299D309E009DBE86 /* InfoDriversCustomTableViewCellScreen.swift in Sources */,
 				1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */,
 				0B32CA5829D0EA8900E5B51A /* FirstGrandPrixCellScreen.swift in Sources */,
+				0B5ABA172A4BBF5D005B02DA /* StandingCustomViewModel.swift in Sources */,
 				1CDF86492A30A8DA00F3ECB4 /* YearsService.swift in Sources */,
 				1C726E3E29B7A6A8006591C9 /* DuelViewController.swift in Sources */,
 				1C44CDDA29CF1CFE00D8F32F /* RaceCustomTableViewCellScreen.swift in Sources */,
@@ -1644,16 +1677,17 @@
 				0B0462B029F9F6840067EFAA /* FirstDriverViewModel.swift in Sources */,
 				0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */,
 				1C5170F129997FA300DDDC18 /* DriversDetailViewController.swift in Sources */,
+				0B5ABA1F2A4BCE21005B02DA /* FullConstructorsService.swift in Sources */,
 				1C0C68462996E14E00A7C1BE /* DriversScreenView.swift in Sources */,
 				1CB39D2A299D3065009DBE86 /* DriversDetailCustomTableViewCell.swift in Sources */,
 				1C44CDD829CF1C4200D8F32F /* RacesCustomTableViewCell.swift in Sources */,
 				0B5BD8B829D910AE00184C1E /* ProfileScreen.swift in Sources */,
 				1C726E4A29B7AABC006591C9 /* DuelSeasonsOnTop3CustomTableViewCell.swift in Sources */,
 				34B996B029F8BE5200DCBE69 /* SecondDriverVC.swift in Sources */,
-				34B996A429F8BE5200DCBE69 /* StandingCustomTableViewCell.swift in Sources */,
 				34B996BB29F8BE5200DCBE69 /* FirstDriverVC.swift in Sources */,
 				1C726E4E29B7AAF9006591C9 /* DuelPointsEarnedCustomTableViewCell.swift in Sources */,
 				1C726E4829B7AAA0006591C9 /* DuelChampionshipsWonCustomTableViewCell.swift in Sources */,
+				0B5ABA132A4BBF07005B02DA /* HomeModel.swift in Sources */,
 				0B1E887329D9CE470027C8C6 /* RecoverPasswordVC.swift in Sources */,
 				1C43E52F2A12EFF600B977DB /* HistoryYearsTableViewCell.swift in Sources */,
 				0B6D46F32A1A8AFC00409410 /* LoginViewModel.swift in Sources */,
@@ -1669,6 +1703,7 @@
 				0B32CA5A29D0EACE00E5B51A /* TeamsScreenViewModel.swift in Sources */,
 				1C726E3829B79924006591C9 /* DuelModel.swift in Sources */,
 				1C726E4629B7AA85006591C9 /* DuelBirthLocationCustomTableViewCell.swift in Sources */,
+				0B5ABA292A4BCF0B005B02DA /* ConstructorsFullResultVC.swift in Sources */,
 				34B996BA29F8BE5200DCBE69 /* FirstDriverScreen.swift in Sources */,
 				34B996C929F8BEEA00DCBE69 /* DataHomeConstructors.swift in Sources */,
 				0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */,
@@ -1680,17 +1715,18 @@
 				1C99A83029BFF740004CD81C /* StandingsTableViewCell.swift in Sources */,
 				1C44CDCF29CF105D00D8F32F /* RacesViewModel.swift in Sources */,
 				1C726E4229B7A96A006591C9 /* DuelCustomTableViewCell.swift in Sources */,
-				0B0462AA29F9E8840067EFAA /* StandingCustomViewModel.swift in Sources */,
 				34B996A929F8BE5200DCBE69 /* DDuelCustomTableViewCell.swift in Sources */,
 				34B996B929F8BE5200DCBE69 /* TableViewBestRacePositionCustomCellScreen.swift in Sources */,
 				1C99A82E29BFF492004CD81C /* HeaderStandings.swift in Sources */,
 				34B996A829F8BE5200DCBE69 /* SimulationButtonTableViewCell.swift in Sources */,
 				0B32CA5429D0E9E000E5B51A /* DriversScreenViewModel.swift in Sources */,
 				0B0462B229F9FF560067EFAA /* SecondDriverViewModel.swift in Sources */,
+				0B5ABA192A4BBF89005B02DA /* StandingCustomTableViewCell.swift in Sources */,
 				1C5CE3802A2A3C42003FB86D /* DriversModel.swift in Sources */,
 				1C99A83229BFF765004CD81C /* CustomStandingsTableViewScreen.swift in Sources */,
 				1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */,
 				34B996A229F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift in Sources */,
+				0B5ABA272A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift in Sources */,
 				1C726E4C29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift in Sources */,
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,
 				34B996B329F8BE5200DCBE69 /* TableViewBestGridPositionCustomCellScreen.swift in Sources */,
@@ -1699,20 +1735,20 @@
 				0B10DD4E295A5A8E00CB397A /* LoginScreen.swift in Sources */,
 				1C5CE3852A2A3E37003FB86D /* GenericService.swift in Sources */,
 				0B10DD52295A630700CB397A /* Alert.swift in Sources */,
-				0B8F7DC429CF744B0069FAE2 /* ConstructorsFullResultVC.swift in Sources */,
 				1C6DA9B82A1C158200F46F6D /* CustomCellDuelDrivers.swift in Sources */,
-				34B996C129F8BE5200DCBE69 /* CustomFullResultConstructorsTableViewCell.swift in Sources */,
 				0B4CC6572953F10100D29D4C /* TabBarVC.swift in Sources */,
 				0B568FE32A0C7C7600D89FCF /* LogoutVC.swift in Sources */,
-				34B996A329F8BE5200DCBE69 /* CustomStandingCollectionViewCell.swift in Sources */,
 				1C0C68442996DE4300A7C1BE /* DriversViewController.swift in Sources */,
 				1CD0632B2A3CF6500030BB62 /* DuelService.swift in Sources */,
 				34B996B429F8BE5200DCBE69 /* TableViewBirthLocationCellScreen.swift in Sources */,
+				0B5ABA152A4BBF2F005B02DA /* HomeCustomCellViewModel.swift in Sources */,
+				0B5ABA252A4BCE5A005B02DA /* SecondFullConstructorsViewModel.swift in Sources */,
 				34B996B629F8BE5200DCBE69 /* TableViewPointsCustomCellScreen.swift in Sources */,
 				34B996A529F8BE5200DCBE69 /* TopResultsTableViewCell.swift in Sources */,
 				1C4323B7298812C9000AE209 /* HistoryTeamsTableViewCell.swift in Sources */,
 				0B32CA5029D0E95A00E5B51A /* RacesCustomCellViewModel.swift in Sources */,
 				0B32CA5229D0E99E00E5B51A /* RacesModel.swift in Sources */,
+				0B5ABA112A4BBEE4005B02DA /* HighlightsService.swift in Sources */,
 				1C9F8F642A312AB8008E53A2 /* StandingsService.swift in Sources */,
 				1C0C684C2996E70200A7C1BE /* DriversCustomTableViewCellScreen.swift in Sources */,
 				34B996A029F8BE5200DCBE69 /* CustomFullResultsScreen.swift in Sources */,

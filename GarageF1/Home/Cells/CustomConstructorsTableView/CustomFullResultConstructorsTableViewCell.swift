@@ -12,7 +12,7 @@ class CustomFullResultConstructorsTableViewCell: UITableViewCell {
     static let identifier: String = String(describing: CustomFullResultConstructorsTableViewCell.self)
     
     var customFullResultScreen: CustomFullResultsConstructorsScreen = CustomFullResultsConstructorsScreen()
-    var data: [DataHomeConstructors] = []
+    var cellViewModel: SecondFullConstructorsViewModel?
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -21,17 +21,14 @@ class CustomFullResultConstructorsTableViewCell: UITableViewCell {
         setUpConstraints()
     }
     
-    func setupCell(data: DataHomeConstructors) {
+    func setupCell(constructors: ConstructorStanding18) {
+        self.cellViewModel = SecondFullConstructorsViewModel(data: constructors)
         
-        customFullResultScreen.positionLabel.text = data.position
-        customFullResultScreen.imageTeams.image = UIImage(named: data.imageTeams)
-        customFullResultScreen.nameTeamsLabel.text = data.nameTeams
-        customFullResultScreen.scoreLabel.text = data.points
+        customFullResultScreen.positionLabel.text = cellViewModel?.getConstructorsPosition
+        customFullResultScreen.imageTeams.image = cellViewModel?.getDriversPhoto
+        customFullResultScreen.nameTeamsLabel.text = cellViewModel?.getConstructorsName
+        customFullResultScreen.scoreLabel.text = cellViewModel?.getConstructorsPoints
 
-    }
-
-    public func dataTableView(data: [DataHomeConstructors]) {
-        self.data = data
     }
     
     required init?(coder: NSCoder) {

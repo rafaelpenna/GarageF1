@@ -14,14 +14,15 @@ protocol StandingCustomTableViewCellProtocol: AnyObject {
 
 class StandingCustomTableViewCell: UITableViewCell {
     
-    var standingCustomViewModel: StandingCustomViewModel = StandingCustomViewModel()
+    var standingScreen: StandingCustomScreen = StandingCustomScreen()
+    let driversViewModel: StandingCustomViewModel = StandingCustomViewModel()
     
     weak private var delegate: StandingCustomTableViewCellProtocol?
     public func delegate(delegate: StandingCustomTableViewCellProtocol?) {
         self.delegate = delegate
     }
     
-    var standingScreen: StandingCustomScreen = StandingCustomScreen()
+    
     static let identifier: String = String(describing: StandingCustomTableViewCell.self)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -29,6 +30,8 @@ class StandingCustomTableViewCell: UITableViewCell {
         addSubview()
         configConstraints()
         standingScreen.configProtocolsStandingCollectionView(delegate: self, dataSource: self)
+        driversViewModel.delegate(delegate: self)
+        driversViewModel.fetchHighlights(.request)
     }
     
     required init?(coder: NSCoder) {
@@ -52,13 +55,13 @@ class StandingCustomTableViewCell: UITableViewCell {
 
 extension StandingCustomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return standingCustomViewModel.numberOfRows
+        return driversViewModel.numberOfRows
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell: CustomStandingCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: CustomStandingCollectionViewCell.identifier, for: indexPath) as? CustomStandingCollectionViewCell
-        cell?.setupCell(data: standingCustomViewModel.getDataHomeRacer(index: indexPath.row))
+        cell?.setupCell(driver: driversViewModel.loadCurrentDriver(indexPath: indexPath))
         return cell ?? UICollectionViewCell()
     }
     
@@ -77,5 +80,18 @@ extension StandingCustomTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
 }
 
+extension StandingCustomTableViewCell: StandingCustomViewModelDelegate {
+    func success() {
+        self.standingScreen.configProtocolsStandingCollectionView(delegate: self, dataSource: self)
+        reloadColetionView()
+    }
+    
+    func error(_ message: String) {
+    }
+}
 
-
+extension StandingCustomTableViewCell: StandingCustomViewModelProtocol {
+    func reloadColetionView() {
+        self.standingScreen.destaquesCollection.reloadData()
+    }
+}
