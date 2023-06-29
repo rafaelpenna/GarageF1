@@ -71,7 +71,7 @@ class CustomFullResultsScreen: UIView {
             indiceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             indiceLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             
-            imageTeams.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            imageTeams.topAnchor.constraint(equalTo: topAnchor),
             imageTeams.leadingAnchor.constraint(equalTo: indiceLabel.leadingAnchor, constant: 30),
             imageTeams.heightAnchor.constraint(equalToConstant: 90),
             imageTeams.widthAnchor.constraint(equalToConstant: 90),

@@ -39,7 +39,6 @@ class FullConstructorsViewModel {
                 if let success = success {
                     self.dataConstructors = success.mrData.standingsTable.standingsLists[0].constructorStandings
                     self.delegate?.success()
-                    print(success)
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
@@ -49,7 +48,6 @@ class FullConstructorsViewModel {
                 if let success = success {
                     self.dataConstructors = success.mrData.standingsTable.standingsLists[0].constructorStandings
                     self.delegate?.success()
-                    print(success)
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }

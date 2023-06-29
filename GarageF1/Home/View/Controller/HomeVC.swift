@@ -96,7 +96,7 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 {
                 return 35
             } else if indexPath.row == 3 {
-                return 455
+                return 405
             } else if indexPath.row == 4 {
                 return 45
             }
@@ -119,16 +119,20 @@ extension HomeVC: SimulationButtonTableViewCellProtocol {
 }
 
 extension HomeVC: StandingCustomTableViewCellProtocol {
-    
-    func callSecondDrive() {
-        let secondDriver: SecondDriverVC = SecondDriverVC()
-        self.navigationController?.pushViewController(secondDriver, animated: true)
+    func callDetailDrive() {
+        
     }
     
-    func callFirstDrive() {
-        let firstDriver: FirstDriverVC = FirstDriverVC()
-        self.navigationController?.pushViewController(firstDriver, animated: true)
-    }
+
+//    func callSecondDrive() {
+//        let secondDriver: SecondDriverVC = SecondDriverVC()
+//        self.navigationController?.pushViewController(secondDriver, animated: true)
+//    }
+//
+//    func callFirstDrive() {
+//        let firstDriver: FirstDriverVC = FirstDriverVC()
+//        self.navigationController?.pushViewController(firstDriver, animated: true)
+//    }
 }
 
 

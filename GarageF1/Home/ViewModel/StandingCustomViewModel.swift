@@ -49,7 +49,6 @@ class StandingCustomViewModel {
                 if let success = success {
                     self.dataHomeRacer = success.mrData.standingsTable.standingsLists[0].driverStandings
                     self.delegate?.success()
-                    print(success)
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }

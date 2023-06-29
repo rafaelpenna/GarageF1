@@ -14,12 +14,13 @@ class FullResultsTableViewCell: UITableViewCell {
     var fullResultsViewModel: FullResultsViewModel = FullResultsViewModel()
     var fullResultsTableViewScreen: FullResultsTableViewScreen = FullResultsTableViewScreen()
     
-    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubview()
         configCosntraints()
-        fullResultsTableViewScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        fullResultsViewModel.fetch(.request)
+        fullResultsViewModel.delegate(delegate: self)
+        
     }
     
     required init?(coder: NSCoder) {
@@ -51,22 +52,30 @@ extension FullResultsTableViewCell: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell: TopResultsTableViewCell? = tableView.dequeueReusableCell(withIdentifier: TopResultsTableViewCell.identifier, for: indexPath) as? TopResultsTableViewCell
-            return cell ?? UITableViewCell()
-        } else {
             
             let cell: CustomResultsFullTableView? = tableView.dequeueReusableCell(withIdentifier: CustomResultsFullTableView.identifier, for: indexPath) as? CustomResultsFullTableView
-            cell?.setupCell(data: fullResultsViewModel.getDataHomeResults(index: indexPath.row))
+            cell?.setupCell(constructors: fullResultsViewModel.loadCurrentDriver(indexPath: indexPath))
             return cell ?? UITableViewCell()
         }
-    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 0 {
-            return 50
-        }
         return 100
+    }
+}
+
+extension FullResultsTableViewCell: FullResultsViewModelViewModelDelegate {
+    func success() {
+        fullResultsTableViewScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        reloadTableView()
+    }
+    
+    func error(_ message: String) {
+        
+    }
+}
+
+extension FullResultsTableViewCell: FullResultsViewModelProtocol {
+    func reloadTableView() {
+        fullResultsTableViewScreen.fullResultsTableView.reloadData()
     }
 }

@@ -10,9 +10,9 @@ import UIKit
 class CustomResultsFullTableView: UITableViewCell {
 
     static let identifier: String = String(describing: CustomResultsFullTableView.self)
-    
-    var data: [HomeResults] = []
+
     let customFullResultsScreen: CustomFullResultsScreen = CustomFullResultsScreen()
+    var cellViewModel: FullResultsSecondViewModel?
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -24,16 +24,16 @@ class CustomResultsFullTableView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupCell(data: HomeResults) {
-        customFullResultsScreen.indiceLabel.text = data.indice
-        customFullResultsScreen.imageTeams.image = UIImage(named: data.imageTeams)
-        customFullResultsScreen.nameTeams.text = data.namePilot
-        customFullResultsScreen.score.text = data.score
+    func setupCell(constructors: ConstructorStanding18) {
+        self.cellViewModel = FullResultsSecondViewModel(data: constructors)
+        
+        customFullResultsScreen.indiceLabel.text = cellViewModel?.getConstructorsPosition
+        customFullResultsScreen.imageTeams.image = cellViewModel?.getDriversPhoto
+        customFullResultsScreen.nameTeams.text = cellViewModel?.getConstructorsName
+        customFullResultsScreen.score.text = cellViewModel?.getConstructorsPoints
+
     }
 
-    public func dataTableView(data: [HomeResults]) {
-        self.data = data
-    }
 
     private func addComponents() {
         customFullResultsScreen.translatesAutoresizingMaskIntoConstraints = false

@@ -28,15 +28,7 @@ class CustomStandingCollectionViewCell: UICollectionViewCell {
         customStandingCollectionScreen.namePilot.text = cellViewModel?.getDriversLastName
         customStandingCollectionScreen.nameTeams.text = cellViewModel?.getTeam
         customStandingCollectionScreen.indicePilot.text = cellViewModel?.getDriversPosition
-        
 
-        
-//        screen.positionLabel.text = cellViewModel?.getDriversPosition
-//        screen.photoDriverImageView.image = cellViewModel?.getDriversPhoto
-//        screen.nameLabel.text = cellViewModel?.getDriversName
-//        screen.lastNameLabel.text = cellViewModel?.getDriversLastName
-//        screen.teamLabel.text = cellViewModel?.getTeam
-//        screen.pointsLabel.text = cellViewModel?.getPoints
     }
     
     required init?(coder: NSCoder) {

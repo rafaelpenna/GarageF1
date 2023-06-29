@@ -61,6 +61,7 @@
 		0B6D46F92A1A8EAF00409410 /* RecoverPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */; };
 		0B6D46FC2A1A8F7E00409410 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */; };
 		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
+		0B949FBB2A4CF33B00EE225F /* FullResultsSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */; };
 		0BA8BC2E29744CEC003B2D9C /* HomeRacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */; };
 		0BA8BC35297483CD003B2D9C /* HomeResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BA8BC34297483CD003B2D9C /* HomeResults.swift */; };
 		0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE0FDC296A03F900902EF5 /* HomeVC.swift */; };
@@ -243,6 +244,7 @@
 		0B6D46F82A1A8EAF00409410 /* RecoverPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPasswordViewModel.swift; sourceTree = "<group>"; };
 		0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailViewModel.swift; sourceTree = "<group>"; };
 		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
+		0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullResultsSecondViewModel.swift; sourceTree = "<group>"; };
 		0B9CF6822962692C002E3405 /* GarageF1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1.entitlements; sourceTree = "<group>"; };
 		0BA8BC2D29744CEC003B2D9C /* HomeRacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRacer.swift; sourceTree = "<group>"; };
 		0BA8BC34297483CD003B2D9C /* HomeResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeResults.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 			children = (
 				0B5ABA162A4BBF5D005B02DA /* StandingCustomViewModel.swift */,
 				0B0462AB29F9EE550067EFAA /* FullResultsViewModel.swift */,
+				0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */,
 				0B0462AF29F9F6840067EFAA /* FirstDriverViewModel.swift */,
 				0B0462B129F9FF560067EFAA /* SecondDriverViewModel.swift */,
 			);
@@ -1672,6 +1675,7 @@
 				0B4CC6232953E90800D29D4C /* SceneDelegate.swift in Sources */,
 				0B32CA5629D0EA6600E5B51A /* TrackImageCellScreen.swift in Sources */,
 				0B10DD50295A5AB300CB397A /* LoginVC.swift in Sources */,
+				0B949FBB2A4CF33B00EE225F /* FullResultsSecondViewModel.swift in Sources */,
 				1CD44CCA298010EF00E4B9DD /* HistoryDriversTableViewCell.swift in Sources */,
 				1C43E52D2A12EFDB00B977DB /* CustomCellHistoryYears.swift in Sources */,
 				0B0462B029F9F6840067EFAA /* FirstDriverViewModel.swift in Sources */,

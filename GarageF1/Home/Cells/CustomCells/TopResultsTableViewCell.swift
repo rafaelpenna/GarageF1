@@ -65,5 +65,4 @@ class TopResultsTableViewCell: UITableViewCell {
             topScoreTeams.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
         ])
     }
-    
 }

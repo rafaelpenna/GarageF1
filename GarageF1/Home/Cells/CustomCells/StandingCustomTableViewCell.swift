@@ -8,8 +8,10 @@
 import UIKit
 
 protocol StandingCustomTableViewCellProtocol: AnyObject {
-    func callFirstDrive()
-    func callSecondDrive()
+//    func callFirstDrive()
+//    func callSecondDrive()
+    func callDetailDrive()
+    
 }
 
 class StandingCustomTableViewCell: UITableViewCell {
@@ -71,12 +73,16 @@ extension StandingCustomTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+  
+        delegate?.callDetailDrive()
         
-        if indexPath.item == 0 {
-            delegate?.callFirstDrive()
-        } else if indexPath.item == 1 {
-            delegate?.callSecondDrive()
-        }
+        
+        
+//        if indexPath.item == 0 {
+//            delegate?.callFirstDrive()
+//        } else if indexPath.item == 1 {
+//            delegate?.callSecondDrive()
+//        }
     }
 }
 
