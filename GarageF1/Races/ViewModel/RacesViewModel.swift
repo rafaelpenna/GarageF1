@@ -24,7 +24,7 @@ protocol RacesViewModelDelegate: AnyObject {
 class RacesViewModel {
     private let service: RacesService = RacesService()
     private weak var delegate: RacesViewModelDelegate?
-    private var dataRacesScreen:[Race3] = []
+    private var dataRacesScreen:[RaceRacesModel] = []
     
     public func delegate(delegate: RacesViewModelDelegate?) {
         self.delegate = delegate
@@ -59,7 +59,7 @@ class RacesViewModel {
         return self.dataRacesScreen.count
     }
     
-    public func loadCurrentRace(indexPath: IndexPath) -> Race3 {
+    public func loadCurrentRace(indexPath: IndexPath) -> RaceRacesModel {
         return dataRacesScreen[indexPath.row]
     }
     
