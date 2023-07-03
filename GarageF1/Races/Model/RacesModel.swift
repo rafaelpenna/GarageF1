@@ -8,7 +8,6 @@
 import Foundation
 
 
-// MARK: - Welcome
 struct RacesModel: Codable {
     let mrData: MRDataRacesModel
 
@@ -17,7 +16,6 @@ struct RacesModel: Codable {
     }
 }
 
-// MARK: - MRData
 struct MRDataRacesModel: Codable {
     let xmlns: String
     let series: String
@@ -31,7 +29,6 @@ struct MRDataRacesModel: Codable {
     }
 }
 
-// MARK: - RaceTable
 struct RaceTableRacesModel: Codable {
     let season: String
     let races: [RaceRacesModel]
@@ -42,7 +39,6 @@ struct RaceTableRacesModel: Codable {
     }
 }
 
-// MARK: - Race
 struct RaceRacesModel: Codable {
     let season, round: String
     let url: String
@@ -66,7 +62,6 @@ struct RaceRacesModel: Codable {
     }
 }
 
-// MARK: - Circuit
 struct CircuitRacesModel: Codable {
     let circuitID: String
     let url: String
@@ -80,12 +75,10 @@ struct CircuitRacesModel: Codable {
     }
 }
 
-// MARK: - Location
 struct LocationRacesModel: Codable {
     let lat, long, locality, country: String
 }
 
-// MARK: - FirstPractice
 struct FirstPracticeRacesModel: Codable {
     let date, time: String
 }

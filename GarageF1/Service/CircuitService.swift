@@ -31,8 +31,8 @@ class CircuitService: CircuitServiceDelegate {
         if let name = Bundle.main.url(forResource: name, withExtension: "json"){
             do {
                 let data = try Data(contentsOf: name)
-                let listStandings = try JSONDecoder().decode(CircuitModel.self, from: data)
-                completion(listStandings, nil)
+                let listCircuits = try JSONDecoder().decode(CircuitModel.self, from: data)
+                completion(listCircuits, nil)
             } catch {
                 completion(nil, Error.fileDecodingFailed(name: "seasonCircuitInfo", error))
             }

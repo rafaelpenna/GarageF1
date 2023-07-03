@@ -27,9 +27,9 @@ class StandingsViewModel {
     private let circuitService: CircuitService = CircuitService()
     private weak var delegate: StandingsViewModelDelegate?
     private var raceViewModel: RacesViewModel = RacesViewModel()
-    private var dataStandings:[Result4] = []
-    private var dataCircuit: [Race4] = []
-    private var dataCircuitInfo: [Circuit6] = []
+    private var dataStandings:[ResultStandingsModel] = []
+    private var dataCircuit: [RaceStandingsModel] = []
+    private var dataCircuitInfo: [CircuitCircuitModel] = []
     public var selectedRound: Int = 0
     
     public func delegate(delegate: StandingsViewModelDelegate?) {
@@ -43,8 +43,7 @@ class StandingsViewModel {
                 if let success = success {
                     self.dataStandings = success.mrData.raceTable.races[0].results
                     self.delegate?.success()
-                    self.getBestLapTime()
-                    self.getBestLapNameDriver()
+                    self.bestLapFunctions()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
@@ -58,8 +57,7 @@ class StandingsViewModel {
                         self.dataStandings = []
                     }
                     self.delegate?.success()
-                    self.getBestLapTime()
-                    self.getBestLapNameDriver()
+                    self.bestLapFunctions()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
@@ -72,22 +70,31 @@ class StandingsViewModel {
             if let success = success {
                 self.dataCircuitInfo = success.mrData.circuitTable.circuits
                 self.delegate?.success()
-                self.getCircuitImage()
-                self.getCircuitLaps()
-                self.getCircuitLength()
-                self.getFirstGP()
-                self.getRaceDistance()
-                self.getTrackRecord()
-                self.getTrackRecordDriver()
-                self.getTrackRecordYear()
+                self.trackInfoFunctions()
             } else {
                 self.delegate?.error(error?.localizedDescription ?? "")
             }
         }
     }
     
+    private func bestLapFunctions() {
+        self.getBestLapTime()
+        self.getBestLapNameDriver()
+    }
     
-    //MARK: - Functions to get info to Drivers Standings Table View
+    private func trackInfoFunctions() {
+        self.getCircuitImage()
+        self.getCircuitLaps()
+        self.getCircuitLength()
+        self.getFirstGP()
+        self.getRaceDistance()
+        self.getTrackRecord()
+        self.getTrackRecordDriver()
+        self.getTrackRecordYear()
+    }
+    
+    
+    //MARK: - Functions to get info to Drivers Standings TableView
     
     public var numberOfRowsResults:Int{
         return self.dataStandings.count
@@ -97,7 +104,7 @@ class StandingsViewModel {
         return dataCircuit[indexPath.row].circuit.location.country
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> Result4 {
+    public func loadCurrentDriver(indexPath: IndexPath) -> ResultStandingsModel {
         return dataStandings[indexPath.row]
     }
     
@@ -126,25 +133,21 @@ class StandingsViewModel {
     public var bestLapDataName: String = ""
     public var bestLapDataTime: String = ""
     
-    
-    private func getBestLapNameDriver() -> String {
+    private func getBestLapNameDriver() {
         for n in 0..<dataStandings.count {
             if dataStandings[n].fastestLap.rank == "1" {
                 bestLapDataName = dataStandings[n].driver.familyName.uppercased()
             }
         }
-        return bestLapDataName
     }
     
-    private func getBestLapTime() -> String {
+    private func getBestLapTime() {
         for n in 0..<dataStandings.count {
             if dataStandings[n].fastestLap.rank == "1" {
                 bestLapDataTime = dataStandings[n].fastestLap.time.time.lowercased()
             }
         }
-        return bestLapDataTime
     }
-    
     
     //MARK: - Functions to get info to Track Data
     
@@ -157,75 +160,68 @@ class StandingsViewModel {
     public var circuitRecordTime: String = ""
     public var circuitRecordYear: String = ""
     
-    public func getCircuitImage() -> String {
+    private func getCircuitImage() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitImage = dataCircuitInfo[n].circuitInfo.circuitLayoutImage
             }
         }
-        return circuitImage
     }
     
-    public func getCircuitLength() -> String {
+    private func getCircuitLength() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitLength = dataCircuitInfo[n].circuitInfo.lenght
             }
         }
-        return circuitLength
     }
     
-    public func getCircuitLaps() -> String {
+    private func getCircuitLaps() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitNumberOfLaps = dataCircuitInfo[n].circuitInfo.numberLaps
             }
         }
-        return circuitNumberOfLaps
+
     }
     
-    public func getFirstGP() -> String {
+    private func getFirstGP() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 firstGP = dataCircuitInfo[n].circuitInfo.firstGrandPrix
             }
         }
-        return firstGP
     }
     
-    public func getRaceDistance() -> String {
+    private func getRaceDistance() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 raceDistance = dataCircuitInfo[n].circuitInfo.raceDistance
             }
         }
-        return raceDistance
     }
     
-    public func getTrackRecord() -> String {
+    private func getTrackRecord() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitRecordTime = dataCircuitInfo[n].circuitLapRecord.lapRecordTime
             }
         }
-        return circuitRecordTime
     }
     
-    public func getTrackRecordDriver() -> String {
+    private func getTrackRecordDriver() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitRecordName = dataCircuitInfo[n].circuitLapRecord.lapRecordNameDriver
             }
         }
-        return circuitRecordName
     }
     
-    public func getTrackRecordYear() -> String {
+    private func getTrackRecordYear() {
         for n in 0..<dataCircuitInfo.count {
             if dataCircuitInfo[n].round == "\(selectedRound + 1)" {
                 circuitRecordYear = dataCircuitInfo[n].circuitLapRecord.lapRecordYear
             }
         }
-        return circuitRecordYear
     }
 }

@@ -18,7 +18,6 @@ class TrackImageCellScreen: UITableViewCell {
         return image
     }()
     
-    
     public func configure() {
         addElements()
         setBackgroundColor()
@@ -35,7 +34,7 @@ class TrackImageCellScreen: UITableViewCell {
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
-            
+
             trackImage.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             trackImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             trackImage.widthAnchor.constraint(equalToConstant: 350),

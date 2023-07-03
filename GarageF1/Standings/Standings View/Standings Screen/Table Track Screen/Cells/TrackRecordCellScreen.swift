@@ -55,7 +55,6 @@ class TrackRecordCellScreen: UITableViewCell {
         return label
     }()
     
-    
     public func configure() {
         addElements()
         setBackgroundColor()
