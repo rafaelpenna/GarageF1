@@ -9,9 +9,9 @@ import UIKit
 
 class DriversCustomCellViewModel {
     
-    private var data: DriverStanding
+    private var data: DriverStandingDriversModel
     
-    init(data:DriverStanding){
+    init(data:DriverStandingDriversModel){
         self.data = data
     }
     

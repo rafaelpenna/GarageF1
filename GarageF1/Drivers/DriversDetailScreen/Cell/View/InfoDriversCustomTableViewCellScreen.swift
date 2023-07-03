@@ -31,7 +31,7 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var backgroundQuarterOne: UIView = {
+    var backgroundQuarterOneView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
@@ -62,7 +62,7 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var backgroundQuarterTwo: UIView = {
+    var backgroundQuarterTwoView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
@@ -93,7 +93,7 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var backgroundQuarterThree: UIView = {
+    var backgroundQuarterThreeView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
@@ -124,7 +124,7 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
         return variable
     }()
     
-    var backgroundQuarterFour: UIView = {
+    var backgroundQuarterFourView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(red: 79/255, green: 79/255, blue: 79/255, alpha: 1)
@@ -133,7 +133,6 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
         view.layer.shadowOpacity = 0.5
         view.layer.shadowOffset = .zero
         view.layer.shadowRadius = 10
-
         return view
     }()
     
@@ -148,27 +147,27 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
     }
     
     private func addElements(){
-        addSubview(backgroundQuarterTwo)
-        backgroundQuarterTwo.addSubview(poistionLabel)
-        backgroundQuarterTwo.addSubview(answerPositionLabel)
-        addSubview(backgroundQuarterOne)
-        backgroundQuarterOne.addSubview(codeLabel)
-        backgroundQuarterOne.addSubview(answerCodeLabel)
-        addSubview(backgroundQuarterThree)
-        backgroundQuarterThree.addSubview(pointsLabel)
-        backgroundQuarterThree.addSubview(answerPointsLabel)
-        addSubview(backgroundQuarterFour)
-        backgroundQuarterFour.addSubview(numberWinsLabel)
-        backgroundQuarterFour.addSubview(answerNumberWinsLabel)
+        addSubview(backgroundQuarterTwoView)
+        backgroundQuarterTwoView.addSubview(poistionLabel)
+        backgroundQuarterTwoView.addSubview(answerPositionLabel)
+        addSubview(backgroundQuarterOneView)
+        backgroundQuarterOneView.addSubview(codeLabel)
+        backgroundQuarterOneView.addSubview(answerCodeLabel)
+        addSubview(backgroundQuarterThreeView)
+        backgroundQuarterThreeView.addSubview(pointsLabel)
+        backgroundQuarterThreeView.addSubview(answerPointsLabel)
+        addSubview(backgroundQuarterFourView)
+        backgroundQuarterFourView.addSubview(numberWinsLabel)
+        backgroundQuarterFourView.addSubview(answerNumberWinsLabel)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            backgroundQuarterOne.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            backgroundQuarterOne.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            backgroundQuarterOne.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -5),
-            backgroundQuarterOne.bottomAnchor.constraint(equalTo: answerCodeLabel.bottomAnchor, constant: 15),
+            backgroundQuarterOneView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            backgroundQuarterOneView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            backgroundQuarterOneView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -5),
+            backgroundQuarterOneView.bottomAnchor.constraint(equalTo: answerCodeLabel.bottomAnchor, constant: 15),
             
             codeLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             codeLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
@@ -176,10 +175,10 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
             answerCodeLabel.topAnchor.constraint(equalTo: codeLabel.bottomAnchor, constant: 10),
             answerCodeLabel.centerXAnchor.constraint(equalTo: codeLabel.centerXAnchor),
             
-            backgroundQuarterTwo.topAnchor.constraint(equalTo: topAnchor, constant: 20),
-            backgroundQuarterTwo.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5),
-            backgroundQuarterTwo.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            backgroundQuarterTwo.bottomAnchor.constraint(equalTo: answerPositionLabel.bottomAnchor, constant: 15),
+            backgroundQuarterTwoView.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            backgroundQuarterTwoView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5),
+            backgroundQuarterTwoView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            backgroundQuarterTwoView.bottomAnchor.constraint(equalTo: answerPositionLabel.bottomAnchor, constant: 15),
             
             poistionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 40),
             poistionLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),
@@ -187,10 +186,10 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
             answerPositionLabel.topAnchor.constraint(equalTo: poistionLabel.bottomAnchor, constant: 10),
             answerPositionLabel.centerXAnchor.constraint(equalTo: poistionLabel.centerXAnchor),
             
-            backgroundQuarterThree.topAnchor.constraint(equalTo: backgroundQuarterOne.bottomAnchor, constant: 10),
-            backgroundQuarterThree.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            backgroundQuarterThree.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -5),
-            backgroundQuarterThree.bottomAnchor.constraint(equalTo: answerPointsLabel.bottomAnchor, constant: 15),
+            backgroundQuarterThreeView.topAnchor.constraint(equalTo: backgroundQuarterOneView.bottomAnchor, constant: 10),
+            backgroundQuarterThreeView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
+            backgroundQuarterThreeView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -5),
+            backgroundQuarterThreeView.bottomAnchor.constraint(equalTo: answerPointsLabel.bottomAnchor, constant: 15),
             
             pointsLabel.topAnchor.constraint(equalTo: answerCodeLabel.bottomAnchor, constant: 40),
             pointsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: -80),
@@ -198,10 +197,10 @@ class InfoDriversCustomTableViewCellScreen: UITableViewCell {
             answerPointsLabel.topAnchor.constraint(equalTo: pointsLabel.bottomAnchor, constant: 10),
             answerPointsLabel.centerXAnchor.constraint(equalTo: pointsLabel.centerXAnchor),
             
-            backgroundQuarterFour.topAnchor.constraint(equalTo: backgroundQuarterTwo.bottomAnchor, constant: 10),
-            backgroundQuarterFour.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5),
-            backgroundQuarterFour.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            backgroundQuarterFour.bottomAnchor.constraint(equalTo: answerNumberWinsLabel.bottomAnchor, constant: 15),
+            backgroundQuarterFourView.topAnchor.constraint(equalTo: backgroundQuarterTwoView.bottomAnchor, constant: 10),
+            backgroundQuarterFourView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 5),
+            backgroundQuarterFourView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
+            backgroundQuarterFourView.bottomAnchor.constraint(equalTo: answerNumberWinsLabel.bottomAnchor, constant: 15),
             
             numberWinsLabel.topAnchor.constraint(equalTo: answerPositionLabel.bottomAnchor, constant: 40),
             numberWinsLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 80),

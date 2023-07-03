@@ -32,6 +32,7 @@ class DriversDetailCustomTableViewCell: UITableViewCell {
     
     private func configScreenConstraints(){
         NSLayoutConstraint.activate([
+            
             infoDrivers.leadingAnchor.constraint(equalTo: leadingAnchor),
             infoDrivers.trailingAnchor.constraint(equalTo: trailingAnchor),
             infoDrivers.centerYAnchor.constraint(equalTo: centerYAnchor),

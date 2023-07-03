@@ -20,7 +20,7 @@ class DriversViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
-        driversViewModel.fetch(.request)
+        loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +29,10 @@ class DriversViewController: UIViewController {
     
     private func setupProtocols() {
         driversViewModel.delegate(delegate: self)
+    }
+    
+    private func loadData() {
+        driversViewModel.fetch(.request)
     }
 }
 
@@ -75,7 +79,6 @@ extension DriversViewController: DriversViewModelDelegate {
     }
     
     func error(_ message: String) {
-    
     }
 }
 

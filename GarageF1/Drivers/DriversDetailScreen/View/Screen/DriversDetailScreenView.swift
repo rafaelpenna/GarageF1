@@ -11,7 +11,7 @@ class DriversDetailScreenView: UIView {
     
     let driversDetailViewController: DriversViewController = DriversViewController()
 
-    lazy var backgroundTopRedView: UIView = {
+    lazy var backgroundTopView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleToFill
@@ -41,7 +41,7 @@ class DriversDetailScreenView: UIView {
         return label
     }()
     
-    lazy var permanentNumber: UILabel = {
+    lazy var permanentNumberLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .white
@@ -55,7 +55,7 @@ class DriversDetailScreenView: UIView {
         return image
     }()
     
-    lazy var countryFlag: UIImageView = {
+    lazy var countryFlagImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 10
@@ -64,13 +64,6 @@ class DriversDetailScreenView: UIView {
         imageView.layer.borderColor = UIColor.darkGray.cgColor
         imageView.contentMode = .scaleAspectFill
         return imageView
-    }()
-    
-    lazy var countryFlag2: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.backgroundColor = .red
-        return label
     }()
     
     lazy var infoDriversTableView: UITableView = {
@@ -91,7 +84,7 @@ class DriversDetailScreenView: UIView {
         return background
     }()
     
-    lazy var constructorLogo: UIImageView = {
+    lazy var constructorLogoImageView: UIImageView = {
        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
@@ -109,14 +102,14 @@ class DriversDetailScreenView: UIView {
     }
     
     private func addElements() {
-        addSubview(backgroundTopRedView)
+        addSubview(backgroundTopView)
         addSubview(backButton)
         addSubview(firstNameLabel)
         addSubview(lastNameLabel)
         addSubview(driverPhotoImage)
-        addSubview(permanentNumber)
-        addSubview(constructorLogo)
-        backgroundTopRedView.addSubview(countryFlag)
+        addSubview(permanentNumberLabel)
+        addSubview(constructorLogoImageView)
+        backgroundTopView.addSubview(countryFlagImageView)
         addSubview(infoDriversTableView)
     }
     
@@ -132,10 +125,10 @@ class DriversDetailScreenView: UIView {
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
             
-            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 100),
+            backgroundTopView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopView.bottomAnchor.constraint(equalTo: centerYAnchor, constant: 100),
             
             backButton.topAnchor.constraint(equalTo: topAnchor, constant: 45),
             backButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -143,33 +136,33 @@ class DriversDetailScreenView: UIView {
             backButton.widthAnchor.constraint(equalToConstant: 15),
             
             firstNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            firstNameLabel.bottomAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: -45),
+            firstNameLabel.bottomAnchor.constraint(equalTo: backgroundTopView.bottomAnchor, constant: -45),
             
             lastNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
-            lastNameLabel.bottomAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: -20),
+            lastNameLabel.bottomAnchor.constraint(equalTo: backgroundTopView.bottomAnchor, constant: -20),
             
-            countryFlag.centerYAnchor.constraint(equalTo: firstNameLabel.bottomAnchor),
-            countryFlag.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 30),
-            countryFlag.heightAnchor.constraint(equalToConstant: 40),
-            countryFlag.widthAnchor.constraint(equalToConstant: 55),
+            countryFlagImageView.centerYAnchor.constraint(equalTo: firstNameLabel.bottomAnchor),
+            countryFlagImageView.leadingAnchor.constraint(equalTo: lastNameLabel.trailingAnchor, constant: 30),
+            countryFlagImageView.heightAnchor.constraint(equalToConstant: 40),
+            countryFlagImageView.widthAnchor.constraint(equalToConstant: 55),
             
-            permanentNumber.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor, constant: -25),
-            permanentNumber.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
+            permanentNumberLabel.topAnchor.constraint(equalTo: driverPhotoImage.topAnchor, constant: -25),
+            permanentNumberLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
             
             driverPhotoImage.centerXAnchor.constraint(equalTo: centerXAnchor),
             driverPhotoImage.bottomAnchor.constraint(equalTo: firstNameLabel.bottomAnchor, constant: -15),
             driverPhotoImage.heightAnchor.constraint(equalToConstant: 300),
             driverPhotoImage.widthAnchor.constraint(equalToConstant: 300),
             
-            constructorLogo.centerYAnchor.constraint(equalTo: permanentNumber.centerYAnchor),
-            constructorLogo.heightAnchor.constraint(equalToConstant: 100),
-            constructorLogo.widthAnchor.constraint(equalToConstant: 160),
-            constructorLogo.centerXAnchor.constraint(equalTo: driverPhotoImage.leadingAnchor, constant: 25),
+            constructorLogoImageView.centerYAnchor.constraint(equalTo: permanentNumberLabel.centerYAnchor),
+            constructorLogoImageView.heightAnchor.constraint(equalToConstant: 100),
+            constructorLogoImageView.widthAnchor.constraint(equalToConstant: 160),
+            constructorLogoImageView.centerXAnchor.constraint(equalTo: driverPhotoImage.leadingAnchor, constant: 25),
             
             infoDriversTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 30),
             infoDriversTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -30),
-            infoDriversTableView.topAnchor.constraint(equalTo: backgroundTopRedView.bottomAnchor, constant: 15),
-            infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -25),
+            infoDriversTableView.topAnchor.constraint(equalTo: backgroundTopView.bottomAnchor, constant: 15),
+            infoDriversTableView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

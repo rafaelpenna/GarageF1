@@ -7,23 +7,20 @@
 
 import Foundation
 
-
-// MARK: - SeasonDriversModel
 struct DriversModel: Codable {
-    var mrData: MRData
+    var mrData: MRDataDriversModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData: Codable {
+struct MRDataDriversModel: Codable {
     var xmlns: String
     var series: String
     var url: String
     var limit, offset, total: String
-    var standingsTable: StandingsTable
+    var standingsTable: StandingsTableDriversModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -31,10 +28,9 @@ struct MRData: Codable {
     }
 }
 
-// MARK: - StandingsTable
-struct StandingsTable: Codable {
+struct StandingsTableDriversModel: Codable {
     var season: String
-    var standingsLists: [StandingsList]
+    var standingsLists: [StandingsListDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -42,10 +38,9 @@ struct StandingsTable: Codable {
     }
 }
 
-// MARK: - StandingsList
-struct StandingsList: Codable {
+struct StandingsListDriversModel: Codable {
     var season, round: String
-    var driverStandings: [DriverStanding]
+    var driverStandings: [DriverStandingDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -53,11 +48,10 @@ struct StandingsList: Codable {
     }
 }
 
-// MARK: - DriverStanding
-struct DriverStanding: Codable {
+struct DriverStandingDriversModel: Codable {
     var position, positionText, points, wins: String
-    var driver: Driver
-    var constructors: [Constructor]
+    var driver: DriverDriversModel
+    var constructors: [ConstructorDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins
@@ -66,8 +60,7 @@ struct DriverStanding: Codable {
     }
 }
 
-// MARK: - Constructor
-struct Constructor: Codable {
+struct ConstructorDriversModel: Codable {
     var constructorID: String
     var url: String
     var name, nationality: String
@@ -78,8 +71,7 @@ struct Constructor: Codable {
     }
 }
 
-// MARK: - Driver
-struct Driver: Codable {
+struct DriverDriversModel: Codable {
     var driverID, permanentNumber,code: String
     var url: String
     var givenName, familyName, dateOfBirth, nationality: String
