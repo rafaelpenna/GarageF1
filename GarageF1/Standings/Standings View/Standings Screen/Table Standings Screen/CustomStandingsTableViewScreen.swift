@@ -42,7 +42,6 @@ class CustomStandingsTableViewScreen: UIView {
         return pointsLabel
     }()
 
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubViews()

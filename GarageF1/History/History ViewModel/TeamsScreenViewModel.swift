@@ -9,9 +9,9 @@ import UIKit
 
 class TeamsScreenViewModel {
     
-    private var data: ConstructorStanding1
+    private var data: ConstructorStandingConstructorHistoryModel
     
-    init(data:ConstructorStanding1){
+    init(data:ConstructorStandingConstructorHistoryModel){
         self.data = data
     }
     

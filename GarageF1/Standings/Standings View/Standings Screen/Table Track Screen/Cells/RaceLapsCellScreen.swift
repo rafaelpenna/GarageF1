@@ -39,7 +39,6 @@ class RaceLapsCellScreen: UITableViewCell {
         return label
     }()
     
-    
     public func configure() {
         addElements()
         setBackgroundColor()

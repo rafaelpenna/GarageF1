@@ -9,7 +9,7 @@ import UIKit
 
 class StandingsTableViewCell: UITableViewCell {
 
-    var data: [Result4] = []
+    var data: [ResultStandingsModel] = []
     var customDrivers: CustomStandingsTableViewScreen = CustomStandingsTableViewScreen()
     
     static let identifier: String = String(describing: StandingsTableViewCell.self)
@@ -24,7 +24,7 @@ class StandingsTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func dataTableView(data: [Result4]) {
+    public func dataTableView(data: [ResultStandingsModel]) {
         self.data = data
     }
     
@@ -33,7 +33,7 @@ class StandingsTableViewCell: UITableViewCell {
         contentView.addSubview(customDrivers)
     }
 
-    func setupCell(data: Result4){
+    func setupCell(data: ResultStandingsModel){
         customDrivers.positionLabel.text = data.position
         customDrivers.nameCodeLabel.text = data.driver.code
         customDrivers.timeLabel.text = data.time?.time ?? data.status

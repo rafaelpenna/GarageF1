@@ -9,20 +9,19 @@ import UIKit
 
 
 struct StandingsModel: Codable {
-    let mrData: MRData4
+    let mrData: MRDataStandingsModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData4: Codable {
+struct MRDataStandingsModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let raceTable: RaceTable4
+    let raceTable: RaceTableStandingsModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -30,10 +29,9 @@ struct MRData4: Codable {
     }
 }
 
-// MARK: - RaceTable
-struct RaceTable4: Codable {
+struct RaceTableStandingsModel: Codable {
     let season, round: String
-    let races: [Race4]
+    let races: [RaceStandingsModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -41,14 +39,13 @@ struct RaceTable4: Codable {
     }
 }
 
-// MARK: - Race
-struct Race4: Codable {
+struct RaceStandingsModel: Codable {
     let season, round: String
     let url: String
     let raceName: String
-    let circuit: Circuit4
+    let circuit: CircuitStandingsModel
     let date, time: String
-    let results: [Result4]
+    let results: [ResultStandingsModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName
@@ -58,12 +55,11 @@ struct Race4: Codable {
     }
 }
 
-// MARK: - Circuit
-struct Circuit4: Codable {
+struct CircuitStandingsModel: Codable {
     let circuitID: String
     let url: String
     let circuitName: String
-    let location: Location4
+    let location: LocationStandingsModel
 
     enum CodingKeys: String, CodingKey {
         case circuitID = "circuitId"
@@ -72,19 +68,17 @@ struct Circuit4: Codable {
     }
 }
 
-// MARK: - Location
-struct Location4: Codable {
+struct LocationStandingsModel: Codable {
     let lat, long, locality, country: String
 }
 
-// MARK: - Result
-struct Result4: Codable {
+struct ResultStandingsModel: Codable {
     let number, position, positionText, points: String
-    let driver: Driver4
-    let constructor: Constructor4
+    let driver: DriverStandingsModel
+    let constructor: ConstructorStandingsModel
     let grid, laps, status: String
-    let time: ResultTime4?
-    let fastestLap: FastestLap4
+    let time: ResultTimeStandingsModel?
+    let fastestLap: FastestLapStandingsModel
 
     enum CodingKeys: String, CodingKey {
         case number, position, positionText, points
@@ -96,8 +90,7 @@ struct Result4: Codable {
     }
 }
 
-// MARK: - Constructor
-struct Constructor4: Codable {
+struct ConstructorStandingsModel: Codable {
     let constructorID: String
     let url: String
     let name, nationality: String
@@ -108,8 +101,7 @@ struct Constructor4: Codable {
     }
 }
 
-// MARK: - Driver
-struct Driver4: Codable {
+struct DriverStandingsModel: Codable {
     let driverID, permanentNumber, code: String
     let url: String
     let givenName, familyName, dateOfBirth, nationality: String
@@ -120,11 +112,10 @@ struct Driver4: Codable {
     }
 }
 
-// MARK: - FastestLap
-struct FastestLap4: Codable {
+struct FastestLapStandingsModel: Codable {
     let rank, lap: String
-    let time: FastestLapTime4
-    let averageSpeed: AverageSpeed4
+    let time: FastestLapTimeStandingsModel
+    let averageSpeed: AverageSpeedStandingsModel
 
     enum CodingKeys: String, CodingKey {
         case rank, lap
@@ -133,8 +124,7 @@ struct FastestLap4: Codable {
     }
 }
 
-// MARK: - AverageSpeed
-struct AverageSpeed4: Codable {
+struct AverageSpeedStandingsModel: Codable {
     let units: Units
     let speed: String
 }
@@ -143,37 +133,30 @@ enum Units: String, Codable {
     case kph = "kph"
 }
 
-// MARK: - FastestLapTime
-struct FastestLapTime4: Codable {
+struct FastestLapTimeStandingsModel: Codable {
     let time: String
 }
 
-// MARK: - ResultTime
-struct ResultTime4: Codable {
+struct ResultTimeStandingsModel: Codable {
     let millis, time: String
 }
 
 
-
-
-
-
 // MARK: - CircuitModel
 struct CircuitModel: Codable {
-    let mrData: MRData6
+    let mrData: MRDataCircuitModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData6: Codable {
+struct MRDataCircuitModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let circuitTable: CircuitTable6
+    let circuitTable: CircuitTableCircuitModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -181,10 +164,9 @@ struct MRData6: Codable {
     }
 }
 
-// MARK: - CircuitTable
-struct CircuitTable6: Codable {
+struct CircuitTableCircuitModel: Codable {
     let season: String
-    let circuits: [Circuit6]
+    let circuits: [CircuitCircuitModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -192,13 +174,12 @@ struct CircuitTable6: Codable {
     }
 }
 
-// MARK: - Circuit
-struct Circuit6: Codable {
+struct CircuitCircuitModel: Codable {
     let round, circuitID: String
     let url: String
     let circuitName: String
-    let circuitInfo: CircuitInfo6
-    let circuitLapRecord: CircuitLapRecord6
+    let circuitInfo: CircuitInfoCircuitModel
+    let circuitLapRecord: CircuitLapRecordCircuitModel
 
     enum CodingKeys: String, CodingKey {
         case round
@@ -209,14 +190,12 @@ struct Circuit6: Codable {
     }
 }
 
-// MARK: - CircuitInfo
-struct CircuitInfo6: Codable {
+struct CircuitInfoCircuitModel: Codable {
     let circuitLayoutImage, numberLaps, lenght, raceDistance: String
     let firstGrandPrix, locality, country: String
 }
 
-// MARK: - CircuitLapRecord
-struct CircuitLapRecord6: Codable {
+struct CircuitLapRecordCircuitModel: Codable {
     let lapRecordNameDriver, lapRecordTime, lapRecordYear: String
 }
 

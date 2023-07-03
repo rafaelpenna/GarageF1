@@ -8,22 +8,20 @@
 import Foundation
 import UIKit
 
-
 struct HistoryDriversModel: Codable {
-    var mrData: MRData8
+    var mrData: MRDataHistoryDriversModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData8: Codable {
+struct MRDataHistoryDriversModel: Codable {
     var xmlns: String
     var series: String
     var url: String
     var limit, offset, total: String
-    var standingsTable: StandingsTable8
+    var standingsTable: StandingsTableHistoryDriversModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -31,10 +29,9 @@ struct MRData8: Codable {
     }
 }
 
-// MARK: - StandingsTable
-struct StandingsTable8: Codable {
+struct StandingsTableHistoryDriversModel: Codable {
     var season: String
-    var standingsLists: [StandingsList8]
+    var standingsLists: [StandingsListHistoryDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -42,10 +39,9 @@ struct StandingsTable8: Codable {
     }
 }
 
-// MARK: - StandingsList
-struct StandingsList8: Codable {
+struct StandingsListHistoryDriversModel: Codable {
     var season, round: String
-    var driverStandings: [DriverStanding8]
+    var driverStandings: [DriverStandingHistoryDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -53,11 +49,10 @@ struct StandingsList8: Codable {
     }
 }
 
-// MARK: - DriverStanding
-struct DriverStanding8: Codable {
+struct DriverStandingHistoryDriversModel: Codable {
     var position, positionText, points, wins: String
-    var driver: Driver8
-    var constructors: [Constructor8]
+    var driver: DriverHistoryDriversModel
+    var constructors: [ConstructorHistoryDriversModel]
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins
@@ -66,8 +61,7 @@ struct DriverStanding8: Codable {
     }
 }
 
-// MARK: - Constructor
-struct Constructor8: Codable {
+struct ConstructorHistoryDriversModel: Codable {
     var constructorID: String
     var url: String
     var name, nationality: String
@@ -78,8 +72,7 @@ struct Constructor8: Codable {
     }
 }
 
-// MARK: - Driver
-struct Driver8: Codable {
+struct DriverHistoryDriversModel: Codable {
     var driverID: String
     var url: String
     var givenName, familyName, dateOfBirth, nationality: String
@@ -91,26 +84,21 @@ struct Driver8: Codable {
 }
 
 
-
-
-
-
-// MARK: - Welcome
+// MARK: - ConstructorHistoryModel
 struct ConstructorHistoryModel: Codable {
-    let mrData: MRData1
+    let mrData: MRDataConstructorHistoryModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData1: Codable {
+struct MRDataConstructorHistoryModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let standingsTable: StandingsTable1
+    let standingsTable: StandingsTableConstructorHistoryModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -118,10 +106,9 @@ struct MRData1: Codable {
     }
 }
 
-// MARK: - StandingsTable
-struct StandingsTable1: Codable {
+struct StandingsTableConstructorHistoryModel: Codable {
     let season: String
-    let standingsLists: [StandingsList1]
+    let standingsLists: [StandingsListConstructorHistoryModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -129,10 +116,9 @@ struct StandingsTable1: Codable {
     }
 }
 
-// MARK: - StandingsList
-struct StandingsList1: Codable {
+struct StandingsListConstructorHistoryModel: Codable {
     let season, round: String
-    let constructorStandings: [ConstructorStanding1]
+    let constructorStandings: [ConstructorStandingConstructorHistoryModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -140,10 +126,9 @@ struct StandingsList1: Codable {
     }
 }
 
-// MARK: - ConstructorStanding
-struct ConstructorStanding1: Codable {
+struct ConstructorStandingConstructorHistoryModel: Codable {
     let position, positionText, points, wins: String
-    let constructor: Constructor1
+    let constructor: ConstructorConstructorHistoryModel
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins
@@ -151,8 +136,7 @@ struct ConstructorStanding1: Codable {
     }
 }
 
-// MARK: - Constructor
-struct Constructor1: Codable {
+struct ConstructorConstructorHistoryModel: Codable {
     let constructorID: String
     let url: String
     let name, nationality: String
@@ -164,28 +148,21 @@ struct Constructor1: Codable {
 }
 
 
-
-
-
-
-
-
-// MARK: - Welcome
+// MARK: - HistoryYearModel
 struct HistoryYearModel: Codable {
-    let mrData: MRData2
+    let mrData: MRDataHistoryYearModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData2: Codable {
+struct MRDataHistoryYearModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let seasonTable: SeasonTable2
+    let seasonTable: SeasonTableHistoryYearModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -193,20 +170,15 @@ struct MRData2: Codable {
     }
 }
 
-// MARK: - SeasonTable
-struct SeasonTable2: Codable {
-    let seasons: [Season2]
+struct SeasonTableHistoryYearModel: Codable {
+    let seasons: [SeasonHistoryYearModel]
 
     enum CodingKeys: String, CodingKey {
         case seasons = "Seasons"
     }
 }
 
-// MARK: - Season
-struct Season2: Codable {
+struct SeasonHistoryYearModel: Codable {
     let season: String
     let url: String
 }
-
-
-

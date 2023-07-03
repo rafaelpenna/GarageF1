@@ -32,12 +32,12 @@ class RacesCustomTableViewCell: UITableViewCell {
         screen.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    func setupCell(driver:Race3){
+    func setupCell(driver:RaceRacesModel){
         viewModel = RacesCustomCellViewModel(data: driver)
         backgroundColor = .none
         screen.roundLabel.text = "Round \(viewModel!.getRaceRound)"
         screen.countryLabel.text = viewModel?.getRaceCountry
-        screen.descriptionLabel.text = viewModel?.getRaceDescription
+        screen.nameEventLabel.text = viewModel?.getRaceDescription
         screen.dayLabel.text = "\(viewModel?.getRaceDay ?? 0)"
         screen.monthLabel.text = viewModel?.getRaceMonth
     }

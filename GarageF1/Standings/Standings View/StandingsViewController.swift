@@ -32,20 +32,24 @@ class StandingsViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
-        passingHeaderData()
-        standingsViewModel.selectedRound = selectedRound
-        standingsViewModel.fetchStandings(.request)
-        standingsViewModel.fetchCircuit()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
     
+    private func loadData() {
+        passingHeaderData()
+        standingsViewModel.selectedRound = selectedRound
+        standingsViewModel.fetchStandings(.request)
+        standingsViewModel.fetchCircuit()
+    }
+    
     private func addElements() {
         view.addSubview(backButton)
-        buttonCircuit(buttonCircuitVC)
-        buttonStandings(buttonStandingsVC)
+        buttonCircuit(circuitDataButton)
+        buttonStandings(standingsDataButton)
     }
     
     private func setupProtocols() {
@@ -61,14 +65,14 @@ class StandingsViewController: UIViewController {
         standingsScreen?.circuitCountryLabel.text = circuitCountryNameLabel
     }
     
-    lazy var buttonStandingsVC: UIButton = {
+    lazy var standingsDataButton: UIButton = {
         let button: UIButton = standingsScreen?.standingsButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(self.buttonStandings(_:)), for: .touchUpInside)
         return button
     }()
     
-    lazy var buttonCircuitVC: UIButton = {
+    lazy var circuitDataButton: UIButton = {
         let button: UIButton = standingsScreen?.trackButton ?? UIButton()
         button.isSelected = false
         button.addTarget(self, action: #selector(self.buttonCircuit(_:)), for: .touchUpInside)
@@ -94,7 +98,7 @@ class StandingsViewController: UIViewController {
     
     
     @objc func buttonStandings(_ sender: UIButton) {
-        if buttonStandingsVC.isSelected == false {
+        if standingsDataButton.isSelected == false {
             buttonStandingsSelected()
         } else {
             buttonStandingsSelected()
@@ -102,7 +106,7 @@ class StandingsViewController: UIViewController {
     }
     
     @objc func buttonCircuit(_ sender: UIButton) {
-        if buttonCircuitVC.isSelected == false {
+        if circuitDataButton.isSelected == false {
             buttonCircuitSelected()
         } else {
             buttonCircuitSelected()
@@ -110,8 +114,8 @@ class StandingsViewController: UIViewController {
     }
         
         private func buttonStandingsSelected() {
-            buttonStandingsVC.isSelected = true
-            buttonCircuitVC.isSelected = false
+            standingsDataButton.isSelected = true
+            circuitDataButton.isSelected = false
             standingsScreen?.standingsBoardView.isHidden = false
             standingsScreen?.trackTableView.isHidden = true
             standingsScreen?.standingsTableView.reloadData()
@@ -120,8 +124,8 @@ class StandingsViewController: UIViewController {
         }
         
         private func buttonCircuitSelected() {
-            buttonCircuitVC.isSelected = true
-            buttonStandingsVC.isSelected = false
+            circuitDataButton.isSelected = true
+            standingsDataButton.isSelected = false
             standingsScreen?.standingsBoardView.isHidden = true
             standingsScreen?.trackTableView.isHidden = false
             standingsScreen?.trackButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
@@ -237,5 +241,3 @@ extension StandingsViewController: StandingsViewModelProtocol {
         self.standingsScreen?.trackTableView.reloadData()
     }
 }
-    
-

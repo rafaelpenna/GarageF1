@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RaceViewController: UIViewController, DriversViewModelDelegate {
+class RaceViewController: UIViewController {
     
     var racesScreen: RacesScreen?
     let racesViewModel: RacesViewModel = RacesViewModel()
@@ -66,7 +66,6 @@ extension RaceViewController: RacesViewModelDelegate {
     }
     
     func error(_ message: String) {
-    
     }
 }
 

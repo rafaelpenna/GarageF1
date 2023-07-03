@@ -27,7 +27,7 @@ class RaceCustomTableViewCellScreen: UIView {
         return label
     }()
     
-    lazy var descriptionLabel: UILabel = {
+    lazy var nameEventLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .left
@@ -86,7 +86,7 @@ class RaceCustomTableViewCellScreen: UIView {
     private func addSubViews(){
         addSubview(roundLabel)
         addSubview(countryLabel)
-        addSubview(descriptionLabel)
+        addSubview(nameEventLabel)
         addSubview(dayLabel)
         addSubview(monthLabel)
         addSubview(fowardButton)
@@ -110,20 +110,19 @@ class RaceCustomTableViewCellScreen: UIView {
             countryLabel.topAnchor.constraint(equalTo: roundLabel.bottomAnchor, constant: 2),
             countryLabel.leadingAnchor.constraint(equalTo: roundLabel.leadingAnchor),
             
-            descriptionLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 4),
-            descriptionLabel.leadingAnchor.constraint(equalTo: roundLabel.leadingAnchor),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
+            nameEventLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 4),
+            nameEventLabel.leadingAnchor.constraint(equalTo: roundLabel.leadingAnchor),
+            nameEventLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
             
             fowardButton.widthAnchor.constraint(equalToConstant: 15),
             fowardButton.heightAnchor.constraint(equalToConstant: 20),
             fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             fowardButton.topAnchor.constraint(equalTo: topAnchor, constant: 60),
             
-            divisionView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20),
+            divisionView.topAnchor.constraint(equalTo: nameEventLabel.bottomAnchor, constant: 20),
             divisionView.heightAnchor.constraint(equalToConstant: 0.3),
             divisionView.leadingAnchor.constraint(equalTo: monthLabel.leadingAnchor),
             divisionView.trailingAnchor.constraint(equalTo: fowardButton.leadingAnchor),
-            
         ])
     }
 }

@@ -9,9 +9,9 @@ import UIKit
 
 class RacesCustomCellViewModel {
     
-    private var data: Race3
+    private var data: RaceRacesModel
     
-    init(data:Race3){
+    init(data:RaceRacesModel){
         self.data = data
     }
     
