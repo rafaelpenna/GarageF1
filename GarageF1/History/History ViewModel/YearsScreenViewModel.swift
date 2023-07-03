@@ -9,9 +9,9 @@ import UIKit
 
 class YearsScreenViewModel {
     
-    private var data: Season2
+    private var data: SeasonHistoryYearModel
     
-    init(data:Season2){
+    init(data:SeasonHistoryYearModel){
         self.data = data
     }
     

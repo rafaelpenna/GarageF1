@@ -9,9 +9,9 @@ import UIKit
 
 class DriversScreenViewModel {
     
-    private var data: DriverStanding8
+    private var data: DriverStandingHistoryDriversModel
     
-    init(data:DriverStanding8){
+    init(data:DriverStandingHistoryDriversModel){
         self.data = data
     }
     
