@@ -10,20 +10,19 @@ import UIKit
 
 
 struct DuelInfoModel: Codable {
-    let mrData: MRData11
+    let mrData: MRDataDuelInfoModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData11: Codable {
+struct MRDataDuelInfoModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let standingsTable: StandingsTable11
+    let standingsTable: StandingsTableDuelInfoModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -31,10 +30,9 @@ struct MRData11: Codable {
     }
 }
 
-// MARK: - StandingsTable
-struct StandingsTable11: Codable {
+struct StandingsTableDuelInfoModel: Codable {
     let driverID: String
-    let standingsLists: [StandingsList11]
+    let standingsLists: [StandingsListDuelInfoModel]
 
     enum CodingKeys: String, CodingKey {
         case driverID = "driverId"
@@ -42,10 +40,9 @@ struct StandingsTable11: Codable {
     }
 }
 
-// MARK: - StandingsList
-struct StandingsList11: Codable {
+struct StandingsListDuelInfoModel: Codable {
     let season, round: String
-    let driverStandings: [DriverStanding11]
+    let driverStandings: [DriverStandingDuelInfoModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -53,11 +50,10 @@ struct StandingsList11: Codable {
     }
 }
 
-// MARK: - DriverStanding
-struct DriverStanding11: Codable {
+struct DriverStandingDuelInfoModel: Codable {
     let position, positionText, points, wins: String
-    let driver: Driver11
-    let constructors: [Constructor11]
+    let driver: DriverDuelInfoModel
+    let constructors: [ConstructorDuelInfoModel]
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins
@@ -66,8 +62,7 @@ struct DriverStanding11: Codable {
     }
 }
 
-// MARK: - Constructor
-struct Constructor11: Codable {
+struct ConstructorDuelInfoModel: Codable {
     let constructorID: String
     let url: String
     let name: String
@@ -78,8 +73,7 @@ struct Constructor11: Codable {
     }
 }
 
-// MARK: - Driver
-struct Driver11: Codable {
+struct DriverDuelInfoModel: Codable {
     let url: String
     let dateOfBirth: String
     let nationality: String
@@ -91,23 +85,21 @@ struct Driver11: Codable {
 }
 
 
-
-// MARK: - CircuitModel
+// MARK: - Driver List Model
 struct DriversListModel: Codable {
-    let mrData: MRData9
+    let mrData: MRDataDriversListModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData9: Codable {
+struct MRDataDriversListModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let driverTable: DriverTable9
+    let driverTable: DriverTableDriversListModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -115,17 +107,15 @@ struct MRData9: Codable {
     }
 }
 
-// MARK: - DriverTable
-struct DriverTable9: Codable {
-    let drivers: [Driver9]
+struct DriverTableDriversListModel: Codable {
+    let drivers: [DriverDriversListModel]
 
     enum CodingKeys: String, CodingKey {
         case drivers = "Drivers"
     }
 }
 
-// MARK: - Driver
-struct Driver9: Codable {
+struct DriverDriversListModel: Codable {
     let driverID: String
     let url: String
     let givenName, familyName, dateOfBirth, nationality: String

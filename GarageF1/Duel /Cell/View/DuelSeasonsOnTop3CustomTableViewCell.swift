@@ -11,7 +11,7 @@ class DuelSeasonsOnTop3CustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelSeasonsOnTop3CustomTableViewCell.self)
     
-    var racesTitle: UILabel = {
+    var racesTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "Temporadas no Top 3"
@@ -21,7 +21,7 @@ class DuelSeasonsOnTop3CustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var racesAnswerLeft: UILabel = {
+    var racesAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelSeasonsOnTop3CustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var racesAnswerRight: UILabel = {
+    var racesAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,27 +70,27 @@ class DuelSeasonsOnTop3CustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(racesTitle)
-        addSubview(racesAnswerLeft)
-        addSubview(racesAnswerRight)
+        addSubview(racesTitleLabel)
+        addSubview(racesAnswerLeftLabel)
+        addSubview(racesAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            racesTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            racesTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            racesTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            racesTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            racesAnswerLeft.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),
-            racesAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            racesAnswerLeftLabel.topAnchor.constraint(equalTo: racesTitleLabel.bottomAnchor, constant: 10),
+            racesAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            racesAnswerRight.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),
-            racesAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            racesAnswerRightLabel.topAnchor.constraint(equalTo: racesTitleLabel.bottomAnchor, constant: 10),
+            racesAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: racesTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: racesTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.heightAnchor.constraint(equalTo: racesAnswerLeft.heightAnchor),
+            divisionView.heightAnchor.constraint(equalTo: racesAnswerLeftLabel.heightAnchor),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),

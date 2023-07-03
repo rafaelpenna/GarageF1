@@ -11,7 +11,7 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelWinsCustomTableViewCell.self)
     
-    var winsTitle: UILabel = {
+    var winsTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "Vitórias"
@@ -21,7 +21,7 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var winsAnswerLeft: UILabel = {
+    var winsAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var winsAnswerRight: UILabel = {
+    var winsAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,27 +70,27 @@ class DuelWinsCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(winsTitle)
-        addSubview(winsAnswerLeft)
-        addSubview(winsAnswerRight)
+        addSubview(winsTitleLabel)
+        addSubview(winsAnswerLeftLabel)
+        addSubview(winsAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            winsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            winsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            winsTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            winsTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            winsAnswerLeft.topAnchor.constraint(equalTo: winsTitle.bottomAnchor, constant: 10),
-            winsAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            winsAnswerLeftLabel.topAnchor.constraint(equalTo: winsTitleLabel.bottomAnchor, constant: 10),
+            winsAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            winsAnswerRight.topAnchor.constraint(equalTo: winsTitle.bottomAnchor, constant: 10),
-            winsAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            winsAnswerRightLabel.topAnchor.constraint(equalTo: winsTitleLabel.bottomAnchor, constant: 10),
+            winsAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: winsTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: winsTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.heightAnchor.constraint(equalTo: winsAnswerLeft.heightAnchor),
+            divisionView.heightAnchor.constraint(equalTo: winsAnswerLeftLabel.heightAnchor),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),

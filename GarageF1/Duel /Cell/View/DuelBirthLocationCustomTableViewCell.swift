@@ -11,7 +11,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelBirthLocationCustomTableViewCell.self)
     
-    var birthLocationTitle: UILabel = {
+    var birthLocationTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "País de Nascimento"
@@ -21,7 +21,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var birthLocationAnswerLeft: UILabel = {
+    var birthLocationAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var birthLocationAnswerRight: UILabel = {
+    var birthLocationAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,25 +70,25 @@ class DuelBirthLocationCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(birthLocationTitle)
-        addSubview(birthLocationAnswerLeft)
-        addSubview(birthLocationAnswerRight)
+        addSubview(birthLocationTitleLabel)
+        addSubview(birthLocationAnswerLeftLabel)
+        addSubview(birthLocationAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            birthLocationTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            birthLocationTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            birthLocationTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            birthLocationTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            birthLocationAnswerLeft.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
-            birthLocationAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            birthLocationAnswerLeftLabel.topAnchor.constraint(equalTo: birthLocationTitleLabel.bottomAnchor, constant: 10),
+            birthLocationAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            birthLocationAnswerRight.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
-            birthLocationAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            birthLocationAnswerRightLabel.topAnchor.constraint(equalTo: birthLocationTitleLabel.bottomAnchor, constant: 10),
+            birthLocationAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: birthLocationTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: birthLocationTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
             divisionView.heightAnchor.constraint(equalToConstant: 22),
             divisionView.widthAnchor.constraint(equalToConstant: 2),

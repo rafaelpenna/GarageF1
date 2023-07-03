@@ -11,14 +11,14 @@ import UIKit
 
 class DuelScreenView: UIView {
     
-    lazy var duelTopRedView: UIView = {
+    lazy var safeAreaBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
         return view
     }()
     
-    lazy var backgroundTopRedView: UIView = {
+    lazy var backgroundTopView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
@@ -231,8 +231,8 @@ class DuelScreenView: UIView {
     }
     
     private func addElements(){
-        addSubview(duelTopRedView)
-        addSubview(backgroundTopRedView)
+        addSubview(safeAreaBackgroundView)
+        addSubview(backgroundTopView)
         addSubview(duelTitleLabel)
         addSubview(duelDescriptionLabel)
         addSubview(nameRightBackgroundView)
@@ -264,30 +264,30 @@ class DuelScreenView: UIView {
     private func constraintsScreen(){
         NSLayoutConstraint.activate([
             
-            duelTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            duelTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            duelTopRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            duelTopRedView.heightAnchor.constraint(equalToConstant: 135),
+            safeAreaBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            safeAreaBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            safeAreaBackgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            safeAreaBackgroundView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
+            backgroundTopView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopView.heightAnchor.constraint(equalToConstant: 80),
             
             duelTitleLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             duelTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            duelDescriptionLabel.bottomAnchor.constraint(equalTo: duelTopRedView.bottomAnchor, constant: -25),
+            duelDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaBackgroundView.bottomAnchor, constant: -25),
             duelDescriptionLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             duelDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 25),
             duelDescriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -25),
             
-            nameLeftBackgroundView.topAnchor.constraint(equalTo: duelTopRedView.bottomAnchor, constant: 20),
+            nameLeftBackgroundView.topAnchor.constraint(equalTo: safeAreaBackgroundView.bottomAnchor, constant: 20),
             nameLeftBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             nameLeftBackgroundView.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             nameLeftBackgroundView.heightAnchor.constraint(equalToConstant: 90),
             
-            nameRightBackgroundView.topAnchor.constraint(equalTo: duelTopRedView.bottomAnchor, constant: 20),
+            nameRightBackgroundView.topAnchor.constraint(equalTo: safeAreaBackgroundView.bottomAnchor, constant: 20),
             nameRightBackgroundView.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             nameRightBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
             nameRightBackgroundView.heightAnchor.constraint(equalToConstant: 90),
