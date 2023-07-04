@@ -8,17 +8,13 @@
 import UIKit
 
 protocol StandingCustomTableViewCellProtocol: AnyObject {
-//    func callFirstDrive()
-//    func callSecondDrive()
-    func callDetailDrive()
-    
+    func callDetailDrive(data: DriverStanding10)
 }
 
 class StandingCustomTableViewCell: UITableViewCell {
     
     var standingScreen: StandingCustomScreen = StandingCustomScreen()
     let driversViewModel: StandingCustomViewModel = StandingCustomViewModel()
-    
     weak private var delegate: StandingCustomTableViewCellProtocol?
     public func delegate(delegate: StandingCustomTableViewCellProtocol?) {
         self.delegate = delegate
@@ -61,28 +57,18 @@ extension StandingCustomTableViewCell: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
         let cell: CustomStandingCollectionViewCell? = collectionView.dequeueReusableCell(withReuseIdentifier: CustomStandingCollectionViewCell.identifier, for: indexPath) as? CustomStandingCollectionViewCell
         cell?.setupCell(driver: driversViewModel.loadCurrentDriver(indexPath: indexPath))
         return cell ?? UICollectionViewCell()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         return CGSize(width: 340, height: 160)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-  
-        delegate?.callDetailDrive()
         
-        
-        
-//        if indexPath.item == 0 {
-//            delegate?.callFirstDrive()
-//        } else if indexPath.item == 1 {
-//            delegate?.callSecondDrive()
-//        }
+        delegate?.callDetailDrive(data: driversViewModel.loadCurrentDriver(indexPath: indexPath))
     }
 }
 
@@ -93,6 +79,7 @@ extension StandingCustomTableViewCell: StandingCustomViewModelDelegate {
     }
     
     func error(_ message: String) {
+        
     }
 }
 

@@ -14,7 +14,7 @@ class DriversViewController: UIViewController {
 
     override func loadView() {
         driversScreen = DriversScreenView()
-      view = driversScreen
+        view = driversScreen
     }
 
     override func viewDidLoad() {

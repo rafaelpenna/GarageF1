@@ -12,7 +12,7 @@ class DriversDetailViewController: UIViewController {
     
     var driversDetailScreen: DriversDetailScreenView?
     let driversViewController: DriversViewController = DriversViewController()
-    let driversViewModel: DriversViewModel = DriversViewModel()
+    let driversViewModel: HomeDriversDetailViewModel = HomeDriversDetailViewModel()
     
     var nameDriver = ""
     var lastNameDriver = ""

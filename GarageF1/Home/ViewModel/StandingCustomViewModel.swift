@@ -28,17 +28,17 @@ class StandingCustomViewModel {
     private weak var delegate: StandingCustomViewModelDelegate?
     private var dataHomeRacer: [DriverStanding10] = []
     
+    
     public func delegate(delegate: StandingCustomViewModelDelegate?) {
         self.delegate = delegate
     }
-
     
     public func fetchHighlights(_ typeFetch: TypeFetch) {
         switch typeFetch {
         case .mock:
             self.service.getDriversDataFromJson { success, error in
                 if let success = success {
-                    self.dataHomeRacer = success.mrData.standingsTable.standingsLists[0].driverStandings
+                    self.handleDrivers(list: success.mrData.standingsTable.standingsLists[0].driverStandings)
                     self.delegate?.success()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
@@ -47,13 +47,18 @@ class StandingCustomViewModel {
         case .request:
             self.service.getDriversDataFromURL(fromURL: "https://ergast.com/api/f1/current/driverStandings.json") { success, error in
                 if let success = success {
-                    self.dataHomeRacer = success.mrData.standingsTable.standingsLists[0].driverStandings
+                    self.handleDrivers(list: success.mrData.standingsTable.standingsLists[0].driverStandings)
                     self.delegate?.success()
                 } else {
                     self.delegate?.error(error?.localizedDescription ?? "")
                 }
             }
         }
+    }
+    
+    private func handleDrivers(list: [DriverStanding10]) {
+        let threeItens = list.filter({$0.position == "1" || $0.position == "2" || $0.position == "3"})
+        dataHomeRacer = threeItens
     }
     
     public var numberOfRows:Int{

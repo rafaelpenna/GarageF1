@@ -16,7 +16,6 @@ class HomeVC: UIViewController {
     let driversVC: DriversViewController = DriversViewController()
     let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
     let loginVC: LoginVC = LoginVC()
-
     
     override func loadView() {
         view = homeScreen
@@ -119,20 +118,10 @@ extension HomeVC: SimulationButtonTableViewCellProtocol {
 }
 
 extension HomeVC: StandingCustomTableViewCellProtocol {
-    func callDetailDrive() {
-        
+    func callDetailDrive(data: DriverStanding10) {
+        let vc = HomeDriversDetailViewController(data: data)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-
-//    func callSecondDrive() {
-//        let secondDriver: SecondDriverVC = SecondDriverVC()
-//        self.navigationController?.pushViewController(secondDriver, animated: true)
-//    }
-//
-//    func callFirstDrive() {
-//        let firstDriver: FirstDriverVC = FirstDriverVC()
-//        self.navigationController?.pushViewController(firstDriver, animated: true)
-//    }
 }
 
 
