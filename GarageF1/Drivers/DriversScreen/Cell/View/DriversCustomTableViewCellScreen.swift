@@ -121,7 +121,6 @@ class DriversCustomTableViewCellScreen: UIView {
             fowardButton.heightAnchor.constraint(equalToConstant: 20),
             fowardButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             fowardButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            
         ])
     }
 }

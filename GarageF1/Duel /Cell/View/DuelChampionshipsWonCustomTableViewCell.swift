@@ -11,7 +11,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelChampionshipsWonCustomTableViewCell.self)
     
-    var championshipsWinTitle: UILabel = {
+    var championshipsWinTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "Títulos"
@@ -21,7 +21,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var championshipsWinAnswerLeft: UILabel = {
+    var championshipsWinAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var championshipsWinAnswerRight: UILabel = {
+    var championshipsWinAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,27 +70,27 @@ class DuelChampionshipsWonCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(championshipsWinTitle)
-        addSubview(championshipsWinAnswerLeft)
-        addSubview(championshipsWinAnswerRight)
+        addSubview(championshipsWinTitleLabel)
+        addSubview(championshipsWinAnswerLeftLabel)
+        addSubview(championshipsWinAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            championshipsWinTitle.topAnchor.constraint(equalTo: topAnchor,  constant: 5),
-            championshipsWinTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            championshipsWinTitleLabel.topAnchor.constraint(equalTo: topAnchor,  constant: 5),
+            championshipsWinTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            championshipsWinAnswerLeft.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            championshipsWinAnswerLeftLabel.topAnchor.constraint(equalTo: championshipsWinTitleLabel.bottomAnchor, constant: 10),
+            championshipsWinAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            championshipsWinAnswerRight.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
-            championshipsWinAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            championshipsWinAnswerRightLabel.topAnchor.constraint(equalTo: championshipsWinTitleLabel.bottomAnchor, constant: 10),
+            championshipsWinAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: championshipsWinTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: championshipsWinTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.bottomAnchor.constraint(equalTo: championshipsWinAnswerLeft.bottomAnchor),
+            divisionView.bottomAnchor.constraint(equalTo: championshipsWinAnswerLeftLabel.bottomAnchor),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),

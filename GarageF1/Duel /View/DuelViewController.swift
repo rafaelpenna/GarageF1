@@ -25,7 +25,6 @@ class DuelViewController: UIViewController {
     var selectedLeftDriver: String = ""
     var selectedRightDriver: String = ""
     
-    
     override func loadView() {
         duelScreen = DuelScreenView()
         view = duelScreen
@@ -35,11 +34,10 @@ class DuelViewController: UIViewController {
         super.viewDidLoad()
         setupProtocols()
         addElements()
-        duelViewModel.fetchDuelDriversList(.request)
-        reloadTableView()
+        loadData()
     }
     
-    func setupProtocols() {
+    private func setupProtocols() {
         duelViewModel.delegate(delegate: self)
         leftNameDriverTableViewSelect.delegate = self
         leftNameDriverTableViewSelect.dataSource = self
@@ -47,7 +45,7 @@ class DuelViewController: UIViewController {
         rightNameDriverTableViewSelect.dataSource = self
     }
     
-    func addElements() {
+    private func addElements() {
         view.addSubview(backButton)
         
         view.addSubview(selectDriverLeftButton)
@@ -63,6 +61,11 @@ class DuelViewController: UIViewController {
         view.addSubview(rightTextFieldSearchSelect)
         view.addSubview(rightSearchImageViewSelect)
         view.addSubview(rightNameDriverTableViewSelect)
+    }
+    
+    private func loadData() {
+        duelViewModel.fetchDuelDriversList(.request)
+        reloadTableView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -284,50 +287,50 @@ extension DuelViewController: UITableViewDelegate, UITableViewDataSource {
             case .duelBirthDate:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthDateCustomTableViewCell.identifier) as? DuelBirthDateCustomTableViewCell
                 cell?.configure()
-                cell?.birthDateAnswerLeft.text = duelViewModel.getDriversBirthDateLeft()
-                cell?.birthDateAnswerRight.text = duelViewModel.getDriversBirthDateRight()
+                cell?.birthDateAnswerLeftLabel.text = duelViewModel.getDriversBirthDateLeft()
+                cell?.birthDateAnswerRightLabel.text = duelViewModel.getDriversBirthDateRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelBirthLocation:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelBirthLocationCustomTableViewCell.identifier) as? DuelBirthLocationCustomTableViewCell
                 cell?.configure()
-                cell?.birthLocationAnswerLeft.text = duelViewModel.getDriversBirthPlaceLeft()
-                cell?.birthLocationAnswerRight.text = duelViewModel.getDriversBirthPlaceRight()
+                cell?.birthLocationAnswerLeftLabel.text = duelViewModel.getDriversBirthPlaceLeft()
+                cell?.birthLocationAnswerRightLabel.text = duelViewModel.getDriversBirthPlaceRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelChampionships:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelChampionshipsWonCustomTableViewCell.identifier) as? DuelChampionshipsWonCustomTableViewCell
                 cell?.configure()
-                cell?.championshipsWinAnswerLeft.text = duelViewModel.getChampionshipsWonLeft()
-                cell?.championshipsWinAnswerRight.text = duelViewModel.getChampionshipsWonRight()
+                cell?.championshipsWinAnswerLeftLabel.text = duelViewModel.getChampionshipsWonLeft()
+                cell?.championshipsWinAnswerRightLabel.text = duelViewModel.getChampionshipsWonRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelSeasonsOnTop3:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelSeasonsOnTop3CustomTableViewCell.identifier) as? DuelSeasonsOnTop3CustomTableViewCell
                 cell?.configure()
-                cell?.racesAnswerLeft.text = duelViewModel.getLeftSeasonTop3()
-                cell?.racesAnswerRight.text = duelViewModel.getRightSeasonTop3()
+                cell?.racesAnswerLeftLabel.text = duelViewModel.getLeftSeasonTop3()
+                cell?.racesAnswerRightLabel.text = duelViewModel.getRightSeasonTop3()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelSeasonsParticipated:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelSeasonsParticipatedCustomTableViewCell.identifier) as? DuelSeasonsParticipatedCustomTableViewCell
                 cell?.configure()
-                cell?.podiumsAnswerLeft.text = duelViewModel.getLeftSeasonsParticipated()
-                cell?.podiumsAnswerRight.text = duelViewModel.getRightSeasonsParticipated()
+                cell?.podiumsAnswerLeftLabel.text = duelViewModel.getLeftSeasonsParticipated()
+                cell?.podiumsAnswerRightLabel.text = duelViewModel.getRightSeasonsParticipated()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelPointsEarned:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelPointsEarnedCustomTableViewCell.identifier) as? DuelPointsEarnedCustomTableViewCell
                 cell?.configure()
-                cell?.pointsAnswerLeft.text = duelViewModel.getPointsEarnedLeft()
-                cell?.pointsAnswerRight.text = duelViewModel.getPointsEarnedRight()
+                cell?.pointsAnswerLeftLabel.text = duelViewModel.getPointsEarnedLeft()
+                cell?.pointsAnswerRightLabel.text = duelViewModel.getPointsEarnedRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             case .duelWins:
                 let cell = tableView.dequeueReusableCell(withIdentifier: DuelWinsCustomTableViewCell.identifier) as? DuelWinsCustomTableViewCell
                 cell?.configure()
-                cell?.winsAnswerLeft.text = duelViewModel.getWinsLeft()
-                cell?.winsAnswerRight.text = duelViewModel.getWinsRight()
+                cell?.winsAnswerLeftLabel.text = duelViewModel.getWinsLeft()
+                cell?.winsAnswerRightLabel.text = duelViewModel.getWinsRight()
                 cell?.selectedBackgroundView = duelScreen?.backgroundView
                 return cell ?? UITableViewCell()
             default:
@@ -376,7 +379,6 @@ extension DuelViewController: DuelViewModelDelegate {
     }
     
     func error(_ message: String) {
-    
     }
 }
 

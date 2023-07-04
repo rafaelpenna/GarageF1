@@ -24,7 +24,7 @@ protocol DriversViewModelDelegate: AnyObject {
 class DriversViewModel {
     private let service: DriversService = DriversService()
     private weak var delegate: DriversViewModelDelegate?
-    private var dataDriversScreen:[DriverStanding] = []
+    private var dataDriversScreen:[DriverStandingDriversModel] = []
     
     public func delegate(delegate: DriversViewModelDelegate?) {
         self.delegate = delegate
@@ -59,7 +59,7 @@ class DriversViewModel {
         return dataDriversScreen.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding {
+    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStandingDriversModel {
         return dataDriversScreen[indexPath.row]
     }
     
@@ -130,10 +130,6 @@ class DriversViewModel {
     
     
     //MARK: - Functions to get info to Driver Detail Data
-    
-    public func getBirthDate(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].driver.dateOfBirth
-    }
 
     public func getNationality(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.nationality

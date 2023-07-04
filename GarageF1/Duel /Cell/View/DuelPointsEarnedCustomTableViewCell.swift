@@ -11,7 +11,7 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelPointsEarnedCustomTableViewCell.self)
     
-    var pointsTitle: UILabel = {
+    var pointsTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "Pontos"
@@ -21,7 +21,7 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var pointsAnswerLeft: UILabel = {
+    var pointsAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var pointsAnswerRight: UILabel = {
+    var pointsAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,27 +70,27 @@ class DuelPointsEarnedCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(pointsTitle)
-        addSubview(pointsAnswerLeft)
-        addSubview(pointsAnswerRight)
+        addSubview(pointsTitleLabel)
+        addSubview(pointsAnswerLeftLabel)
+        addSubview(pointsAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            pointsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            pointsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            pointsTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            pointsTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            pointsAnswerLeft.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
-            pointsAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            pointsAnswerLeftLabel.topAnchor.constraint(equalTo: pointsTitleLabel.bottomAnchor, constant: 10),
+            pointsAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            pointsAnswerRight.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
-            pointsAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            pointsAnswerRightLabel.topAnchor.constraint(equalTo: pointsTitleLabel.bottomAnchor, constant: 10),
+            pointsAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: pointsTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: pointsTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.heightAnchor.constraint(equalTo: pointsAnswerLeft.heightAnchor),
+            divisionView.heightAnchor.constraint(equalTo: pointsAnswerLeftLabel.heightAnchor),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),

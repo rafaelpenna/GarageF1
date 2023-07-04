@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol DriversViewControllerProtocol: AnyObject {
+    func passDriverData(data: DriverStandingDriversModel)
+}
+
 class DriversViewController: UIViewController {
     
     var driversScreen: DriversScreenView?
     let driversViewModel: DriversViewModel = DriversViewModel()
+    
+    weak private var delegate: DriversViewControllerProtocol?
+    public func delegate(delegate: DriversViewControllerProtocol?) {
+        self.delegate = delegate
+    }
 
     override func loadView() {
         driversScreen = DriversScreenView()
@@ -20,7 +29,7 @@ class DriversViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupProtocols()
-        driversViewModel.fetch(.request)
+        loadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -29,6 +38,10 @@ class DriversViewController: UIViewController {
     
     private func setupProtocols() {
         driversViewModel.delegate(delegate: self)
+    }
+    
+    private func loadData() {
+        driversViewModel.fetch(.request)
     }
 }
 
@@ -55,16 +68,9 @@ extension DriversViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = DriversDetailViewController()
+        let vc = DriversDetailViewController(data: driversViewModel.loadCurrentDriver(indexPath: indexPath))
         self.navigationController?.pushViewController(vc, animated: true)
-        vc.nameDriver = driversViewModel.getDriverName(indexPath: indexPath)
-        vc.lastNameDriver = driversViewModel.getDriverLastName(indexPath: indexPath)
-        vc.driverPhoto = driversViewModel.getDriverPhoto(indexPath: indexPath)
-        vc.position = driversViewModel.getDriverPosition(indexPath: indexPath)
-        vc.points = driversViewModel.getDriverPoints(indexPath: indexPath)
-        vc.code = driversViewModel.getDriverCode(indexPath: indexPath)
-        vc.permanentNumber = driversViewModel.getPermanentNumber(indexPath: indexPath)
-        vc.wins = driversViewModel.getDriverNumberWins(indexPath: indexPath)
+        delegate?.passDriverData(data: driversViewModel.loadCurrentDriver(indexPath: indexPath))
     }
 }
 
@@ -75,7 +81,6 @@ extension DriversViewController: DriversViewModelDelegate {
     }
     
     func error(_ message: String) {
-    
     }
 }
 
