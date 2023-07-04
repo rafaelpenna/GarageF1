@@ -15,15 +15,6 @@ class HomeDriversDetailViewController: UIViewController {
     let driversViewModel: DriversViewModel = DriversViewModel()
     var data: DriverStanding10
     
-//    var nameDriver = ""
-//    var lastNameDriver = ""
-    var driverPhoto = UIImage()
-//    var permanentNumber = ""
-//    var points = ""
-//    var code = ""
-//    var wins = ""
-//    var position = ""
-    
     required init(data: DriverStanding10) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
@@ -57,7 +48,6 @@ class HomeDriversDetailViewController: UIViewController {
         homeDriversDetailScreen?.firstNameLabel.text = data.driver?.givenName ?? ""
         homeDriversDetailScreen?.lastNameLabel.text = data.driver?.familyName ?? ""
         homeDriversDetailScreen?.permanentNumber.text = data.driver?.permanentNumber ?? ""
-        homeDriversDetailScreen?.driverPhotoImage.image = driverPhoto
     }
     
     private func addElements() {
@@ -66,7 +56,7 @@ class HomeDriversDetailViewController: UIViewController {
         self.view.addSubview(givenName)
         self.view.addSubview(familyName)
         self.view.addSubview(permanentDriverNumber)
-        self.view.addSubview(imageDriver)
+        self.view.addSubview(driverImageView)
         self.view.addSubview(constructorImage)
         self.view.addSubview(flagNationality)
     }
@@ -95,8 +85,9 @@ class HomeDriversDetailViewController: UIViewController {
         return label
     }()
     
-    lazy var imageDriver: UIImageView = {
+    lazy var driverImageView: UIImageView = {
         let image: UIImageView = homeDriversDetailScreen?.driverPhotoImage ?? UIImageView()
+        image.image = driverPhoto
         return image
     }()
     
@@ -278,6 +269,51 @@ extension HomeDriversDetailViewController {
             return "ferraribackground"
         }
         return String()
+    }
+    
+    var driverPhoto: UIImage {
+        if  homeDriversDetailScreen?.lastNameLabel.text == "Verstappen" {
+            return UIImage(named: "max") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Pérez" {
+                return UIImage(named: "sergio") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Stroll" {
+                return UIImage(named: "lance") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Sainz" {
+                return UIImage(named: "carlos") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Russell" {
+                return UIImage(named: "george") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Hamilton" {
+                return UIImage(named: "lewis") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Alonso" {
+                return UIImage(named: "fernando") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Ocon" {
+                return UIImage(named: "esteban") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Gasly" {
+                return UIImage(named: "pierre") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Norris" {
+                return UIImage(named: "lando") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
+                return UIImage(named: "nico") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Piastri" {
+                return UIImage(named: "oscar") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Bottas" {
+                return UIImage(named: "valteri") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Zhou" {
+                return UIImage(named: "guanyu") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Tsunoda" {
+                return UIImage(named: "yuki") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Magnussen" {
+                return UIImage(named: "kevin") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Albon" {
+                return UIImage(named: "alexander") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "de Vries" {
+                return UIImage(named: "nyck") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Sargeant" {
+                return UIImage(named: "logan") ?? UIImage()
+            } else if homeDriversDetailScreen?.lastNameLabel.text == "Leclerc" {
+                return UIImage(named: "charles") ?? UIImage()
+            }
+        return UIImage()
     }
 }
 
