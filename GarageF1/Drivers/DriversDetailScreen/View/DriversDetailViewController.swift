@@ -14,14 +14,16 @@ class DriversDetailViewController: UIViewController {
     let driversViewController: DriversViewController = DriversViewController()
     let driversViewModel: DriversViewModel = DriversViewModel()
     
-    var nameDriver = ""
-    var lastNameDriver = ""
-    var driverPhoto = UIImage()
-    var permanentNumber = ""
-    var points = ""
-    var code = ""
-    var wins = ""
-    var position = ""
+    var data: DriverStandingDriversModel
+    
+    required init(data: DriverStandingDriversModel) {
+        self.data = data
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         driversDetailScreen = DriversDetailScreenView()
@@ -44,10 +46,9 @@ class DriversDetailViewController: UIViewController {
     }
     
     private func passingHeaderData() {
-        driversDetailScreen?.firstNameLabel.text = nameDriver
-        driversDetailScreen?.lastNameLabel.text = lastNameDriver
-        driversDetailScreen?.driverPhotoImage.image = driverPhoto
-        driversDetailScreen?.permanentNumberLabel.text = permanentNumber
+        driversDetailScreen?.firstNameLabel.text = data.driver.givenName
+        driversDetailScreen?.lastNameLabel.text = data.driver.familyName
+        driversDetailScreen?.permanentNumberLabel.text = data.driver.permanentNumber
     }
     
     private func addElements() {
@@ -87,6 +88,7 @@ class DriversDetailViewController: UIViewController {
     
     lazy var driverImageView: UIImageView = {
         let image: UIImageView = driversDetailScreen?.driverPhotoImage ?? UIImageView()
+        image.image = driverPhoto
         return image
     }()
     
@@ -125,10 +127,10 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoDriversCustomTableViewCellScreen.identifier) as? InfoDriversCustomTableViewCellScreen
         cell?.configure()
-        cell?.answerPositionLabel.text = position
-        cell?.answerCodeLabel.text = code
-        cell?.answerPointsLabel.text = points
-        cell?.answerNumberWinsLabel.text = wins
+        cell?.answerPositionLabel.text = data.position
+        cell?.answerCodeLabel.text = data.driver.code
+        cell?.answerPointsLabel.text = data.points
+        cell?.answerNumberWinsLabel.text = data.wins
         cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
         return cell ?? UITableViewCell()
         }
@@ -269,5 +271,50 @@ extension DriversDetailViewController {
                 return "ferraribackground"
             }
         return String()
+    }
+    
+    var driverPhoto: UIImage {
+        if  driversDetailScreen?.lastNameLabel.text == "Verstappen" {
+            return UIImage(named: "max") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Pérez" {
+                return UIImage(named: "sergio") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Stroll" {
+                return UIImage(named: "lance") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Sainz" {
+                return UIImage(named: "carlos") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Russell" {
+                return UIImage(named: "george") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Hamilton" {
+                return UIImage(named: "lewis") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Alonso" {
+                return UIImage(named: "fernando") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Ocon" {
+                return UIImage(named: "esteban") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Gasly" {
+                return UIImage(named: "pierre") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Norris" {
+                return UIImage(named: "lando") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Hülkenberg" {
+                return UIImage(named: "nico") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Piastri" {
+                return UIImage(named: "oscar") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Bottas" {
+                return UIImage(named: "valteri") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Zhou" {
+                return UIImage(named: "guanyu") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Tsunoda" {
+                return UIImage(named: "yuki") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Magnussen" {
+                return UIImage(named: "kevin") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Albon" {
+                return UIImage(named: "alexander") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "de Vries" {
+                return UIImage(named: "nyck") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Sargeant" {
+                return UIImage(named: "logan") ?? UIImage()
+            } else if driversDetailScreen?.lastNameLabel.text == "Leclerc" {
+                return UIImage(named: "charles") ?? UIImage()
+            }
+        return UIImage()
     }
 }

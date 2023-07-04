@@ -130,10 +130,6 @@ class DriversViewModel {
     
     
     //MARK: - Functions to get info to Driver Detail Data
-    
-    public func getBirthDate(indexPath: IndexPath) -> String {
-        return dataDriversScreen[indexPath.row].driver.dateOfBirth
-    }
 
     public func getNationality(indexPath: IndexPath) -> String {
         return dataDriversScreen[indexPath.row].driver.nationality
