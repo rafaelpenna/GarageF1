@@ -12,7 +12,7 @@ class DriversDetailViewController: UIViewController {
     
     var driversDetailScreen: DriversDetailScreenView?
     let driversViewController: DriversViewController = DriversViewController()
-    let driversViewModel: DriversViewModel = DriversViewModel()
+    let driversViewModel: HomeDriversDetailViewModel = HomeDriversDetailViewModel()
     
     var data: DriverStandingDriversModel
     
@@ -108,14 +108,14 @@ class DriversDetailViewController: UIViewController {
         let label: UILabel = driversDetailScreen?.permanentNumberLabel ?? UILabel()
         return label
     }()
-
+    
     @objc func backScreen() {
         navigationController?.popViewController(animated: true)
     }
 }
 
 extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSource {
-        
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
@@ -123,7 +123,7 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: InfoDriversCustomTableViewCellScreen.identifier) as? InfoDriversCustomTableViewCellScreen
         cell?.configure()
@@ -133,8 +133,8 @@ extension DriversDetailViewController: UITableViewDelegate, UITableViewDataSourc
         cell?.answerNumberWinsLabel.text = data.wins
         cell?.selectedBackgroundView = driversDetailScreen?.backgroundView
         return cell ?? UITableViewCell()
-        }
     }
+}
 
 extension DriversDetailViewController {
     

@@ -6,28 +6,97 @@
 //
 
 import Foundation
+import UIKit
+
+enum FullconstructorsTypeFetch {
+    case mock
+    case request
+}
+
+protocol FullResultsViewModelProtocol: AnyObject {
+    func reloadTableView()
+}
+
+protocol FullResultsViewModelViewModelDelegate: AnyObject {
+    func success()
+    func error(_ message: String)
+}
 
 class FullResultsViewModel {
     
-    private var dataHomeResults: [HomeResults] = []
+    private let service: FullConstructorsService = FullConstructorsService()
+    private weak var delegate: FullResultsViewModelViewModelDelegate?
+    private var dataConstructors: [ConstructorStandingFullConstructorsModel] = []
     
-    init(){
-        self.configArrayDataHomeResults()
+    public func delegate(delegate: FullResultsViewModelViewModelDelegate?) {
+        self.delegate = delegate
     }
     
-    private func configArrayDataHomeResults() {
-        dataHomeResults.append(HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts"))
-        dataHomeResults.append(HomeResults(indice: "1", imageTeams: "astonmartinlogo", namePilot: "Aston Martin", score: "86 pts"))
-        dataHomeResults.append(HomeResults(indice: "2", imageTeams: "mercedeslogo", namePilot: "Mercedes", score: "59 pts"))
-        dataHomeResults.append(HomeResults(indice: "3", imageTeams: "ferrarilogo", namePilot: "Ferrari", score: "54 pts"))
-    }
-    
-    public func getDataHomeResults(index: Int) -> HomeResults {
-        return dataHomeResults[index]
+    public func fetch(_ typeFetch: FullconstructorsTypeFetch){
+        switch typeFetch {
+        case .mock:
+            self.service.getConstructorsDataFromJson(fromFileName: "fullConstructors") { success, error in
+                if let success = success {
+                    self.dataConstructors = success.mrData.standingsTable.standingsLists[0].constructorStandings
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        case .request:
+            self.service.getConstructorsData(fromURL: "https://ergast.com/api/f1/2023/constructorStandings.json") { success, error in
+                if let success = success {
+                    self.dataConstructors = success.mrData.standingsTable.standingsLists[0].constructorStandings
+                    self.delegate?.success()
+                } else {
+                    self.delegate?.error(error?.localizedDescription ?? "")
+                }
+            }
+        }
     }
     
     public var numberOfRows:Int{
-        return dataHomeResults.count
+        return 3
+    }
+
+    public func loadCurrentDriver(indexPath: IndexPath) -> ConstructorStandingFullConstructorsModel {
+        return dataConstructors[indexPath.row]
     }
     
+    public func getConstructorsPosition(indexPath: IndexPath) -> String {
+        return dataConstructors[indexPath.row].position
+    }
+    
+    public func getConstructorsName(indexPath: IndexPath) -> String {
+        return dataConstructors[indexPath.row].constructor.name
+    }
+    
+    public func getConstructorsPoints(indexPath: IndexPath) -> String {
+        return dataConstructors[indexPath.row].points
+    }
+    
+    public func getConstructorsPhoto(indexPath: IndexPath) -> UIImage {
+        if dataConstructors[indexPath.row].constructor.constructorID == "red_bull" {
+            return UIImage(named: "redbulllogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "mercedes" {
+            return UIImage(named: "mercedeslogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "aston_martin" {
+            return UIImage(named: "astonmartinlogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "ferrari" {
+            return UIImage(named: "ferrarilogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "alpine" {
+            return UIImage(named: "alpinelogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "mclaren" {
+            return UIImage(named: "mclarenlogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "alfa" {
+            return UIImage(named: "alfaromeologo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "haas" {
+            return UIImage(named: "haaslogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "williams" {
+            return UIImage(named: "williamslogo") ?? UIImage()
+        } else if dataConstructors[indexPath.row].constructor.constructorID == "alphatauri" {
+            return UIImage(named: "alphataurilogo") ?? UIImage()
+        }
+        return UIImage()
+    }
 }
