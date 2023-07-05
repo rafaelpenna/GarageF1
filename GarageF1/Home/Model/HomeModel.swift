@@ -55,8 +55,8 @@ struct StandingsListHomeModel: Codable {
 // MARK: - DriverStanding
 struct DriverStandingHomeModel: Codable {
     var position, positionText, points, wins: String?
-    var driver: Driver?
-    var constructors: [Constructor]?
+    var driver: DriverHomeModel?
+    var constructors: [ConstructorHomeModel]?
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins

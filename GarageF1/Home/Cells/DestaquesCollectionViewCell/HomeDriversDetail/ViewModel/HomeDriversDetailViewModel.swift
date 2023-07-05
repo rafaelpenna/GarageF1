@@ -24,7 +24,7 @@ protocol HomeDriversDetailViewModelDelegate: AnyObject {
 class HomeDriversDetailViewModel {
     private let service: DriversService = DriversService()
     private weak var delegate: DriversViewModelDelegate?
-    private var dataDriversScreen:[DriverStanding] = []
+    private var dataDriversScreen:[DriverStandingDriversModel] = []
     
     public func delegate(delegate: DriversViewModelDelegate?) {
         self.delegate = delegate
@@ -59,7 +59,7 @@ class HomeDriversDetailViewModel {
         return dataDriversScreen.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding {
+    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStandingDriversModel {
         return dataDriversScreen[indexPath.row]
     }
     
