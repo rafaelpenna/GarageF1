@@ -9,7 +9,7 @@ import Foundation
 
 // MARK: - HomeModel
 struct HomeModel: Codable {
-    var mrData: MRData10
+    var mrData: MRDataHomeModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
@@ -17,12 +17,12 @@ struct HomeModel: Codable {
 }
 
 // MARK: - MRData
-struct MRData10: Codable {
+struct MRDataHomeModel: Codable {
     var xmlns: String?
     var series: String?
     var url: String?
     var limit, offset, total: String?
-    var standingsTable: StandingsTable10
+    var standingsTable: StandingsTableHomeModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -31,9 +31,9 @@ struct MRData10: Codable {
 }
 
 // MARK: - StandingsTable
-struct StandingsTable10: Codable {
+struct StandingsTableHomeModel: Codable {
     var season, round: String?
-    var standingsLists: [StandingsList10]
+    var standingsLists: [StandingsListHomeModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -42,9 +42,9 @@ struct StandingsTable10: Codable {
 }
 
 // MARK: - StandingsList
-struct StandingsList10: Codable {
+struct StandingsListHomeModel: Codable {
     var season, round: String?
-    var driverStandings: [DriverStanding10]
+    var driverStandings: [DriverStandingHomeModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -53,7 +53,7 @@ struct StandingsList10: Codable {
 }
 
 // MARK: - DriverStanding
-struct DriverStanding10: Codable {
+struct DriverStandingHomeModel: Codable {
     var position, positionText, points, wins: String?
     var driver: Driver?
     var constructors: [Constructor]?
@@ -66,7 +66,7 @@ struct DriverStanding10: Codable {
 }
 
 // MARK: - Constructor
-struct Constructor10: Codable {
+struct ConstructorHomeModel: Codable {
     var constructorID: String?
     var url: String?
     var name, nationality: String?
@@ -78,7 +78,7 @@ struct Constructor10: Codable {
 }
 
 // MARK: - Driver
-struct Driver10: Codable {
+struct DriverHomeModel: Codable {
     var driverID, permanentNumber, code: String?
     var url: String?
     var givenName, familyName, dateOfBirth, nationality: String?

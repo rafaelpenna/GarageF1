@@ -26,7 +26,7 @@ class StandingCustomViewModel {
     
     private let service: HighlightsService = HighlightsService()
     private weak var delegate: StandingCustomViewModelDelegate?
-    private var dataHomeRacer: [DriverStanding10] = []
+    private var dataHomeRacer: [DriverStandingHomeModel] = []
     
     
     public func delegate(delegate: StandingCustomViewModelDelegate?) {
@@ -56,7 +56,7 @@ class StandingCustomViewModel {
         }
     }
     
-    private func handleDrivers(list: [DriverStanding10]) {
+    private func handleDrivers(list: [DriverStandingHomeModel]) {
         let threeItens = list.filter({$0.position == "1" || $0.position == "2" || $0.position == "3"})
         dataHomeRacer = threeItens
     }
@@ -65,7 +65,7 @@ class StandingCustomViewModel {
         return dataHomeRacer.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding10 {
+    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStandingHomeModel {
         return dataHomeRacer[indexPath.row]
     }
     

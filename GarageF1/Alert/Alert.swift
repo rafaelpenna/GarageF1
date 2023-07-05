@@ -34,19 +34,4 @@ class Alert: NSObject {
             completion?()
         }))
     }
-    
-//    let alert = UIAlertController(title: garageF1.getDescription(), message: recoverPassword.getDescription(), preferredStyle: .alert)
-//
-//    alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default, handler: { action in
-//        self.auth.sendPasswordReset(withEmail: emailTextField)
-//    }))
-//
-//    present(alert, animated: true)
-//} else {
-//    let alert = UIAlertController(title: garageF1.getDescription(), message: tapEmail.getDescription(), preferredStyle: .alert)
-//
-//    alert.addAction(UIAlertAction(title: ok.getDescription(), style: .default))
-//    present(alert, animated: true)
-    
-    
 }

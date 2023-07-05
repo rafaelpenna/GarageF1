@@ -21,7 +21,7 @@ class CustomFullResultConstructorsTableViewCell: UITableViewCell {
         setUpConstraints()
     }
     
-    func setupCell(constructors: ConstructorStanding18) {
+    func setupCell(constructors: ConstructorStandingFullConstructorsModel) {
         self.cellViewModel = SecondFullConstructorsViewModel(data: constructors)
         
         customFullResultScreen.positionLabel.text = cellViewModel?.getConstructorsPosition
@@ -39,7 +39,6 @@ class CustomFullResultConstructorsTableViewCell: UITableViewCell {
         customFullResultScreen.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(customFullResultScreen)
     }
-
     
     func setUpConstraints() {
         NSLayoutConstraint.activate([

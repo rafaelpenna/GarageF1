@@ -26,7 +26,7 @@ class FullConstructorsViewModel {
     
     private let service: FullConstructorsService = FullConstructorsService()
     private weak var delegate: FullConstructorsViewModelDelegate?
-    private var dataConstructors: [ConstructorStanding18] = []
+    private var dataConstructors: [ConstructorStandingFullConstructorsModel] = []
     
     public func delegate(delegate: FullConstructorsViewModelDelegate?) {
         self.delegate = delegate
@@ -59,7 +59,7 @@ class FullConstructorsViewModel {
         return dataConstructors.count
     }
 
-    public func loadCurrentDriver(indexPath: IndexPath) -> ConstructorStanding18 {
+    public func loadCurrentDriver(indexPath: IndexPath) -> ConstructorStandingFullConstructorsModel {
         return dataConstructors[indexPath.row]
     }
     

@@ -13,14 +13,13 @@ class CustomStandingCollectionViewCell: UICollectionViewCell {
     let customStandingCollectionScreen: CustomStandingCollectionScreen = CustomStandingCollectionScreen()
     var cellViewModel: HomeCustomCellViewModel?
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         addSubView()
         setUpConstraints()
     }
     
-    func setupCell(driver: DriverStanding10) {
+    func setupCell(driver: DriverStandingHomeModel) {
         self.cellViewModel = HomeCustomCellViewModel(data: driver)
         
         customStandingCollectionScreen.namePilot.text = cellViewModel?.getDriversLastName
@@ -30,8 +29,6 @@ class CustomStandingCollectionViewCell: UICollectionViewCell {
         customStandingCollectionScreen.indicePilot.text = cellViewModel?.getDriversPosition
 
     }
-    
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

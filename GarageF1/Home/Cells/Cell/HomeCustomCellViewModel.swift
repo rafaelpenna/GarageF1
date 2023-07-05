@@ -10,9 +10,9 @@ import UIKit
 
 struct HomeCustomCellViewModel {
     
-    private var data: DriverStanding10
+    private var data: DriverStandingHomeModel
     
-    init(data:DriverStanding10){
+    init(data: DriverStandingHomeModel){
         self.data = data
     }
     

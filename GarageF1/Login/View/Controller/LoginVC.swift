@@ -16,7 +16,6 @@ class LoginVC: UIViewController {
     var alert: Alert?
     var auth: Auth?
     
-    
     override func loadView() {
         view = loginScreen
     }

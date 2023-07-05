@@ -24,7 +24,7 @@ class CustomResultsFullTableView: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupCell(constructors: ConstructorStanding18) {
+    func setupCell(constructors: ConstructorStandingFullConstructorsModel) {
         self.cellViewModel = FullResultsSecondViewModel(data: constructors)
         
         customFullResultsScreen.indiceLabel.text = cellViewModel?.getConstructorsPosition

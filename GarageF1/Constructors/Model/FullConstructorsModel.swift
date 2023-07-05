@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - HomeConstructorsModel
 struct FullConstructorsModel: Codable {
-    var mrData: MRData18
+    var mrData: MRDataFullConstructorsModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
@@ -18,12 +18,12 @@ struct FullConstructorsModel: Codable {
 }
 
 // MARK: - MRData
-struct MRData18: Codable {
+struct MRDataFullConstructorsModel: Codable {
     var xmlns: String
     var series: String
     var url: String
     var limit, offset, total: String
-    var standingsTable: StandingsTable18
+    var standingsTable: StandingsTableFullConstructorsModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -32,9 +32,9 @@ struct MRData18: Codable {
 }
 
 // MARK: - StandingsTable
-struct StandingsTable18: Codable {
+struct StandingsTableFullConstructorsModel: Codable {
     var season: String
-    var standingsLists: [StandingsList18]
+    var standingsLists: [StandingsListFullConstructorsModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -43,9 +43,9 @@ struct StandingsTable18: Codable {
 }
 
 // MARK: - StandingsList
-struct StandingsList18: Codable {
+struct StandingsListFullConstructorsModel: Codable {
     var season, round: String
-    var constructorStandings: [ConstructorStanding18]
+    var constructorStandings: [ConstructorStandingFullConstructorsModel]
 
     enum CodingKeys: String, CodingKey {
         case season, round
@@ -54,9 +54,9 @@ struct StandingsList18: Codable {
 }
 
 // MARK: - ConstructorStanding
-struct ConstructorStanding18: Codable {
+struct ConstructorStandingFullConstructorsModel: Codable {
     var position, positionText, points, wins: String
-    var constructor: Constructor18
+    var constructor: ConstructorFullResultsModel
 
     enum CodingKeys: String, CodingKey {
         case position, positionText, points, wins
@@ -65,7 +65,7 @@ struct ConstructorStanding18: Codable {
 }
 
 // MARK: - Constructor
-struct Constructor18: Codable {
+struct ConstructorFullResultsModel: Codable {
     var constructorID: String
     var url: String
     var name, nationality: String

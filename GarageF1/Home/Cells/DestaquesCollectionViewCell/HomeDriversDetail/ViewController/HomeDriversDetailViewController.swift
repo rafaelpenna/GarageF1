@@ -13,9 +13,9 @@ class HomeDriversDetailViewController: UIViewController {
     var homeDriversDetailScreen: HomeDriversDetailScreen?
     let driversViewController: DriversViewController = DriversViewController()
     let driversViewModel: DriversViewModel = DriversViewModel()
-    var data: DriverStanding10
+    var data: DriverStandingHomeModel
     
-    required init(data: DriverStanding10) {
+    required init(data: DriverStandingHomeModel) {
         self.data = data
         super.init(nibName: nil, bundle: nil)
     }

@@ -13,9 +13,7 @@ class HomeVC: UIViewController {
     let simulationButtonTableViewCell: FullResultButtonTableViewCell? = FullResultButtonTableViewCell()
     let standingCustom: StandingCustomTableViewCell = StandingCustomTableViewCell()
     let duelStackVC: DuelViewController = DuelViewController()
-    let driversVC: DriversViewController = DriversViewController()
     let constructorsVC: ConstructorsFullResultVC = ConstructorsFullResultVC()
-    let loginVC: LoginVC = LoginVC()
     
     override func loadView() {
         view = homeScreen
@@ -25,27 +23,23 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
         homeScreen.backgroundColor = .white
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
     }
-
 }
 
 extension HomeVC: UITableViewDelegate, UITableViewDataSource {
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let backgroundView = UIView()
-        
-        
+    
         if tableView == homeScreen.superTableView {
                 if indexPath.row == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: StandingCustomTableViewCell.identifier, for: indexPath) as? StandingCustomTableViewCell
@@ -102,7 +96,6 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
         }
         return 80
     }
-
 }
 
 extension HomeVC: FullResultButtonTableViewCellProtocol {
@@ -118,7 +111,7 @@ extension HomeVC: SimulationButtonTableViewCellProtocol {
 }
 
 extension HomeVC: StandingCustomTableViewCellProtocol {
-    func callDetailDrive(data: DriverStanding10) {
+    func callDetailDrive(data: DriverStandingHomeModel) {
         let vc = HomeDriversDetailViewController(data: data)
         self.navigationController?.pushViewController(vc, animated: true)
     }

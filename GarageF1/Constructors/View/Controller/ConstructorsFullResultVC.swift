@@ -10,7 +10,6 @@ import UIKit
 class ConstructorsFullResultVC: UIViewController {
     
     var constructorsFullResultScreen: ConstructorsFullResultScreen = ConstructorsFullResultScreen()
-    var constructorsFullViewModel: ConstructorsFullViewModel = ConstructorsFullViewModel()
     var fullConstructorsViewModel: FullConstructorsViewModel = FullConstructorsViewModel()
     
     override func loadView() {
@@ -43,7 +42,7 @@ extension ConstructorsFullResultVC: ConstructorsFullResultScreenProtocol {
 
 extension ConstructorsFullResultVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return constructorsFullViewModel.numberOfRows
+        return fullConstructorsViewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +53,7 @@ extension ConstructorsFullResultVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
+    
         return 100
     }
 }

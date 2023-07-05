@@ -95,7 +95,6 @@ class ConstructorsFullResultScreen: UIView {
         addSubview(titleLabel)
         addSubview(descriptionLabel)
         addSubview(constructorsTableView)
-        
     }
     
     @objc func tappedBackButton() {

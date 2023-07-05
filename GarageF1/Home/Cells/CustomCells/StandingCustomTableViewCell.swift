@@ -8,7 +8,7 @@
 import UIKit
 
 protocol StandingCustomTableViewCellProtocol: AnyObject {
-    func callDetailDrive(data: DriverStanding10)
+    func callDetailDrive(data: DriverStandingHomeModel)
 }
 
 class StandingCustomTableViewCell: UITableViewCell {
@@ -19,7 +19,6 @@ class StandingCustomTableViewCell: UITableViewCell {
     public func delegate(delegate: StandingCustomTableViewCellProtocol?) {
         self.delegate = delegate
     }
-    
     
     static let identifier: String = String(describing: StandingCustomTableViewCell.self)
     

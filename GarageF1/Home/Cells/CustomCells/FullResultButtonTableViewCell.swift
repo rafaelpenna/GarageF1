@@ -47,7 +47,6 @@ class FullResultButtonTableViewCell: UITableViewCell {
         NSLayoutConstraint.activate([
             fullResultButton.topAnchor.constraint(equalTo: topAnchor, constant: 7),
             fullResultButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-
         ])
     }
 }

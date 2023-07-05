@@ -10,9 +10,9 @@ import UIKit
 
 class FullResultsSecondViewModel {
     
-    private var data: ConstructorStanding18
+    private var data: ConstructorStandingFullConstructorsModel
     
-    init(data:ConstructorStanding18){
+    init(data: ConstructorStandingFullConstructorsModel){
         self.data = data
     }
     
