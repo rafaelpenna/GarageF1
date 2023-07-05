@@ -128,38 +128,38 @@ class HeaderStandings: UIView {
             standoutDriverView.topAnchor.constraint(equalTo: topAnchor),
             standoutDriverView.leadingAnchor.constraint(equalTo: leadingAnchor),
             standoutDriverView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            standoutDriverView.bottomAnchor.constraint(equalTo: topAnchor),
+            standoutDriverView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             headerInformationView.heightAnchor.constraint(equalToConstant: 22),
             headerInformationView.leadingAnchor.constraint(equalTo: leadingAnchor),
             headerInformationView.trailingAnchor.constraint(equalTo: trailingAnchor),
             headerInformationView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            
+
             posTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
             posTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
-            
+
             driverTitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 55),
             driverTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
-            
+
             timeTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 15),
             timeTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
-            
+
             ptsTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -22),
             ptsTitleLabel.topAnchor.constraint(equalTo: headerInformationView.topAnchor, constant: 1),
-            
+
             //MARK: - Best Lap (Standout) Constraints
-            
+
             standoutBackgroundView.topAnchor.constraint(equalTo: standoutDriverView.topAnchor, constant: 10),
             standoutBackgroundView.leadingAnchor.constraint(equalTo: standoutDriverView.leadingAnchor, constant: 25),
             standoutBackgroundView.trailingAnchor.constraint(equalTo: standoutDriverView.trailingAnchor, constant: -25),
             standoutBackgroundView.bottomAnchor.constraint(equalTo: standoutDriverView.bottomAnchor, constant: -5),
-            
+
             standoutTitleLabel.topAnchor.constraint(equalTo: standoutBackgroundView.topAnchor, constant: 2),
             standoutTitleLabel.leadingAnchor.constraint(equalTo: standoutBackgroundView.leadingAnchor, constant: 10),
-            
+
             standoutNameLabel.leadingAnchor.constraint(equalTo: standoutBackgroundView.leadingAnchor, constant: 10),
             standoutNameLabel.topAnchor.constraint(equalTo: standoutBackgroundView.topAnchor, constant: 25),
-            
+
             standoutTimeLabel.trailingAnchor.constraint(equalTo: standoutBackgroundView.trailingAnchor, constant: -15),
             standoutTimeLabel.topAnchor.constraint(equalTo: standoutBackgroundView.topAnchor, constant: 30),
         ])

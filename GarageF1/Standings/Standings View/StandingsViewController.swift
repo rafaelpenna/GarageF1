@@ -226,6 +226,7 @@ extension StandingsViewController: StandingsViewModelDelegate {
     func success() {
         standingsScreen?.setupTableViewProtocols(delegate: self, dataSource: self)
         standingsScreen?.resultsLoadFailLabel.isHidden = true
+        standingsScreen?.eventSoonLabel.isHidden = false
         reloadTableView()
     }
     

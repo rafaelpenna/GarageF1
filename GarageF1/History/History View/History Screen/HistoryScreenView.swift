@@ -75,7 +75,6 @@ class HistoryScreenView: UIView {
         searchField.translatesAutoresizingMaskIntoConstraints = false
         searchField.layer.backgroundColor = .none
         searchField.textColor = .white
-        searchField.keyboardType = .numberPad
         return searchField
     }()
     
