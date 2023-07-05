@@ -83,7 +83,7 @@
 		1C5170F129997FA300DDDC18 /* DriversDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5170F029997FA300DDDC18 /* DriversDetailViewController.swift */; };
 		1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5170F529997FDB00DDDC18 /* DriversDetailScreenView.swift */; };
 		1C550FB529AD256F00AC2E51 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FB429AD256F00AC2E51 /* HistoryViewController.swift */; };
-		1C550FB729AD27D200AC2E51 /* ConstructorHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FB629AD27D200AC2E51 /* ConstructorHistoryModel.swift */; };
+		1C550FB729AD27D200AC2E51 /* HistoryDriversModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FB629AD27D200AC2E51 /* HistoryDriversModel.swift */; };
 		1C550FB929AD293A00AC2E51 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FB829AD293A00AC2E51 /* HistoryViewModel.swift */; };
 		1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */; };
 		1C550FBE29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */; };
@@ -254,7 +254,7 @@
 		1C5170F029997FA300DDDC18 /* DriversDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailViewController.swift; sourceTree = "<group>"; };
 		1C5170F529997FDB00DDDC18 /* DriversDetailScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversDetailScreenView.swift; sourceTree = "<group>"; };
 		1C550FB429AD256F00AC2E51 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		1C550FB629AD27D200AC2E51 /* ConstructorHistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorHistoryModel.swift; sourceTree = "<group>"; };
+		1C550FB629AD27D200AC2E51 /* HistoryDriversModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDriversModel.swift; sourceTree = "<group>"; };
 		1C550FB829AD293A00AC2E51 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		1C550FBB29AD2FBD00AC2E51 /* HistoryScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryScreenView.swift; sourceTree = "<group>"; };
 		1C550FBD29AD3E5C00AC2E51 /* CustomCellHistoryDrivers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellHistoryDrivers.swift; sourceTree = "<group>"; };
@@ -865,7 +865,7 @@
 		1C1FED4329AC3FEC00B989EE /* History Model */ = {
 			isa = PBXGroup;
 			children = (
-				1C550FB629AD27D200AC2E51 /* ConstructorHistoryModel.swift */,
+				1C550FB629AD27D200AC2E51 /* HistoryDriversModel.swift */,
 			);
 			path = "History Model";
 			sourceTree = "<group>";
@@ -1610,7 +1610,8 @@
 				34B996AD29F8BE5200DCBE69 /* FullResultsTableViewScreen.swift in Sources */,
 				1C5CE3832A2A3DB9003FB86D /* DriversService.swift in Sources */,
 				34B996AA29F8BE5200DCBE69 /* StandingCustomScreen.swift in Sources */,
-				1C550FB729AD27D200AC2E51 /* ConstructorHistoryModel.swift in Sources */,
+				1C550FB729AD27D200AC2E51 /* HistoryDriversModel.swift in Sources */,
+				34B996B529F8BE5200DCBE69 /* TableViewBirthDateCellScreen.swift in Sources */,
 				34B996CB29F8BF1F00DCBE69 /* EmailLoginVC.swift in Sources */,
 				0B6D46F62A1A8D3100409410 /* ProfileViewModel.swift in Sources */,
 				1C8994B62A3CC61500FC5A1B /* HistoryDriversService.swift in Sources */,

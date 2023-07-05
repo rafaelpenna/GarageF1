@@ -9,7 +9,6 @@ import UIKit
 
 class HistoryYearsTableViewCell: UITableViewCell {
 
-    var data: [HistoryYearModel] = []
     var customInfoYears: CustomCellHistoryYears = CustomCellHistoryYears()
     var yearsViewModel: YearsScreenViewModel?
     
@@ -30,7 +29,7 @@ class HistoryYearsTableViewCell: UITableViewCell {
         contentView.addSubview(customInfoYears)
     }
 
-    func setupCell(driveData:Season2){
+    func setupCell(driveData:SeasonHistoryYearModel){
         self.yearsViewModel = YearsScreenViewModel(data: driveData)
         customInfoYears.yearLabel.text = yearsViewModel?.getYearSeason
     }

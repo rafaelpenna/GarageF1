@@ -22,10 +22,7 @@ class HistoryViewController: UIViewController {
         super.viewDidLoad()
         addElements()
         setupProtocols()
-        historyViewModel.seasonSelectedYear = seasonSelectedYear
-        historyViewModel.fetchHistoryTeams(.request)
-        historyViewModel.fetchHistoryDrivers(.request)
-        historyViewModel.fetchHistoryYears(.request)
+        loadData()
     }
     
     private func setupProtocols() {
@@ -33,8 +30,8 @@ class HistoryViewController: UIViewController {
     }
     
     private func addElements() {
-        buttonTeams(buttonTeamsVC)
-        buttonDrivers(buttonDriversVC)
+        constructorButton(constructorDataButton)
+        buttonDrivers(driversDataButton)
         view.addSubview(buttonYearSelect)
         view.addSubview(backgorundViewSelect)
         view.addSubview(textFieldSearchSelect)
@@ -42,11 +39,16 @@ class HistoryViewController: UIViewController {
         view.addSubview(yearsTableViewSelect)
     }
     
+    private func loadData() {
+        historyViewModel.seasonSelectedYear = seasonSelectedYear
+        historyViewModel.fetchHistoryTeams(.request)
+        historyViewModel.fetchHistoryDrivers(.request)
+        historyViewModel.fetchHistoryYears(.request)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
     }
-    
-//MARK: - Config Dropdown
 
     lazy var buttonYearSelect: UIButton = {
         let button: UIButton = historyScreen?.seasonYearButton ?? UIButton()
@@ -124,55 +126,53 @@ class HistoryViewController: UIViewController {
         }
     }
     
-//MARK: - Config selectable tableView
-    
-    lazy var buttonDriversVC: UIButton = {
+    lazy var driversDataButton: UIButton = {
         let button: UIButton = historyScreen?.driversButton ?? UIButton()
         button.isSelected = true
         button.addTarget(self, action: #selector(self.buttonDrivers(_:)), for: .touchUpInside)
         return button
     }()
     
-    lazy var buttonTeamsVC: UIButton = {
-        let button: UIButton = historyScreen?.teamsButton ?? UIButton()
+    lazy var constructorDataButton: UIButton = {
+        let button: UIButton = historyScreen?.constructorsButton ?? UIButton()
         button.isSelected = false
-        button.addTarget(self, action: #selector(self.buttonTeams(_:)), for: .touchUpInside)
+        button.addTarget(self, action: #selector(self.constructorButton(_:)), for: .touchUpInside)
         return button
     }()
     
     @objc func buttonDrivers(_ sender: UIButton) {
-        if buttonDriversVC.isSelected == false {
+        if driversDataButton.isSelected == false {
             buttonDriversSelected()
         } else {
             buttonDriversSelected()
         }
     }
     
-    @objc func buttonTeams(_ sender: UIButton) {
-        if buttonTeamsVC.isSelected == false {
-            buttonTeamsSelected()
+    @objc func constructorButton(_ sender: UIButton) {
+        if constructorDataButton.isSelected == false {
+            buttonConstructorSelected()
         } else {
-            buttonTeamsSelected()
+            buttonConstructorSelected()
         }
     }
     
     private func buttonDriversSelected() {
-        buttonDriversVC.isSelected = true
-        buttonTeamsVC.isSelected = false
+        driversDataButton.isSelected = true
+        constructorDataButton.isSelected = false
         historyScreen?.driversTableView.isHidden = false
-        historyScreen?.teamsTableView.isHidden = true
+        historyScreen?.constructorsTableView.isHidden = true
         historyScreen?.driversTableView.reloadData()
         historyScreen?.driversButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
-        historyScreen?.teamsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
+        historyScreen?.constructorsButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
     }
     
-    private func buttonTeamsSelected() {
-        buttonTeamsVC.isSelected = true
-        buttonDriversVC.isSelected = false
+    private func buttonConstructorSelected() {
+        constructorDataButton.isSelected = true
+        driversDataButton.isSelected = false
         historyScreen?.driversTableView.isHidden = true
-        historyScreen?.teamsTableView.isHidden = false
-        historyScreen?.teamsTableView.reloadData()
-        historyScreen?.teamsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
+        historyScreen?.constructorsTableView.isHidden = false
+        historyScreen?.constructorsTableView.reloadData()
+        historyScreen?.constructorsButton.setTitleColor(UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1), for: .normal)
         historyScreen?.driversButton.setTitleColor(UIColor(red: 66/255, green: 66/255, blue: 66/255, alpha: 1), for: .normal)
     }
 }
@@ -185,7 +185,7 @@ extension HistoryViewController: UITableViewDelegate, UITableViewDataSource {
         if tableView == historyScreen?.yearsTableView {
             return historyViewModel.getFilterDataYear.count
         } else {
-            if buttonDriversVC.isSelected == true {
+            if driversDataButton.isSelected == true {
                 return historyViewModel.numberOfRowsDrivers
             } else {
                 return historyViewModel.numberOfRowsTeams
@@ -251,14 +251,13 @@ extension HistoryViewController: HistoryViewModelDelegate {
     }
     
     func error(_ message: String) {
-    
     }
 }
 
 extension HistoryViewController: HistoryViewModelProtocol {
     func reloadTableView() {
         self.historyScreen?.driversTableView.reloadData()
-        self.historyScreen?.teamsTableView.reloadData()
+        self.historyScreen?.constructorsTableView.reloadData()
         self.historyScreen?.yearsTableView.reloadData()
     }
 }

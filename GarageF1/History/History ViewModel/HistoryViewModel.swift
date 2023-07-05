@@ -22,10 +22,10 @@ protocol HistoryViewModelDelegate: AnyObject {
 }
 
 class HistoryViewModel {
-    private var dataDrivers:[DriverStanding8] = []
-    private var dataTeams:[ConstructorStanding1] = []
+    private var dataDrivers:[DriverStandingHistoryDriversModel] = []
+    private var dataTeams:[ConstructorStandingConstructorHistoryModel] = []
     
-    private var listYearDataInsert:[Season2] = []
+    private var listYearDataInsert:[SeasonHistoryYearModel] = []
     private var listYearsData:[String] = []
     private var listYear:[String] = []
     private var listYearsSearch:[String] = []
@@ -115,19 +115,13 @@ class HistoryViewModel {
         }
     }
     
-    private func configArrayListYear() {
-        for years in 0 ..< listYearDataInsert.count {
-            self.listYear.append(listYearDataInsert[years].season)
-        }
-    }
-    
     //MARK: - Functions to get info to Drivers Data
     
     public var numberOfRowsDrivers:Int{
         return self.dataDrivers.count
     }
     
-    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStanding8 {
+    public func loadCurrentDriver(indexPath: IndexPath) -> DriverStandingHistoryDriversModel {
         return dataDrivers[indexPath.row]
     }
     
@@ -158,7 +152,7 @@ class HistoryViewModel {
         return self.dataTeams.count
     }
     
-    public func loadCurrentTeam(indexPath: IndexPath) -> ConstructorStanding1 {
+    public func loadCurrentTeam(indexPath: IndexPath) -> ConstructorStandingConstructorHistoryModel {
         return dataTeams[indexPath.row]
     }
     
@@ -174,7 +168,13 @@ class HistoryViewModel {
         return dataTeams[indexPath.row].points
     }
     
-    //MARK: - Functions to get info to Dropdown Data
+    //MARK: - Functions to get info to Dropdown Years Data
+    
+    private func configArrayListYear() {
+        for years in 0 ..< listYearDataInsert.count {
+            self.listYear.append(listYearDataInsert[years].season)
+        }
+    }
     
     private var getDataYear: [String] {
         return listYearsData

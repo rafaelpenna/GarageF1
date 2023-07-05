@@ -13,19 +13,19 @@ class DriversScreenView: UIView {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
-        tableView.layer.backgroundColor = UIColor(red: 243, green: 243, blue: 243, alpha: 1).cgColor
+        tableView.layer.backgroundColor = UIColor(red: 243/255, green: 243/255, blue: 243/255, alpha: 1).cgColor
         tableView.register(DriversCustomTableViewCell.self, forCellReuseIdentifier: DriversCustomTableViewCell.identifier)
         return tableView
     }()
     
-    lazy var topRedView: UIView = {
+    lazy var safeAreaBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
         return view
     }()
     
-    lazy var backgroundTopRedView: UIView = {
+    lazy var backgroundTopView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = .red
@@ -63,8 +63,8 @@ class DriversScreenView: UIView {
     
     private func addElements() {
         addSubview(infoDriversTableView)
-        addSubview(topRedView)
-        addSubview(backgroundTopRedView)
+        addSubview(safeAreaBackgroundView)
+        addSubview(backgroundTopView)
         addSubview(driversHeadLabel)
         addSubview(driversDescriptionLabel)
     }
@@ -82,17 +82,17 @@ class DriversScreenView: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            topRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            topRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            topRedView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            topRedView.heightAnchor.constraint(equalToConstant: 135),
+            safeAreaBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            safeAreaBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            safeAreaBackgroundView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            safeAreaBackgroundView.heightAnchor.constraint(equalToConstant: 135),
             
-            backgroundTopRedView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            backgroundTopRedView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            backgroundTopRedView.topAnchor.constraint(equalTo: topAnchor),
-            backgroundTopRedView.heightAnchor.constraint(equalToConstant: 80),
+            backgroundTopView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            backgroundTopView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            backgroundTopView.topAnchor.constraint(equalTo: topAnchor),
+            backgroundTopView.heightAnchor.constraint(equalToConstant: 80),
             
-            infoDriversTableView.topAnchor.constraint(equalTo: topRedView.bottomAnchor),
+            infoDriversTableView.topAnchor.constraint(equalTo: safeAreaBackgroundView.bottomAnchor),
             infoDriversTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             infoDriversTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             infoDriversTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
@@ -100,7 +100,7 @@ class DriversScreenView: UIView {
             driversHeadLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             driversHeadLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            driversDescriptionLabel.bottomAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: -20),
+            driversDescriptionLabel.bottomAnchor.constraint(equalTo: safeAreaBackgroundView.bottomAnchor, constant: -20),
             driversDescriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }

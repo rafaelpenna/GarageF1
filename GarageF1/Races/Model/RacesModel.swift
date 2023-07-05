@@ -8,22 +8,20 @@
 import Foundation
 
 
-// MARK: - Welcome
 struct RacesModel: Codable {
-    let mrData: MRData3
+    let mrData: MRDataRacesModel
 
     enum CodingKeys: String, CodingKey {
         case mrData = "MRData"
     }
 }
 
-// MARK: - MRData
-struct MRData3: Codable {
+struct MRDataRacesModel: Codable {
     let xmlns: String
     let series: String
     let url: String
     let limit, offset, total: String
-    let raceTable: RaceTable3
+    let raceTable: RaceTableRacesModel
 
     enum CodingKeys: String, CodingKey {
         case xmlns, series, url, limit, offset, total
@@ -31,10 +29,9 @@ struct MRData3: Codable {
     }
 }
 
-// MARK: - RaceTable
-struct RaceTable3: Codable {
+struct RaceTableRacesModel: Codable {
     let season: String
-    let races: [Race3]
+    let races: [RaceRacesModel]
 
     enum CodingKeys: String, CodingKey {
         case season
@@ -42,17 +39,16 @@ struct RaceTable3: Codable {
     }
 }
 
-// MARK: - Race
-struct Race3: Codable {
+struct RaceRacesModel: Codable {
     let season, round: String
     let url: String
     let raceName: String
-    let circuit: Circuit3
+    let circuit: CircuitRacesModel
     let date, time: String
-    let firstPractice, secondPractice: FirstPractice
-    let thirdPractice: FirstPractice?
-    let qualifying: FirstPractice
-    let sprint: FirstPractice?
+    let firstPractice, secondPractice: FirstPracticeRacesModel
+    let thirdPractice: FirstPracticeRacesModel?
+    let qualifying: FirstPracticeRacesModel
+    let sprint: FirstPracticeRacesModel?
 
     enum CodingKeys: String, CodingKey {
         case season, round, url, raceName
@@ -66,12 +62,11 @@ struct Race3: Codable {
     }
 }
 
-// MARK: - Circuit
-struct Circuit3: Codable {
+struct CircuitRacesModel: Codable {
     let circuitID: String
     let url: String
     let circuitName: String
-    let location: Location3
+    let location: LocationRacesModel
 
     enum CodingKeys: String, CodingKey {
         case circuitID = "circuitId"
@@ -80,13 +75,11 @@ struct Circuit3: Codable {
     }
 }
 
-// MARK: - Location
-struct Location3: Codable {
+struct LocationRacesModel: Codable {
     let lat, long, locality, country: String
 }
 
-// MARK: - FirstPractice
-struct FirstPractice: Codable {
+struct FirstPracticeRacesModel: Codable {
     let date, time: String
 }
 

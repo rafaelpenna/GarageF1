@@ -11,7 +11,7 @@ class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
 
     static let identifier = String(describing: DuelSeasonsParticipatedCustomTableViewCell.self)
     
-    var podiumsTitle: UILabel = {
+    var podiumsTitleLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.text = "Temporadas"
@@ -21,7 +21,7 @@ class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var podiumsAnswerLeft: UILabel = {
+    var podiumsAnswerLeftLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -30,7 +30,7 @@ class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
         return variable
     }()
     
-    var podiumsAnswerRight: UILabel = {
+    var podiumsAnswerRightLabel: UILabel = {
         let variable = UILabel()
         variable.textColor = .white
         variable.font = UIFont.boldSystemFont(ofSize: 18)
@@ -70,27 +70,27 @@ class DuelSeasonsParticipatedCustomTableViewCell: UITableViewCell {
     
     private func addSubViews(){
         addSubview(dataBackgroundView)
-        addSubview(podiumsTitle)
-        addSubview(podiumsAnswerLeft)
-        addSubview(podiumsAnswerRight)
+        addSubview(podiumsTitleLabel)
+        addSubview(podiumsAnswerLeftLabel)
+        addSubview(podiumsAnswerRightLabel)
         addSubview(divisionView)
     }
     
     private func configConstraintsInfoDriver(){
         NSLayoutConstraint.activate([
             
-            podiumsTitle.topAnchor.constraint(equalTo: topAnchor, constant: 5),
-            podiumsTitle.centerXAnchor.constraint(equalTo: centerXAnchor),
+            podiumsTitleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 5),
+            podiumsTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            podiumsAnswerLeft.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),
-            podiumsAnswerLeft.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
+            podiumsAnswerLeftLabel.topAnchor.constraint(equalTo: podiumsTitleLabel.bottomAnchor, constant: 10),
+            podiumsAnswerLeftLabel.trailingAnchor.constraint(equalTo: centerXAnchor, constant: -20),
             
-            podiumsAnswerRight.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),
-            podiumsAnswerRight.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
+            podiumsAnswerRightLabel.topAnchor.constraint(equalTo: podiumsTitleLabel.bottomAnchor, constant: 10),
+            podiumsAnswerRightLabel.leadingAnchor.constraint(equalTo: centerXAnchor, constant: 20),
             
-            divisionView.topAnchor.constraint(equalTo: podiumsTitle.bottomAnchor, constant: 10),
+            divisionView.topAnchor.constraint(equalTo: podiumsTitleLabel.bottomAnchor, constant: 10),
             divisionView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            divisionView.heightAnchor.constraint(equalTo: podiumsAnswerLeft.heightAnchor),
+            divisionView.heightAnchor.constraint(equalTo: podiumsAnswerLeftLabel.heightAnchor),
             divisionView.widthAnchor.constraint(equalToConstant: 2),
             
             dataBackgroundView.topAnchor.constraint(equalTo: topAnchor),
