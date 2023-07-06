@@ -64,6 +64,7 @@
 		0B6D46FC2A1A8F7E00409410 /* EmailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6D46FB2A1A8F7E00409410 /* EmailViewModel.swift */; };
 		0B8F7DC629CF74A10069FAE2 /* ConstructorsFullResultScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */; };
 		0B949FBB2A4CF33B00EE225F /* FullResultsSecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */; };
+		0BB21B172A566B4E00AF1D4F /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BB21B162A566B4E00AF1D4F /* HomeViewModel.swift */; };
 		0BCE0FDD296A03F900902EF5 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BCE0FDC296A03F900902EF5 /* HomeVC.swift */; };
 		1C0C68412996DC0700A7C1BE /* DriversViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C68402996DC0700A7C1BE /* DriversViewModel.swift */; };
 		1C0C68442996DE4300A7C1BE /* DriversViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C0C68432996DE4300A7C1BE /* DriversViewController.swift */; };
@@ -234,6 +235,7 @@
 		0B8F7DC529CF74A10069FAE2 /* ConstructorsFullResultScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstructorsFullResultScreen.swift; sourceTree = "<group>"; };
 		0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullResultsSecondViewModel.swift; sourceTree = "<group>"; };
 		0B9CF6822962692C002E3405 /* GarageF1.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1.entitlements; sourceTree = "<group>"; };
+		0BB21B162A566B4E00AF1D4F /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		0BCE0FDC296A03F900902EF5 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0BD59C982966633300788062 /* GarageF1Release.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GarageF1Release.entitlements; sourceTree = "<group>"; };
 		1C0C68402996DC0700A7C1BE /* DriversViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriversViewModel.swift; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 				0B5ABA162A4BBF5D005B02DA /* StandingCustomViewModel.swift */,
 				0B0462AB29F9EE550067EFAA /* FullResultsViewModel.swift */,
 				0B949FBA2A4CF33B00EE225F /* FullResultsSecondViewModel.swift */,
+				0BB21B162A566B4E00AF1D4F /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1611,7 +1614,6 @@
 				1C5CE3832A2A3DB9003FB86D /* DriversService.swift in Sources */,
 				34B996AA29F8BE5200DCBE69 /* StandingCustomScreen.swift in Sources */,
 				1C550FB729AD27D200AC2E51 /* HistoryDriversModel.swift in Sources */,
-				34B996B529F8BE5200DCBE69 /* TableViewBirthDateCellScreen.swift in Sources */,
 				34B996CB29F8BF1F00DCBE69 /* EmailLoginVC.swift in Sources */,
 				0B6D46F62A1A8D3100409410 /* ProfileViewModel.swift in Sources */,
 				1C8994B62A3CC61500FC5A1B /* HistoryDriversService.swift in Sources */,
@@ -1687,6 +1689,7 @@
 				1C5170F629997FDB00DDDC18 /* DriversDetailScreenView.swift in Sources */,
 				34B996A229F8BE5200DCBE69 /* CustomStandingCollectionScreen.swift in Sources */,
 				0B5ABA272A4BCEE0005B02DA /* CustomFullResultConstructorsTableViewCell.swift in Sources */,
+				0BB21B172A566B4E00AF1D4F /* HomeViewModel.swift in Sources */,
 				1C726E4C29B7AADA006591C9 /* DuelSeasonsParticipatedCustomTableViewCell.swift in Sources */,
 				1C550FBC29AD2FBD00AC2E51 /* HistoryScreenView.swift in Sources */,
 				0B6D46F92A1A8EAF00409410 /* RecoverPasswordViewModel.swift in Sources */,

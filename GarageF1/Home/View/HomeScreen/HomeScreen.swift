@@ -46,21 +46,23 @@ class HomeScreen: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Bem-Vindo!"
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 18)
+        label.font = UIFont.boldSystemFont(ofSize: 21)
         label.textColor = .white
         
         return label
     }()
     
-    lazy var userNameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Ellington Cavalcante"
-        label.numberOfLines = 1
-        label.font = UIFont.boldSystemFont(ofSize: 19)
-        label.textColor = .white
-        return label
+    lazy var logOutButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setImage(UIImage(named: "logOutIconWhite"), for: .normal)
+        button.addTarget(self, action: #selector(tappedLogOutButton), for: .touchUpInside)
+        return button
     }()
+    
+    @objc func tappedLogOutButton() {
+        delegate?.actionLogOutButton()
+    }
     
     lazy var superTableView: UITableView = {
         let tableView = UITableView()
@@ -91,8 +93,8 @@ class HomeScreen: UIView {
         addSubview(topView)
         addSubview(homeLabel)
         addSubview(welcomeLabel)
-        addSubview(userNameLabel)
         addSubview(superTableView)
+        addSubview(logOutButton)
     }
 
     func configTableViewProtocols(delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
@@ -103,12 +105,9 @@ class HomeScreen: UIView {
     private func configConstraints(){
         NSLayoutConstraint.activate([
             
-            welcomeLabel.bottomAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: -25),
+            welcomeLabel.topAnchor.constraint(equalTo: topRedView.bottomAnchor, constant: 63),
             welcomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            
-            userNameLabel.bottomAnchor.constraint(equalTo: topView.bottomAnchor, constant: -10),
-            userNameLabel.leadingAnchor.constraint(equalTo: welcomeLabel.leadingAnchor),
-            
+
             topView.leadingAnchor.constraint(equalTo: leadingAnchor),
             topView.trailingAnchor.constraint(equalTo: trailingAnchor),
             topView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
@@ -126,6 +125,11 @@ class HomeScreen: UIView {
             superTableView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             superTableView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
             superTableView.bottomAnchor.constraint(equalTo: layoutMarginsGuide.bottomAnchor),
+            
+            logOutButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            logOutButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            logOutButton.widthAnchor.constraint(equalToConstant: 30),
+            logOutButton.heightAnchor.constraint(equalToConstant: 30),
             
         ])
     }

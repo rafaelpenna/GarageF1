@@ -22,6 +22,7 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.homeScreen.configTableViewProtocols(delegate: self, dataSource: self)
+        self.homeScreen.delegate(delegate: self)
         homeScreen.backgroundColor = .white
     }
     
@@ -117,7 +118,30 @@ extension HomeVC: StandingCustomTableViewCellProtocol {
     }
 }
 
-
+extension HomeVC: HomeScreenProtocol {
+    func actionLogOutButton() {
+        let logoutVC: LogoutVC = LogoutVC()
+        let atention = HomeViewModel.namesAndWarnings.atention
+        let outGarageF1 = HomeViewModel.namesAndWarnings.outGarageF1
+        let out = HomeViewModel.namesAndWarnings.out
+        let cancel = HomeViewModel.namesAndWarnings.cancel
+        
+        let alert = UIAlertController(title: atention.getDescription(), message: outGarageF1.getDescription(), preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: out.getDescription(), style: .destructive, handler: { action in
+            
+            logoutVC.modalPresentationStyle = .fullScreen
+            self.present(logoutVC, animated: true)
+            
+            self.tabBarController?.navigationController?.popToRootViewController(animated: true)
+            
+        }))
+        
+        alert.addAction(UIAlertAction(title: cancel.getDescription(), style: .cancel))
+        
+        present(alert, animated: true)
+    }
+}
 
 
 
