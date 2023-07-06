@@ -22,29 +22,6 @@ class LoginScreen: UIView {
         self.delegate = delegate
     }
     
-    lazy var facebookButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "facebookicon"), for: .normal)
-        button.contentMode = .scaleAspectFit
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .white
-        return button
-    }()
-    
-    lazy var appleButton: UIButton = {
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setImage(UIImage(named: "googlelogo"), for: .normal)
-        button.contentMode = .scaleAspectFit
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 20
-        button.backgroundColor = .white
-        return button
-    }()
-
-    
     private lazy var imageRegister: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -65,16 +42,6 @@ class LoginScreen: UIView {
         email.textColor = .darkGray
         email.clearButtonMode = .whileEditing
         return email
-    }()
-    
-    lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Or continue with"
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .white
-        label.textAlignment = .center
-        return label
     }()
     
     lazy var passwordTextField: UITextField = {
@@ -168,9 +135,6 @@ class LoginScreen: UIView {
         addSubview(signInButton)
         addSubview(registerButton)
         addSubview(esqueceuSenhaButton)
-        addSubview(descriptionLabel)
-        addSubview(facebookButton)
-        addSubview(appleButton)
     }
     
     @objc func tappedVisibleInvisibleButton() {
@@ -231,7 +195,7 @@ class LoginScreen: UIView {
     private func setUpConstraints(){
         NSLayoutConstraint.activate([
             
-            imageRegister.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 45),
+            imageRegister.topAnchor.constraint(equalTo: layoutMarginsGuide.topAnchor, constant: 75),
             imageRegister.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60),
             imageRegister.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -60),
 
@@ -268,21 +232,6 @@ class LoginScreen: UIView {
             registerButton.leadingAnchor.constraint(equalTo: signInButton.leadingAnchor),
             registerButton.trailingAnchor.constraint(equalTo: signInButton.trailingAnchor),
             registerButton.heightAnchor.constraint(equalTo: signInButton.heightAnchor),
-            
-            descriptionLabel.topAnchor.constraint(equalTo: registerButton.bottomAnchor, constant: 30),
-            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 100),
-            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -100),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 25),
-            
-            facebookButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
-            facebookButton.leadingAnchor.constraint(equalTo: registerButton.leadingAnchor),
-            facebookButton.widthAnchor.constraint(equalToConstant: 160),
-            facebookButton.heightAnchor.constraint(equalToConstant: 45),
-            
-            appleButton.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 40),
-            appleButton.trailingAnchor.constraint(equalTo: registerButton.trailingAnchor),
-            appleButton.widthAnchor.constraint(equalToConstant: 160),
-            appleButton.heightAnchor.constraint(equalToConstant: 45),
 
         ])
     }
