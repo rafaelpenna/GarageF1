@@ -49,7 +49,7 @@ class LoginScreen: UIView {
         password.translatesAutoresizingMaskIntoConstraints = false
         password.autocorrectionType = .no
         password.backgroundColor = .white
-        password.borderStyle = .roundedRect
+        password.borderStyle = .none
         password.autocapitalizationType = .none
         password.keyboardType = .default
         password.isSecureTextEntry = true
