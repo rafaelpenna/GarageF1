@@ -10,4 +10,4 @@ O app busca trazer para o espectador apaixonado por corridas de Fórmula 1 uma f
 
 O aplicativo tambem conta com uma categoria inovadora, que permite comparar os dados de pilotos em forma de duelo.
 
-![Group 1](https://github.com/rafaelpenna/GarageF1/assets/105522665/4224bf06-fe6e-46cd-9b79-a762ab65e426)
+![Group 1 (1)](https://github.com/rafaelpenna/GarageF1/assets/105522665/c4fdecbb-df65-4604-8f2f-0bbc0f8d613e)
